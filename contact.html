@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
+  <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="./assets/portfolio/icon-192.png" />
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('ls-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.style.colorScheme = t;
+      } catch (e) { }
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0A0705" />
+  <title>Contact | UX/UI, Product &amp; Frontend · LulaSync</title>
+  <meta name="description"
+    content="Contact Lulamile Mkhungela — UX/UI &amp; product designer + frontend developer. Tell me about your project and I'll reply within ~30 min (SAST) with options, pricing and clear next steps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0A0705;
+      --paper: #F5EDD8;
+      --gold: #F0A500;
+      --fire: #E04E14;
+      --dim: rgba(245, 237, 216, .55);
+      --card: #0f0f0f;
+      --border: #1a1a1a;
+      --wa: #25D366
+    }
+
+    /* ── LIGHT MODE ── */
+    [data-theme="light"] {
+      --ink: #F7F3EC;
+      --paper: #1a1208;
+      --gold: #C47F00;
+      --fire: #C03A08;
+      --dim: rgba(26, 18, 8, 0.6);
+      --card: #FFFFFF;
+      --border: #E0D8C8;
+      --wa: #128C4A;
+    }
+
+    [data-theme="light"] body {
+      background: #F7F3EC;
+      color: #1a1208;
+    }
+
+    [data-theme="light"] nav {
+      background: rgba(247, 243, 236, 0.96);
+      border-bottom-color: #E0D8C8;
+    }
+
+    [data-theme="light"] .mobile-overlay {
+      background: rgba(247, 243, 236, 0.98);
+    }
+
+    [data-theme="light"] footer {
+      background: #fff;
+      border-top-color: #E0D8C8;
+    }
+
+    [data-theme="light"] main {
+      background: #F7F3EC !important;
+    }
+
+    [data-theme="light"] input,
+    [data-theme="light"] select,
+    [data-theme="light"] textarea {
+      background: #fff !important;
+      border-color: #E0D8C8 !important;
+      color: #1a1208 !important;
+    }
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--paper);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: .9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--gold);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden
+    }
+
+    .display {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      background: rgba(10, 7, 5, .96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px)
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: var(--paper);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px
+    }
+
+    .nav-link {
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--dim);
+      letter-spacing: .04em;
+      text-decoration: none;
+      padding: 4px 8px;
+      transition: color .15s
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold)
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--gold), var(--fire));
+      color: var(--ink);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-left: 8px
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--paper)
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: currentColor
+    }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      background: rgba(10, 7, 5, .97);
+      backdrop-filter: blur(20px)
+    }
+
+    .mobile-overlay.open {
+      display: flex
+    }
+
+    .mobile-overlay .close-btn {
+      position: absolute;
+      top: 16px;
+      right: 5vw;
+      background: none;
+      border: none;
+      color: var(--paper);
+      font-size: 1.6rem;
+      cursor: pointer;
+      padding: 8px
+    }
+
+    .mobile-nav-link {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: var(--paper);
+      display: block;
+      text-align: center;
+      margin: 4px 0
+    }
+
+    .grad-line {
+      position: sticky;
+      top: 56px;
+      z-index: 99;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--fire) 20%, var(--gold) 50%, var(--fire) 80%, transparent);
+      opacity: .6
+    }
+
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 56px 5vw 32px
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px;
+      margin-bottom: 48px
+    }
+
+    .footer-brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px
+    }
+
+    .footer-desc {
+      font-size: .8rem;
+      color: rgba(245, 237, 216, .4);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 240px
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .footer-link {
+      font-size: .8rem;
+      color: rgba(245, 237, 216, .4);
+      text-decoration: none;
+      transition: color .15s
+    }
+
+    .footer-link:hover {
+      color: var(--gold)
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .footer-copy {
+      font-size: .65rem;
+      color: rgba(245, 237, 216, .2)
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--wa);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none
+    }
+
+    @media(max-width:900px) {
+      .nav-links {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+    }
+
+    .cf-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    @media(max-width:600px) {
+      .cf-row {
+        grid-template-columns: 1fr
+      }
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--dim);
+      opacity: .6
+    }
+
+    select option {
+      background: #161008;
+      color: var(--paper)
+    }
+
+    /* GLOBAL THEME+RESPONSIVE HARDENING */
+    html {
+      color-scheme: dark;
+    }
+
+    html[data-theme="light"] {
+      color-scheme: light;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    body {
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    img,
+    video,
+    svg,
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 600px) {
+
+      .btn-wa,
+      .btn-outline-gold,
+      .btn-gold,
+      .nav-cta {
+        min-height: 44px;
+      }
+
+      footer {
+        padding-bottom: 100px;
+      }
+    }
+
+
+    /* Quiet, theme-aware motion behind the contact content */
+    main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 84% 12%, rgba(240, 165, 0, .09), transparent 27%), radial-gradient(circle at 8% 78%, rgba(224, 78, 20, .07), transparent 30%);
+      animation: contact-breathe 14s ease-in-out infinite alternate
+    }
+
+    @keyframes contact-breathe {
+      to {
+        opacity: .45;
+        transform: scale(1.04)
+      }
+    }
+
+    [data-theme="light"] main::before {
+      background: radial-gradient(circle at 84% 12%, rgba(196, 127, 0, .12), transparent 27%), radial-gradient(circle at 8% 78%, rgba(192, 58, 8, .08), transparent 30%)
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      main::before {
+        animation: none
+      }
+    }
+
+
+    /* Canonical LulaSync footer — shared across every page */
+    footer {
+      background: var(--card) !important;
+      border-top: 1px solid var(--border) !important;
+      padding: 56px 5vw 32px !important;
+    }
+
+    footer .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto 48px;
+    }
+
+    footer .footer-desc {
+      font-size: .8rem;
+      color: var(--dim) !important;
+      line-height: 1.6;
+      margin: 12px 0 20px;
+      max-width: 320px;
+    }
+
+    footer .footer-col-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    footer .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    footer .footer-link {
+      font-size: .8rem;
+      color: var(--dim) !important;
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    footer .footer-link:hover {
+      color: var(--gold) !important;
+    }
+
+    footer .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    footer .footer-copy {
+      font-size: .65rem;
+      color: var(--dim) !important;
+    }
+
+    [data-theme="light"] footer {
+      background: #fff !important;
+      border-top-color: #E0D8C8 !important;
+    }
+
+    [data-theme="light"] footer .footer-link,
+    [data-theme="light"] footer .footer-desc,
+    [data-theme="light"] footer .footer-copy {
+      color: rgba(26, 18, 8, .62) !important;
+    }
+
+    @media (max-width:600px) {
+      footer {
+        padding: 36px 4vw 100px !important;
+      }
+
+      footer .footer-grid {
+        gap: 24px;
+        margin-bottom: 36px;
+      }
+
+      footer .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="./assets/ls-interactive.css" />
+</head>
+
+<body data-page="contact">
+
+  <nav>
+    <a href="./index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px"><img
+        src="./assets/portfolio/icon-192.png" width="36" height="36" alt="LulaSync" /><span>Lula<span
+          style="color:var(--gold)">Sync</span></span></a>
+    <div class="nav-links" role="menubar">
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./showcase.html" class="nav-link">Showcase</a>
+      <a href="./services.html" class="nav-link">Services</a>
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./contact.html" class="nav-link active">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">🌙</button>
+      <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="grad-line"></div>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-label="Mobile navigation">
+    <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+    <div style="text-align:center">
+      <a href="./index.html" class="mobile-nav-link">Home</a>
+      <a href="./showcase.html" class="mobile-nav-link">Showcase</a>
+      <a href="./services.html" class="mobile-nav-link">Services</a>
+      <a href="./about.html" class="mobile-nav-link">About</a>
+      <a href="./contact.html" class="mobile-nav-link active">Contact</a>
+    </div>
+    <a href="https://wa.me/27837195064?text=Hi%20LulaSync!%20I%27d%20like%20to%20chat." target="_blank"
+      rel="noopener noreferrer" class="btn-wa" style="width:min(320px,80vw);justify-content:center">Message me on
+      WhatsApp
+      →</a>
+  </div>
+
+  <main style="min-height:100svh;padding:80px 5vw 80px;position:relative;overflow:hidden">
+    <div aria-hidden="true"
+      style="position:fixed;top:-10%;right:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(240,165,0,.12) 0%,transparent 70%);filter:blur(80px);pointer-events:none;z-index:0">
+    </div>
+    <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto">
+      <p
+        style="display:inline-flex;align-items:center;gap:6px;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">
+        // Contact · Designer + Developer</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px">
+        <span
+          style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.06em;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.35);color:#B293FF;text-transform:uppercase">✦
+          UX/UI &amp; Product Design</span>
+        <span style="color:var(--gold);font-weight:900">+</span>
+        <span
+          style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.06em;background:rgba(0,194,255,.1);border:1px solid rgba(0,194,255,.3);color:#6FDCFF;text-transform:uppercase">⌘
+          Frontend Development</span>
+      </div>
+      <h1 class="display"
+        style="font-size:clamp(2.5rem,8vw,5rem);letter-spacing:1px;line-height:.92;margin-bottom:12px">Let's
+        build<br /><span style="color:var(--gold)">something useful.</span></h1>
+      <p style="font-size:.95rem;color:var(--dim);line-height:1.7;max-width:580px;margin-bottom:40px">I'm Lulamile —
+        UX/UI, CX &amp; product designer and UI/frontend developer. Tell me about your product, redesign or build — I will
+        provide clear options & next steps.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start" class="contact-layout">
+        <div>
+          <div
+            style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:rgba(37,211,102,.06);border:1px solid rgba(37,211,102,.2);border-radius:12px;padding:16px 20px;margin-bottom:28px">
+            <span style="font-size:1.5rem">💬</span>
+            <div style="flex:1;min-width:200px">
+              <p style="font-size:.88rem;font-weight:700;color:var(--paper);margin-bottom:2px"></p>
+              <p style="font-size:.8rem;color:var(--dim)">Message me here. I work solo by default —
+                If your product is heavy for me I'll refer you to specialists only when needed.</p>
+            </div>
+            <a href="https://wa.me/27837195064?text=Hi!%20I%20want%20an%20app%20for%20my%20business." target="_blank"
+              rel="noopener noreferrer"
+              style="background:var(--wa);color:#000;font-weight:800;padding:11px 22px;border-radius:10px;text-decoration:none;font-size:.88rem;white-space:nowrap">Open
+              WhatsApp →</a>
+          </div>
+
+          <div
+            style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:20px">
+            <h2 class="display" style="font-size:1.1rem;margin-bottom:12px;color:var(--gold)">Visit &amp; Contact</h2>
+            <p style="font-size:.88rem;color:var(--dim);margin-bottom:8px"><strong style="color:var(--paper)">41 Juta
+                Street</strong>, Braamfontein, Johannesburg</p>
+
+            <p style="font-size:.88rem">Phone: <a href="tel:+27837195064"
+                style="color:var(--gold);text-decoration:none">+27 83 719 5064</a></p>
+            <p style="font-size:.88rem;margin-top:8px">LinkedIn: <a
+                href="https://www.linkedin.com/in/lulamile-mkhungela/" target="_blank" rel="noopener noreferrer"
+                style="color:var(--gold);text-decoration:none">Lulamile Mkhungela ↗</a></p>
+          </div>
+          <div
+            style="border-radius:16px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3;min-height:220px;background:#111">
+            <iframe title="41 Juta Street, Braamfontein"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=28.0275%2C-26.1970%2C28.0420%2C-26.1885&amp;layer=mapnik&amp;marker=-26.19275%2C28.03475"
+              style="width:100%;height:100%;min-height:260px;border:0;filter:grayscale(.2) contrast(1.05)"></iframe>
+          </div>
+          <p style="font-size:.72rem;color:var(--dim);margin-top:10px"><a
+              href="https://www.openstreetmap.org/?mlat=-26.19275&amp;mlon=28.03475#map=17/-26.19275/28.03475"
+              target="_blank" rel="noopener noreferrer" style="color:var(--gold)">Open larger map</a></p>
+        </div>
+
+        <div
+          style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:clamp(24px,5vw,40px)">
+          <h2 class="display" style="font-size:1.5rem;color:var(--paper);margin-bottom:6px">Your details</h2>
+          <p style="font-size:.82rem;color:var(--dim);margin-bottom:28px">Takes 30 seconds. I'll follow up via Email, Call/WhatsApp.
+          </p>
+          <form action="https://formspree.io/f/xykljwoq" method="POST"
+            style="display:flex;flex-direction:column;gap:18px">
+            <input type="hidden" name="_subject" value="New enquiry from lulasync.app contact form" />
+            <div class="cf-row">
+              <div>
+                <label
+                  style="display:block;font-size:.72rem;font-weight:700;color:var(--dim);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase">Your
+                  Name *</label>
+                <input name="name" required
+                  style="width:100%;padding:13px 16px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--paper);font-size:.9rem;outline:none;font-family:inherit;box-sizing:border-box"
+                  placeholder="e.g. Thandi Dlamini" />
+              </div>
+              <div>
+                <label
+                  style="display:block;font-size:.72rem;font-weight:700;color:var(--dim);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase">WhatsApp
+                  Number *</label>
+                <input name="whatsapp" type="tel" required
+                  style="width:100%;padding:13px 16px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--paper);font-size:.9rem;outline:none;font-family:inherit;box-sizing:border-box"
+                  placeholder="+27 82 000 0000" />
+              </div>
+            </div>
+            <div class="cf-row">
+              <div>
+                <label
+                  style="display:block;font-size:.72rem;font-weight:700;color:var(--dim);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase">Business
+                  Name *</label>
+                <input name="business_name" required
+                  style="width:100%;padding:13px 16px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--paper);font-size:.9rem;outline:none;font-family:inherit;box-sizing:border-box"
+                  placeholder="e.g. Mama Thandi's Salon" />
+              </div>
+              <div>
+                <label
+                  style="display:block;font-size:.72rem;font-weight:700;color:var(--dim);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase">Business
+                  Type *</label>
+                <select name="business_type" required
+                  style="width:100%;padding:13px 16px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--paper);font-size:.9rem;outline:none;font-family:inherit;cursor:pointer;box-sizing:border-box">
+                  <option value="">Select your business...</option>
+                  <option>Hair Salon / Barber</option>
+                  <option>Spaza Shop / Tuck Shop</option>
+                  <option>Auto Mechanic / Workshop</option>
+                  <option>Food Vendor / Shisa Nyama</option>
+                  <option>Restaurant / Café</option>
+                  <option>Butchery</option>
+                  <option>Car Wash</option>
+                  <option>Tutor / Driving School</option>
+                  <option>Fast Food / Takeaway</option>
+                  <option>Clinic / Healthcare</option>
+                  <option>Beauty Studio / Spa</option>
+                  <option>Gym / Fitness</option>
+                  <option>Retail / Fashion</option>
+                  <option>Logistics / Delivery</option>
+                  <option>Cleaning Services</option>
+                  <option>Photography / Creative</option>
+                  <option>Events / Catering</option>
+                  <option>Home Contractor / Builder</option>
+                  <option>Pet Services</option>
+                  <option>Financial / Legal Services</option>
+                  <option>Tech Startup / SaaS</option>
+                  <option>Manufacturing / Field Services</option>
+                  <option>NGO / Non-profit</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label
+                style="display:block;font-size:.72rem;font-weight:700;color:var(--dim);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase">Which
+                plan interests you?</label>
+              <select name="plan"
+                style="width:100%;padding:13px 16px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--paper);font-size:.9rem;outline:none;font-family:inherit;cursor:pointer;box-sizing:border-box">
+                <option value="unsure">Not sure yet — help me decide</option>
+                <option value="starter">Starter — R1,000 + R99/mo</option>
+                <option value="growth">Growth — R2,500 + R250/mo (Most Popular)</option>
+                <option value="boss">Bosso — R5,000 + R750/mo</option>
+                <option value="website">Website / PWA — from R1,500</option>
+                <option value="whatsapp">WhatsApp Automation — R3,000</option>
+                <option value="voice">AI Voice Agent — from R2,500</option>
+                <option value="content">Content &amp; SaaS Dashboard — R5,000</option>
+                <option value="speedtolead">Speed-to-Lead — R4,500</option>
+                <option value="uxui">UX / UI Design — from R4,000</option>
+                <option value="software">Software / App Dev — from R8,000</option>
+                <option value="enterprise">Enterprise System — Custom quote</option>
+                <option value="custom">Custom Build — tell me what you need</option>
+              </select>
+            </div>
+            <div>
+              <label
+                style="display:block;font-size:.72rem;font-weight:700;color:var(--dim);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase">Anything
+                else? (optional)</label>
+              <textarea name="message" maxlength="500"
+                style="width:100%;padding:13px 16px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--paper);font-size:.9rem;outline:none;font-family:inherit;min-height:88px;resize:vertical;box-sizing:border-box"
+                placeholder="Tell me about your business, what you need, or any questions..."></textarea>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <button type="submit"
+                style="flex:1;min-width:180px;padding:15px 28px;border-radius:12px;border:none;background:var(--gold);color:#000;font-weight:800;font-size:.95rem;cursor:pointer">Send
+                Enquiry →</button>
+            </div>
+            <p style="font-size:.72rem;color:var(--dim);margin:0">I reply in less than 30mins during business hours. Your
+              details are kept private.</p>
+          </form>
+        </div>
+      </div>
+
+      <div
+        style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border)">
+        <div style="display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--dim)"><span>🔒</span> Your
+          details stay private</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--dim)"><span>💰</span> Free
+          quote, no obligation</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--dim)"><span>🇿🇦</span> 100%
+          SA-based</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="./index.html" class="nav-logo"
+          style="display:flex;align-items:center;gap:10px; margin-bottom: 14px !important;"><img
+            src="./assets/portfolio/icon-192.png" width="36" height="36" alt="LulaSync" /><span>Lula<span
+              style="color:var(--gold)">Sync</span></span></a>
+        <p class="footer-desc">Lulamile Mkhungela — Equal craft from research to shipped interface.<br>I build any tech
+          tools. You focus in running your business.</p>
+        <a href="./contact.html" class="btn-wa"
+          style="font-size:.78rem;padding:9px 18px;background:var(--gold);color:#0A0705">Contact →</a>
+      </div>
+      <div>
+        <p class="footer-col-title">Explore</p>
+        <div class="footer-links">
+          <a href="./showcase.html" class="footer-link">App showcase</a>
+          <a href="./showcase.html#portfolio" class="footer-link">Case studies</a>
+          <a href="./services.html" class="footer-link">Services</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Discover</p>
+        <div class="footer-links">
+          <a href="./about.html" class="footer-link">About Me</a>
+          <a href="./contact.html" class="footer-link">Contact</a>
+          <a href="https://www.linkedin.com/in/lulamile-mkhungela/" class="footer-link" target="_blank"
+            rel="noopener noreferrer">LinkedIn</a>
+
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Bundles</p>
+        <div class="footer-links">
+          <a class="footer-link" href="./bundles.html#starter-presence">Starter Presence</a>
+          <a class="footer-link" href="./bundles.html#growth-bundle">Growth Bundle</a>
+          <a class="footer-link" href="./bundles.html#full-digital-suite">Full Digital Suite</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2017-2026 LulaSync · Built with love by LulaMile in South Africa 🇿🇦</p>
+      <p class="footer-copy">Designing and building useful solutions for any businesses.</p>
+    </div>
+  </footer>
+
+  <style>
+    @media(max-width:900px) {
+      .contact-layout {
+        grid-template-columns: 1fr !important
+      }
+    }
+  </style>
+  <script src="./assets/chat-widget.js" defer></script>
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+    const savedTheme = localStorage.getItem('ls-theme') || 'dark';
+    function applyTheme(next) {
+      htmlEl.setAttribute('data-theme', next);
+      htmlEl.style.colorScheme = next;
+      themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+      localStorage.setItem('ls-theme', next);
+      try { document.querySelector('meta[name="theme-color"]').setAttribute('content', next === 'dark' ? '#0A0705' : '#F7F3EC'); } catch (e) { }
+    }
+    applyTheme(savedTheme);
+    themeToggle.addEventListener('click', () => {
+      const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+
+    const menuBtn = document.getElementById('menuBtn'), closeBtn = document.getElementById('closeBtn'), overlay = document.getElementById('mobileOverlay');
+    menuBtn.addEventListener('click', () => { overlay.classList.add('open'); document.body.style.overflow = 'hidden' });
+    closeBtn.addEventListener('click', () => { overlay.classList.remove('open'); document.body.style.overflow = '' });
+    overlay.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', () => { overlay.classList.remove('open'); document.body.style.overflow = '' }));
+  </script>
+  <script src="./assets/ls-interactive.js" defer></script>
+</body>
+
+</html>

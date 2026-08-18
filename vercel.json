@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/case-studies/vodacom-engage.html", "destination": "/vodacom-engage.html", "permanent": true },
+    { "source": "/case-studies/angular-design-system.html", "destination": "/angular-design-system.html", "permanent": true },
+    { "source": "/case-studies/absa-hackathon.html", "destination": "/absa-hackathon.html", "permanent": true },
+    { "source": "/case-studies/stance-insurance.html", "destination": "/stance-insurance.html", "permanent": true },
+    { "source": "/case-studies/articles-hackathons.html", "destination": "/articles-hackathons.html", "permanent": true },
+    { "source": "/case-studies/tobby-bursary.html", "destination": "/tobby-bursary.html", "permanent": true },
+    { "source": "/case-studies/process.html", "destination": "/process.html", "permanent": true }
+  ]
+}

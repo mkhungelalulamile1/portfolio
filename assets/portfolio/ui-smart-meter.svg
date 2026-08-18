@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="520" viewBox="0 0 300 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#120e0a"/>
+      <stop offset="100%" stop-color="#0A0705"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="520" rx="28" fill="url(#bg)"/>
+  <rect x="1" y="1" width="298" height="518" rx="27" fill="none" stroke="rgba(240,165,0,0.25)"/>
+  
+  <!-- Status bar -->
+  <text x="28" y="36" fill="rgba(245,237,216,0.5)" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600">09:41</text>
+  <circle cx="250" cy="32" r="3" fill="#1DB954"/>
+  <circle cx="262" cy="32" r="3" fill="rgba(245,237,216,0.35)"/>
+  <circle cx="274" cy="32" r="3" fill="rgba(245,237,216,0.35)"/>
+
+  <!-- Pill Tag -->
+  <rect x="24" y="65" width="140" height="22" rx="11" fill="#FBBF24" opacity="0.15" stroke="#FBBF24" stroke-opacity="0.5"/>
+  <text x="94" y="80" text-anchor="middle" fill="#FBBF24" font-family="Inter,Arial,sans-serif" font-size="9" font-weight="800" letter-spacing="1">UTILITY PWA UI</text>
+
+  <!-- Title & Sub -->
+  <text x="24" y="105" fill="#F5EDD8" font-family="Bebas Neue,Arial Black,sans-serif" font-size="24" font-weight="900" letter-spacing="1">MZANSI SMART METER</text>
+  <text x="24" y="122" fill="rgba(245,237,216,0.6)" font-family="Inter,Arial,sans-serif" font-size="11">Prepaid water & Eskom electricity token PWA</text>
+
+  
+  <!-- Meter Dial Display -->
+  <rect x="24" y="135" width="252" height="110" rx="16" fill="#1D1A13" stroke="rgba(251,191,36,0.4)"/>
+  <text x="40" y="160" fill="rgba(245,237,216,0.6)" font-family="Inter,sans-serif" font-size="10" font-weight="700">ESKOM PREPAID ELECTRICITY</text>
+  <text x="40" y="192" fill="#FFFFFF" font-family="Inter,sans-serif" font-size="28" font-weight="900">48.6 kWh</text>
+  <text x="40" y="220" fill="#FBBF24" font-family="Inter,sans-serif" font-size="11" font-weight="700">⚡ Estimated 6 days remaining · Stage 0</text>
+
+  <!-- Quick Topup options -->
+  <rect x="24" y="260" width="76" height="56" rx="10" fill="#181611" stroke="rgba(255,255,255,0.1)"/>
+  <text x="62" y="293" text-anchor="middle" fill="#F5EDD8" font-family="Inter,sans-serif" font-size="15" font-weight="800">R 50</text>
+
+  <rect x="112" y="260" width="76" height="56" rx="10" fill="#181611" stroke="rgba(251,191,36,0.5)"/>
+  <text x="150" y="293" text-anchor="middle" fill="#FBBF24" font-family="Inter,sans-serif" font-size="15" font-weight="800">R 150</text>
+
+  <rect x="200" y="260" width="76" height="56" rx="10" fill="#181611" stroke="rgba(255,255,255,0.1)"/>
+  <text x="238" y="293" text-anchor="middle" fill="#F5EDD8" font-family="Inter,sans-serif" font-size="15" font-weight="800">R 300</text>
+
+  <!-- Leak & Usage alert -->
+  <rect x="24" y="332" width="252" height="95" rx="12" fill="#161410" stroke="rgba(255,255,255,0.08)"/>
+  <text x="40" y="358" fill="rgba(245,237,216,0.6)" font-family="Inter,sans-serif" font-size="10" font-weight="700">LOW-DATA PWA FEATURES</text>
+  <text x="40" y="380" fill="#F5EDD8" font-family="Inter,sans-serif" font-size="12" font-weight="700">✓ Auto token paste to meter · SMS copy</text>
+  <text x="40" y="404" fill="rgba(245,237,216,0.5)" font-family="Inter,sans-serif" font-size="11">Zero FICA hassle · Pay with Capitec/FNB/PayShap</text>
+
+  <rect x="24" y="445" width="252" height="48" rx="12" fill="#FBBF24"/>
+  <text x="150" y="474" text-anchor="middle" fill="#0A0705" font-family="Inter,sans-serif" font-size="13" font-weight="800">BUY PREPAID TOKEN (PAYSHAP / CARD)</text>
+
+</svg>

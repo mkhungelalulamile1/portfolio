@@ -1,0 +1,2514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>DesignOps — Design System Pipeline Dashboard · Lulamile Mazinyo</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --bg: #0d0d0b;
+  --bg-2: #141412;
+  --bg-3: #1a1a17;
+  --surface: #1e1e1b;
+  --surface-2: #242420;
+  --surface-3: #2a2a26;
+  --border: rgba(255,255,255,.07);
+  --border-mid: rgba(255,255,255,.12);
+  --border-strong: rgba(255,255,255,.2);
+
+  --ink: #f0ede6;
+  --ink-70: rgba(240,237,230,.7);
+  --ink-45: rgba(240,237,230,.45);
+  --ink-25: rgba(240,237,230,.25);
+  --ink-12: rgba(240,237,230,.12);
+  --ink-06: rgba(240,237,230,.06);
+
+  --accent: #e8ff5a;
+  --accent-dim: rgba(232,255,90,.1);
+  --accent-glow: rgba(232,255,90,.25);
+
+  --figma: #9b72f8;
+  --figma-dim: rgba(155,114,248,.12);
+  --figma-mid: rgba(155,114,248,.25);
+  --token: #38bdf8;
+  --token-dim: rgba(56,189,248,.1);
+  --token-mid: rgba(56,189,248,.22);
+  --stdict: #34d399;
+  --stdict-dim: rgba(52,211,153,.1);
+  --stdict-mid: rgba(52,211,153,.22);
+  --angular: #dd4040;
+  --angular-dim: rgba(221,64,64,.1);
+  --angular-mid: rgba(221,64,64,.22);
+  --storybook: #ff6b9d;
+  --storybook-dim: rgba(255,107,157,.1);
+  --storybook-mid: rgba(255,107,157,.22);
+
+  --green: #4ade80;
+  --green-dim: rgba(74,222,128,.1);
+  --amber: #fbbf24;
+  --amber-dim: rgba(251,191,36,.1);
+  --red: #f87171;
+  --red-dim: rgba(248,113,113,.1);
+  --blue: #60a5fa;
+  --blue-dim: rgba(96,165,250,.1);
+
+  --mono: 'DM Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --display: 'Syne', sans-serif;
+
+  --r4: 4px; --r6: 6px; --r8: 8px; --r10: 10px;
+  --r12: 12px; --r16: 16px; --r20: 20px; --rfull: 9999px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════ */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: var(--rfull); }
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
+.app { display: grid; grid-template-columns: 272px 1fr; min-height: 100vh; }
+.sidebar {
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  background: var(--bg-2);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  scrollbar-width: thin;
+}
+.main { min-height: 100vh; overflow-x: hidden; }
+
+/* ═══════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════ */
+.sb-brand {
+  padding: 22px 20px 18px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--bg-3) 0%, var(--bg-2) 100%);
+}
+.sb-logo {
+  font-family: var(--display);
+  font-size: .9rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink);
+  display: flex; align-items: center; gap: 10px;
+}
+.sb-logo-mark {
+  width: 28px; height: 28px; border-radius: var(--r6);
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sb-logo-mark svg { display: block; }
+.sb-sub { font-size: .72rem; color: var(--ink-45); margin-top: 5px; letter-spacing: .02em; }
+
+.sb-search { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+.search-wrap { position: relative; }
+.search-input {
+  width: 100%; padding: 8px 10px 8px 34px;
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r8);
+  font-family: var(--sans); font-size: .82rem;
+  color: var(--ink); outline: none;
+  transition: border-color .15s, background .15s;
+}
+.search-input:focus { border-color: var(--accent); background: var(--surface-2); }
+.search-input::placeholder { color: var(--ink-45); }
+.search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--ink-45); pointer-events: none; }
+.search-results {
+  display: none; position: absolute; top: calc(100% + 5px);
+  left: 0; right: 0;
+  background: var(--surface-2);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r10);
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+  z-index: 100; max-height: 280px; overflow-y: auto;
+}
+.search-results.show { display: block; }
+.sr-item {
+  padding: 10px 13px; cursor: pointer;
+  font-size: .82rem; color: var(--ink-70);
+  display: flex; align-items: center; gap: 8px;
+  transition: background .12s;
+  border-bottom: 1px solid var(--border);
+}
+.sr-item:last-child { border-bottom: none; }
+.sr-item:hover { background: var(--surface-3); color: var(--ink); }
+.sr-pill {
+  font-size: .62rem; font-weight: 600; letter-spacing: .07em;
+  padding: 2px 7px; border-radius: var(--rfull);
+}
+
+.sb-section { padding: 10px 12px 6px; }
+.sb-section-label {
+  font-family: var(--mono);
+  font-size: .58rem; font-weight: 500; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-25);
+  padding: 0 8px; margin-bottom: 5px;
+}
+.sb-nav-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px; border-radius: var(--r8);
+  cursor: pointer; transition: background .14s;
+  text-decoration: none; color: var(--ink-45);
+  font-size: .83rem; gap: 8px;
+}
+.sb-nav-item:hover { background: var(--surface); color: var(--ink-70); }
+.sb-nav-item.active { background: var(--surface-2); color: var(--ink); }
+.sb-nav-left { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.sb-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.sb-nav-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: .83rem; }
+.sb-badge {
+  font-family: var(--mono); font-size: .62rem;
+  padding: 2px 7px; border-radius: var(--rfull);
+  flex-shrink: 0;
+}
+.sb-badge.green { background: var(--green-dim); color: var(--green); }
+.sb-badge.amber { background: var(--amber-dim); color: var(--amber); }
+.sb-badge.red { background: var(--red-dim); color: var(--red); }
+.sb-badge.muted { background: var(--ink-06); color: var(--ink-45); }
+
+.sb-pipeline {
+  padding: 16px 20px; border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+.sb-pipeline-label {
+  font-family: var(--mono);
+  font-size: .58rem; font-weight: 500; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-25);
+  margin-bottom: 12px;
+}
+.pipe-legend { display: flex; flex-direction: column; gap: 7px; }
+.pipe-leg-item { display: flex; align-items: center; gap: 9px; font-size: .76rem; color: var(--ink-45); }
+.pipe-leg-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+/* ═══════════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════════ */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(13,13,11,.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px; height: 54px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-left { display: flex; align-items: center; gap: 14px; }
+.topbar-title {
+  font-family: var(--display);
+  font-size: .88rem; font-weight: 700;
+  color: var(--ink); letter-spacing: .02em;
+}
+.topbar-divider { width: 1px; height: 18px; background: var(--border-mid); }
+.topbar-sub { font-size: .75rem; color: var(--ink-45); font-family: var(--mono); }
+.topbar-right { display: flex; align-items: center; gap: 8px; }
+.tb-chip {
+  font-family: var(--display);
+  font-size: .72rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: var(--rfull);
+  border: 1px solid var(--border-mid);
+  color: var(--ink-45); background: transparent;
+  cursor: pointer; transition: all .15s;
+}
+.tb-chip:hover { border-color: var(--border-strong); color: var(--ink); }
+.tb-chip.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.page-hero {
+  padding: 56px 40px 48px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(160deg, var(--bg-3) 0%, var(--bg) 60%);
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; top: -120px; right: -80px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+  pointer-events: none;
+}
+.page-hero::after {
+  content: '';
+  position: absolute; bottom: -100px; left: 20%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(155,114,248,.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: .68rem; font-weight: 500; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 18px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 30px; height: 2px;
+  background: var(--accent); border-radius: 1px;
+}
+.page-hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 700; letter-spacing: -.03em;
+  line-height: 1.08; margin-bottom: 18px; color: var(--ink);
+}
+.page-hero h1 em { font-style: normal; color: var(--accent); }
+.hero-lead {
+  font-size: .96rem; color: var(--ink-70);
+  max-width: 620px; line-height: 1.82; margin-bottom: 36px;
+}
+.hero-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  border: 1px solid var(--border); border-radius: var(--r16);
+  overflow: hidden; background: var(--border);
+  max-width: 680px;
+}
+.h-stat { background: var(--surface); padding: 16px 20px; }
+.h-stat-n {
+  font-family: var(--display);
+  font-size: 1.7rem; font-weight: 700;
+  letter-spacing: -.04em; color: var(--ink);
+  line-height: 1;
+}
+.h-stat-n span { color: var(--accent); }
+.h-stat-l { font-size: .7rem; color: var(--ink-45); margin-top: 4px; }
+
+/* ═══════════════════════════════════════════
+   PIPELINE FLOW
+═══════════════════════════════════════════ */
+.pipeline-flow {
+  padding: 28px 40px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+  overflow-x: auto;
+}
+.pf-label {
+  font-family: var(--mono);
+  font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-25); margin-bottom: 16px;
+}
+.pf-row { display: flex; align-items: stretch; gap: 0; min-width: 800px; }
+.pf-step {
+  display: flex; flex-direction: column; gap: 3px;
+  padding: 14px 18px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 0; flex: 1; min-width: 0; position: relative;
+  transition: background .15s;
+}
+.pf-step:first-child { border-radius: var(--r10) 0 0 var(--r10); }
+.pf-step:last-child { border-radius: 0 var(--r10) var(--r10) 0; }
+.pf-step:hover { background: var(--surface-2); }
+.pf-step-num {
+  font-family: var(--mono); font-size: .6rem;
+  color: var(--ink-25); letter-spacing: .1em;
+}
+.pf-step-name { font-family: var(--display); font-size: .84rem; font-weight: 700; color: var(--ink); }
+.pf-step-tech { font-size: .7rem; color: var(--ink-45); }
+.pf-arrow {
+  display: flex; align-items: center;
+  padding: 0; color: var(--ink-25); font-size: .75rem;
+  background: var(--surface); border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border); flex-shrink: 0; width: 24px;
+  justify-content: center;
+}
+.pf-step-bar { height: 3px; border-radius: var(--rfull); margin-top: 10px; }
+
+/* ═══════════════════════════════════════════
+   CONTENT
+═══════════════════════════════════════════ */
+.content { padding: 28px 40px; }
+.section-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px;
+}
+.section-hdr h2 {
+  font-family: var(--display);
+  font-size: 1rem; font-weight: 700;
+  color: var(--ink); letter-spacing: .01em;
+}
+.filter-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-chip {
+  font-family: var(--mono);
+  font-size: .66rem; font-weight: 500; letter-spacing: .08em;
+  padding: 5px 13px; border-radius: var(--rfull);
+  border: 1px solid var(--border); color: var(--ink-45);
+  background: transparent; cursor: pointer; transition: all .14s;
+  white-space: nowrap;
+}
+.filter-chip:hover { border-color: var(--border-mid); color: var(--ink-70); }
+.filter-chip.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* ═══════════════════════════════════════════
+   COMPONENT CARD
+═══════════════════════════════════════════ */
+.comp-grid { display: flex; flex-direction: column; gap: 10px; }
+.comp-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r16);
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.comp-card:hover { border-color: var(--border-mid); }
+.comp-card.open { border-color: var(--border-mid); }
+.comp-card-header {
+  padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; user-select: none;
+  transition: background .14s;
+}
+.comp-card-header:hover { background: var(--surface-2); }
+.comp-card-left { display: flex; align-items: center; gap: 14px; }
+.comp-card-icon {
+  width: 40px; height: 40px; border-radius: var(--r10);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.comp-card-name {
+  font-family: var(--display);
+  font-size: .92rem; font-weight: 700; color: var(--ink);
+}
+.comp-card-tag {
+  font-family: var(--mono); font-size: .68rem;
+  color: var(--ink-45); margin-top: 2px;
+}
+.comp-card-right { display: flex; align-items: center; gap: 10px; }
+.toggle-caret {
+  color: var(--ink-45); transition: transform .22s; font-size: .65rem;
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 1px solid var(--border-mid);
+  display: flex; align-items: center; justify-content: center;
+}
+.comp-card.open .toggle-caret { transform: rotate(180deg); }
+
+/* Pipeline chips in header */
+.pipeline-status-row { display: flex; align-items: center; gap: 5px; margin-right: 8px; }
+.ps-chip {
+  display: flex; align-items: center; gap: 4px;
+  font-family: var(--mono);
+  font-size: .62rem; font-weight: 500;
+  padding: 3px 9px; border-radius: var(--rfull);
+  white-space: nowrap; cursor: default;
+}
+.ps-chip.ready   { background: var(--green-dim); color: var(--green); }
+.ps-chip.review  { background: var(--amber-dim); color: var(--amber); }
+.ps-chip.waiting { background: var(--blue-dim); color: var(--blue); }
+.ps-chip.missing { background: var(--red-dim); color: var(--red); }
+.ps-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+
+.status-pill {
+  font-family: var(--mono);
+  font-size: .64rem; font-weight: 500;
+  padding: 3px 10px; border-radius: var(--rfull);
+}
+.status-pill.all     { background: var(--green-dim); color: var(--green); }
+.status-pill.partial { background: var(--amber-dim); color: var(--amber); }
+.status-pill.none    { background: var(--red-dim); color: var(--red); }
+
+/* ═══════════════════════════════════════════
+   EXPANDED BODY
+═══════════════════════════════════════════ */
+.comp-body { display: none; border-top: 1px solid var(--border); }
+.comp-card.open .comp-body { display: block; }
+
+/* Overview grid */
+.overview-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1px; background: var(--border);
+  border-radius: var(--r12); overflow: hidden; border: 1px solid var(--border);
+}
+.og-cell { background: var(--bg-2); padding: 14px 14px; }
+.og-pipe {
+  font-family: var(--mono);
+  font-size: .6rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.og-status { font-size: .8rem; font-weight: 600; }
+.og-sub { font-size: .7rem; color: var(--ink-45); margin-top: 3px; }
+
+/* Progress bar */
+.prog-wrap { margin-top: 10px; }
+.prog-label {
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: .66rem;
+  color: var(--ink-45); margin-bottom: 5px;
+}
+.prog-bar { height: 3px; background: var(--border-mid); border-radius: var(--rfull); overflow: hidden; }
+.prog-fill { height: 100%; border-radius: var(--rfull); transition: width .8s cubic-bezier(.22,1,.36,1); }
+
+/* Pipeline tabs */
+.pipeline-tabs {
+  display: flex; border-bottom: 1px solid var(--border);
+  overflow-x: auto; scrollbar-width: none;
+  background: var(--bg-2);
+}
+.pipeline-tabs::-webkit-scrollbar { display: none; }
+.ptab {
+  padding: 12px 20px; font-size: .78rem; font-weight: 500;
+  color: var(--ink-45); cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap; transition: all .15s;
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--sans);
+}
+.ptab:hover { color: var(--ink-70); }
+.ptab.active { color: var(--ink); border-bottom-color: var(--accent); }
+.ptab-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+.pipeline-panel { display: none; padding: 22px 24px 0; }
+.pipeline-panel.active { display: block; }
+
+/* Status banner */
+.status-banner {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 16px; border-radius: var(--r10);
+  margin-bottom: 18px; font-size: .84rem;
+}
+.status-banner.ready   { background: var(--green-dim); color: var(--green); border: 1px solid rgba(74,222,128,.18); }
+.status-banner.review  { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(251,191,36,.18); }
+.status-banner.waiting { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(96,165,250,.18); }
+.status-banner.missing { background: var(--red-dim); color: var(--red); border: 1px solid rgba(248,113,113,.18); }
+.status-banner strong { font-weight: 600; }
+.status-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+/* Panel sections */
+.panel-section { margin-bottom: 24px; }
+.ps-title {
+  font-family: var(--mono);
+  font-size: .62rem; font-weight: 500; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-25);
+  margin-bottom: 12px;
+}
+
+/* ═══════════════════════════════════════════
+   FIGMA COMPONENT PREVIEW (INLINE SVG MOCKUPS)
+═══════════════════════════════════════════ */
+.comp-preview {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r12);
+  padding: 32px;
+  display: flex; flex-direction: column; gap: 24px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+}
+.comp-preview::before {
+  content: 'Figma Preview';
+  font-family: var(--mono); font-size: .58rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-25);
+  position: absolute; top: 12px; left: 16px;
+}
+.comp-preview::after {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(155,114,248,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.preview-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.preview-label {
+  font-family: var(--mono); font-size: .6rem; color: var(--ink-25);
+  letter-spacing: .1em; text-transform: uppercase;
+  min-width: 70px;
+}
+
+/* Inline component previews */
+.prev-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px; border-radius: 8px; font-size: .84rem;
+  font-weight: 600; font-family: var(--sans); cursor: default;
+  transition: opacity .15s;
+}
+.prev-btn-primary { background: var(--accent); color: var(--bg); }
+.prev-btn-secondary { background: transparent; border: 1.5px solid var(--border-strong); color: var(--ink); }
+.prev-btn-destructive { background: var(--angular); color: #fff; }
+.prev-btn-ghost { background: transparent; color: var(--ink-70); }
+.prev-btn-sm { padding: 5px 12px; font-size: .76rem; }
+.prev-btn-lg { padding: 11px 24px; font-size: .94rem; }
+.prev-btn-disabled { opacity: .35; }
+.prev-btn-loading { position: relative; }
+.prev-btn-loading::after {
+  content: '';
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid rgba(0,0,0,.2);
+  border-top-color: var(--bg);
+  animation: spin .7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.prev-input {
+  display: flex; flex-direction: column; gap: 5px; min-width: 240px;
+}
+.prev-input-label { font-size: .72rem; font-weight: 600; color: var(--ink-70); }
+.prev-input-field {
+  padding: 9px 13px; border-radius: 8px; font-size: .84rem;
+  font-family: var(--sans);
+}
+.prev-input-default { background: var(--surface-2); border: 1px solid var(--border-mid); color: var(--ink); }
+.prev-input-focus { background: var(--surface-2); border: 1px solid var(--accent); color: var(--ink); box-shadow: 0 0 0 3px var(--accent-dim); }
+.prev-input-error { background: var(--surface-2); border: 1px solid var(--red); color: var(--ink); }
+.prev-input-disabled { background: var(--bg-3); border: 1px solid var(--border); color: var(--ink-25); }
+.prev-input-hint { font-size: .7rem; color: var(--ink-45); }
+.prev-input-error-msg { font-size: .7rem; color: var(--red); }
+
+.prev-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 9999px;
+  font-size: .72rem; font-weight: 600; font-family: var(--sans);
+}
+.prev-badge-success { background: var(--green-dim); color: var(--green); }
+.prev-badge-warning { background: var(--amber-dim); color: var(--amber); }
+.prev-badge-danger  { background: var(--red-dim); color: var(--red); }
+.prev-badge-info    { background: var(--blue-dim); color: var(--blue); }
+.prev-badge-neutral { background: var(--ink-06); color: var(--ink-45); }
+.prev-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+.prev-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px; min-width: 220px; max-width: 280px;
+}
+.prev-card-elevated {
+  background: var(--surface-2); border: 1px solid var(--border-mid);
+  border-radius: 12px; padding: 18px; min-width: 220px; max-width: 280px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+.prev-card-title { font-family: var(--display); font-size: .88rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.prev-card-body { font-size: .78rem; color: var(--ink-45); line-height: 1.65; }
+.prev-card-footer { margin-top: 14px; display: flex; gap: 8px; }
+
+.prev-modal-overlay {
+  background: rgba(0,0,0,.6); border-radius: 12px;
+  padding: 20px; display: flex; align-items: center; justify-content: center;
+  min-height: 220px;
+}
+.prev-modal {
+  background: var(--surface); border: 1px solid var(--border-mid);
+  border-radius: 14px; padding: 24px; width: 100%; max-width: 340px;
+}
+.prev-modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.prev-modal-title { font-family: var(--display); font-size: .9rem; font-weight: 700; color: var(--ink); }
+.prev-modal-close {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--surface-2); border: 1px solid var(--border);
+  color: var(--ink-45); font-size: .7rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: default;
+}
+.prev-modal-body { font-size: .8rem; color: var(--ink-70); line-height: 1.7; margin-bottom: 18px; }
+.prev-modal-footer { display: flex; gap: 8px; justify-content: flex-end; }
+
+/* Data Table preview */
+.prev-table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+.prev-table th {
+  font-family: var(--mono);
+  font-size: .62rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-45); padding: 8px 12px;
+  border-bottom: 1px solid var(--border); text-align: left;
+  background: var(--bg-3);
+}
+.prev-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--ink-70); vertical-align: middle; }
+.prev-table tr:last-child td { border-bottom: none; }
+.prev-table tr:hover td { background: var(--surface-2); }
+.prev-table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; width: 100%; }
+
+/* Tooltip preview */
+.prev-tooltip-wrap { position: relative; display: inline-flex; flex-direction: column; align-items: center; gap: 6px; }
+.prev-tooltip {
+  background: var(--ink); color: var(--bg);
+  font-size: .72rem; font-weight: 500;
+  padding: 5px 11px; border-radius: 6px; white-space: nowrap;
+}
+.prev-tooltip::after {
+  content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: var(--ink); border-bottom: none;
+}
+.prev-tooltip-trigger {
+  padding: 7px 14px; background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 8px; font-size: .8rem; color: var(--ink-70);
+}
+
+/* Select preview */
+.prev-select {
+  padding: 9px 36px 9px 13px; border-radius: 8px; font-size: .84rem;
+  font-family: var(--sans);
+  background: var(--surface-2); border: 1px solid var(--border-mid); color: var(--ink);
+  position: relative; display: inline-block; min-width: 180px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='rgba(240,237,230,.45)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center;
+  cursor: default;
+}
+
+/* Checkbox/Radio preview */
+.prev-check-group { display: flex; flex-direction: column; gap: 10px; }
+.prev-check-item { display: flex; align-items: center; gap: 10px; font-size: .82rem; color: var(--ink-70); cursor: default; }
+.prev-check-box {
+  width: 18px; height: 18px; border-radius: 4px; flex-shrink: 0;
+  border: 1.5px solid var(--border-mid); background: var(--surface-2);
+  display: flex; align-items: center; justify-content: center;
+}
+.prev-check-box.checked { background: var(--accent); border-color: var(--accent); }
+.prev-radio-box {
+  width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+  border: 1.5px solid var(--border-mid); background: var(--surface-2);
+  display: flex; align-items: center; justify-content: center;
+}
+.prev-radio-box.checked { border-color: var(--accent); }
+.prev-radio-inner { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+/* Toggle preview */
+.prev-toggle {
+  width: 40px; height: 22px; border-radius: 11px; position: relative;
+  cursor: default; flex-shrink: 0;
+}
+.prev-toggle.on { background: var(--accent); }
+.prev-toggle.off { background: var(--surface-3); }
+.prev-toggle-thumb {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: white; position: absolute; top: 3px;
+  transition: left .2s;
+}
+.prev-toggle.on .prev-toggle-thumb { left: 21px; }
+.prev-toggle.off .prev-toggle-thumb { left: 3px; }
+
+/* Alert preview */
+.prev-alert {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 16px; border-radius: 10px; font-size: .82rem; width: 100%;
+}
+.prev-alert-success { background: var(--green-dim); border: 1px solid rgba(74,222,128,.2); color: var(--green); }
+.prev-alert-warning { background: var(--amber-dim); border: 1px solid rgba(251,191,36,.2); color: var(--amber); }
+.prev-alert-error   { background: var(--red-dim); border: 1px solid rgba(248,113,113,.2); color: var(--red); }
+.prev-alert-info    { background: var(--blue-dim); border: 1px solid rgba(96,165,250,.2); color: var(--blue); }
+.prev-alert-body strong { font-weight: 600; display: block; margin-bottom: 2px; }
+
+/* Avatar preview */
+.prev-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: .82rem; font-family: var(--display);
+  flex-shrink: 0;
+}
+.prev-avatar-group { display: flex; }
+.prev-avatar-group .prev-avatar { border: 2px solid var(--bg-3); margin-left: -8px; }
+.prev-avatar-group .prev-avatar:first-child { margin-left: 0; }
+
+/* Tabs preview */
+.prev-tabs-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; width: 100%; }
+.prev-tabs-bar { display: flex; border-bottom: 1px solid var(--border); background: var(--bg-2); }
+.prev-tab {
+  padding: 10px 18px; font-size: .8rem; color: var(--ink-45);
+  border-bottom: 2px solid transparent; cursor: default; white-space: nowrap;
+}
+.prev-tab.active { color: var(--ink); border-bottom-color: var(--accent); }
+.prev-tabs-content { padding: 16px; font-size: .82rem; color: var(--ink-70); }
+
+/* Spinner/Loader */
+.prev-spinner {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2.5px solid var(--border-mid);
+  border-top-color: var(--accent);
+  animation: spin .7s linear infinite;
+}
+.prev-skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: 6px;
+}
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+/* ═══════════════════════════════════════════
+   HOW TO USE TABS
+═══════════════════════════════════════════ */
+.how-to-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.ht-tab {
+  font-family: var(--mono);
+  font-size: .68rem; font-weight: 500; letter-spacing: .06em;
+  padding: 6px 14px; border-radius: var(--r8);
+  border: 1px solid var(--border); cursor: pointer;
+  color: var(--ink-45); transition: all .14s;
+}
+.ht-tab:hover { border-color: var(--border-mid); color: var(--ink-70); }
+.ht-tab.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.ht-panel { display: none; }
+.ht-panel.show { display: block; }
+
+/* ═══════════════════════════════════════════
+   CODE BLOCKS
+═══════════════════════════════════════════ */
+.code-wrap { border-radius: var(--r10); overflow: hidden; border: 1px solid rgba(255,255,255,.06); }
+.code-bar {
+  background: #151513; padding: 9px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.code-file { font-family: var(--mono); font-size: .64rem; color: rgba(240,237,230,.3); }
+.code-bar-r { display: flex; align-items: center; gap: 8px; }
+.lang-badge {
+  font-family: var(--mono);
+  font-size: .58rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; padding: 2px 8px; border-radius: var(--r4);
+}
+.l-ts   { background: rgba(221,64,64,.2); color: rgba(255,160,160,.9); }
+.l-css  { background: rgba(56,189,248,.14); color: rgba(100,200,255,.9); }
+.l-html { background: rgba(240,140,60,.14); color: rgba(240,170,100,.9); }
+.l-json { background: rgba(74,222,128,.12); color: rgba(100,220,140,.9); }
+.l-scss { background: rgba(155,114,248,.14); color: rgba(180,150,255,.9); }
+.l-sh   { background: rgba(52,211,153,.12); color: rgba(80,220,170,.9); }
+.copy-btn {
+  font-family: var(--mono); font-size: .6rem;
+  color: rgba(240,237,230,.3); background: none;
+  border: 1px solid rgba(255,255,255,.1); border-radius: var(--r4);
+  padding: 2px 9px; cursor: pointer; transition: all .15s;
+}
+.copy-btn:hover { background: rgba(255,255,255,.07); color: rgba(240,237,230,.7); }
+pre { background: #111110; padding: 16px 18px; overflow-x: auto; margin: 0; }
+code {
+  font-family: var(--mono); font-size: .77rem;
+  line-height: 1.82; color: #c4c0b3;
+}
+.kw { color: #f8917a; } .str { color: #a8cc8c; }
+.cm { color: rgba(200,195,180,.28); } .ty { color: #79c0ff; }
+.dc { color: #e6a450; } .pr { color: #c4c0b3; }
+.nm { color: #fbbf7c; } .sl { color: #d2a8ff; }
+.vr { color: #88c0d0; } .fn { color: #e6a450; }
+.at { color: #ffd580; }
+
+/* ═══════════════════════════════════════════
+   TOKEN TABLE
+═══════════════════════════════════════════ */
+.token-table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+.token-table th {
+  font-family: var(--mono);
+  font-size: .6rem; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-25);
+  padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left;
+}
+.token-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.token-table tr:last-child td { border-bottom: none; }
+.token-table td:first-child  { font-family: var(--mono); font-size: .73rem; color: var(--figma); }
+.token-table td:nth-child(2) { font-family: var(--mono); font-size: .73rem; color: var(--stdict); }
+.token-table td:last-child   { color: var(--ink-25); }
+.swatch-dot {
+  width: 15px; height: 15px; border-radius: 3px;
+  border: 1px solid var(--border-mid);
+  display: inline-block; vertical-align: middle; margin-right: 7px;
+}
+.match-y { background: var(--green-dim); color: var(--green); font-size: .62rem; font-weight: 700; padding: 1px 7px; border-radius: var(--r4); font-family: var(--mono); }
+.match-n { background: var(--amber-dim); color: var(--amber); font-size: .62rem; font-weight: 700; padding: 1px 7px; border-radius: var(--r4); font-family: var(--mono); }
+
+/* ═══════════════════════════════════════════
+   COMMENTS
+═══════════════════════════════════════════ */
+.comment-section { border-top: 1px solid var(--border); padding: 18px 24px; }
+.cs-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.cs-title { font-family: var(--mono); font-size: .65rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-25); }
+.cs-count { font-family: var(--mono); font-size: .68rem; color: var(--ink-45); }
+.comment-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.comment {
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: var(--r10); padding: 12px 14px;
+}
+.comment-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.comment-avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-size: .6rem; font-weight: 700; flex-shrink: 0;
+}
+.comment-author { font-size: .8rem; font-weight: 600; color: var(--ink); }
+.comment-time { font-size: .7rem; color: var(--ink-45); font-family: var(--mono); }
+.comment-type {
+  font-family: var(--mono);
+  font-size: .6rem; font-weight: 600; letter-spacing: .08em;
+  padding: 2px 8px; border-radius: var(--rfull);
+}
+.ct-request  { background: var(--amber-dim); color: var(--amber); }
+.ct-review   { background: var(--blue-dim); color: var(--blue); }
+.ct-approve  { background: var(--green-dim); color: var(--green); }
+.ct-question { background: var(--figma-dim); color: var(--figma); }
+.comment-text { font-size: .82rem; color: var(--ink-70); line-height: 1.65; }
+.comment-code {
+  font-family: var(--mono); font-size: .74rem;
+  background: var(--surface-3); border: 1px solid var(--border);
+  border-radius: var(--r4); padding: 1px 6px; color: var(--stdict);
+}
+.comment-footer { display: flex; align-items: center; gap: 8px; margin-top: 9px; }
+.comment-reaction {
+  font-size: .7rem; color: var(--ink-45); background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--rfull);
+  padding: 2px 9px; cursor: pointer; transition: background .14s;
+}
+.comment-reaction:hover { background: var(--surface-3); }
+.comment-reply { font-size: .7rem; color: var(--ink-45); cursor: pointer; transition: color .14s; font-family: var(--mono); }
+.comment-reply:hover { color: var(--ink-70); }
+.comment-input-wrap { display: flex; gap: 10px; align-items: flex-start; }
+.comment-input-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent-dim); border: 1px solid var(--accent-glow);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-size: .62rem; font-weight: 700;
+  color: var(--accent); flex-shrink: 0; margin-top: 1px;
+}
+.comment-input-right { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.comment-textarea {
+  width: 100%; padding: 9px 12px;
+  background: var(--surface); border: 1px solid var(--border-mid);
+  border-radius: var(--r8);
+  font-family: var(--sans); font-size: .8rem; color: var(--ink);
+  resize: none; outline: none; transition: border-color .15s; line-height: 1.6;
+}
+.comment-textarea:focus { border-color: var(--accent); }
+.comment-textarea::placeholder { color: var(--ink-45); }
+.comment-input-footer { display: flex; align-items: center; justify-content: space-between; }
+.cr-type-row { display: flex; gap: 5px; }
+.cr-type {
+  font-family: var(--mono);
+  font-size: .64rem; font-weight: 500; letter-spacing: .06em;
+  padding: 4px 11px; border-radius: var(--rfull);
+  border: 1px solid var(--border); cursor: pointer;
+  color: var(--ink-45); transition: all .14s;
+}
+.cr-type:hover { border-color: var(--border-mid); color: var(--ink-70); }
+.cr-type.selected { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.submit-comment {
+  font-family: var(--display); font-size: .78rem; font-weight: 600;
+  padding: 7px 16px; background: var(--accent); color: var(--bg);
+  border: none; border-radius: var(--r8); cursor: pointer; transition: opacity .15s;
+}
+.submit-comment:hover { opacity: .85; }
+
+/* Usage steps */
+.usage-step { display: flex; gap: 12px; margin-bottom: 12px; font-size: .83rem; }
+.usage-step-num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--surface-3); border: 1px solid var(--border-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: .64rem; font-weight: 600;
+  color: var(--accent); flex-shrink: 0; margin-top: 1px;
+}
+.usage-step-body { flex: 1; color: var(--ink-70); line-height: 1.7; }
+.usage-step-body code {
+  font-family: var(--mono); font-size: .78em;
+  background: var(--surface-3); border: 1px solid var(--border);
+  padding: 1px 6px; border-radius: 4px; color: var(--stdict);
+}
+
+/* Tags */
+.tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.tag {
+  font-family: var(--mono); font-size: .66rem;
+  color: var(--ink-45); background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: var(--r4);
+  padding: 2px 8px;
+}
+
+/* Info grid */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.info-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r8); padding: 12px 14px; }
+.info-card-label { font-family: var(--mono); font-size: .6rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-25); margin-bottom: 5px; }
+.info-card-val { font-size: .82rem; color: var(--ink); line-height: 1.55; }
+
+/* Toggle src */
+.toggle-src-btn {
+  font-family: var(--mono); font-size: .68rem;
+  padding: 6px 14px; border-radius: var(--r8);
+  border: 1px solid var(--border); cursor: pointer;
+  color: var(--ink-45); transition: all .14s;
+  display: inline-block; margin-bottom: 10px;
+}
+.toggle-src-btn:hover { border-color: var(--border-mid); color: var(--ink-70); }
+
+/* ═══════════════════════════════════════════
+   VIEWS: TOKEN MAP + PROCESS
+═══════════════════════════════════════════ */
+.overview-grid-wide {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: var(--r12);
+  overflow: hidden; margin-bottom: 24px;
+}
+.process-step {
+  display: grid; grid-template-columns: 180px 2px 1fr;
+  gap: 0 32px; padding-bottom: 48px; position: relative;
+}
+.process-timeline { position: relative; }
+.process-timeline-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--border-mid); transform: translateX(-50%); }
+.process-dot {
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 2px solid var(--bg); z-index: 1;
+}
+.process-content { padding-top: 4px; }
+.process-num {
+  font-family: var(--mono); font-size: .6rem;
+  color: var(--accent); letter-spacing: .12em; margin-bottom: 5px;
+}
+.process-name { font-family: var(--display); font-size: .92rem; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.process-sub { font-size: .72rem; color: var(--ink-45); }
+.process-body {
+  font-size: .9rem; color: var(--ink-70);
+  line-height: 1.8; max-width: 560px; margin-bottom: 14px;
+}
+.process-body code {
+  font-family: var(--mono); font-size: .84em;
+  background: var(--surface-2); border: 1px solid var(--border);
+  padding: 1px 6px; border-radius: 4px; color: var(--stdict);
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1000px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed; left: 0; top: 0; bottom: 0;
+    transform: translateX(-100%); transition: transform .25s; z-index: 200;
+    width: 280px;
+  }
+  .sidebar.open { transform: translateX(0); box-shadow: 8px 0 40px rgba(0,0,0,.5); }
+  .pipeline-status-row { display: none; }
+  .overview-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .overview-grid-wide { grid-template-columns: 1fr 1fr; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+  .content { padding: 20px 20px; }
+  .page-hero { padding: 36px 20px 32px; }
+  .pipeline-flow { padding: 20px; }
+}
+@media (max-width: 640px) {
+  .overview-grid { grid-template-columns: 1fr 1fr; }
+  .topbar { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ══════════════════════════════════
+     SIDEBAR
+══════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-logo">
+      <div class="sb-logo-mark">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 3h4v4H3zM9 3h4v4H9zM3 9h4v4H3zM9 9h4v4H9z" fill="#0d0d0b"/>
+        </svg>
+      </div>
+      DesignOps
+    </div>
+    <div class="sb-sub">Pipeline Dashboard · Lulamile Mazinyo</div>
+  </div>
+
+  <div class="sb-search">
+    <div class="search-wrap">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.3"/>
+        <path d="M9.5 9.5L12 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <input class="search-input" id="globalSearch" placeholder="Search components, tokens…" autocomplete="off"
+             oninput="handleSearch(this.value)" onfocus="showResults()" onblur="setTimeout(hideResults,200)"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-section-label">Filter</div>
+    <div class="sb-nav-item active" onclick="filterComponents('all',this)">
+      <div class="sb-nav-left"><span class="sb-dot" style="background:var(--ink-45)"></span><span class="sb-nav-name">All Components</span></div>
+      <span class="sb-badge muted">11</span>
+    </div>
+    <div class="sb-nav-item" onclick="filterComponents('ready',this)">
+      <div class="sb-nav-left"><span class="sb-dot" style="background:var(--green)"></span><span class="sb-nav-name">All pipelines ready</span></div>
+      <span class="sb-badge green">3</span>
+    </div>
+    <div class="sb-nav-item" onclick="filterComponents('partial',this)">
+      <div class="sb-nav-left"><span class="sb-dot" style="background:var(--amber)"></span><span class="sb-nav-name">Partial</span></div>
+      <span class="sb-badge amber">6</span>
+    </div>
+    <div class="sb-nav-item" onclick="filterComponents('missing',this)">
+      <div class="sb-nav-left"><span class="sb-dot" style="background:var(--red)"></span><span class="sb-nav-name">Not started</span></div>
+      <span class="sb-badge red">2</span>
+    </div>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-section-label">Jump to</div>
+    <a class="sb-nav-item" href="#comp-button"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--green)"></span><span class="sb-nav-name">Button</span></div><span class="sb-badge green">5/5</span></a>
+    <a class="sb-nav-item" href="#comp-field"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--green)"></span><span class="sb-nav-name">Input Field</span></div><span class="sb-badge green">5/5</span></a>
+    <a class="sb-nav-item" href="#comp-select"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--green)"></span><span class="sb-nav-name">Select</span></div><span class="sb-badge green">5/5</span></a>
+    <a class="sb-nav-item" href="#comp-badge"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--amber)"></span><span class="sb-nav-name">Badge</span></div><span class="sb-badge amber">4/5</span></a>
+    <a class="sb-nav-item" href="#comp-card"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--amber)"></span><span class="sb-nav-name">Card</span></div><span class="sb-badge amber">4/5</span></a>
+    <a class="sb-nav-item" href="#comp-modal"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--amber)"></span><span class="sb-nav-name">Modal / Dialog</span></div><span class="sb-badge amber">3/5</span></a>
+    <a class="sb-nav-item" href="#comp-alert"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--amber)"></span><span class="sb-nav-name">Alert / Toast</span></div><span class="sb-badge amber">3/5</span></a>
+    <a class="sb-nav-item" href="#comp-checkbox"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--amber)"></span><span class="sb-nav-name">Checkbox / Radio</span></div><span class="sb-badge amber">2/5</span></a>
+    <a class="sb-nav-item" href="#comp-avatar"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--amber)"></span><span class="sb-nav-name">Avatar</span></div><span class="sb-badge amber">2/5</span></a>
+    <a class="sb-nav-item" href="#comp-table"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--red)"></span><span class="sb-nav-name">Data Table</span></div><span class="sb-badge red">0/5</span></a>
+    <a class="sb-nav-item" href="#comp-tabs"><div class="sb-nav-left"><span class="sb-dot" style="background:var(--red)"></span><span class="sb-nav-name">Tabs</span></div><span class="sb-badge red">0/5</span></a>
+  </div>
+
+  <div class="sb-pipeline">
+    <div class="sb-pipeline-label">Pipeline Stages</div>
+    <div class="pipe-legend">
+      <div class="pipe-leg-item"><span class="pipe-leg-dot" style="background:var(--figma)"></span>Figma Variables</div>
+      <div class="pipe-leg-item"><span class="pipe-leg-dot" style="background:var(--token)"></span>Token Studio</div>
+      <div class="pipe-leg-item"><span class="pipe-leg-dot" style="background:var(--stdict)"></span>Style Dictionary</div>
+      <div class="pipe-leg-item"><span class="pipe-leg-dot" style="background:var(--angular)"></span>Angular / Codebase</div>
+      <div class="pipe-leg-item"><span class="pipe-leg-dot" style="background:var(--storybook)"></span>Storybook</div>
+    </div>
+  </div>
+</aside>
+
+<!-- ══════════════════════════════════
+     MAIN
+══════════════════════════════════ -->
+<main class="main">
+
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="topbar-title">Component Pipeline Tracker</span>
+      <div class="topbar-divider"></div>
+      <span class="topbar-sub">v3.0 · 11 components</span>
+    </div>
+    <div class="topbar-right">
+      <span class="tb-chip active" onclick="setView('tracker',this)">Tracker</span>
+      <span class="tb-chip" onclick="setView('tokens',this)">Token Map</span>
+      <span class="tb-chip" onclick="setView('process',this)">Process</span>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       TRACKER VIEW
+  ════════════════════════════ -->
+  <div id="view-tracker">
+
+    <div class="page-hero">
+      <div class="hero-eyebrow">Design System Engineering · Personal Case Study</div>
+      <h1>Figma Variables<br/>to <em>Angular Codebase</em> —<br/>zero drift.</h1>
+      <p class="hero-lead">A personal workflow for shipping design systems at speed. Every component tracked across five pipeline stages — searchable, commentable, and usable by anyone from a designer doing a handoff to a senior engineer doing code review. One source of truth.</p>
+      <div class="hero-stats">
+        <div class="h-stat"><div class="h-stat-n"><span>80</span>+</div><div class="h-stat-l">components total</div></div>
+        <div class="h-stat"><div class="h-stat-n"><span>5</span></div><div class="h-stat-l">pipeline stages</div></div>
+        <div class="h-stat"><div class="h-stat-n"><span>63</span>%</div><div class="h-stat-l">reuse at 12 months</div></div>
+        <div class="h-stat"><div class="h-stat-n">2.<span>4</span>×</div><div class="h-stat-l">faster onboarding</div></div>
+      </div>
+    </div>
+
+    <div class="pipeline-flow">
+      <div class="pf-label">End-to-end pipeline — every component travels all five stages</div>
+      <div class="pf-row">
+        <div class="pf-step">
+          <div class="pf-step-num">01</div>
+          <div class="pf-step-name">Figma Variables</div>
+          <div class="pf-step-tech">Tokens + Auto-layout</div>
+          <div class="pf-step-bar" style="background:var(--figma)"></div>
+        </div>
+        <div class="pf-arrow">→</div>
+        <div class="pf-step">
+          <div class="pf-step-num">02</div>
+          <div class="pf-step-name">Token Studio</div>
+          <div class="pf-step-tech">JSON export</div>
+          <div class="pf-step-bar" style="background:var(--token)"></div>
+        </div>
+        <div class="pf-arrow">→</div>
+        <div class="pf-step">
+          <div class="pf-step-num">03</div>
+          <div class="pf-step-name">Style Dictionary</div>
+          <div class="pf-step-tech">CSS vars + TS types</div>
+          <div class="pf-step-bar" style="background:var(--stdict)"></div>
+        </div>
+        <div class="pf-arrow">→</div>
+        <div class="pf-step">
+          <div class="pf-step-num">04</div>
+          <div class="pf-step-name">Angular / Code</div>
+          <div class="pf-step-tech">Standalone components</div>
+          <div class="pf-step-bar" style="background:var(--angular)"></div>
+        </div>
+        <div class="pf-arrow">→</div>
+        <div class="pf-step">
+          <div class="pf-step-num">05</div>
+          <div class="pf-step-name">Storybook</div>
+          <div class="pf-step-tech">Living documentation</div>
+          <div class="pf-step-bar" style="background:var(--storybook)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="section-hdr">
+        <h2>Components <span style="font-size:.78rem;font-weight:400;color:var(--ink-45)" id="comp-count">(11)</span></h2>
+        <div class="filter-row">
+          <span class="filter-chip on" onclick="filterChip('all',this)">All</span>
+          <span class="filter-chip" onclick="filterChip('ready',this)">✓ Ready</span>
+          <span class="filter-chip" onclick="filterChip('partial',this)">⚠ Partial</span>
+          <span class="filter-chip" onclick="filterChip('missing',this)">✕ Not started</span>
+        </div>
+      </div>
+
+      <div class="comp-grid" id="compGrid">
+
+<!-- ═══════════════════════════════════════════════════
+     01 — BUTTON
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-button" data-status="ready">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--accent-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="6" width="14" height="8" rx="3" stroke="var(--accent)" stroke-width="1.5"/><path d="M7 10h6" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div><div class="comp-card-name">Button</div><div class="comp-card-tag">&lt;ds-button&gt; · .ds-btn · @ds/angular</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip ready"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill all">5/5 ready</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">4 variants, 3 sizes</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">6 tokens exported</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">CSS vars generated</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">v2.1.0 stable</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">9 stories live</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>5/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:100%;background:var(--green)"></div></div></div>
+    </div>
+    <div class="pipeline-tabs" style="margin-top:18px">
+      <div class="ptab active" onclick="switchTab(this,'btn-figma')"><span class="ptab-dot" style="background:var(--figma)"></span>Figma</div>
+      <div class="ptab" onclick="switchTab(this,'btn-token')"><span class="ptab-dot" style="background:var(--token)"></span>Token Studio</div>
+      <div class="ptab" onclick="switchTab(this,'btn-stdict')"><span class="ptab-dot" style="background:var(--stdict)"></span>Style Dictionary</div>
+      <div class="ptab" onclick="switchTab(this,'btn-angular')"><span class="ptab-dot" style="background:var(--angular)"></span>Angular</div>
+      <div class="ptab" onclick="switchTab(this,'btn-storybook')"><span class="ptab-dot" style="background:var(--storybook)"></span>Storybook</div>
+    </div>
+    <!-- Figma -->
+    <div class="pipeline-panel active" id="btn-figma">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready</strong> — Published in Figma library under <em>Components / Button</em>. All variants use token-referenced values.</div></div>
+      <div class="comp-preview">
+        <div class="preview-row"><span class="preview-label">Variants</span>
+          <span class="prev-btn prev-btn-primary">Primary</span>
+          <span class="prev-btn prev-btn-secondary">Secondary</span>
+          <span class="prev-btn prev-btn-destructive">Destructive</span>
+          <span class="prev-btn prev-btn-ghost">Ghost</span>
+        </div>
+        <div class="preview-row"><span class="preview-label">Sizes</span>
+          <span class="prev-btn prev-btn-primary prev-btn-sm">Small</span>
+          <span class="prev-btn prev-btn-primary">Medium</span>
+          <span class="prev-btn prev-btn-primary prev-btn-lg">Large</span>
+        </div>
+        <div class="preview-row"><span class="preview-label">States</span>
+          <span class="prev-btn prev-btn-primary prev-btn-disabled">Disabled</span>
+          <span class="prev-btn prev-btn-primary prev-btn-loading">Loading</span>
+          <span class="prev-btn prev-btn-secondary" style="opacity:.7;transform:scale(.98)">Active</span>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Figma path</div><div class="info-card-val" style="font-family:var(--mono);font-size:.78rem">Components / Button</div></div>
+        <div class="info-card"><div class="info-card-label">@Input names = Figma properties</div><div class="info-card-val" style="font-family:var(--mono);font-size:.78rem">variant · size · disabled · loading</div></div>
+      </div>
+      <div class="tag-row" style="margin-top:14px"><span class="tag">color/primary/900</span><span class="tag">color/danger/600</span><span class="tag">space/2</span><span class="tag">space/4</span><span class="tag">radius/md</span><span class="tag">typography/base</span><span class="tag">font-weight/medium</span></div>
+    </div>
+    <!-- Token Studio -->
+    <div class="pipeline-panel" id="btn-token">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready</strong> — All button tokens in <code style="font-family:var(--mono);font-size:.82em">tokens/tokens.json</code>. Zero pending changes.</div></div>
+      <div class="ps-title">Token values — Figma Variable → CSS output</div>
+      <table class="token-table" style="background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r10);overflow:hidden">
+        <thead><tr><th>Figma Variable</th><th>CSS Property</th><th>Value</th><th>Match</th></tr></thead>
+        <tbody>
+          <tr><td>color/primary/900</td><td>--color-primary-900</td><td><span class="swatch-dot" style="background:#e8ff5a"></span>#e8ff5a</td><td><span class="match-y">✓</span></td></tr>
+          <tr><td>color/danger/600</td><td>--color-danger-600</td><td><span class="swatch-dot" style="background:#dd4040"></span>#dd4040</td><td><span class="match-y">✓</span></td></tr>
+          <tr><td>space/2</td><td>--space-2</td><td>8px</td><td><span class="match-y">✓</span></td></tr>
+          <tr><td>space/4</td><td>--space-4</td><td>16px</td><td><span class="match-y">✓</span></td></tr>
+          <tr><td>radius/md</td><td>--radius-md</td><td>8px</td><td><span class="match-y">✓</span></td></tr>
+          <tr><td>font-weight/medium</td><td>--font-weight-medium</td><td>600</td><td><span class="match-y">✓</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Style Dict -->
+    <div class="pipeline-panel" id="btn-stdict">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready</strong> — CSS custom properties generated and published via CI.</div></div>
+      <div class="code-wrap">
+        <div class="code-bar"><span class="code-file">dist/tokens/variables.css (auto-generated)</span><div class="code-bar-r"><span class="lang-badge l-css">CSS</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+        <pre><code><span class="cm">/* Auto-generated — do not edit manually */</span>
+<span class="cm">/* Source: tokens/tokens.json → Style Dictionary build */</span>
+<span class="sl">:root</span> {
+  <span class="vr">--color-primary-900</span>: <span class="str">#e8ff5a</span>;  <span class="cm">/* color/primary/900 */</span>
+  <span class="vr">--color-primary-50</span>:  <span class="str">#f9ffe0</span>;  <span class="cm">/* color/primary/50  */</span>
+  <span class="vr">--color-danger-600</span>:  <span class="str">#dd4040</span>;  <span class="cm">/* color/danger/600  */</span>
+  <span class="vr">--space-2</span>: <span class="nm">8px</span>;
+  <span class="vr">--space-4</span>: <span class="nm">16px</span>;
+  <span class="vr">--radius-md</span>: <span class="nm">8px</span>;
+  <span class="vr">--font-weight-medium</span>: <span class="nm">600</span>;
+  <span class="vr">--text-base</span>: <span class="nm">1rem</span>;
+}</code></pre>
+      </div>
+    </div>
+    <!-- Angular -->
+    <div class="pipeline-panel" id="btn-angular">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready — v2.1.0</strong> · stable · published to npm as <code style="font-family:var(--mono);font-size:.82em">@ds/angular</code></div></div>
+      <div class="how-to-tabs">
+        <span class="ht-tab on" onclick="switchHowTo(this,'btn-import')">Import component</span>
+        <span class="ht-tab" onclick="switchHowTo(this,'btn-class')">Class names only</span>
+      </div>
+      <div class="ht-panel show" id="btn-import">
+        <div class="code-wrap">
+          <div class="code-bar"><span class="code-file">your.component.ts</span><div class="code-bar-r"><span class="lang-badge l-ts">TypeScript</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+          <pre><code><span class="kw">import</span> { DsButtonComponent } <span class="kw">from</span> <span class="str">'@ds/angular'</span>;
+
+<span class="dc">@Component</span>({
+  standalone: <span class="kw">true</span>,
+  imports: [DsButtonComponent],
+  template: <span class="str">`
+    &lt;ds-button variant="primary" size="md"
+      [loading]="isLoading" (click)="onSave()"&gt;
+      Save changes
+    &lt;/ds-button&gt;
+
+    &lt;ds-button variant="secondary" size="sm"&gt;Cancel&lt;/ds-button&gt;
+    &lt;ds-button variant="destructive" [disabled]="!canDelete"&gt;Delete&lt;/ds-button&gt;
+    &lt;ds-button variant="ghost"&gt;Learn more&lt;/ds-button&gt;
+  `</span>,
+}) <span class="kw">export class</span> <span class="ty">YourComponent</span> {
+  isLoading = <span class="kw">false</span>;
+  canDelete = <span class="kw">true</span>;
+}</code></pre>
+        </div>
+      </div>
+      <div class="ht-panel" id="btn-class">
+        <div class="code-wrap">
+          <div class="code-bar"><span class="code-file">template.html — class-only approach</span><div class="code-bar-r"><span class="lang-badge l-html">HTML</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+          <pre><code>&lt;<span class="at">button</span> <span class="pr">class</span>=<span class="str">"ds-btn ds-btn--primary"</span>&gt;Primary&lt;/button&gt;
+&lt;<span class="at">button</span> <span class="pr">class</span>=<span class="str">"ds-btn ds-btn--secondary ds-btn--sm"</span>&gt;Small&lt;/button&gt;
+&lt;<span class="at">button</span> <span class="pr">class</span>=<span class="str">"ds-btn ds-btn--destructive"</span> <span class="pr">disabled</span>&gt;Delete&lt;/button&gt;
+<span class="cm">&lt;!-- All spacing + colour from CSS vars —  --&gt;
+&lt;!-- var(--space-2), var(--color-primary-900), var(--radius-md) --&gt;</span></code></pre>
+        </div>
+      </div>
+      <div style="margin-top:14px">
+        <button class="toggle-src-btn" onclick="toggleSrc(this,'btn-src')">Show full component source</button>
+        <div id="btn-src" style="display:none">
+          <div class="code-wrap">
+            <div class="code-bar"><span class="code-file">src/lib/button/ds-button.component.ts</span><div class="code-bar-r"><span class="lang-badge l-ts">TypeScript</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+            <pre><code><span class="dc">@Component</span>({
+  selector: <span class="str">'ds-button'</span>, standalone: <span class="kw">true</span>,
+  template: <span class="str">`&lt;button [class]="classes"
+    [disabled]="disabled||loading"
+    [attr.aria-busy]="loading||null"&gt;
+    &lt;span *ngIf="loading" class="ds-spinner"&gt;&lt;/span&gt;
+    &lt;ng-content/&gt;
+  &lt;/button&gt;`</span>,
+  styles: [<span class="str">`
+  button {
+    display:inline-flex; align-items:center; gap:var(--space-2);
+    font-weight:var(--font-weight-medium);
+    border:none; cursor:pointer;
+    border-radius:var(--radius-md);
+    transition:opacity .15s, transform .1s;
+    font-family:var(--font-display);
+  }
+  button:hover { opacity:.85; }
+  button:active { transform:scale(.98); }
+  .ds-btn--primary {
+    background:var(--color-primary-900); color:var(--bg);
+    padding:var(--space-2) var(--space-4);
+  }
+  .ds-btn--secondary {
+    background:transparent; color:var(--ink);
+    border:1.5px solid var(--border-strong);
+    padding:var(--space-2) var(--space-4);
+  }
+  .ds-btn--destructive {
+    background:var(--color-danger-600); color:#fff;
+    padding:var(--space-2) var(--space-4);
+  }
+  .ds-btn--ghost {
+    background:transparent; color:var(--ink-70);
+    padding:var(--space-2) var(--space-4);
+  }
+  .ds-btn--ghost:hover { background:var(--color-primary-50); }
+  .ds-btn--sm { font-size:var(--text-sm); padding:var(--space-1) var(--space-3); }
+  .ds-btn--lg { font-size:var(--text-lg); padding:var(--space-3) var(--space-6); }
+  button[disabled] { opacity:.38; cursor:not-allowed; pointer-events:none; }
+  `</span>]
+})
+<span class="kw">export class</span> <span class="ty">DsButtonComponent</span> {
+  <span class="dc">@Input</span>() variant: <span class="str">'primary'</span>|<span class="str">'secondary'</span>|<span class="str">'destructive'</span>|<span class="str">'ghost'</span> = <span class="str">'primary'</span>;
+  <span class="dc">@Input</span>() size: <span class="str">'sm'</span>|<span class="str">'md'</span>|<span class="str">'lg'</span> = <span class="str">'md'</span>;
+  <span class="dc">@Input</span>() disabled = <span class="kw">false</span>;
+  <span class="dc">@Input</span>() loading = <span class="kw">false</span>;
+  <span class="kw">get</span> <span class="fn">classes</span>() {
+    <span class="kw">return</span> <span class="str">`ds-btn ds-btn--${this.variant} ds-btn--${this.size}`</span>;
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Storybook -->
+    <div class="pipeline-panel" id="btn-storybook">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready</strong> — All stories live at <code style="font-family:var(--mono);font-size:.82em">Components / Button</code> matching Figma path.</div></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px">
+        <span class="tag">Primary</span><span class="tag">Secondary</span><span class="tag">Destructive</span><span class="tag">Ghost</span><span class="tag">Small</span><span class="tag">Large</span><span class="tag">Loading</span><span class="tag">Disabled</span><span class="tag">WithIcon</span>
+      </div>
+      <div class="usage-step"><span class="usage-step-num">1</span><div class="usage-step-body">Open Storybook → <code>Components / Button</code></div></div>
+      <div class="usage-step"><span class="usage-step-num">2</span><div class="usage-step-body">Use Controls panel to toggle <code>variant</code>, <code>size</code>, <code>loading</code>, <code>disabled</code></div></div>
+      <div class="usage-step"><span class="usage-step-num">3</span><div class="usage-step-body">Copy generated snippet from Docs tab — uses <code>&lt;ds-button&gt;</code> with exact prop names</div></div>
+    </div>
+    <div class="comment-section">
+      <div class="cs-header"><span class="cs-title">Comments &amp; change requests</span><span class="cs-count">3 comments</span></div>
+      <div class="comment-list">
+        <div class="comment">
+          <div class="comment-top"><div class="comment-avatar" style="background:var(--figma-dim);color:var(--figma)">TM</div><span class="comment-author">Thabo M.</span><span class="comment-time">2d ago</span><span class="comment-type ct-request">Change request</span><span style="font-size:.7rem;color:var(--ink-45)">· Angular</span></div>
+          <div class="comment-text"><span class="comment-code">ds-btn--ghost</span> hover background missing — Figma shows <span class="comment-code">color/primary/50</span>.</div>
+          <div class="comment-footer"><span class="comment-reaction">👍 2</span><span class="comment-reply">Reply</span></div>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="comment-avatar" style="background:var(--green-dim);color:var(--green)">LM</div><span class="comment-author">Lulamile M.</span><span class="comment-time">1d ago</span><span class="comment-type ct-approve">Approved</span><span style="font-size:.7rem;color:var(--ink-45)">· Angular</span></div>
+          <div class="comment-text">Fixed in v2.1.0 — ghost hover now uses <span class="comment-code">var(--color-primary-50)</span>. Storybook updated.</div>
+          <div class="comment-footer"><span class="comment-reaction">✓ 1</span><span class="comment-reply">Reply</span></div>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="comment-avatar" style="background:var(--blue-dim);color:var(--blue)">SR</div><span class="comment-author">Sipho R.</span><span class="comment-time">5h ago</span><span class="comment-type ct-question">Question</span><span style="font-size:.7rem;color:var(--ink-45)">· Figma</span></div>
+          <div class="comment-text">Should we add a full-width variant? Some onboarding flows need <span class="comment-code">width:100%</span>.</div>
+          <div class="comment-footer"><span class="comment-reaction">💬 3</span><span class="comment-reply">Reply</span></div>
+        </div>
+      </div>
+      <div class="comment-input-wrap">
+        <div class="comment-input-avatar">LM</div>
+        <div class="comment-input-right">
+          <textarea class="comment-textarea" rows="2" placeholder="Add a comment, change request, or question…"></textarea>
+          <div class="comment-input-footer">
+            <div class="cr-type-row"><span class="cr-type selected" onclick="selectType(this)">Comment</span><span class="cr-type" onclick="selectType(this)">Change request</span><span class="cr-type" onclick="selectType(this)">Question</span></div>
+            <button class="submit-comment">Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     02 — INPUT FIELD
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-field" data-status="ready">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--figma-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="8" rx="2.5" stroke="var(--figma)" stroke-width="1.5"/><path d="M5.5 10h3" stroke="var(--figma)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div><div class="comp-card-name">Input Field</div><div class="comp-card-tag">&lt;ds-field&gt; · .ds-input · Reactive Forms compatible</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip ready"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill all">5/5 ready</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">4 states designed</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">All tokens exported</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">variables.css updated</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">v2.0.3 stable</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">6 stories live</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>5/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:100%;background:var(--green)"></div></div></div>
+    </div>
+    <div class="pipeline-tabs" style="margin-top:18px">
+      <div class="ptab active" onclick="switchTab(this,'fi-figma')"><span class="ptab-dot" style="background:var(--figma)"></span>Figma</div>
+      <div class="ptab" onclick="switchTab(this,'fi-angular')"><span class="ptab-dot" style="background:var(--angular)"></span>Angular</div>
+      <div class="ptab" onclick="switchTab(this,'fi-stdict')"><span class="ptab-dot" style="background:var(--stdict)"></span>Style Dictionary</div>
+    </div>
+    <div class="pipeline-panel active" id="fi-figma">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready</strong> — 4 states: Default, Focused, Error, Disabled. All paddings use token references.</div></div>
+      <div class="comp-preview">
+        <div class="preview-row"><span class="preview-label">Default</span>
+          <div class="prev-input"><div class="prev-input-label">Email address</div><div class="prev-input-field prev-input-default">you@example.com</div><div class="prev-input-hint">We'll never share your email</div></div>
+        </div>
+        <div class="preview-row"><span class="preview-label">Focused</span>
+          <div class="prev-input"><div class="prev-input-label">Password</div><div class="prev-input-field prev-input-focus">••••••••</div></div>
+        </div>
+        <div class="preview-row"><span class="preview-label">Error</span>
+          <div class="prev-input"><div class="prev-input-label">Username</div><div class="prev-input-field prev-input-error">taken_name</div><div class="prev-input-error-msg">Username already taken</div></div>
+        </div>
+        <div class="preview-row"><span class="preview-label">Disabled</span>
+          <div class="prev-input"><div class="prev-input-label">Account ID</div><div class="prev-input-field prev-input-disabled">ACC-00482</div></div>
+        </div>
+      </div>
+      <div class="tag-row"><span class="tag">color/primary/900</span><span class="tag">color/danger/600</span><span class="tag">space/2</span><span class="tag">space/3</span><span class="tag">radius/md</span></div>
+    </div>
+    <div class="pipeline-panel" id="fi-angular">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready — v2.0.3</strong> · Reactive Forms compatible · ARIA baked in · all states handled.</div></div>
+      <div class="how-to-tabs">
+        <span class="ht-tab on" onclick="switchHowTo(this,'fi-imp')">Reactive Form</span>
+        <span class="ht-tab" onclick="switchHowTo(this,'fi-cls')">Class names</span>
+      </div>
+      <div class="ht-panel show" id="fi-imp">
+        <div class="code-wrap">
+          <div class="code-bar"><span class="code-file">reactive-form usage</span><div class="code-bar-r"><span class="lang-badge l-html">HTML</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+          <pre><code><span class="cm">&lt;!-- @Input names match Figma property names exactly --&gt;</span>
+&lt;<span class="at">ds-field</span>
+  <span class="pr">label</span>=<span class="str">"Email address"</span>
+  <span class="pr">type</span>=<span class="str">"email"</span>
+  <span class="pr">placeholder</span>=<span class="str">"you@example.com"</span>
+  [<span class="pr">required</span>]=<span class="str">"true"</span>
+  [<span class="pr">formControl</span>]=<span class="str">"emailCtrl"</span>
+  <span class="pr">hint</span>=<span class="str">"We never share your email"</span>
+  [<span class="pr">errorMessages</span>]=<span class="str">"{ required: 'Required', email: 'Invalid email' }"</span>
+/&gt;</code></pre>
+        </div>
+      </div>
+      <div class="ht-panel" id="fi-cls">
+        <div class="code-wrap">
+          <div class="code-bar"><span class="code-file">class-only approach</span><div class="code-bar-r"><span class="lang-badge l-html">HTML</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+          <pre><code>&lt;<span class="at">input</span> <span class="pr">class</span>=<span class="str">"ds-input"</span> <span class="pr">type</span>=<span class="str">"email"</span> <span class="pr">placeholder</span>=<span class="str">"you@example.com"</span>/&gt;
+&lt;<span class="at">input</span> <span class="pr">class</span>=<span class="str">"ds-input ds-input--error"</span> <span class="pr">type</span>=<span class="str">"text"</span>/&gt;
+&lt;<span class="at">input</span> <span class="pr">class</span>=<span class="str">"ds-input"</span> <span class="pr">type</span>=<span class="str">"text"</span> <span class="pr">disabled</span>/&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline-panel" id="fi-stdict">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready</strong> — All field tokens in variables.css</div></div>
+      <div class="code-wrap">
+        <div class="code-bar"><span class="code-file">_ds-field.scss (consumes generated vars)</span><div class="code-bar-r"><span class="lang-badge l-scss">SCSS</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+        <pre><code><span class="sl">.ds-input</span> {
+  padding: var(<span class="vr">--space-2</span>) var(<span class="vr">--space-3</span>);    <span class="cm">/* Figma: space/2 space/3 */</span>
+  border-radius: var(<span class="vr">--radius-md</span>);           <span class="cm">/* Figma: radius/md       */</span>
+  font-size: var(<span class="vr">--text-base</span>);              <span class="cm">/* Figma: typography/base */</span>
+  border: <span class="nm">1px</span> solid var(<span class="vr">--border-mid</span>);
+  background: var(<span class="vr">--surface-2</span>); color: var(<span class="vr">--ink</span>);
+  transition: border-color .<span class="nm">15s</span>, box-shadow .<span class="nm">15s</span>;
+
+  <span class="sl">&amp;:focus</span> {
+    outline: none;
+    border-color: var(<span class="vr">--color-primary-900</span>);
+    box-shadow: <span class="nm">0 0 0 3px</span> var(<span class="vr">--accent-dim</span>);
+  }
+  <span class="sl">&amp;.ds-input--error</span> { border-color: var(<span class="vr">--color-danger-600</span>); }
+  <span class="sl">&amp;:disabled</span> { opacity: .<span class="nm">4</span>; cursor: not-allowed; }
+}</code></pre>
+      </div>
+    </div>
+    <div class="comment-section">
+      <div class="cs-header"><span class="cs-title">Comments &amp; change requests</span><span class="cs-count">1 comment</span></div>
+      <div class="comment-list">
+        <div class="comment">
+          <div class="comment-top"><div class="comment-avatar" style="background:var(--amber-dim);color:var(--amber)">NK</div><span class="comment-author">Nandi K.</span><span class="comment-time">3d ago</span><span class="comment-type ct-review">In review</span><span style="font-size:.7rem;color:var(--ink-45)">· Figma</span></div>
+          <div class="comment-text">Textarea variant isn't in Figma yet. Using <span class="comment-code">.ds-input</span> on a <span class="comment-code">&lt;textarea&gt;</span> but resize handle isn't spec'd. Can we add a <span class="comment-code">multiline</span> property?</div>
+          <div class="comment-footer"><span class="comment-reaction">👍 3</span><span class="comment-reply">Reply</span></div>
+        </div>
+      </div>
+      <div class="comment-input-wrap">
+        <div class="comment-input-avatar">LM</div>
+        <div class="comment-input-right">
+          <textarea class="comment-textarea" rows="2" placeholder="Add a comment, change request, or question…"></textarea>
+          <div class="comment-input-footer"><div class="cr-type-row"><span class="cr-type selected" onclick="selectType(this)">Comment</span><span class="cr-type" onclick="selectType(this)">Change request</span><span class="cr-type" onclick="selectType(this)">Question</span></div><button class="submit-comment">Post</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     03 — SELECT
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-select" data-status="ready">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--token-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="10" rx="2.5" stroke="var(--token)" stroke-width="1.5"/><path d="M13 10l-3 3-3-3" stroke="var(--token)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div><div class="comp-card-name">Select / Dropdown</div><div class="comp-card-tag">&lt;ds-select&gt; · .ds-select · CVA compatible</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip ready"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill all">5/5 ready</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">Closed + open states</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">Tokens exported</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">CSS vars generated</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">v1.3.0 stable</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">4 stories live</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>5/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:100%;background:var(--green)"></div></div></div>
+    </div>
+    <div class="pipeline-tabs" style="margin-top:18px">
+      <div class="ptab active" onclick="switchTab(this,'sel-figma')"><span class="ptab-dot" style="background:var(--figma)"></span>Figma</div>
+      <div class="ptab" onclick="switchTab(this,'sel-angular')"><span class="ptab-dot" style="background:var(--angular)"></span>Angular</div>
+    </div>
+    <div class="pipeline-panel active" id="sel-figma">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready</strong> — Closed + open states, placeholder, disabled, error, and option hover all designed.</div></div>
+      <div class="comp-preview">
+        <div class="preview-row"><span class="preview-label">Default</span>
+          <select class="prev-select"><option>Select a country…</option></select>
+        </div>
+        <div class="preview-row"><span class="preview-label">Selected</span>
+          <select class="prev-select"><option selected>South Africa</option></select>
+        </div>
+        <div class="preview-row"><span class="preview-label">Disabled</span>
+          <select class="prev-select" disabled style="opacity:.38;cursor:not-allowed"><option>Option locked</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline-panel" id="sel-angular">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready — v1.3.0</strong> · Implements <code style="font-family:var(--mono);font-size:.82em">ControlValueAccessor</code> for Reactive Forms.</div></div>
+      <div class="code-wrap">
+        <div class="code-bar"><span class="code-file">usage.html</span><div class="code-bar-r"><span class="lang-badge l-html">HTML</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+        <pre><code>&lt;<span class="at">ds-select</span>
+  <span class="pr">label</span>=<span class="str">"Country"</span>
+  <span class="pr">placeholder</span>=<span class="str">"Select a country…"</span>
+  [<span class="pr">options</span>]=<span class="str">"countryOptions"</span>
+  [<span class="pr">formControl</span>]=<span class="str">"countryCtrl"</span>
+/&gt;
+
+<span class="cm">&lt;!-- options: Array&lt;{ label: string; value: string }&gt; --&gt;</span></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     04 — BADGE
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-badge" data-status="partial">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--amber-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="6" rx="3" stroke="var(--amber)" stroke-width="1.5"/></svg>
+      </div>
+      <div><div class="comp-card-name">Badge / Chip</div><div class="comp-card-tag">&lt;ds-badge&gt; · .ds-badge · Status + count variants</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip ready"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip review"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill partial">4/5 ready</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">5 status variants</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">Tokens exported</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">CSS vars generated</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--amber)">⚠ In review</div><div class="og-sub">v0.9.0-beta</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Backlog sprint 8</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>4/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:80%;background:var(--amber)"></div></div></div>
+    </div>
+    <div style="padding:14px 24px 0">
+      <div class="status-banner review"><span class="status-icon">⚠</span><div><strong>Mostly ready</strong> — Angular component in beta review. Storybook not started. Safe to use with class names; avoid <code style="font-family:var(--mono);font-size:.82em">&lt;ds-badge&gt;</code> in production until v1.0 ships.</div></div>
+    </div>
+    <div class="pipeline-tabs" style="margin-top:4px">
+      <div class="ptab active" onclick="switchTab(this,'badge-figma')"><span class="ptab-dot" style="background:var(--figma)"></span>Figma</div>
+      <div class="ptab" onclick="switchTab(this,'badge-angular')"><span class="ptab-dot" style="background:var(--angular)"></span>Angular</div>
+    </div>
+    <div class="pipeline-panel active" id="badge-figma">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready</strong> — 5 status variants, dot indicator, and count variants all designed.</div></div>
+      <div class="comp-preview">
+        <div class="preview-row"><span class="preview-label">Status</span>
+          <span class="prev-badge prev-badge-success"><span class="prev-badge-dot"></span>Active</span>
+          <span class="prev-badge prev-badge-warning"><span class="prev-badge-dot"></span>Pending</span>
+          <span class="prev-badge prev-badge-danger"><span class="prev-badge-dot"></span>Error</span>
+          <span class="prev-badge prev-badge-info"><span class="prev-badge-dot"></span>Info</span>
+          <span class="prev-badge prev-badge-neutral">Draft</span>
+        </div>
+        <div class="preview-row"><span class="preview-label">Count</span>
+          <span class="prev-badge prev-badge-danger" style="border-radius:50%;width:24px;height:24px;justify-content:center;padding:0">4</span>
+          <span class="prev-badge prev-badge-neutral">New</span>
+          <span class="prev-badge prev-badge-success">v1.2.0</span>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline-panel" id="badge-angular">
+      <div class="status-banner review"><span class="status-icon">⚠</span><div><strong>Beta — v0.9.0</strong> — API may change before v1.0. Use with caution in production.</div></div>
+      <div class="code-wrap">
+        <div class="code-bar"><span class="code-file">usage — class names (stable)</span><div class="code-bar-r"><span class="lang-badge l-html">HTML</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+        <pre><code><span class="cm">&lt;!-- Stable: class-name approach using generated CSS vars --&gt;</span>
+&lt;<span class="at">span</span> <span class="pr">class</span>=<span class="str">"ds-badge ds-badge--success"</span>&gt;Active&lt;/span&gt;
+&lt;<span class="at">span</span> <span class="pr">class</span>=<span class="str">"ds-badge ds-badge--warning"</span>&gt;Pending&lt;/span&gt;
+&lt;<span class="at">span</span> <span class="pr">class</span>=<span class="str">"ds-badge ds-badge--danger"</span>&gt;Error&lt;/span&gt;
+&lt;<span class="at">span</span> <span class="pr">class</span>=<span class="str">"ds-badge ds-badge--info"</span>&gt;Info&lt;/span&gt;
+&lt;<span class="at">span</span> <span class="pr">class</span>=<span class="str">"ds-badge"</span>&gt;Neutral&lt;/span&gt;</code></pre>
+      </div>
+    </div>
+    <div class="comment-section">
+      <div class="cs-header"><span class="cs-title">Comments &amp; change requests</span><span class="cs-count">1 comment</span></div>
+      <div class="comment-list">
+        <div class="comment">
+          <div class="comment-top"><div class="comment-avatar" style="background:var(--figma-dim);color:var(--figma)">JD</div><span class="comment-author">Jana D.</span><span class="comment-time">1d ago</span><span class="comment-type ct-request">Change request</span><span style="font-size:.7rem;color:var(--ink-45)">· Style Dictionary</span></div>
+          <div class="comment-text">Warning variant uses <span class="comment-code">--color-warning-500</span> in beta but Figma shows <span class="comment-code">color/warning/600</span>. Needs correction to stay consistent.</div>
+          <div class="comment-footer"><span class="comment-reaction">👍 4</span><span class="comment-reply">Reply</span></div>
+        </div>
+      </div>
+      <div class="comment-input-wrap">
+        <div class="comment-input-avatar">LM</div>
+        <div class="comment-input-right">
+          <textarea class="comment-textarea" rows="2" placeholder="Add a comment, change request, or question…"></textarea>
+          <div class="comment-input-footer"><div class="cr-type-row"><span class="cr-type selected" onclick="selectType(this)">Comment</span><span class="cr-type" onclick="selectType(this)">Change request</span><span class="cr-type" onclick="selectType(this)">Question</span></div><button class="submit-comment">Post</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     05 — CARD
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-card" data-status="partial">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--stdict-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="3" stroke="var(--stdict)" stroke-width="1.5"/><path d="M5 8h10M5 11.5h6" stroke="var(--stdict)" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div><div class="comp-card-name">Card</div><div class="comp-card-tag">&lt;ds-card&gt; · .ds-card · Default / Elevated / Outlined</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip ready"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip review"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill partial">4/5 ready</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">3 variants designed</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">Tokens exported</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">CSS vars ready</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">v1.2.0 stable</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--amber)">⚠ In review</div><div class="og-sub">PR #51 open</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>4/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:80%;background:var(--amber)"></div></div></div>
+    </div>
+    <div class="pipeline-tabs" style="margin-top:18px">
+      <div class="ptab active" onclick="switchTab(this,'card-figma')"><span class="ptab-dot" style="background:var(--figma)"></span>Figma</div>
+      <div class="ptab" onclick="switchTab(this,'card-angular')"><span class="ptab-dot" style="background:var(--angular)"></span>Angular</div>
+    </div>
+    <div class="pipeline-panel active" id="card-figma">
+      <div class="status-banner review"><span class="status-icon">⚠</span><div><strong>Mostly ready</strong> — Safe to use. Storybook PR #51 in review, expected to merge this sprint.</div></div>
+      <div class="comp-preview">
+        <div class="preview-row" style="align-items:flex-start">
+          <div class="prev-card">
+            <div class="prev-card-title">Default Card</div>
+            <div class="prev-card-body">Used for content grouping with a subtle surface treatment.</div>
+            <div class="prev-card-footer">
+              <span class="prev-btn prev-btn-primary prev-btn-sm">View</span>
+              <span class="prev-btn prev-btn-ghost prev-btn-sm">Dismiss</span>
+            </div>
+          </div>
+          <div class="prev-card-elevated">
+            <div class="prev-card-title">Elevated Card</div>
+            <div class="prev-card-body">Used for featured content that needs visual hierarchy.</div>
+            <div class="prev-card-footer">
+              <span class="prev-btn prev-btn-primary prev-btn-sm">Open</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline-panel" id="card-angular">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready — v1.2.0</strong> · <code style="font-family:var(--mono);font-size:.82em">variant</code> input accepts <code style="font-family:var(--mono);font-size:.82em">'default' | 'elevated' | 'outlined'</code></div></div>
+      <div class="code-wrap">
+        <div class="code-bar"><span class="code-file">usage.html</span><div class="code-bar-r"><span class="lang-badge l-html">HTML</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div></div>
+        <pre><code>&lt;<span class="at">ds-card</span> <span class="pr">variant</span>=<span class="str">"elevated"</span>&gt;
+  &lt;<span class="at">ds-card-header</span>&gt;Card title&lt;/ds-card-header&gt;
+  &lt;<span class="at">ds-card-body</span>&gt;Content goes here&lt;/ds-card-body&gt;
+  &lt;<span class="at">ds-card-footer</span>&gt;
+    &lt;<span class="at">ds-button</span> <span class="pr">variant</span>=<span class="str">"primary"</span> <span class="pr">size</span>=<span class="str">"sm"</span>&gt;Action&lt;/ds-button&gt;
+  &lt;/ds-card-footer&gt;
+&lt;/ds-card&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     06 — MODAL
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-modal" data-status="partial">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--figma-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="12" rx="3" stroke="var(--figma)" stroke-width="1.5"/><path d="M3 8h14" stroke="var(--figma)" stroke-width="1.3"/><path d="M7 13h6" stroke="var(--figma)" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div><div class="comp-card-name">Modal / Dialog</div><div class="comp-card-tag">&lt;ds-modal&gt; · Angular CDK overlay</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip ready"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip review"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill partial">3/5 ready</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">3 sizes, overlay</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">Tokens exported</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--amber)">⚠ In review</div><div class="og-sub">PR #58 open</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Blocked by Style Dict</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Blocked upstream</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>3/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:60%;background:var(--amber)"></div></div></div>
+    </div>
+    <div class="pipeline-tabs" style="margin-top:18px">
+      <div class="ptab active" onclick="switchTab(this,'modal-figma')"><span class="ptab-dot" style="background:var(--figma)"></span>Figma</div>
+      <div class="ptab" onclick="switchTab(this,'modal-plan')"><span class="ptab-dot" style="background:var(--angular)"></span>Angular plan</div>
+    </div>
+    <div class="pipeline-panel active" id="modal-figma">
+      <div class="status-banner ready"><span class="status-icon">✓</span><div><strong>Ready</strong> — Designed with sm/md/lg sizes, backdrop overlay, focus trap spec, and keyboard behaviour annotations.</div></div>
+      <div class="comp-preview">
+        <div class="prev-modal-overlay">
+          <div class="prev-modal">
+            <div class="prev-modal-header">
+              <div class="prev-modal-title">Confirm action</div>
+              <div class="prev-modal-close">✕</div>
+            </div>
+            <div class="prev-modal-body">This will permanently delete the project and all its data. This action cannot be undone.</div>
+            <div class="prev-modal-footer">
+              <span class="prev-btn prev-btn-ghost prev-btn-sm">Cancel</span>
+              <span class="prev-btn prev-btn-destructive prev-btn-sm">Delete project</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline-panel" id="modal-plan">
+      <div class="status-banner review"><span class="status-icon">⚠</span><div><strong>Planned</strong> — Will use Angular CDK <code style="font-family:var(--mono);font-size:.82em">Overlay</code> + <code style="font-family:var(--mono);font-size:.82em">FocusTrap</code>. Blocked until Style Dictionary PR #58 merges. Estimated: Sprint 9.</div></div>
+      <div class="code-wrap">
+        <div class="code-bar"><span class="code-file">planned API (subject to change)</span><div class="code-bar-r"><span class="lang-badge l-ts">TypeScript</span></div></div>
+        <pre><code><span class="cm">// Planned service-based API — do not use yet</span>
+<span class="kw">const</span> ref = <span class="kw">this</span>.modalService.<span class="fn">open</span>(ConfirmComponent, {
+  size: <span class="str">'md'</span>,
+  data: { message: <span class="str">'Delete this project?'</span> }
+});
+ref.afterClosed().<span class="fn">subscribe</span>(result => { <span class="cm">/* handle result */</span> });</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     07 — ALERT / TOAST
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-alert" data-status="partial">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--amber-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3l8 14H2L10 3z" stroke="var(--amber)" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 8.5v4" stroke="var(--amber)" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="15" r=".75" fill="var(--amber)"/></svg>
+      </div>
+      <div><div class="comp-card-name">Alert / Toast</div><div class="comp-card-tag">&lt;ds-alert&gt; · &lt;ds-toast&gt; · success/warning/error/info</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip ready"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill partial">3/5 ready</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">4 states designed</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">Tokens exported</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">CSS vars ready</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Sprint 9 planned</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Blocked upstream</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>3/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:60%;background:var(--amber)"></div></div></div>
+    </div>
+    <div class="pipeline-tabs" style="margin-top:18px">
+      <div class="ptab active" onclick="switchTab(this,'alert-figma')"><span class="ptab-dot" style="background:var(--figma)"></span>Figma</div>
+    </div>
+    <div class="pipeline-panel active" id="alert-figma">
+      <div class="status-banner review"><span class="status-icon">⚠</span><div><strong>Partially ready</strong> — Figma, Token Studio, and Style Dictionary complete. Angular component planned for Sprint 9.</div></div>
+      <div class="comp-preview">
+        <div style="display:flex;flex-direction:column;gap:10px;width:100%">
+          <div class="prev-alert prev-alert-success"><span>✓</span><div><strong>Changes saved</strong> Your project settings have been updated.</div></div>
+          <div class="prev-alert prev-alert-warning"><span>⚠</span><div><strong>Account expiring</strong> Your trial ends in 3 days. Upgrade to continue.</div></div>
+          <div class="prev-alert prev-alert-error"><span>✕</span><div><strong>Failed to save</strong> Please check your connection and try again.</div></div>
+          <div class="prev-alert prev-alert-info"><span>ℹ</span><div><strong>Maintenance scheduled</strong> The platform will be offline from 02:00–04:00 SAST.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     08 — CHECKBOX / RADIO
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-checkbox" data-status="partial">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--storybook-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="var(--storybook)" stroke-width="1.5"/><path d="M5 6.5l1.5 1.5 2.5-3" stroke="var(--storybook)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15" cy="7" r="3.5" stroke="var(--storybook)" stroke-width="1.5"/><circle cx="15" cy="7" r="1.5" fill="var(--storybook)"/><path d="M3 14h14M3 17h8" stroke="var(--storybook)" stroke-width="1.3" stroke-linecap="round" opacity=".4"/></svg>
+      </div>
+      <div><div class="comp-card-name">Checkbox / Radio / Toggle</div><div class="comp-card-tag">&lt;ds-checkbox&gt; · &lt;ds-radio&gt; · &lt;ds-toggle&gt;</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip ready"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill partial">2/5 ready</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">All 3 controls designed</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">Tokens exported</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Backlog sprint 9</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Blocked upstream</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Blocked upstream</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>2/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:40%;background:var(--amber)"></div></div></div>
+    </div>
+    <div class="pipeline-tabs" style="margin-top:18px">
+      <div class="ptab active" onclick="switchTab(this,'chk-figma')"><span class="ptab-dot" style="background:var(--figma)"></span>Figma</div>
+    </div>
+    <div class="pipeline-panel active" id="chk-figma">
+      <div class="status-banner review"><span class="status-icon">⚠</span><div><strong>Design only</strong> — Do not use in any codebase. Only Figma and Token Studio stages complete. <strong>Not safe for production.</strong></div></div>
+      <div class="comp-preview">
+        <div class="preview-row"><span class="preview-label">Checkbox</span>
+          <div class="prev-check-group">
+            <div class="prev-check-item"><div class="prev-check-box checked"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#0d0d0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Checked</div>
+            <div class="prev-check-item"><div class="prev-check-box"></div>Unchecked</div>
+            <div class="prev-check-item" style="opacity:.38"><div class="prev-check-box checked"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#0d0d0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Disabled</div>
+          </div>
+        </div>
+        <div class="preview-row"><span class="preview-label">Radio</span>
+          <div class="prev-check-group">
+            <div class="prev-check-item"><div class="prev-radio-box checked"><div class="prev-radio-inner"></div></div>Selected</div>
+            <div class="prev-check-item"><div class="prev-radio-box"></div>Unselected</div>
+          </div>
+        </div>
+        <div class="preview-row"><span class="preview-label">Toggle</span>
+          <div class="prev-check-item"><div class="prev-toggle on"><div class="prev-toggle-thumb"></div></div>On</div>
+          <div class="prev-check-item"><div class="prev-toggle off"><div class="prev-toggle-thumb"></div></div>Off</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     09 — AVATAR
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-avatar" data-status="partial">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--token-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="var(--token)" stroke-width="1.5"/><path d="M3 17c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="var(--token)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div><div class="comp-card-name">Avatar</div><div class="comp-card-tag">&lt;ds-avatar&gt; · &lt;ds-avatar-group&gt; · Image + initials</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip ready"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip ready"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill partial">2/5 ready</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">sm/md/lg + group</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--green)">✓ Ready</div><div class="og-sub">Size tokens exported</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Sprint 9 backlog</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Blocked upstream</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--red)">✕ Not started</div><div class="og-sub">Blocked upstream</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>2/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:40%;background:var(--amber)"></div></div></div>
+    </div>
+    <div class="pipeline-tabs" style="margin-top:18px">
+      <div class="ptab active" onclick="switchTab(this,'av-figma')"><span class="ptab-dot" style="background:var(--figma)"></span>Figma</div>
+    </div>
+    <div class="pipeline-panel active" id="av-figma">
+      <div class="status-banner review"><span class="status-icon">⚠</span><div><strong>Design only</strong> — Do not use in codebase yet.</div></div>
+      <div class="comp-preview">
+        <div class="preview-row"><span class="preview-label">Sizes</span>
+          <div class="prev-avatar" style="background:var(--figma-mid);color:var(--figma);width:28px;height:28px;font-size:.6rem">LM</div>
+          <div class="prev-avatar" style="background:var(--token-mid);color:var(--token)">TM</div>
+          <div class="prev-avatar" style="background:var(--stdict-mid);color:var(--stdict);width:52px;height:52px;font-size:1rem">SR</div>
+        </div>
+        <div class="preview-row"><span class="preview-label">Group</span>
+          <div class="prev-avatar-group">
+            <div class="prev-avatar" style="background:var(--figma-mid);color:var(--figma)">LM</div>
+            <div class="prev-avatar" style="background:var(--token-mid);color:var(--token)">TM</div>
+            <div class="prev-avatar" style="background:var(--stdict-mid);color:var(--stdict)">NK</div>
+            <div class="prev-avatar" style="background:var(--surface-3);color:var(--ink-45);font-size:.7rem">+4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     10 — DATA TABLE
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-table" data-status="missing">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--red-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="2.5" stroke="var(--red)" stroke-width="1.5"/><path d="M2 7h16M8 7v10" stroke="var(--red)" stroke-width="1.3"/></svg>
+      </div>
+      <div><div class="comp-card-name">Data Table</div><div class="comp-card-tag">&lt;ds-table&gt; · .ds-table · Sortable / Paginated</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip missing"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill none">Not started</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px 0">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>0/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:0%;background:var(--red)"></div></div></div>
+      <div class="status-banner missing" style="margin-top:14px"><span class="status-icon">✕</span><div><strong>Not started</strong> — No pipeline stage has been started. <strong>Do not use anything for Data Table</strong> — no tokens, no styles, no component exists yet.</div></div>
+    </div>
+    <div style="padding:14px 24px 0">
+      <div class="ps-title">What will be built</div>
+      <div class="prev-table-wrap" style="margin-bottom:16px">
+        <table class="prev-table">
+          <thead><tr><th>Name</th><th>Status</th><th>Role</th><th>Last active</th></tr></thead>
+          <tbody>
+            <tr><td>Lulamile M.</td><td><span class="prev-badge prev-badge-success" style="font-size:.66rem">Active</span></td><td>Senior Designer</td><td>Just now</td></tr>
+            <tr><td>Thabo M.</td><td><span class="prev-badge prev-badge-success" style="font-size:.66rem">Active</span></td><td>Frontend Dev</td><td>2h ago</td></tr>
+            <tr><td>Nandi K.</td><td><span class="prev-badge prev-badge-warning" style="font-size:.66rem">Away</span></td><td>Product Manager</td><td>1d ago</td></tr>
+            <tr><td>Sipho R.</td><td><span class="prev-badge prev-badge-neutral" style="font-size:.66rem">Inactive</span></td><td>QA Engineer</td><td>3d ago</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tag-row"><span class="tag">Sortable columns</span><span class="tag">Row selection</span><span class="tag">Pagination</span><span class="tag">Column resize</span><span class="tag">Empty state</span><span class="tag">Loading skeleton</span></div>
+    </div>
+    <div class="comment-section">
+      <div class="cs-header"><span class="cs-title">Comments &amp; change requests</span><span class="cs-count">1 comment</span></div>
+      <div class="comment-list">
+        <div class="comment">
+          <div class="comment-top"><div class="comment-avatar" style="background:var(--blue-dim);color:var(--blue)">PW</div><span class="comment-author">Palesa W.</span><span class="comment-time">1w ago</span><span class="comment-type ct-request">Change request</span></div>
+          <div class="comment-text">Reporting dashboard urgently needs a data table. Currently using bespoke <span class="comment-code">&lt;table&gt;</span> with inline styles that matches nothing in the system. Can we prioritise Sprint 8?</div>
+          <div class="comment-footer"><span class="comment-reaction">👍 7</span><span class="comment-reply">Reply</span></div>
+        </div>
+      </div>
+      <div class="comment-input-wrap">
+        <div class="comment-input-avatar">LM</div>
+        <div class="comment-input-right">
+          <textarea class="comment-textarea" rows="2" placeholder="Add a comment, change request, or question…"></textarea>
+          <div class="comment-input-footer"><div class="cr-type-row"><span class="cr-type selected" onclick="selectType(this)">Comment</span><span class="cr-type" onclick="selectType(this)">Change request</span><span class="cr-type" onclick="selectType(this)">Question</span></div><button class="submit-comment">Post</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     11 — TABS
+═══════════════════════════════════════════════════ -->
+<div class="comp-card" id="comp-tabs" data-status="missing">
+  <div class="comp-card-header" onclick="toggleCard(this)">
+    <div class="comp-card-left">
+      <div class="comp-card-icon" style="background:var(--red-dim)">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="2.5" stroke="var(--red)" stroke-width="1.5"/><path d="M2 8h16" stroke="var(--red)" stroke-width="1.3"/><path d="M5 5.5h3M9.5 5.5h3" stroke="var(--red)" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div><div class="comp-card-name">Tabs</div><div class="comp-card-tag">&lt;ds-tabs&gt; · &lt;ds-tab&gt; · Horizontal / Vertical / Pill</div></div>
+    </div>
+    <div class="comp-card-right">
+      <div class="pipeline-status-row">
+        <span class="ps-chip missing"><span class="ps-dot"></span>Figma</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Token Studio</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Style Dict</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Angular</span>
+        <span class="ps-chip missing"><span class="ps-dot"></span>Storybook</span>
+      </div>
+      <span class="status-pill none">Not started</span>
+      <div class="toggle-caret">▼</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div style="padding:20px 24px">
+      <div class="overview-grid">
+        <div class="og-cell"><div class="og-pipe" style="color:var(--figma)">Figma</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--token)">Token Studio</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--stdict)">Style Dict</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--angular)">Angular</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+        <div class="og-cell"><div class="og-pipe" style="color:var(--storybook)">Storybook</div><div class="og-status" style="color:var(--red)">✕ Not started</div></div>
+      </div>
+      <div class="prog-wrap"><div class="prog-label"><span>Pipeline completion</span><span>0/5</span></div><div class="prog-bar"><div class="prog-fill" style="width:0%;background:var(--red)"></div></div></div>
+      <div class="status-banner missing" style="margin-top:14px"><span class="status-icon">✕</span><div><strong>Not started</strong> — Do not use anything for Tabs yet. Planned for Sprint 10.</div></div>
+      <div class="ps-title" style="margin-top:18px">Design target</div>
+      <div class="prev-tabs-wrap">
+        <div class="prev-tabs-bar">
+          <div class="prev-tab active">Overview</div>
+          <div class="prev-tab">Analytics</div>
+          <div class="prev-tab">Settings</div>
+          <div class="prev-tab">Members</div>
+        </div>
+        <div class="prev-tabs-content">Tab panel content area — this is what will be built.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div><!-- /comp-grid -->
+    </div><!-- /content -->
+  </div><!-- /view-tracker -->
+
+  <!-- ════════════════════════
+       TOKEN MAP VIEW
+  ════════════════════════ -->
+  <div id="view-tokens" style="display:none">
+    <div class="page-hero">
+      <div class="hero-eyebrow">Token Map</div>
+      <h1>Figma Variable<br/>→ <em>CSS Custom Property</em></h1>
+      <p class="hero-lead">Every name travels unchanged through the pipeline. Forward-slash separators in Figma become hyphens in CSS. Nothing else changes. One rule, zero exceptions.</p>
+    </div>
+    <div class="content">
+      <div class="code-wrap" style="margin-bottom:20px">
+        <div class="code-bar"><span class="code-file">Naming rule: color/primary/900 → --color-primary-900 (/ becomes -)</span><div class="code-bar-r"><span class="lang-badge l-json">Rule</span></div></div>
+        <pre><code><span class="cm">Figma Variable       Token Studio JSON        Style Dictionary CSS</span>
+color/primary/900 → <span class="str">"color.primary.900"</span> → <span class="vr">--color-primary-900</span>: <span class="nm">#e8ff5a</span>;
+space/4           → <span class="str">"space.4"</span>           → <span class="vr">--space-4</span>: <span class="nm">16px</span>;
+radius/md         → <span class="str">"radius.md"</span>         → <span class="vr">--radius-md</span>: <span class="nm">8px</span>;
+typography/sm     → <span class="str">"typography.sm"</span>     → <span class="vr">--text-sm</span>: <span class="nm">0.875rem</span>;</code></pre>
+      </div>
+      <table class="token-table" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r16);overflow:hidden">
+        <thead><tr><th>Figma Variable</th><th>CSS Custom Property</th><th>Value</th><th>Used by</th></tr></thead>
+        <tbody>
+          <tr><td>color/primary/900</td><td>--color-primary-900</td><td><span class="swatch-dot" style="background:#e8ff5a"></span>#e8ff5a</td><td>Button, Field, Badge, Card, Table</td></tr>
+          <tr><td>color/primary/50</td><td>--color-primary-50</td><td><span class="swatch-dot" style="background:#f9ffe0"></span>#f9ffe0</td><td>Button:ghost hover, Field:focus bg</td></tr>
+          <tr><td>color/danger/600</td><td>--color-danger-600</td><td><span class="swatch-dot" style="background:#dd4040"></span>#dd4040</td><td>Button:destructive, Field:error, Alert:error</td></tr>
+          <tr><td>color/success/600</td><td>--color-success-600</td><td><span class="swatch-dot" style="background:#4ade80"></span>#4ade80</td><td>Badge:success, Alert:success</td></tr>
+          <tr><td>color/warning/600</td><td>--color-warning-600</td><td><span class="swatch-dot" style="background:#fbbf24"></span>#fbbf24</td><td>Badge:warning, Alert:warning</td></tr>
+          <tr><td>color/info/600</td><td>--color-info-600</td><td><span class="swatch-dot" style="background:#60a5fa"></span>#60a5fa</td><td>Badge:info, Alert:info</td></tr>
+          <tr><td>space/1</td><td>--space-1</td><td>4px</td><td>Button:sm, Checkbox gap</td></tr>
+          <tr><td>space/2</td><td>--space-2</td><td>8px</td><td>Button padding-y, Field padding-y</td></tr>
+          <tr><td>space/3</td><td>--space-3</td><td>12px</td><td>Field padding-x, Button:sm padding-x</td></tr>
+          <tr><td>space/4</td><td>--space-4</td><td>16px</td><td>Button padding-x, Card padding</td></tr>
+          <tr><td>space/5</td><td>--space-5</td><td>20px</td><td>Card padding, Modal padding</td></tr>
+          <tr><td>space/6</td><td>--space-6</td><td>24px</td><td>Button:lg padding-x, Modal padding</td></tr>
+          <tr><td>radius/sm</td><td>--radius-sm</td><td>4px</td><td>Badge, Tag, Code snippet</td></tr>
+          <tr><td>radius/md</td><td>--radius-md</td><td>8px</td><td>Button, Field, Checkbox, Select</td></tr>
+          <tr><td>radius/lg</td><td>--radius-lg</td><td>12px</td><td>Card, Modal, Tooltip</td></tr>
+          <tr><td>radius/xl</td><td>--radius-xl</td><td>16px</td><td>Card:featured, Dialog</td></tr>
+          <tr><td>radius/full</td><td>--radius-full</td><td>9999px</td><td>Badge pill, Chip, Avatar, Toggle</td></tr>
+          <tr><td>typography/size/xs</td><td>--text-xs</td><td>0.75rem / 12px</td><td>Label tags, Meta text</td></tr>
+          <tr><td>typography/size/sm</td><td>--text-sm</td><td>0.875rem / 14px</td><td>Label, Hint, Badge text</td></tr>
+          <tr><td>typography/size/base</td><td>--text-base</td><td>1rem / 16px</td><td>Button, Field, Body text</td></tr>
+          <tr><td>typography/size/lg</td><td>--text-lg</td><td>1.125rem / 18px</td><td>Button:lg, Heading:sm</td></tr>
+          <tr><td>font-weight/regular</td><td>--font-weight-regular</td><td>400</td><td>Body, Hints</td></tr>
+          <tr><td>font-weight/medium</td><td>--font-weight-medium</td><td>600</td><td>Button, Label, Badge</td></tr>
+          <tr><td>font-weight/bold</td><td>--font-weight-bold</td><td>700</td><td>Heading, Display text</td></tr>
+          <tr><td>shadow/sm</td><td>--shadow-sm</td><td>0 1px 4px rgba(0,0,0,.2)</td><td>Card:default, Tooltip</td></tr>
+          <tr><td>shadow/md</td><td>--shadow-md</td><td>0 4px 16px rgba(0,0,0,.3)</td><td>Card:elevated, Select dropdown</td></tr>
+          <tr><td>shadow/lg</td><td>--shadow-lg</td><td>0 8px 32px rgba(0,0,0,.4)</td><td>Modal, Dialog overlay</td></tr>
+          <tr><td>motion/duration/fast</td><td>--duration-fast</td><td>150ms</td><td>Button hover, Toggle</td></tr>
+          <tr><td>motion/duration/base</td><td>--duration-base</td><td>220ms</td><td>Card hover, Field focus</td></tr>
+          <tr><td>motion/easing/ease-out</td><td>--ease-out</td><td>cubic-bezier(.22,1,.36,1)</td><td>Modal enter, Toast</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ════════════════════════
+       PROCESS VIEW
+  ════════════════════════ -->
+  <div id="view-process" style="display:none">
+    <div class="page-hero">
+      <div class="hero-eyebrow">End-to-End Process</div>
+      <h1>How a component<br/>goes from <em>Figma</em><br/>to shipped code.</h1>
+      <p class="hero-lead">Five stages. One rule per stage. Nothing moves forward until the current stage is signed off. Names never change between stages — that's the entire system.</p>
+    </div>
+    <div class="content">
+      <div style="display:flex;flex-direction:column;gap:0">
+
+        <div class="process-step">
+          <div style="text-align:right;padding-top:4px">
+            <div class="process-num">01</div>
+            <div class="process-name">Figma Variables</div>
+            <div class="process-sub">Design source of truth</div>
+          </div>
+          <div class="process-timeline">
+            <div class="process-timeline-line"></div>
+            <div class="process-dot" style="background:var(--figma)"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-body">Design every component with <strong>Auto-layout</strong> and <strong>Figma Variables</strong>. Name all component properties to exactly match the planned Angular <code>@Input</code> names — this is the contract. Every spacing and colour annotation uses a token name (<code>space/4</code>, not <code>16px</code>). Gate: design lead review and sign-off on all states.</div>
+            <div class="tag-row"><span class="tag">Auto-layout</span><span class="tag">Component properties</span><span class="tag">Token annotations</span><span class="tag">4+ states minimum</span><span class="tag">WCAG contrast check</span></div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div style="text-align:right;padding-top:4px">
+            <div class="process-num">02</div>
+            <div class="process-name">Token Studio</div>
+            <div class="process-sub">JSON export</div>
+          </div>
+          <div class="process-timeline">
+            <div class="process-timeline-line"></div>
+            <div class="process-dot" style="background:var(--token)"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-body">Export Figma Variables to structured JSON using the Tokens Studio plugin. The JSON key path mirrors the Figma variable path exactly — <code>color/primary/900</code> becomes <code>color.primary.900</code> in JSON. Gate: PR review on <code>tokens/tokens.json</code>. Zero manual edits allowed.</div>
+            <div class="tag-row"><span class="tag">tokens.json</span><span class="tag">PR review</span><span class="tag">No manual edits</span><span class="tag">Git-tracked</span></div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div style="text-align:right;padding-top:4px">
+            <div class="process-num">03</div>
+            <div class="process-name">Style Dictionary</div>
+            <div class="process-sub">CSS + TypeScript transform</div>
+          </div>
+          <div class="process-timeline">
+            <div class="process-timeline-line"></div>
+            <div class="process-dot" style="background:var(--stdict)"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-body">Style Dictionary runs in CI on every token commit. One transform rule: dots become hyphens. Output: <code>variables.css</code> (CSS custom properties) and <code>tokens.ts</code> (TypeScript constants). Gate: automated test confirms all expected variables are present with correct values. No manual CSS writing.</div>
+            <div class="tag-row"><span class="tag">CI pipeline</span><span class="tag">variables.css</span><span class="tag">tokens.ts</span><span class="tag">Automated tests</span><span class="tag">Zero manual CSS</span></div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div style="text-align:right;padding-top:4px">
+            <div class="process-num">04</div>
+            <div class="process-name">Angular / Codebase</div>
+            <div class="process-sub">Standalone component build</div>
+          </div>
+          <div class="process-timeline">
+            <div class="process-timeline-line"></div>
+            <div class="process-dot" style="background:var(--angular)"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-body">Angular 17 standalone component consuming the generated CSS variables. Selector format: <code>ds-{name}</code>. Every <code>@Input</code> name matches the exact Figma component property name. SCSS uses only token variables — no hardcoded values ever. Gate: code review + axe-core accessibility check in CI + semantic versioning.</div>
+            <div class="tag-row"><span class="tag">Angular 17 standalone</span><span class="tag">ARIA embedded</span><span class="tag">axe-core CI</span><span class="tag">Semver</span><span class="tag">npm publish</span></div>
+          </div>
+        </div>
+
+        <div class="process-step" style="padding-bottom:0">
+          <div style="text-align:right;padding-top:4px">
+            <div class="process-num">05</div>
+            <div class="process-name">Storybook</div>
+            <div class="process-sub">Living documentation</div>
+          </div>
+          <div class="process-timeline">
+            <div class="process-dot" style="background:var(--storybook)"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-body">Storybook story path matches Figma component path exactly. Every variant has a dedicated story. Controls knobs mirror <code>@Input</code> names. Compodoc auto-generates the prop table from TypeScript. A component is only marked <strong style="color:var(--green)">stable</strong> once all five stages are green in this tracker. Gate: design sign-off comparing Storybook output vs Figma spec.</div>
+            <div class="tag-row"><span class="tag">Storybook 7</span><span class="tag">Compodoc</span><span class="tag">Design sign-off</span><span class="tag">Path = Figma path</span><span class="tag">Deploy on merge</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<script>
+/* ══════════════════════════════════
+   SEARCH
+══════════════════════════════════ */
+const searchData = [
+  {name:'Button',tag:'ds-button',status:'ready',id:'comp-button'},
+  {name:'Input Field',tag:'ds-field',status:'ready',id:'comp-field'},
+  {name:'Select / Dropdown',tag:'ds-select',status:'ready',id:'comp-select'},
+  {name:'Badge / Chip',tag:'ds-badge',status:'partial',id:'comp-badge'},
+  {name:'Card',tag:'ds-card',status:'partial',id:'comp-card'},
+  {name:'Modal / Dialog',tag:'ds-modal',status:'partial',id:'comp-modal'},
+  {name:'Alert / Toast',tag:'ds-alert',status:'partial',id:'comp-alert'},
+  {name:'Checkbox / Radio',tag:'ds-checkbox',status:'partial',id:'comp-checkbox'},
+  {name:'Avatar',tag:'ds-avatar',status:'partial',id:'comp-avatar'},
+  {name:'Data Table',tag:'ds-table',status:'missing',id:'comp-table'},
+  {name:'Tabs',tag:'ds-tabs',status:'missing',id:'comp-tabs'},
+  {name:'--color-primary-900',tag:'accent token',status:'ready',id:'view-tokens'},
+  {name:'--space-4',tag:'spacing token',status:'ready',id:'view-tokens'},
+  {name:'--radius-md',tag:'radius token',status:'ready',id:'view-tokens'},
+];
+
+function handleSearch(q) {
+  const r = document.getElementById('searchResults');
+  if (!q.trim()) { r.classList.remove('show'); return; }
+  const matches = searchData.filter(d =>
+    d.name.toLowerCase().includes(q.toLowerCase()) ||
+    d.tag.toLowerCase().includes(q.toLowerCase())
+  );
+  if (!matches.length) {
+    r.innerHTML = '<div class="sr-item" style="color:var(--ink-45)">No results found</div>';
+    r.classList.add('show'); return;
+  }
+  const colors = { ready: 'var(--green)', partial: 'var(--amber)', missing: 'var(--red)' };
+  const bgs = { ready: 'var(--green-dim)', partial: 'var(--amber-dim)', missing: 'var(--red-dim)' };
+  r.innerHTML = matches.map(m => `<div class="sr-item" onclick="goTo('${m.id}')">
+    <span style="font-size:.83rem;font-weight:600;flex:1">${m.name}</span>
+    <span class="sr-pill" style="background:var(--ink-06);color:var(--ink-45)">${m.tag}</span>
+    <span class="sr-pill" style="background:${bgs[m.status]};color:${colors[m.status]}">${m.status}</span>
+  </div>`).join('');
+  r.classList.add('show');
+}
+function showResults() { if (document.getElementById('globalSearch').value.trim()) document.getElementById('searchResults').classList.add('show'); }
+function hideResults() { document.getElementById('searchResults').classList.remove('show'); }
+function goTo(id) {
+  hideResults();
+  if (id === 'view-tokens') { setView('tokens', document.querySelector('.tb-chip.active')); return; }
+  setView('tracker', null);
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!el.classList.contains('open')) el.querySelector('.comp-card-header').click();
+    }
+  }, 80);
+}
+
+/* ══════════════════════════════════
+   CARD TOGGLE
+══════════════════════════════════ */
+function toggleCard(hdr) { hdr.closest('.comp-card').classList.toggle('open'); }
+
+/* ══════════════════════════════════
+   PIPELINE TABS
+══════════════════════════════════ */
+function switchTab(tab, panelId) {
+  const body = tab.closest('.comp-body') || tab.closest('.comp-card');
+  tab.closest('.pipeline-tabs').querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  const panel = tab.closest('.comp-body') || tab.closest('main');
+  (panel || document).querySelectorAll(`[id^="${panelId.split('-')[0]}-"], [id^="${panelId.split('-').slice(0,2).join('-')}"]`).forEach(p => {
+    if (p.classList.contains('pipeline-panel')) p.classList.remove('active');
+  });
+  // simpler: find panels in same comp-body
+  const compBody = tab.closest('.comp-body');
+  if (compBody) {
+    compBody.querySelectorAll('.pipeline-panel').forEach(p => p.classList.remove('active'));
+  }
+  const target = document.getElementById(panelId);
+  if (target) target.classList.add('active');
+}
+
+/* ══════════════════════════════════
+   HOW-TO TABS
+══════════════════════════════════ */
+function switchHowTo(tab, panelId) {
+  const panel = tab.closest('.pipeline-panel') || tab.closest('.ht-panel')?.closest('.pipeline-panel');
+  if (panel) {
+    panel.querySelectorAll('.ht-tab').forEach(t => t.classList.remove('on'));
+    panel.querySelectorAll('.ht-panel').forEach(p => p.classList.remove('show'));
+  }
+  tab.classList.add('on');
+  const target = document.getElementById(panelId);
+  if (target) target.classList.add('show');
+}
+
+/* ══════════════════════════════════
+   TOGGLE SOURCE
+══════════════════════════════════ */
+function toggleSrc(btn, id) {
+  const el = document.getElementById(id);
+  const open = el.style.display === 'none';
+  el.style.display = open ? 'block' : 'none';
+  btn.textContent = open ? 'Hide source code' : 'Show full component source';
+}
+
+/* ══════════════════════════════════
+   COPY CODE
+══════════════════════════════════ */
+function copyCode(btn) {
+  const pre = btn.closest('.code-wrap').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText).then(() => {
+    btn.textContent = 'copied!';
+    setTimeout(() => { btn.textContent = 'copy'; }, 1800);
+  }).catch(() => { btn.textContent = 'error'; });
+}
+
+/* ══════════════════════════════════
+   FILTER COMPONENTS
+══════════════════════════════════ */
+function filterChip(type, chip) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('on'));
+  chip.classList.add('on');
+  applyFilter(type);
+}
+function filterComponents(type, el) {
+  document.querySelectorAll('.sb-nav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  applyFilter(type);
+}
+function applyFilter(type) {
+  const cards = document.querySelectorAll('.comp-card');
+  let visible = 0;
+  cards.forEach(c => {
+    const s = c.dataset.status;
+    const show = type === 'all' ||
+      (type === 'ready' && s === 'ready') ||
+      (type === 'partial' && s === 'partial') ||
+      (type === 'missing' && s === 'missing');
+    c.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('comp-count').textContent = `(${visible})`;
+}
+
+/* ══════════════════════════════════
+   VIEW SWITCHER
+══════════════════════════════════ */
+function setView(view, chip) {
+  document.querySelectorAll('.tb-chip').forEach(c => c.classList.remove('active'));
+  if (chip) chip.classList.add('active');
+  else {
+    const chips = document.querySelectorAll('.tb-chip');
+    const map = { tracker: 0, tokens: 1, process: 2 };
+    if (chips[map[view]]) chips[map[view]].classList.add('active');
+  }
+  ['tracker', 'tokens', 'process'].forEach(v => {
+    const el = document.getElementById('view-' + v);
+    if (el) el.style.display = v === view ? 'block' : 'none';
+  });
+}
+
+/* ══════════════════════════════════
+   COMMENT TYPE SELECT
+══════════════════════════════════ */
+function selectType(el) {
+  el.closest('.cr-type-row').querySelectorAll('.cr-type').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+/* ══════════════════════════════════
+   SUBMIT COMMENT
+══════════════════════════════════ */
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('submit-comment')) {
+    const wrap = e.target.closest('.comment-input-right');
+    const ta = wrap.querySelector('.comment-textarea');
+    const type = wrap.querySelector('.cr-type.selected')?.textContent || 'Comment';
+    const text = ta.value.trim();
+    if (!text) return;
+    const list = e.target.closest('.comment-section').querySelector('.comment-list');
+    const typeMap = {
+      'Change request': 'ct-request',
+      'Question': 'ct-question',
+      'Comment': 'ct-review'
+    };
+    const typeClass = typeMap[type] || 'ct-review';
+    const div = document.createElement('div');
+    div.className = 'comment';
+    div.innerHTML = `
+      <div class="comment-top">
+        <div class="comment-avatar" style="background:var(--accent-dim);color:var(--accent)">LM</div>
+        <span class="comment-author">Lulamile M.</span>
+        <span class="comment-time">Just now</span>
+        <span class="comment-type ${typeClass}">${type}</span>
+      </div>
+      <div class="comment-text">${text}</div>
+      <div class="comment-footer">
+        <span class="comment-reaction">👍 0</span>
+        <span class="comment-reply">Reply</span>
+      </div>
+    `;
+    list.appendChild(div);
+    ta.value = '';
+    const countEl = e.target.closest('.comment-section').querySelector('.cs-count');
+    const n = list.querySelectorAll('.comment').length;
+    countEl.textContent = n + ' comment' + (n !== 1 ? 's' : '');
+  }
+});
+</script>
+</body>
+</html>

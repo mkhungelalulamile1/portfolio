@@ -1,0 +1,222 @@
+/* LulaSync Interactive Animations & Micro-Interactions */
+@media (prefers-reduced-motion: no-preference) {
+  .role-pill, .btn-fire, .btn-outline, .btn-gold-outline, .btn-wa,
+  .ls-hover-card,
+  .product-card, .live-build-card, .cs-card, .dailyui-card, .service-card, .service, .bundle-card,
+  .who-card, .innov-card, .craft-group-card, .case-study-proof-card,
+  .showcase-card, .creative-card, .tool-card, .auto-card, .agent-card, .cta-card, .scan-card,
+  .nav-link, .nav-cta, .show-tab, .filter-tag, .chip {
+    transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1),
+                box-shadow 0.28s cubic-bezier(0.22, 0.61, 0.36, 1),
+                border-color 0.22s ease,
+                background 0.22s ease,
+                color 0.22s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-fire:hover, .btn-outline:hover, .btn-gold-outline:hover, .btn-wa:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 12px 28px rgba(240, 165, 0, 0.32);
+  }
+
+  .ls-hover-card:hover,
+  .cs-card:hover,
+  .dailyui-card:hover,
+  .product-card:hover,
+  .live-build-card:hover,
+  .service-card:hover,
+  .service:hover,
+  .who-card:hover,
+  .innov-card:hover,
+  .craft-group-card:hover,
+  .case-study-proof-card:hover,
+  .showcase-card:hover,
+  .creative-card:hover,
+  .tool-card:hover,
+  .auto-card:hover,
+  .agent-card:hover,
+  .cta-card:hover,
+  .bundle-card:hover,
+  .scan-card:hover,
+  .ls-hover-card.is-card-hover,
+  .cs-card.is-card-hover,
+  .dailyui-card.is-card-hover,
+  .product-card.is-card-hover,
+  .live-build-card.is-card-hover,
+  .service-card.is-card-hover,
+  .service.is-card-hover,
+  .who-card.is-card-hover,
+  .innov-card.is-card-hover,
+  .craft-group-card.is-card-hover,
+  .case-study-proof-card.is-card-hover,
+  .showcase-card.is-card-hover,
+  .creative-card.is-card-hover,
+  .tool-card.is-card-hover,
+  .auto-card.is-card-hover,
+  .agent-card.is-card-hover,
+  .cta-card.is-card-hover,
+  .bundle-card.is-card-hover,
+  .scan-card.is-card-hover {
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(240, 165, 0, 0.38);
+    z-index: 2;
+  }
+
+  /* Interactive 3D Tilt Card Glow Overlay */
+  .card-glow-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(circle 280px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(240, 165, 0, 0.16), transparent 75%);
+    z-index: 1;
+  }
+
+  .ls-hover-card:hover .card-glow-overlay,
+  .cs-card:hover .card-glow-overlay,
+  .dailyui-card:hover .card-glow-overlay,
+  .product-card:hover .card-glow-overlay,
+  .live-build-card:hover .card-glow-overlay,
+  .service-card:hover .card-glow-overlay,
+  .service:hover .card-glow-overlay,
+  .who-card:hover .card-glow-overlay,
+  .innov-card:hover .card-glow-overlay,
+  .craft-group-card:hover .card-glow-overlay,
+  .case-study-proof-card:hover .card-glow-overlay,
+  .showcase-card:hover .card-glow-overlay,
+  .creative-card:hover .card-glow-overlay,
+  .tool-card:hover .card-glow-overlay,
+  .auto-card:hover .card-glow-overlay,
+  .agent-card:hover .card-glow-overlay,
+  .cta-card:hover .card-glow-overlay,
+  .bundle-card:hover .card-glow-overlay,
+  .scan-card:hover .card-glow-overlay,
+  .is-card-hover .card-glow-overlay {
+    opacity: 1;
+  }
+
+  /* Click Ripple Effect */
+  .ls-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(0);
+    animation: rippleAnim 0.55s linear;
+    pointer-events: none;
+  }
+
+  @keyframes rippleAnim {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  /* Staggered Scroll Reveal */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .reveal-up.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Interactive Role Chip Pulse */
+  .role-pill:hover, .role-chip:hover, .chip:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 14px rgba(240, 165, 0, 0.3);
+  }
+
+  /* Filter Tag Active & Switch Animation */
+  .filter-tag.active {
+    background: var(--gold, #F0A500) !important;
+    color: #0A0705 !important;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(240, 165, 0, 0.35);
+  }
+
+  .show-tab.active {
+    box-shadow: 0 4px 18px rgba(240, 165, 0, 0.28);
+    transform: translateY(-2px);
+  }
+
+  /* Card In Animation */
+  @keyframes cardIn {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .tab-panel.active .cs-card,
+  .tab-panel.active .dailyui-card {
+    animation: cardIn 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ls-hover-card:hover,
+  .cs-card:hover,
+  .dailyui-card:hover,
+  .live-build-card:hover,
+  .innov-card:hover,
+  .craft-group-card:hover,
+  .who-card:hover,
+  .case-study-proof-card:hover,
+  .bundle-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Home hero entrance */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-h1 span {
+    display: block;
+    animation: heroWord 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .hero-h1 span:nth-child(1) { animation-delay: 0.05s; }
+  .hero-h1 span:nth-child(2) { animation-delay: 0.14s; }
+  .hero-h1 span:nth-child(3) { animation-delay: 0.23s; }
+  .hero-h1 span:nth-child(4) { animation-delay: 0.32s; }
+
+  @keyframes heroWord {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .dual-role-pills .role-pill {
+    animation: pillIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .dual-role-pills .role-pill:nth-child(1) { animation-delay: 0.4s; }
+  .dual-role-pills .role-pill:nth-child(3) { animation-delay: 0.5s; }
+
+  @keyframes pillIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-h1 span,
+  .dual-role-pills .role-pill,
+  .reveal-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

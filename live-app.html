@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0A0705" />
+  <title>Live app · Created by LulaSync</title>
+  <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#0A0705; --paper:#F5EDD8; --gold:#F0A500; --fire:#E04E14; --dim:rgba(245,237,216,.65); --border:#222; }
+    [data-theme="light"] { --ink:#F7F3EC; --paper:#1a1208; --gold:#C47F00; --dim:rgba(26,18,8,.65); --border:#E0D8C8; }
+    * { box-sizing:border-box; margin:0; padding:0 }
+    html, body { height:100%; background:var(--ink); color:var(--paper); font-family:Inter,system-ui,sans-serif; }
+    .bar {
+      position:sticky; top:0; z-index:20;
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;
+      padding:10px 14px; background:linear-gradient(135deg,rgba(240,165,0,.16),rgba(224,78,20,.1));
+      border-bottom:1px solid var(--border); backdrop-filter:blur(10px);
+    }
+    [data-theme="light"] .bar { background:#fff; }
+    .brand { display:flex; align-items:center; gap:10px; min-width:0; }
+    .brand strong { font-family:'Bebas Neue',sans-serif; font-size:1.15rem; letter-spacing:1px; font-weight:400; }
+    .brand span { color:var(--gold); }
+    .credit {
+      font-size:12px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--gold);
+      white-space:nowrap;
+    }
+    .meta { font-size:12px; color:var(--dim); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:42vw; }
+    .actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:6px;
+      min-height:36px; padding:8px 12px; border-radius:999px; font-size:12px; font-weight:800;
+      text-decoration:none; border:1px solid var(--border); color:var(--paper);
+    }
+    .btn-gold { background:linear-gradient(135deg,var(--gold),var(--fire)); color:#0A0705; border:none; }
+    .frame-wrap { height:calc(100vh - 58px); position:relative; background:#0a0a0a; }
+    iframe { width:100%; height:100%; border:0; background:#111; }
+    .fallback {
+      display:none; position:absolute; inset:0; align-items:center; justify-content:center;
+      padding:28px; text-align:center; background:var(--ink);
+    }
+    .fallback.show { display:flex; }
+    .fallback .box { max-width:460px; }
+    .fallback h1 { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:1px; margin:10px 0; }
+    .fallback p { color:var(--dim); line-height:1.65; margin-bottom:12px; }
+    @media(max-width:700px){
+      .meta { max-width:100%; white-space:normal; }
+      .bar { align-items:flex-start; }
+      .frame-wrap { height:calc(100vh - 96px); }
+    }
+  
+  /* Quiet ambient motion — stays behind content and respects reduced-motion */
+  body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 84% 12%,rgba(240,165,0,.075),transparent 28%),radial-gradient(circle at 8% 72%,rgba(224,78,20,.055),transparent 30%);animation:ls-bg-breathe 16s ease-in-out infinite alternate}
+  main,footer{position:relative;z-index:1}
+  [data-theme="light"] body::before{background:radial-gradient(circle at 84% 12%,rgba(196,127,0,.1),transparent 28%),radial-gradient(circle at 8% 72%,rgba(192,58,8,.065),transparent 30%)}
+  @keyframes ls-bg-breathe{to{opacity:.46;transform:scale(1.04)}}
+  @media(prefers-reduced-motion:reduce){body::before{animation:none}}
+
+</style>
+  <script>
+    (function(){try{var t=localStorage.getItem('ls-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="./assets/ls-interactive.css" />
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <img src="./assets/portfolio/icon-192.png" width="28" height="28" alt="LulaSync" />
+      <div>
+        <strong>Lula<span>Sync</span></strong>
+        <div class="credit">Created by LulaSync</div>
+      </div>
+    </div>
+    <div class="meta" id="appMeta">Loading live app…</div>
+    <div class="actions">
+      <a class="btn" href="./showcase.html">← Showcase</a>
+      <a class="btn btn-gold" id="openExternal" href="#" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+    </div>
+  </header>
+
+  <div class="frame-wrap">
+    <iframe id="frame" title="Live business app created by LulaSync" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="fallback" id="fallback">
+      <div class="box">
+        <div class="credit">Created by LulaSync</div>
+        <h1 id="fbName">Live app</h1>
+        <p>
+          This app was designed and built by <strong style="color:var(--paper)">Lulamile Mkhungela / LulaSync</strong>.
+        </p>
+        <p>
+          Some live deployments still show an older studio name inside their own footer.
+          That text is on the external host — not on LulaSync. Your credit remains LulaSync.
+        </p>
+        <p>
+          <a class="btn btn-gold" id="fbOpen" href="#" target="_blank" rel="noopener noreferrer">Open live app →</a>
+          <a class="btn" href="./showcase.html" style="margin-left:8px">Back to Showcase</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var to = params.get('to') || '';
+      var name = params.get('name') || 'Live business app';
+      var safe = false;
+      try {
+        if (to.startsWith('https://') || to.startsWith('http://')) safe = true;
+      } catch (e) {}
+      if (!safe) {
+        location.replace('./showcase.html');
+        return;
+      }
+
+      document.title = name + ' · Created by LulaSync';
+      document.getElementById('appMeta').textContent = name + ' · Created by LulaSync';
+      document.getElementById('fbName').textContent = name;
+      document.getElementById('openExternal').href = to;
+      document.getElementById('fbOpen').href = to;
+
+      var frame = document.getElementById('frame');
+      var fallback = document.getElementById('fallback');
+      var loaded = false;
+
+      frame.src = to;
+
+      // If the remote site blocks embedding (common), show fallback with clear LulaSync credit.
+      frame.addEventListener('load', function () {
+        loaded = true;
+        // Still may be blank if blocked; detect roughly via try/catch on location
+        try {
+          // cross-origin will throw — that's fine, means it likely embedded
+          void frame.contentWindow.location.href;
+        } catch (e) {
+          // cross-origin embed working
+        }
+      });
+
+      setTimeout(function () {
+        // Always keep the sticky LulaSync bar. If iframe is empty/blocked, show fallback panel.
+        try {
+          var doc = frame.contentDocument;
+          // same-origin only
+          if (doc && (!doc.body || !doc.body.innerHTML)) {
+            fallback.classList.add('show');
+            frame.style.display = 'none';
+          }
+        } catch (e) {
+          // cross-origin: assume ok if load fired; if not loaded, show fallback
+          if (!loaded) {
+            fallback.classList.add('show');
+            frame.style.display = 'none';
+          }
+        }
+      }, 2500);
+    })();
+  </script>
+  <script src="./assets/ls-interactive.js" defer></script>
+
+  <footer style="text-align:center;padding:24px 5vw;border-top:1px solid rgba(255,255,255,0.08);margin-top:40px;color:#888;font-size:0.8rem;">
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2017-2026 LulaSync · Built with love by LulaMile in South Africa 🇿🇦</p>
+      <p class="footer-copy">Designing and building useful solutions for any businesses.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="520" viewBox="0 0 300 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#120e0a"/>
+      <stop offset="100%" stop-color="#0A0705"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="520" rx="28" fill="url(#bg)"/>
+  <rect x="1" y="1" width="298" height="518" rx="27" fill="none" stroke="rgba(240,165,0,0.25)"/>
+  
+  <!-- Status bar -->
+  <text x="28" y="36" fill="rgba(245,237,216,0.5)" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600">09:41</text>
+  <circle cx="250" cy="32" r="3" fill="#1DB954"/>
+  <circle cx="262" cy="32" r="3" fill="rgba(245,237,216,0.35)"/>
+  <circle cx="274" cy="32" r="3" fill="rgba(245,237,216,0.35)"/>
+
+  <!-- Pill Tag -->
+  <rect x="24" y="65" width="140" height="22" rx="11" fill="#38BDF8" opacity="0.15" stroke="#38BDF8" stroke-opacity="0.5"/>
+  <text x="94" y="80" text-anchor="middle" fill="#38BDF8" font-family="Inter,Arial,sans-serif" font-size="9" font-weight="800" letter-spacing="1">CROSS-BORDER FINTECH</text>
+
+  <!-- Title & Sub -->
+  <text x="24" y="105" fill="#F5EDD8" font-family="Bebas Neue,Arial Black,sans-serif" font-size="24" font-weight="900" letter-spacing="1">SADC INSTANT REMIT</text>
+  <text x="24" y="122" fill="rgba(245,237,216,0.6)" font-family="Inter,Arial,sans-serif" font-size="11">Zero hidden FX fee transfer to ZW / MZ / LS</text>
+
+  
+  <!-- Transfer Calculator Hero -->
+  <rect x="24" y="135" width="252" height="115" rx="16" fill="#131922" stroke="rgba(56,189,248,0.4)"/>
+  <text x="40" y="160" fill="rgba(245,237,216,0.6)" font-family="Inter,sans-serif" font-size="10" font-weight="700">YOU SEND (SOUTH AFRICA 🇿🇦)</text>
+  <text x="40" y="190" fill="#FFFFFF" font-family="Inter,sans-serif" font-size="24" font-weight="900">R 2,500.00</text>
+  <line x1="40" y1="205" x2="236" y2="205" stroke="rgba(255,255,255,0.1)"/>
+  <text x="40" y="228" fill="#38BDF8" font-family="Inter,sans-serif" font-size="12" font-weight="700">Recipient gets: $ 137.40 USD (Zimbabwe 🇿d)</text>
+
+  <!-- Fee & Rate Transparency -->
+  <rect x="24" y="265" width="252" height="75" rx="12" fill="#14171E" stroke="rgba(255,255,255,0.08)"/>
+  <text x="40" y="290" fill="rgba(245,237,216,0.6)" font-family="Inter,sans-serif" font-size="10" font-weight="700">REAL-TIME INTERBANK RATE</text>
+  <text x="40" y="315" fill="#F5EDD8" font-family="Inter,sans-serif" font-size="13" font-weight="700">Transfer Fee: R 15.00 flat · 0% FX spread</text>
+  <text x="40" y="330" fill="rgba(245,237,216,0.5)" font-family="Inter,sans-serif" font-size="11">Arrives instantly in EcoCash or Bank Wallet</text>
+
+  <!-- Payout Channels -->
+  <rect x="24" y="355" width="252" height="75" rx="12" fill="#14171E" stroke="rgba(255,255,255,0.08)"/>
+  <text x="40" y="380" fill="rgba(245,237,216,0.6)" font-family="Inter,sans-serif" font-size="10" font-weight="700">RECIPIENT CASHOUT PARTNERS</text>
+  <text x="40" y="402" fill="#F5EDD8" font-family="Inter,sans-serif" font-size="12" font-weight="700">✓ 850+ Kiosks · PEP · Shoprite · Mobile Money</text>
+  <text x="40" y="418" fill="rgba(245,237,216,0.5)" font-family="Inter,sans-serif" font-size="11">SMS &amp; WhatsApp voucher notification</text>
+
+  <rect x="24" y="445" width="252" height="48" rx="12" fill="#38BDF8"/>
+  <text x="150" y="474" text-anchor="middle" fill="#0A0705" font-family="Inter,sans-serif" font-size="13" font-weight="800">SEND NOW · INSTANT DISBURSEMENT</text>
+
+</svg>

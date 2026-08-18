@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found | LulaSync</title>
+  <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
+  <script>
+    (function () {
+      var path = location.pathname || '';
+      var m = path.match(/\/case-studies\/([a-z0-9\-]+)\.html?$/i) || path.match(/\/case-studies\/([a-z0-9\-]+)\/?$/i);
+      if (m) { location.replace('../' + m[1] + '.html' + (location.search||'') + (location.hash||'')); return; }
+    })();
+    try { var t=localStorage.getItem('ls-theme')||'dark'; document.documentElement.setAttribute('data-theme', t); } catch(e) {}
+  </script>
+  <style>
+    :root{--ink:#0A0705;--paper:#F5EDD8;--gold:#F0A500;--dim:rgba(245,237,216,.55)}
+    [data-theme="light"]{--ink:#F7F3EC;--paper:#1a1208;--gold:#C47F00;--dim:rgba(26,18,8,.6)}
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;padding:24px;text-align:center}
+    a{color:var(--gold);font-weight:700;text-decoration:none;margin:0 8px}
+    h1{font-family:Georgia,serif;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 12px}
+    p{color:var(--dim);line-height:1.6}
+  
+  /* Quiet ambient motion — stays behind content and respects reduced-motion */
+  body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 84% 12%,rgba(240,165,0,.075),transparent 28%),radial-gradient(circle at 8% 72%,rgba(224,78,20,.055),transparent 30%);animation:ls-bg-breathe 16s ease-in-out infinite alternate}
+  main,footer{position:relative;z-index:1}
+  [data-theme="light"] body::before{background:radial-gradient(circle at 84% 12%,rgba(196,127,0,.1),transparent 28%),radial-gradient(circle at 8% 72%,rgba(192,58,8,.065),transparent 30%)}
+  @keyframes ls-bg-breathe{to{opacity:.46;transform:scale(1.04)}}
+  @media(prefers-reduced-motion:reduce){body::before{animation:none}}
+
+</style>
+  <link rel="stylesheet" href="./assets/ls-interactive.css" />
+</head>
+<body>
+  <div>
+    <h1>Page not found</h1>
+    <p>That URL isn’t available. Try one of these:</p>
+    <p>
+      <a href="./index.html">Home</a>
+      <a href="./showcase.html">Case studies</a>
+      <a href="./about.html">About Me</a>
+      <a href="./contact.html">Contact</a>
+    </p>
+  </div>
+  <script src="./assets/ls-interactive.js" defer></script>
+
+  <footer style="text-align:center;padding:24px 5vw;border-top:1px solid rgba(255,255,255,0.08);margin-top:40px;color:#888;font-size:0.8rem;">
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2017-2026 LulaSync · Built with love by LulaMile in South Africa 🇿🇦</p>
+      <p class="footer-copy">Designing and building useful solutions for any businesses.</p>
+    </div>
+  </footer>
+</body>
+</html>

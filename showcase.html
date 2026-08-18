@@ -1,0 +1,6223 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="dark">
+
+<head>
+
+    <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
+
+    <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" sizes="192x192" />
+
+    <link rel="apple-touch-icon" href="./assets/portfolio/icon-192.png" />
+
+    <script id="ls-theme-boot">
+
+        (function () {
+
+            try {
+
+                var t = localStorage.getItem('ls-theme') || 'dark';
+
+                document.documentElement.setAttribute('data-theme', t);
+
+            } catch (e) { }
+
+        })();
+
+    </script>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="theme-color" content="#0A0705" />
+
+    <title>Showcase | UX/UI, Product &amp; Frontend · LulaSync</title>
+
+    <meta name="description"
+        content="UX/UI, CX, product design, UI design and frontend work by Lulamile Mkhungela — equal craft across product, design and code. Shipped apps, case studies, fintech UI and SA solutions." />
+
+    <meta property="og:title" content="App Showcase | LulaSync" />
+
+    <meta property="og:description"
+        content="Real WhatsApp-native apps built for South African businesses. Bookings, digital menu, loyalty, and more." />
+
+    <meta property="og:site_name" content="LulaSync" />
+
+    <meta property="og:type" content="website" />
+
+    <link rel="canonical" href="https://lulasync.app/showcase" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+
+            --ink: #0A0705;
+
+            --paper: #F5EDD8;
+
+            --gold: #F0A500;
+
+            --fire: #E04E14;
+
+            --dim: rgba(245, 237, 216, 0.55);
+
+            --card: #0f0f0f;
+
+            --border: #1a1a1a;
+
+            --wa: #25D366;
+
+            --purple: #8B5CF6;
+
+            --cyan: #00C2FF;
+
+            --green: #1DB954;
+
+        }
+
+        /* ── LIGHT MODE ── */
+
+        [data-theme="light"] {
+
+            --ink: #F7F3EC;
+
+            --paper: #1a1208;
+
+            --gold: #C47F00;
+
+            --fire: #C03A08;
+
+            --dim: rgba(26, 18, 8, 0.6);
+
+            --card: #FFFFFF;
+
+            --border: #E0D8C8;
+
+            --wa: #128C4A;
+
+            --purple: #6D28D9;
+
+            --cyan: #0077AA;
+
+            --green: #0A7A30;
+
+        }
+
+        [data-theme="light"] body {
+
+            background: #F7F3EC;
+
+            color: #1a1208;
+
+        }
+
+        [data-theme="light"] nav {
+
+            background: rgba(247, 243, 236, 0.96);
+
+            border-bottom-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] .mobile-overlay {
+
+            background: rgba(247, 243, 236, 0.98);
+
+        }
+
+        [data-theme="light"] footer {
+
+            background: #fff;
+
+            border-top-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] .showcase-card {
+
+            background: #fff;
+
+            border-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] #features {
+
+            background: #f0ebe0;
+
+        }
+
+        [data-theme="light"] .feature-row.off {
+
+            background: #fff;
+
+            border-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] .creative-card {
+
+            background: #fff;
+
+            border-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] .tool-card {
+
+            background: #fff;
+
+            border-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] .auto-card {
+
+            background: #f7f3ec;
+
+            border-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] .agent-card {
+
+            background: #fff;
+
+            border-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] .cta-card {
+
+            background: #fff;
+
+            border-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] #software-tools {
+
+            background: #F7F3EC;
+
+        }
+
+        [data-theme="light"] #automations {
+
+            background: #f0ebe0;
+
+        }
+
+        [data-theme="light"] #ai-agents {
+
+            background: #F7F3EC;
+
+        }
+
+        /* ── THEME TOGGLE ── */
+
+        .theme-toggle {
+
+            background: none;
+
+            border: 1px solid var(--border);
+
+            color: var(--paper);
+
+            width: 32px;
+
+            height: 32px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            font-size: .9rem;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: border-color .2s;
+
+            flex-shrink: 0;
+
+        }
+
+        .theme-toggle:hover {
+
+            border-color: var(--gold);
+
+        }
+
+        *,
+
+        *::before,
+
+        *::after {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0
+        }
+
+        html {
+
+            scroll-behavior: smooth;
+
+            color-scheme: dark;
+
+        }
+
+        html[data-theme="light"] {
+
+            color-scheme: light;
+
+        }
+
+        body {
+
+            background: var(--ink);
+
+            color: var(--paper);
+
+            font-family: 'Inter', sans-serif;
+
+            line-height: 1.6;
+
+            overflow-x: hidden
+        }
+
+        .display {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            letter-spacing: 1px
+        }
+
+        /* NAV */
+
+        nav {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            height: 56px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 5vw;
+
+            background: rgba(10, 7, 5, 0.96);
+
+            border-bottom: 1px solid var(--border);
+
+            backdrop-filter: blur(16px);
+
+            -webkit-backdrop-filter: blur(16px)
+        }
+
+        .nav-logo {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 1.4rem;
+
+            letter-spacing: 2px;
+
+            color: var(--paper);
+
+            text-decoration: none
+        }
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 4px
+        }
+
+        .nav-link {
+
+            font-size: .72rem;
+
+            font-weight: 600;
+
+            color: var(--dim);
+
+            letter-spacing: .04em;
+
+            text-decoration: none;
+
+            padding: 4px 8px;
+
+            transition: color .15s
+        }
+
+        .nav-link:hover,
+
+        .nav-link.active {
+
+            color: var(--gold)
+        }
+
+        .nav-cta {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            background: linear-gradient(135deg, var(--gold), var(--fire));
+
+            color: var(--ink);
+
+            font-size: .72rem;
+
+            font-weight: 700;
+
+            letter-spacing: .04em;
+
+            padding: 8px 14px;
+
+            border-radius: 6px;
+
+            text-decoration: none
+        }
+
+        .hamburger {
+
+            display: none;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            background: none;
+
+            border: none;
+
+            cursor: pointer;
+
+            padding: 4px;
+
+            color: var(--paper)
+        }
+
+        .hamburger span {
+
+            display: block;
+
+            width: 22px;
+
+            height: 2px;
+
+            background: currentColor;
+
+            transition: all .25s
+        }
+
+        .mobile-overlay {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            min-height: 100vh;
+
+            min-height: 100dvh;
+
+            z-index: 200;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 28px;
+
+            background: rgba(10, 7, 5, 0.97);
+
+            backdrop-filter: blur(20px)
+        }
+
+        .mobile-overlay.open {
+
+            display: flex
+        }
+
+        .mobile-overlay .close-btn {
+
+            position: absolute;
+
+            top: 16px;
+
+            right: 5vw;
+
+            background: none;
+
+            border: none;
+
+            color: var(--paper);
+
+            font-size: 1.6rem;
+
+            cursor: pointer;
+
+            padding: 8px
+        }
+
+        .mobile-nav-link {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 2rem;
+
+            letter-spacing: 2px;
+
+            text-decoration: none;
+
+            color: var(--paper);
+
+            display: block;
+
+            text-align: center;
+
+            margin: 4px 0;
+
+            transition: color .15s
+        }
+
+        .mobile-nav-link:hover,
+
+        .mobile-nav-link.active {
+
+            color: var(--gold)
+        }
+
+        .grad-line {
+
+            position: sticky;
+
+            top: 56px;
+
+            z-index: 99;
+
+            height: 1px;
+
+            background: linear-gradient(90deg, transparent, var(--fire) 20%, var(--gold) 50%, var(--fire) 80%, transparent);
+
+            opacity: .6;
+
+            pointer-events: none
+        }
+
+        /* KENTE */
+
+        .kente-strip {
+
+            height: 4px;
+
+            width: 100%;
+
+            background: repeating-linear-gradient(90deg, var(--fire) 0, var(--fire) 8px, var(--gold) 8px, var(--gold) 16px, #1a1a1a 16px, #1a1a1a 20px, var(--gold) 20px, var(--gold) 28px, var(--fire) 28px, var(--fire) 36px, var(--paper) 36px, var(--paper) 40px)
+        }
+
+        /* PAGE HERO */
+
+        .page-hero {
+
+            padding: 72px 5vw 60px;
+
+            text-align: center
+        }
+
+        .badge {
+
+            display: inline-block;
+
+            background: rgba(240, 165, 0, .12);
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            padding: 4px 14px;
+
+            border-radius: 20px;
+
+            margin-bottom: 20px;
+
+            text-transform: uppercase
+        }
+
+        .page-h1 {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: clamp(2.5rem, 9vw, 5rem);
+
+            line-height: 1.05;
+
+            margin-bottom: 20px
+        }
+
+        .page-desc {
+
+            color: var(--dim);
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            max-width: 560px;
+
+            margin: 0 auto
+        }
+
+        /* SHOWCASE GRID */
+
+        .showcase-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+            gap: 24px;
+
+            padding: 0 5vw;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            margin-bottom: 72px
+        }
+
+        .showcase-card {
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            transition: transform .2s, border-color .2s
+        }
+
+        a.showcase-card {
+
+            text-decoration: none;
+
+            color: inherit;
+
+        }
+
+        a.showcase-card:focus-visible {
+
+            outline: 2px solid var(--gold);
+
+            outline-offset: 2px;
+
+        }
+
+        .showcase-card:hover {
+
+            transform: translateY(-3px);
+
+            border-color: #333
+        }
+
+        .card-banner {
+
+            padding: 36px 28px 28px;
+
+            position: relative
+        }
+
+        .card-mockup {
+
+            background: rgba(0, 0, 0, 0.35);
+
+            border-radius: 12px;
+
+            padding: 12px 16px;
+
+            backdrop-filter: blur(8px)
+        }
+
+        .card-mockup-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 10px
+        }
+
+        .card-mockup-emoji {
+
+            font-size: 28px
+        }
+
+        .card-mockup-title {
+
+            color: #fff;
+
+            font-weight: 700;
+
+            font-size: 14px;
+
+            margin: 0
+        }
+
+        .card-mockup-sub {
+
+            color: rgba(255, 255, 255, .6);
+
+            font-size: 11px;
+
+            margin: 0
+        }
+
+        .card-tags {
+
+            display: flex;
+
+            gap: 6px;
+
+            flex-wrap: wrap
+        }
+
+        .card-tag {
+
+            background: rgba(255, 255, 255, .15);
+
+            color: #fff;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            padding: 3px 8px;
+
+            border-radius: 20px
+        }
+
+        .card-body {
+
+            padding: 24px
+        }
+
+        .card-type {
+
+            color: var(--dim);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 4px
+        }
+
+        .card-status-live {
+
+            background: rgba(29, 185, 84, .12);
+
+            color: #1DB954;
+
+            border: 1px solid rgba(29, 185, 84, .3);
+
+            padding: 3px 10px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            white-space: nowrap
+        }
+
+        .card-status-soon {
+
+            background: rgba(107, 114, 128, .12);
+
+            color: #6B7280;
+
+            border: 1px solid rgba(107, 114, 128, .3);
+
+            padding: 3px 10px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            white-space: nowrap
+        }
+
+        .card-features {
+
+            padding: 0;
+
+            margin: 0;
+
+            list-style: none;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px
+        }
+
+        .card-features li {
+
+            display: flex;
+
+            gap: 10px;
+
+            align-items: flex-start;
+
+            font-size: 14px;
+
+            color: var(--dim);
+
+            line-height: 1.5
+        }
+
+        /* FEATURES SECTION */
+
+        #features {
+
+            padding: 80px 5vw;
+
+            background: var(--ink);
+
+            border-top: 1px solid var(--border)
+        }
+
+        .section-eyebrow {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: .14em;
+
+            text-transform: uppercase;
+
+            color: var(--gold);
+
+            margin-bottom: 10px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px
+        }
+
+        .section-eyebrow .slash {
+
+            color: var(--fire)
+        }
+
+        .section-h2 {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: clamp(2rem, 9vw, 4rem);
+
+            letter-spacing: 1px;
+
+            line-height: .92;
+
+            margin-bottom: 12px
+        }
+
+        .section-p {
+
+            font-size: .9rem;
+
+            color: var(--dim);
+
+            line-height: 1.7;
+
+            max-width: 560px;
+
+            margin-bottom: 40px
+        }
+
+        /* FEATURE TOGGLES */
+
+        .feature-list {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 10px;
+
+            max-width: 1100px;
+
+            margin-left: auto;
+
+            margin-right: auto
+        }
+
+        @media(max-width:768px) {
+
+            .feature-list {
+
+                grid-template-columns: 1fr
+            }
+
+        }
+
+        .feature-row {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: rgba(29, 185, 84, .05);
+
+            border: 1px solid rgba(29, 185, 84, .2);
+
+            border-radius: 8px;
+
+            padding: 12px 14px;
+
+            gap: 12px
+        }
+
+        .feature-row.off {
+
+            background: var(--card);
+
+            border-color: var(--border)
+        }
+
+        .feature-row-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px
+        }
+
+        .feature-emoji {
+
+            font-size: 1.1rem;
+
+            flex-shrink: 0
+        }
+
+        .feature-name {
+
+            font-size: .85rem;
+
+            font-weight: 700;
+
+            color: var(--paper)
+        }
+
+        .feature-desc {
+
+            font-size: .7rem;
+
+            color: var(--dim);
+
+            margin-top: 2px
+        }
+
+        .feature-tier {
+
+            font-size: .6rem;
+
+            color: var(--gold);
+
+            margin-top: 2px;
+
+            font-weight: 600
+        }
+
+        .pill {
+
+            width: 36px;
+
+            height: 20px;
+
+            border-radius: 10px;
+
+            position: relative;
+
+            flex-shrink: 0;
+
+            background: #1a1a1a;
+
+            border: 1px solid #222
+        }
+
+        .pill.on {
+
+            background: rgba(29, 185, 84, .3);
+
+            border-color: rgba(29, 185, 84, .6)
+        }
+
+        .pill::after {
+
+            content: '';
+
+            position: absolute;
+
+            top: 2px;
+
+            width: 14px;
+
+            height: 14px;
+
+            border-radius: 50%;
+
+            background: #333;
+
+            transition: all .2s;
+
+            left: 2px
+        }
+
+        .pill.on::after {
+
+            background: #1DB954;
+
+            left: calc(100% - 16px)
+        }
+
+        .feature-summary {
+
+            text-align: center;
+
+            font-size: .75rem;
+
+            color: var(--dim);
+
+            padding: 10px;
+
+            background: var(--card);
+
+            border-radius: 8px;
+
+            border: 1px solid var(--border);
+
+            margin-top: 8px
+        }
+
+        /* CREATIVE STUDIO */
+
+        .creative-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+            gap: 20px;
+
+            margin-bottom: 48px
+        }
+
+        .creative-card {
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-left: 3px solid var(--gold);
+
+            border-radius: 10px;
+
+            padding: 20px 20px 20px 18px
+        }
+
+        .creative-card .icon {
+
+            font-size: 1.6rem;
+
+            margin-bottom: 10px
+        }
+
+        .creative-card .title {
+
+            font-size: .9rem;
+
+            font-weight: 700;
+
+            color: var(--paper);
+
+            margin-bottom: 6px
+        }
+
+        .creative-card .desc {
+
+            font-size: .8rem;
+
+            color: var(--dim);
+
+            line-height: 1.6
+        }
+
+        /* SOFTWARE TOOLS */
+
+        #software-tools {
+
+            padding: 80px 5vw;
+
+            background: var(--ink);
+
+            border-top: 1px solid var(--border)
+        }
+
+        .tools-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+            gap: 20px;
+
+            max-width: 1100px;
+
+            margin: 0 auto 56px
+        }
+
+        .tool-card {
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-left: 3px solid var(--gold);
+
+            border-radius: 12px;
+
+            padding: 22px 20px;
+
+            display: flex;
+
+            flex-direction: column
+        }
+
+        .tool-card .icon {
+
+            font-size: 1.7rem;
+
+            margin-bottom: 10px
+        }
+
+        .tool-card .name {
+
+            font-size: .95rem;
+
+            font-weight: 800;
+
+            color: var(--paper);
+
+            margin-bottom: 6px
+        }
+
+        .tool-card .desc {
+
+            font-size: .8rem;
+
+            color: var(--dim);
+
+            line-height: 1.65;
+
+            margin-bottom: 12px;
+
+            flex: 1
+        }
+
+        .tag-row {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 5px;
+
+            margin-bottom: 10px
+        }
+
+        .tool-tag {
+
+            background: rgba(240, 165, 0, .08);
+
+            border: 1px solid rgba(240, 165, 0, .2);
+
+            border-radius: 6px;
+
+            padding: 3px 8px;
+
+            font-size: .58rem;
+
+            font-weight: 700;
+
+            color: var(--gold);
+
+            letter-spacing: .04em
+        }
+
+        .tool-price {
+
+            display: inline-block;
+
+            background: rgba(240, 165, 0, .08);
+
+            border: 1px solid rgba(240, 165, 0, .2);
+
+            border-radius: 6px;
+
+            padding: 3px 9px;
+
+            font-size: .62rem;
+
+            font-weight: 700;
+
+            color: var(--gold);
+
+            letter-spacing: .04em;
+
+            margin-top: 12px
+        }
+
+        /* AUTOMATIONS */
+
+        #automations {
+
+            padding: 80px 5vw;
+
+            background: var(--card);
+
+            border-top: 1px solid var(--border)
+        }
+
+        .auto-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+            gap: 20px;
+
+            max-width: 1100px;
+
+            margin: 0 auto 56px
+        }
+
+        .auto-card {
+
+            background: var(--ink);
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            padding: 22px 20px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+
+            flex-direction: column
+        }
+
+        .auto-card::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            height: 2px;
+
+            background: var(--cyan)
+        }
+
+        .auto-card .icon {
+
+            font-size: 1.7rem;
+
+            margin-bottom: 10px
+        }
+
+        .auto-card .name {
+
+            font-size: .95rem;
+
+            font-weight: 800;
+
+            color: var(--paper);
+
+            margin-bottom: 6px
+        }
+
+        .auto-card .desc {
+
+            font-size: .8rem;
+
+            color: var(--dim);
+
+            line-height: 1.65;
+
+            margin-bottom: 12px;
+
+            flex: 1
+        }
+
+        .auto-label {
+
+            font-size: .6rem;
+
+            color: rgba(0, 194, 255, .6);
+
+            font-weight: 700;
+
+            letter-spacing: .08em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 6px
+        }
+
+        .auto-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 5px;
+
+            margin-bottom: 10px
+        }
+
+        .auto-tag {
+
+            background: rgba(0, 194, 255, .08);
+
+            border: 1px solid rgba(0, 194, 255, .18);
+
+            border-radius: 6px;
+
+            padding: 3px 8px;
+
+            font-size: .58rem;
+
+            font-weight: 700;
+
+            color: var(--cyan);
+
+            letter-spacing: .04em
+        }
+
+        /* AI AGENTS */
+
+        #ai-agents {
+
+            padding: 80px 5vw;
+
+            background: var(--ink);
+
+            border-top: 1px solid var(--border)
+        }
+
+        .agent-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+            gap: 20px;
+
+            max-width: 1100px;
+
+            margin: 0 auto 56px
+        }
+
+        .agent-card {
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            padding: 22px 20px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+
+            flex-direction: column
+        }
+
+        .agent-card::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            height: 2px;
+
+            background: var(--green)
+        }
+
+        .agent-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 10px
+        }
+
+        .agent-count {
+
+            font-size: .58rem;
+
+            color: var(--green);
+
+            font-weight: 700;
+
+            letter-spacing: .08em;
+
+            text-transform: uppercase;
+
+            background: rgba(29, 185, 84, .08);
+
+            border: 1px solid rgba(29, 185, 84, .2);
+
+            border-radius: 100px;
+
+            padding: 3px 8px
+        }
+
+        .agent-card .name {
+
+            font-size: .95rem;
+
+            font-weight: 800;
+
+            color: var(--paper);
+
+            margin-bottom: 6px
+        }
+
+        .agent-card .desc {
+
+            font-size: .8rem;
+
+            color: var(--dim);
+
+            line-height: 1.65;
+
+            margin-bottom: 12px;
+
+            flex: 1
+        }
+
+        .agent-label {
+
+            font-size: .6rem;
+
+            color: rgba(29, 185, 84, .6);
+
+            font-weight: 700;
+
+            letter-spacing: .08em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 6px
+        }
+
+        .agent-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 5px;
+
+            margin-bottom: 10px
+        }
+
+        .agent-tag {
+
+            background: rgba(29, 185, 84, .08);
+
+            border: 1px solid rgba(29, 185, 84, .2);
+
+            border-radius: 6px;
+
+            padding: 3px 8px;
+
+            font-size: .58rem;
+
+            font-weight: 700;
+
+            color: var(--green);
+
+            letter-spacing: .04em
+        }
+
+        /* CTA CARD */
+
+        .cta-card {
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 48px 40px;
+
+            text-align: center;
+
+            margin: 0 5vw 80px;
+
+            max-width: 1100px;
+
+            margin-left: auto;
+
+            margin-right: auto
+        }
+
+        .cta-card h2 {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: clamp(2rem, 6vw, 3.5rem);
+
+            margin-bottom: 16px
+        }
+
+        .cta-card p {
+
+            color: var(--dim);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            margin-bottom: 32px;
+
+            max-width: 480px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+            margin-bottom: 32px
+        }
+
+        .cta-btns {
+
+            display: flex;
+
+            gap: 12px;
+
+            justify-content: center;
+
+            flex-wrap: wrap
+        }
+
+        .btn-wa {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: var(--wa);
+
+            color: #fff;
+
+            font-weight: 700;
+
+            font-size: .95rem;
+
+            padding: 14px 28px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            transition: opacity .2s
+        }
+
+        .btn-wa:hover {
+
+            opacity: .9
+        }
+
+        .btn-outline-gold {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: transparent;
+
+            color: var(--gold);
+
+            border: 1px solid var(--gold);
+
+            font-weight: 700;
+
+            font-size: .95rem;
+
+            padding: 14px 28px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            transition: background .2s
+        }
+
+        .btn-outline-gold:hover {
+
+            background: rgba(240, 165, 0, .08)
+        }
+
+        .btn-gold {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            background: var(--gold);
+
+            color: #030D08;
+
+            padding: 13px 28px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            font-size: 15px;
+
+            transition: opacity .2s
+        }
+
+        .btn-gold:hover {
+
+            opacity: .9
+        }
+
+        .btn-cyan {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            background: var(--cyan);
+
+            color: #030D08;
+
+            padding: 13px 28px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            font-size: 15px;
+
+            transition: opacity .2s
+        }
+
+        .btn-cyan:hover {
+
+            opacity: .85
+        }
+
+        .btn-green {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+
+            color: #030D08;
+
+            padding: 13px 28px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            font-size: 15px
+        }
+
+        .text-center {
+
+            text-align: center
+        }
+
+        .btn-call {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            border: 1px solid var(--border);
+
+            color: var(--paper);
+
+            padding: 13px 28px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            font-size: 15px;
+
+            transition: border-color .2s
+        }
+
+        .btn-call:hover {
+
+            border-color: #444
+        }
+
+        .price-note {
+
+            color: var(--dim);
+
+            font-size: 13px;
+
+            margin-top: 20px
+        }
+
+        /* FOOTER */
+
+        footer {
+
+            background: var(--card);
+
+            border-top: 1px solid var(--border);
+
+            padding: 56px 5vw 32px
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 40px;
+
+            margin-bottom: 48px
+        }
+
+        .footer-brand {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 1.5rem;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px
+        }
+
+        .footer-desc {
+
+            font-size: .8rem;
+
+            color: rgba(245, 237, 216, .4);
+
+            line-height: 1.6;
+
+            margin-bottom: 20px;
+
+            max-width: 240px
+        }
+
+        .footer-col-title {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: .1em;
+
+            text-transform: uppercase;
+
+            color: var(--gold);
+
+            margin-bottom: 16px
+        }
+
+        .footer-links {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px
+        }
+
+        .footer-link {
+
+            font-size: .8rem;
+
+            color: rgba(245, 237, 216, .4);
+
+            text-decoration: none;
+
+            transition: color .15s
+        }
+
+        .footer-link:hover {
+
+            color: var(--gold)
+        }
+
+        .footer-bottom {
+
+            border-top: 1px solid var(--border);
+
+            padding-top: 24px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px
+        }
+
+        .footer-copy {
+
+            font-size: .65rem;
+
+            color: rgba(245, 237, 216, .2)
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px) {
+
+            .nav-links {
+
+                display: none
+            }
+
+            .hamburger {
+
+                display: flex
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .cta-card {
+
+                padding: 32px 24px
+            }
+
+        }
+
+        /* ── SHOWCASE TABS ── */
+
+        .show-tabs-wrap {
+
+            padding: 0 5vw 8px;
+
+            background: #0a0a0a;
+
+            position: sticky;
+
+            top: 56px;
+
+            z-index: 90;
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+        [data-theme="light"] .show-tabs-wrap {
+
+            background: #F7F3EC;
+
+            border-bottom-color: #E0D8C8;
+
+        }
+
+        .show-tabs {
+
+            display: flex;
+
+            gap: 8px;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            overflow-x: auto;
+
+            padding: 12px 0;
+
+            scrollbar-width: none;
+
+        }
+
+        .show-tabs::-webkit-scrollbar {
+
+            display: none;
+
+        }
+
+        .show-tab {
+
+            background: transparent;
+
+            border: 1px solid var(--border);
+
+            color: var(--dim);
+
+            font-family: 'Inter', sans-serif;
+
+            font-size: .78rem;
+
+            font-weight: 700;
+
+            letter-spacing: .04em;
+
+            text-transform: uppercase;
+
+            padding: 10px 16px;
+
+            border-radius: 999px;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            transition: all .18s ease;
+
+        }
+
+        .show-tab:hover {
+
+            border-color: var(--gold);
+
+            color: var(--paper);
+
+        }
+
+        .show-tab.active {
+
+            background: rgba(240, 165, 0, .12);
+
+            border-color: var(--gold);
+
+            color: var(--gold);
+
+        }
+
+        .tab-panel {
+
+            display: none;
+
+        }
+
+        .tab-panel.active {
+
+            display: block;
+
+        }
+
+        .panel-intro {
+
+            max-width: 720px;
+
+            margin: 0 auto 28px;
+
+            text-align: center;
+
+            padding: 0 5vw;
+
+        }
+
+        .panel-intro p {
+
+            color: var(--dim);
+
+            font-size: .95rem;
+
+            line-height: 1.7;
+
+        }
+
+        /* ── CASE STUDY CARDS ── */
+
+        .cs-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+            gap: 24px;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            padding: 8px 5vw 64px;
+
+        }
+
+        .cs-card {
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            display: flex;
+
+            flex-direction: column;
+
+            transition: border-color .2s, transform .2s;
+
+            text-decoration: none;
+
+            color: inherit;
+
+        }
+
+        .cs-card:hover {
+
+            border-color: var(--gold);
+
+        }
+
+        .cs-cover {
+
+            position: relative;
+
+            aspect-ratio: 16/10;
+
+            background: #111;
+
+            overflow: hidden;
+
+        }
+
+        .cs-cover img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform .35s ease;
+
+        }
+
+        .cs-card:hover .cs-cover img {
+
+            transform: scale(1.04);
+
+        }
+
+        .cs-cover-fallback {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            padding: 20px;
+
+            background: linear-gradient(135deg, #1a1208, #0A0705 60%, #2a1800);
+
+        }
+
+        .cs-cover-fallback span {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 1.8rem;
+
+            letter-spacing: 1px;
+
+            color: var(--gold);
+
+            line-height: 1.05;
+
+        }
+
+        .cs-badge-row {
+
+            position: absolute;
+
+            top: 12px;
+
+            left: 12px;
+
+            display: flex;
+
+            gap: 6px;
+
+            flex-wrap: wrap;
+
+        }
+
+        .cs-pill {
+
+            background: rgba(10, 7, 5, .78);
+
+            color: var(--gold);
+
+            border: 1px solid rgba(240, 165, 0, .35);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: .08em;
+
+            text-transform: uppercase;
+
+            padding: 4px 9px;
+
+            border-radius: 999px;
+
+            backdrop-filter: blur(6px);
+
+        }
+
+        .cs-body {
+
+            padding: 20px 20px 22px;
+
+            flex: 1;
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+        .cs-meta {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            align-items: center;
+
+            margin-bottom: 10px;
+
+        }
+
+        .cs-client {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            color: var(--gold);
+
+        }
+
+        .cs-role {
+
+            font-size: 11px;
+
+            color: var(--dim);
+
+            font-weight: 600;
+
+        }
+
+        .cs-title {
+
+            font-size: 1.15rem;
+
+            font-weight: 800;
+
+            color: var(--paper);
+
+            line-height: 1.3;
+
+            margin-bottom: 10px;
+
+        }
+
+        .cs-summary {
+
+            font-size: .88rem;
+
+            color: var(--dim);
+
+            line-height: 1.65;
+
+            margin-bottom: 16px;
+
+            flex: 1;
+
+        }
+
+        .cs-stats {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 8px;
+
+            margin-bottom: 16px;
+
+        }
+
+        .cs-stat {
+
+            background: rgba(255, 255, 255, .03);
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            padding: 10px 8px;
+
+            text-align: center;
+
+        }
+
+        [data-theme="light"] .cs-stat {
+
+            background: #f7f3ec;
+
+        }
+
+        .cs-stat b {
+
+            display: block;
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 1.25rem;
+
+            color: var(--gold);
+
+            letter-spacing: .5px;
+
+            line-height: 1;
+
+            margin-bottom: 4px;
+
+        }
+
+        .cs-stat span {
+
+            font-size: 10px;
+
+            color: var(--dim);
+
+            font-weight: 600;
+
+            line-height: 1.3;
+
+        }
+
+        .cs-cta {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: .82rem;
+
+            font-weight: 700;
+
+            color: var(--gold);
+
+        }
+
+        .cs-cta::after {
+
+            content: '→';
+
+            transition: transform .15s;
+
+        }
+
+        .cs-card:hover .cs-cta::after {
+
+            transform: translateX(3px);
+
+        }
+
+        .hire-strip {
+
+            max-width: 1100px;
+
+            margin: 0 auto 48px;
+
+            padding: 28px 24px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: linear-gradient(135deg, rgba(240, 165, 0, .08), rgba(224, 78, 20, .05));
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 18px;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+        .hire-strip h3 {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 1.7rem;
+
+            letter-spacing: 1px;
+
+            line-height: 1.1;
+
+            margin-bottom: 6px;
+
+        }
+
+        .hire-strip p {
+
+            color: var(--dim);
+
+            font-size: .9rem;
+
+            max-width: 520px;
+
+            line-height: 1.6;
+
+        }
+
+        .hire-actions {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+        }
+
+        [data-theme="light"] .cs-card {
+
+            background: #fff;
+
+            border-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] .hire-strip {
+
+            background: #fff;
+
+            border-color: #E0D8C8;
+
+        }
+
+        /* ── SURFACE HELPERS (theme-aware) ── */
+
+        .surface-ink {
+
+            background: #0a0a0a;
+
+        }
+
+        .surface-deep {
+
+            background: #080808;
+
+        }
+
+        [data-theme="light"] .surface-ink,
+
+        [data-theme="light"] .surface-deep {
+
+            background: #F7F3EC;
+
+        }
+
+        [data-theme="light"] .page-hero {
+
+            background: #F7F3EC;
+
+        }
+
+        /* Nav actions cluster */
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            flex-shrink: 0;
+
+        }
+
+        /* Better mobile sticky tabs */
+
+        .show-tabs-wrap {
+
+            -webkit-overflow-scrolling: touch;
+
+        }
+
+        .show-tab {
+
+            -webkit-tap-highlight-color: transparent;
+
+        }
+
+        /* Card mockups stay readable in light mode */
+
+        [data-theme="light"] .card-banner {
+
+            filter: none;
+
+        }
+
+        [data-theme="light"] .card-mockup {
+
+            background: rgba(255, 255, 255, .18);
+
+            border-color: rgba(255, 255, 255, .28);
+
+        }
+
+        /* Sections that used var(--ink) already fine; ensure feature rows */
+
+        [data-theme="light"] .feature-row {
+
+            background: rgba(10, 122, 48, .06);
+
+            border-color: rgba(10, 122, 48, .18);
+
+        }
+
+        [data-theme="light"] .feature-row.off {
+
+            background: #fff;
+
+            border-color: #E0D8C8;
+
+        }
+
+        [data-theme="light"] .pill {
+
+            background: #e8e2d6;
+
+            border-color: #d5cdb8;
+
+        }
+
+        [data-theme="light"] .pill::after {
+
+            background: #9a9180;
+
+        }
+
+        [data-theme="light"] .pill.on {
+
+            background: rgba(10, 122, 48, .2);
+
+            border-color: rgba(10, 122, 48, .45);
+
+        }
+
+        [data-theme="light"] .pill.on::after {
+
+            background: #0A7A30;
+
+        }
+
+        /* WhatsApp FAB safe area */
+
+        #ls-wa-fab {
+
+            bottom: max(18px, env(safe-area-inset-bottom));
+
+            right: max(18px, env(safe-area-inset-right));
+
+        }
+
+        /* Responsive grids &amp; type */
+
+        @media (max-width: 900px) {
+
+            nav {
+
+                padding: 0 4vw;
+
+            }
+
+            .nav-actions {
+
+                gap: 8px;
+
+            }
+
+            .showcase-grid {
+
+                grid-template-columns: 1fr;
+
+                padding-left: 4vw;
+
+                padding-right: 4vw;
+
+            }
+
+            .cs-grid {
+
+                grid-template-columns: 1fr;
+
+                padding-left: 4vw;
+
+                padding-right: 4vw;
+
+            }
+
+            .tools-grid,
+
+            .auto-grid,
+
+            .agent-grid,
+
+            .creative-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .hire-strip {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                margin-left: 4vw;
+
+                margin-right: 4vw;
+
+            }
+
+            .footer-grid {
+
+                gap: 22px;
+
+            }
+
+            .page-h1 {
+
+                font-size: clamp(2.2rem, 11vw, 3.4rem);
+
+            }
+
+            .show-tabs-wrap {
+
+                top: 56px;
+
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .page-hero,
+
+            .surface-ink,
+
+            .surface-deep {
+
+                padding-left: 4vw !important;
+
+                padding-right: 4vw !important;
+
+            }
+
+            .card-body {
+
+                padding: 18px;
+
+            }
+
+            .cs-stats {
+
+                grid-template-columns: 1fr 1fr 1fr;
+
+                gap: 6px;
+
+            }
+
+            .cs-stat {
+
+                padding: 8px 4px;
+
+            }
+
+            .cs-stat b {
+
+                font-size: 1.05rem;
+
+            }
+
+            .hire-actions {
+
+                width: 100%;
+
+            }
+
+            .hire-actions .btn-wa,
+
+            .hire-actions .btn-outline-gold {
+
+                width: 100%;
+
+                justify-content: center;
+
+            }
+
+            .cta-btns {
+
+                flex-direction: column;
+
+            }
+
+            .cta-btns a {
+
+                width: 100%;
+
+                justify-content: center;
+
+                text-align: center;
+
+            }
+
+            .btn-wa,
+
+            .btn-outline-gold,
+
+            .btn-gold,
+
+            .btn-cyan,
+
+            .btn-green,
+
+            .btn-call {
+
+                min-height: 44px;
+
+            }
+
+            .show-tab {
+
+                padding: 9px 14px;
+
+                font-size: .72rem;
+
+            }
+
+            footer {
+
+                padding: 36px 4vw 100px;
+
+            }
+
+            main {
+
+                padding-bottom: 24px;
+
+            }
+
+        }
+
+        @media (max-width: 380px) {
+
+            .cs-stats {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .nav-logo span {
+
+                font-size: 1.15rem;
+
+            }
+
+        }
+
+        /* Prevent horizontal scroll from long words/tabs */
+
+        body {
+
+            overflow-x: hidden;
+
+        }
+
+        img,
+
+        video,
+
+        svg {
+
+            max-width: 100%;
+
+            height: auto;
+
+        }
+
+        .show-tabs,
+
+        .showcase-grid,
+
+        .cs-grid,
+
+        .tools-grid,
+
+        .auto-grid,
+
+        .agent-grid {
+
+            width: 100%;
+
+        }
+
+        [data-theme="light"] .cs-title {
+
+            color: #1a1208;
+
+        }
+
+        [data-theme="light"] .cs-summary {
+
+            color: rgba(26, 18, 8, .65);
+
+        }
+
+        [data-theme="light"] .cs-client {
+
+            color: #C47F00;
+
+        }
+
+        [data-theme="light"] .panel-intro p {
+
+            color: rgba(26, 18, 8, .65);
+
+        }
+
+        [data-theme="light"] .show-tab {
+
+            color: rgba(26, 18, 8, .55);
+
+        }
+
+        [data-theme="light"] .show-tab.active {
+
+            color: #C47F00;
+
+            background: rgba(196, 127, 0, .1);
+
+        }
+
+        [data-theme="light"] .hire-strip h3 {
+
+            color: #1a1208;
+
+        }
+
+        [data-theme="light"] .hire-strip p {
+
+            color: rgba(26, 18, 8, .65);
+
+        }
+
+        [data-theme="light"] .card-type {
+
+            color: rgba(26, 18, 8, .55);
+
+        }
+
+        [data-theme="light"] .card-features li {
+
+            color: rgba(26, 18, 8, .65);
+
+        }
+
+        [data-theme="light"] .page-h1 {
+
+            color: #1a1208;
+
+        }
+
+        [data-theme="light"] .page-desc {
+
+            color: rgba(26, 18, 8, .65);
+
+        }
+
+        [data-theme="light"] .section-h2 {
+
+            color: #1a1208;
+
+        }
+
+        /* Quiet ambient background motion */
+
+        body {
+
+            position: relative
+        }
+
+        body::before {
+
+            content: '';
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 0;
+
+            pointer-events: none;
+
+            background: radial-gradient(circle at 84% 12%, rgba(240, 165, 0, .08), transparent 28%), radial-gradient(circle at 8% 72%, rgba(224, 78, 20, .06), transparent 30%);
+
+            animation: show-breathe 16s ease-in-out infinite alternate
+        }
+
+        main,
+
+        footer {
+
+            position: relative;
+
+            z-index: 1
+        }
+
+        @keyframes show-breathe {
+
+            to {
+
+                opacity: .45;
+
+                transform: scale(1.04)
+            }
+
+        }
+
+        [data-theme="light"] body::before {
+
+            background: radial-gradient(circle at 84% 12%, rgba(196, 127, 0, .1), transparent 28%), radial-gradient(circle at 8% 72%, rgba(192, 58, 8, .07), transparent 30%)
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            body::before {
+
+                animation: none
+            }
+
+        }
+
+        .cs-grid {
+
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        }
+
+        @media(max-width:900px) {
+
+            .cs-grid {
+
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .cs-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+        .panel-intro,
+
+        .cs-grid,
+
+        .hire-strip {
+
+            max-width: 1280px;
+
+        }
+
+        .cs-grid {
+
+            padding-left: 3vw;
+
+            padding-right: 3vw;
+
+        }
+
+        .show-tab {
+
+            max-width: 240px;
+
+        }
+
+        .dailyui-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+
+            gap: 14px;
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            padding: 8px 3vw 0
+        }
+
+        .dailyui-card {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+
+            min-width: 0;
+
+            padding: 8px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: var(--card);
+
+            color: var(--paper);
+
+            text-decoration: none;
+
+            transition: transform .2s, border-color .2s
+        }
+
+        .dailyui-card:hover {
+
+            transform: translateY(-3px);
+
+            border-color: var(--gold)
+        }
+
+        .dailyui-card img {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            background: #111
+        }
+
+        .dailyui-card span {
+
+            font-size: .8rem;
+
+            font-weight: 800;
+
+            padding: 3px 4px 0
+        }
+
+        .dailyui-card small {
+
+            font-size: .68rem;
+
+            color: var(--dim);
+
+            padding: 0 4px 5px
+        }
+
+        @media(max-width:900px) {
+
+            .dailyui-grid {
+
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+
+            .dailyui-card img {
+
+                height: 240px
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .dailyui-grid {
+
+                grid-template-columns: 1fr
+            }
+
+            .dailyui-card img {
+
+                height: auto;
+
+                max-height: 420px
+            }
+
+        }
+
+        /* Canonical LulaSync footer — shared across every page */
+
+        footer {
+
+            background: var(--card) !important;
+
+            border-top: 1px solid var(--border) !important;
+
+            padding: 56px 5vw 32px !important;
+
+        }
+
+        footer .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 40px;
+
+            max-width: 1100px;
+
+            margin: 0 auto 48px;
+
+        }
+
+        footer .footer-desc {
+
+            font-size: .8rem;
+
+            color: var(--dim) !important;
+
+            line-height: 1.6;
+
+            margin: 12px 0 20px;
+
+            max-width: 320px;
+
+        }
+
+        footer .footer-col-title {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: .1em;
+
+            text-transform: uppercase;
+
+            color: var(--gold);
+
+            margin-bottom: 16px;
+
+        }
+
+        footer .footer-links {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+        }
+
+        footer .footer-link {
+
+            font-size: .8rem;
+
+            color: var(--dim) !important;
+
+            text-decoration: none;
+
+            transition: color .15s;
+
+        }
+
+        footer .footer-link:hover {
+
+            color: var(--gold) !important;
+
+        }
+
+        footer .footer-bottom {
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            border-top: 1px solid var(--border);
+
+            padding-top: 24px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+        }
+
+        footer .footer-copy {
+
+            font-size: .65rem;
+
+            color: var(--dim) !important;
+
+        }
+
+        [data-theme="light"] footer {
+
+            background: #fff !important;
+
+            border-top-color: #E0D8C8 !important;
+
+        }
+
+        [data-theme="light"] footer .footer-link,
+
+        [data-theme="light"] footer .footer-desc,
+
+        [data-theme="light"] footer .footer-copy {
+
+            color: rgba(26, 18, 8, .62) !important;
+
+        }
+
+        @media (max-width:600px) {
+
+            footer {
+
+                padding: 36px 4vw 100px !important;
+
+            }
+
+            footer .footer-grid {
+
+                gap: 24px;
+
+                margin-bottom: 36px;
+
+            }
+
+            footer .footer-bottom {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+            }
+
+        }
+
+        /* Portfolio image fallback: never leave a broken-image icon if a legacy host is unavailable. */
+
+        .case-image-fallback {
+
+            width: 100%;
+
+            min-height: 180px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            padding: 18px;
+
+            border-radius: 8px;
+
+            background: linear-gradient(135deg, #1a1208, #0A0705 60%, #2a1800);
+
+            color: var(--gold);
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: clamp(1.2rem, 3vw, 2rem);
+
+            line-height: 1.05;
+
+            letter-spacing: 1px;
+
+        }
+
+        [data-theme="light"] .case-image-fallback {
+
+            background: linear-gradient(135deg, #fff7e8, #f0ebe0 60%, #ead9b9);
+
+            color: #9b6200;
+
+        }
+
+        /* ── Scroll-reveal (sections "collapse" open as you scroll) ── */
+
+        .reveal-section {
+
+            opacity: 0;
+
+            transform: translateY(36px) scale(.99);
+
+            filter: blur(3px);
+
+            transition: opacity .8s cubic-bezier(.22, .61, .36, 1),
+
+                transform .8s cubic-bezier(.22, .61, .36, 1),
+
+                filter .8s cubic-bezier(.22, .61, .36, 1);
+
+        }
+
+        .reveal-section.is-visible {
+
+            opacity: 1;
+
+            transform: none;
+
+            filter: blur(0);
+
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            .reveal-section {
+
+                opacity: 1;
+
+                transform: none;
+
+                filter: none;
+
+                transition: none;
+
+            }
+
+        }
+
+        /* Non-distracting floating background particles */
+
+        .ambient-dot {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            opacity: .18;
+
+            filter: blur(1px);
+
+        }
+
+        @keyframes drift-y {
+
+            0%,
+
+            100% {
+
+                transform: translateY(0)
+            }
+
+            50% {
+
+                transform: translateY(-24px)
+            }
+
+        }
+
+        @keyframes drift-x {
+
+            0%,
+
+            100% {
+
+                transform: translateX(0)
+            }
+
+            50% {
+
+                transform: translateX(18px)
+            }
+
+        }
+    </style>
+
+    <style>
+        .showcase-filters {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            justify-content: center;
+
+            margin: 0 auto 24px;
+
+            max-width: 720px;
+
+            padding: 0 5vw
+        }
+
+        .filter-tag {
+
+            background: transparent;
+
+            border: 1px solid var(--border);
+
+            color: var(--dim);
+
+            font-family: 'Inter', sans-serif;
+
+            font-size: .72rem;
+
+            font-weight: 700;
+
+            letter-spacing: .06em;
+
+            text-transform: uppercase;
+
+            padding: 8px 15px;
+
+            border-radius: 999px;
+
+            cursor: pointer;
+
+            transition: all .18s ease
+        }
+
+        .filter-tag:hover {
+
+            border-color: var(--gold);
+
+            color: var(--paper)
+        }
+
+        .filter-tag.active {
+
+            background: rgba(240, 165, 0, .12);
+
+            border-color: var(--gold);
+
+            color: var(--gold)
+        }
+
+        .cs-card[data-hidden="true"] {
+
+            display: none !important
+        }
+
+        .cs-card.is-locked {
+
+            position: relative;
+
+            cursor: pointer
+        }
+
+        .cs-card.is-coming {
+
+            cursor: default
+        }
+
+        .cs-lock-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: linear-gradient(180deg, rgba(10, 7, 5, .25), rgba(10, 7, 5, .78));
+
+            color: var(--gold);
+
+            font-size: 2.4rem;
+
+            backdrop-filter: blur(1px)
+        }
+
+        .cs-coming-banner {
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            background: linear-gradient(90deg, rgba(240, 165, 0, .92), rgba(224, 78, 20, .92));
+
+            color: #0A0705;
+
+            font-size: .68rem;
+
+            font-weight: 900;
+
+            letter-spacing: .16em;
+
+            text-transform: uppercase;
+
+            text-align: center;
+
+            padding: 6px 8px
+        }
+
+        .pin-modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 1200;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: rgba(5, 4, 3, .82);
+
+            backdrop-filter: blur(8px);
+
+            padding: 20px
+        }
+
+        .pin-modal.open {
+
+            display: flex
+        }
+
+        .pin-box {
+
+            width: min(380px, 92vw);
+
+            background: var(--card, #14110c);
+
+            border: 1px solid var(--border, #2a2014);
+
+            border-radius: 14px;
+
+            padding: 28px 24px 24px;
+
+            text-align: center;
+
+            box-shadow: 0 24px 60px rgba(0, 0, 0, .5)
+        }
+
+        .pin-box .pin-lock {
+
+            font-size: 2.2rem;
+
+            margin-bottom: 6px
+        }
+
+        .pin-box h3 {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            letter-spacing: 1px;
+
+            color: var(--paper);
+
+            font-size: 1.4rem;
+
+            margin: 0 0 4px
+        }
+
+        .pin-box p {
+
+            color: var(--dim);
+
+            font-size: .82rem;
+
+            line-height: 1.55;
+
+            margin: 0 0 16px
+        }
+
+        .pin-input {
+
+            width: 100%;
+
+            background: #0d0a07;
+
+            border: 1px solid var(--border, #2a2014);
+
+            border-radius: 8px;
+
+            color: var(--paper);
+
+            text-align: center;
+
+            letter-spacing: .4em;
+
+            font-size: 1.3rem;
+
+            padding: 12px;
+
+            margin-bottom: 6px
+        }
+
+        .pin-input:focus {
+
+            outline: none;
+
+            border-color: var(--gold)
+        }
+
+        .pin-err {
+
+            color: #ff6b5a;
+
+            font-size: .72rem;
+
+            min-height: 14px;
+
+            margin-bottom: 12px
+        }
+
+        .pin-actions {
+
+            display: flex;
+
+            gap: 10px
+        }
+
+        .pin-actions button,
+
+        .pin-actions a {
+
+            flex: 1;
+
+            border-radius: 8px;
+
+            padding: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: .06em;
+
+            text-transform: uppercase;
+
+            font-size: .74rem;
+
+            cursor: pointer;
+
+            border: 1px solid var(--border, #2a2014);
+
+            text-align: center
+        }
+
+        .pin-submit {
+
+            background: var(--gold);
+
+            color: #0A0705;
+
+            border-color: var(--gold) !important
+        }
+
+        .pin-cancel {
+
+            background: transparent;
+
+            color: var(--dim)
+        }
+
+        .pin-reveal .pin-lock {
+
+            font-size: 2.2rem
+        }
+
+        .pin-reveal .badge-private {
+
+            display: inline-block;
+
+            margin-top: 8px;
+
+            font-size: .66rem;
+
+            font-weight: 800;
+
+            letter-spacing: .18em;
+
+            text-transform: uppercase;
+
+            color: var(--gold);
+
+            border: 1px solid rgba(240, 165, 0, .4);
+
+            border-radius: 999px;
+
+            padding: 4px 12px
+        }
+    </style>
+
+    <style id="ls-polish">
+        .role-chip {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 7px 14px;
+
+            border-radius: 999px;
+
+            font-size: .72rem;
+
+            font-weight: 800;
+
+            letter-spacing: .06em;
+
+            text-transform: uppercase
+        }
+
+        .role-design {
+
+            background: rgba(139, 92, 246, .12);
+
+            border: 1px solid rgba(139, 92, 246, .35);
+
+            color: #B293FF
+        }
+
+        .role-dev {
+
+            background: rgba(0, 194, 255, .1);
+
+            border: 1px solid rgba(0, 194, 255, .3);
+
+            color: #6FDCFF
+        }
+
+        .mvp-tag {
+
+            display: inline-block;
+
+            margin-left: 6px;
+
+            padding: 2px 8px;
+
+            border-radius: 999px;
+
+            font-size: .55rem;
+
+            font-weight: 900;
+
+            letter-spacing: .12em;
+
+            vertical-align: middle;
+
+            background: rgba(240, 165, 0, .15);
+
+            border: 1px solid rgba(240, 165, 0, .45);
+
+            color: var(--gold)
+        }
+
+        .cs-card,
+
+        .dailyui-card,
+
+        .filter-tag,
+
+        .show-tab {
+
+            transition: transform .28s cubic-bezier(.22, .61, .36, 1), border-color .2s, box-shadow .28s, background .2s, color .2s
+        }
+
+        .show-tab.active {
+
+            box-shadow: 0 0 0 1px rgba(240, 165, 0, .25)
+        }
+
+        .dailyui-card[data-hidden="true"],
+
+        .cs-card[data-hidden="true"] {
+
+            display: none !important
+        }
+
+        .tab-panel.active .cs-card,
+
+        .tab-panel.active .dailyui-card {
+
+            animation: cardIn .55s cubic-bezier(.22, .61, .36, 1) both
+        }
+
+        .tab-panel.active .cs-card:nth-child(1),
+
+        .tab-panel.active .dailyui-card:nth-child(1) {
+
+            animation-delay: .02s
+        }
+
+        .tab-panel.active .cs-card:nth-child(2),
+
+        .tab-panel.active .dailyui-card:nth-child(2) {
+
+            animation-delay: .06s
+        }
+
+        .tab-panel.active .cs-card:nth-child(3),
+
+        .tab-panel.active .dailyui-card:nth-child(3) {
+
+            animation-delay: .1s
+        }
+
+        .tab-panel.active .cs-card:nth-child(4),
+
+        .tab-panel.active .dailyui-card:nth-child(4) {
+
+            animation-delay: .14s
+        }
+
+        .tab-panel.active .cs-card:nth-child(5),
+
+        .tab-panel.active .dailyui-card:nth-child(5) {
+
+            animation-delay: .18s
+        }
+
+        .tab-panel.active .cs-card:nth-child(6),
+
+        .tab-panel.active .dailyui-card:nth-child(6) {
+
+            animation-delay: .22s
+        }
+
+        .tab-panel.active .cs-card:nth-child(7),
+
+        .tab-panel.active .dailyui-card:nth-child(7) {
+
+            animation-delay: .26s
+        }
+
+        .tab-panel.active .cs-card:nth-child(8),
+
+        .tab-panel.active .dailyui-card:nth-child(8) {
+
+            animation-delay: .3s
+        }
+
+        @keyframes cardIn {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(18px) scale(.98)
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: none
+            }
+
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            .tab-panel.active .cs-card,
+
+            .tab-panel.active .dailyui-card {
+
+                animation: none
+            }
+
+        }
+
+        .page-hero .badge {
+
+            animation: pulseGlow 3.5s ease-in-out infinite
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+
+            100% {
+
+                box-shadow: 0 0 0 0 rgba(240, 165, 0, 0)
+            }
+
+            50% {
+
+                box-shadow: 0 0 24px rgba(240, 165, 0, .18)
+            }
+
+        }
+    </style>
+
+    <link rel="stylesheet" href="./assets/ls-interactive.css" />
+
+</head>
+
+<body>
+
+    <nav>
+
+        <a href="./index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px"><img
+                src="./assets/portfolio/icon-192.png" width="36" height="36" alt="LulaSync" /><span>Lula<span
+                    style="color:var(--gold)">Sync</span></span></a>
+
+        <div class="nav-links" role="menubar">
+
+            <a href="./index.html" class="nav-link">Home</a>
+
+            <a href="./showcase.html" class="nav-link active">Showcase</a>
+
+            <a href="./services.html" class="nav-link">Services</a>
+
+            <a href="./about.html" class="nav-link">About</a>
+
+            <a href="./contact.html" class="nav-link">Contact</a>
+
+        </div>
+
+        <div class="nav-actions">
+
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">🌙</button>
+
+            <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+
+                <span></span><span></span><span></span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+    <div class="grad-line"></div>
+
+    <!-- MOBILE OVERLAY -->
+
+    <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-label="Mobile navigation">
+
+        <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+
+        <div style="text-align:center">
+
+            <a href="./index.html" class="mobile-nav-link">Home</a>
+
+            <a href="./showcase.html" class="mobile-nav-link active">Showcase</a>
+
+            <a href="./services.html" class="mobile-nav-link">Services</a>
+
+            <a href="./about.html" class="mobile-nav-link">About</a>
+
+            <a href="./contact.html" class="mobile-nav-link">Contact</a>
+
+        </div>
+
+        <a href="./contact.html" class="btn-wa" style="width:min(320px,80vw);justify-content:center">Contact me →</a>
+
+    </div>
+
+    <main>
+
+        <!-- SHOWCASE HERO -->
+
+        <div class="page-hero surface-ink"
+            style="padding:72px 5vw 28px;text-align:center;position:relative;overflow:hidden">
+
+            <!-- non-distracting background shapes -->
+
+            <span
+                style="position:absolute;width:260px;height:260px;border-radius:50%;top:-40px;right:-60px;background:radial-gradient(circle,rgba(224,78,20,.14),transparent 70%);filter:blur(40px);pointer-events:none"
+                aria-hidden="true"></span>
+
+            <span
+                style="position:absolute;width:200px;height:200px;border-radius:50%;bottom:-40px;left:-40px;background:radial-gradient(circle,rgba(139,92,246,.12),transparent 70%);filter:blur(40px);pointer-events:none"
+                aria-hidden="true"></span>
+
+            <span class="badge" style="border-color:var(--gold);color:var(--gold);font-weight:800;">// FRONTEND DEV
+
+                FOCUSED · EQUAL DESIGN &amp; ENGINEERING CRAFT</span>
+
+            <h1 class="page-h1 display">PROOF IN<br /><span style="color:var(--gold)">THE WORK</span></h1>
+
+            <p class="page-desc">Frontend developer and UI engineer with equal craft across UX/UI, CX, and Product
+
+                Design. Case studies, live PWAs, fintech UI, and SA solutions — structured clearly so hiring managers
+
+                can evaluate both code architecture and user experience without friction.</p>
+
+            <div class="dual-role-group"
+                style="display:flex;gap:12px;justify-content:center;margin-top:22px;flex-wrap:wrap;align-items:center;">
+
+                <span class="role-chip role-design"
+                    style="background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.4);color:#B293FF;font-size:0.78rem;padding:8px 16px;">✦
+
+                    UX / UI / CX / Product Designer</span>
+
+                <span style="color:var(--gold);font-weight:900;font-size:1.2rem;">=</span>
+
+                <span class="role-chip role-dev"
+                    style="background:rgba(0,194,255,.15);border:1px solid rgba(0,194,255,.4);color:#6FDCFF;font-size:0.78rem;padding:8px 16px;">⌘
+
+                    UI Dev / Frontend Developer</span>
+
+            </div>
+
+        </div>
+
+        <div class="kente-strip"></div>
+
+        <!-- SHOWCASE TABS -->
+
+        <div class="show-tabs-wrap">
+
+            <div class="show-tabs">
+
+                <button class="show-tab active" data-tab="portfolio" role="tab" aria-selected="true"
+                    aria-controls="panel-portfolio">Case Studies</button>
+
+                <button class="show-tab" data-tab="uidesign" role="tab" aria-selected="false"
+                    aria-controls="panel-uidesign">UI Design</button>
+
+                <button class="show-tab" data-tab="realapps" role="tab" aria-selected="false"
+                    aria-controls="panel-realapps">Live Apps</button>
+
+                <button class="show-tab" data-tab="frontend" role="tab" aria-selected="false"
+                    aria-controls="panel-frontend">Frontend Builds</button>
+
+                <button class="show-tab" data-tab="figma" role="tab" aria-selected="false"
+                    aria-controls="panel-figma">Figma</button>
+
+                <button class="show-tab" data-tab="webdesign" role="tab" aria-selected="false"
+                    aria-controls="panel-webdesign">Web Design</button>
+
+                <button class="show-tab" data-tab="articles" role="tab" aria-selected="false"
+                    aria-controls="panel-articles">Hackathons</button>
+
+            </div>
+
+        </div>
+
+        <!-- CASE STUDIES PANEL -->
+
+        <div class="tab-panel active" id="panel-portfolio" role="tabpanel" aria-labelledby="tab-portfolio">
+
+            <div class="surface-ink" style="padding:48px 5vw 0">
+
+                <div class="panel-intro">
+
+                    <div class="section-eyebrow" style="justify-content:center"><span class="slash">//</span> Case
+
+                        studies
+
+                    </div>
+
+                    <h2 class="section-h2 display" style="text-align:center;margin-bottom:12px">PRODUCT &amp;
+
+                        UX<br /><span style="color:var(--gold)">CASE STUDIES</span></h2>
+
+                    <p>Problem → process → outcome. Enterprise, fintech, education and service design — with clear role
+
+                        ownership.</p>
+
+                </div>
+
+                <div class="cs-grid">
+
+                    <!-- Case Study 1: Figma → Angular -->
+
+                    <a class="cs-card" data-tags="ux frontend designsystem" href="./angular-design-system.html">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/design-op.png" alt="DesignOps pipeline cover" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">DesignOps</span><span class="cs-pill">Zero
+
+                                    Drift</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">DesignOps</span><span class="cs-role">Lead
+
+                                    Designer
+
+                                    · Pipeline</span></div>
+
+                            <h3 class="cs-title">Figma → Angular — zero token drift</h3>
+
+                            <p class="cs-summary">Five-stage DesignOps pipeline. Names never change from Figma to
+
+                                Storybook.
+
+                            </p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Design System</span>
+
+                                <span class="cs-tag">Frontend</span>
+
+                                <span class="cs-tag">Angular</span>
+
+                                <span class="cs-tag">Storybook</span>
+
+                            </div>
+
+                            <div class="cs-stats">
+
+                                <div class="cs-stat"><b>80+</b><span>Components</span></div>
+
+                                <div class="cs-stat"><b>63%</b><span>Reuse @ 12 mo</span></div>
+
+                                <div class="cs-stat"><b>2.4×</b><span>Faster onboarding</span></div>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Case Study 2: Engage -->
+
+                    <a class="cs-card" data-tags="ux enterprise mobile" href="./vodacom-engage.html">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/engage-cover.png" alt="Vodacom Engage redesign cover"
+                                loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Native Apps</span><span class="cs-pill">25k+
+
+                                    users</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Vodacom</span><span class="cs-role">Lead UX/UI
+
+                                    ·
+
+                                    2021–22</span></div>
+
+                            <h3 class="cs-title">Engage — personalised enterprise employee UX</h3>
+
+                            <p class="cs-summary">IA rethink, search, favourites and a clearer home for 25k+ employees
+
+                                on
+
+                                Android &amp; iOS.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">UX/UI</span>
+
+                                <span class="cs-tag">Enterprise</span>
+
+                                <span class="cs-tag">Mobile Apps</span>
+
+                                <span class="cs-tag">Information Architecture</span>
+
+                            </div>
+
+                            <div class="cs-stats">
+
+                                <div class="cs-stat"><b>25k+</b><span>Active users</span></div>
+
+                                <div class="cs-stat"><b>2×</b><span>Faster navigation</span></div>
+
+                                <div class="cs-stat"><b>Mobile</b><span>Android &amp; iOS</span></div>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Case Study 3: Tobby Bursary -->
+
+                    <!-- <a class="cs-card" data-tags="ux servicedesign education" href="./tobby-bursary.html">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/ne-vod.png" alt="Tobby Bursary cover" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Conversational UX</span><span
+                                    class="cs-pill">Service Design</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Vodacom Internal</span><span class="cs-role">UX
+
+                                    ·
+
+                                    Service Design</span></div>
+
+                            <h3 class="cs-title">Tobby Ask-IT + bursary guided journey</h3>
+
+                            <p class="cs-summary">Conversational UX and service design — clear answers, fewer tickets,
+
+                                complete applications.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Service Design</span>
+
+                                <span class="cs-tag">Education</span>
+
+                                <span class="cs-tag">Conversational UX</span>
+
+                                <span class="cs-tag">CX</span>
+
+                            </div>
+
+                            <div class="cs-stats">
+
+                                <div class="cs-stat"><b>↓60%</b><span>IT tickets</span></div>
+
+                                <div class="cs-stat"><b>E2E</b><span>Intent → handoff</span></div>
+
+                                <div class="cs-stat"><b>↑40%</b><span>Complete apps</span></div>
+
+                            </div>
+
+                        </div>
+
+                    </a> -->
+
+                    <!-- Case Study 4: Stance Insurance -->
+
+                    <a class="cs-card" data-tags="fintech product strategy" href="https://www.stanceinsurance.co.za/"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/stance-cover.png" alt="Stance Insurance cover"
+                                loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Fintech</span><span class="cs-pill">Live
+
+                                    Product</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Stance Insurance</span><span
+                                    class="cs-role">Product Design Lead</span></div>
+
+                            <h3 class="cs-title">Insurance for SA's modified-car community</h3>
+
+                            <p class="cs-summary">Product strategy + UX for a niche once denied cover — now a live
+
+                                brand.
+
+                            </p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Fintech</span>
+
+                                <span class="cs-tag">Product Strategy</span>
+
+                                <span class="cs-tag">Insurance</span>
+
+                                <span class="cs-tag">South Africa</span>
+
+                            </div>
+
+                            <div class="cs-stats">
+
+                                <div class="cs-stat"><b>1st</b><span>SA niche product</span></div>
+
+                                <div class="cs-stat"><b>E2E</b><span>Strategy → UI</span></div>
+
+                                <div class="cs-stat"><b>Live</b><span>Production</span></div>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Case Study 5: UX Resources Library -->
+
+                    <a class="cs-card" data-tags="ux resources community"
+                        href="https://chartreuse-scale-c4a.notion.site/Lula-Creatives-UX-Resources-Bookmarks-1e2962b93ef1809dbe07c896db79ad65"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/ux-resources.png" alt="UX Resources Library cover"
+                                loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Resources</span><span
+                                    class="cs-pill">Community</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Design Community</span><span class="cs-role">UX
+
+                                    Lead · Curator</span></div>
+
+                            <h3 class="cs-title">UX resources library</h3>
+
+                            <p class="cs-summary">Curated collection of UX patterns, templates, and guidelines for South
+
+                                African design teams.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Resource Library</span>
+
+                                <span class="cs-tag">Community</span>
+
+                                <span class="cs-tag">Design System</span>
+
+                                <span class="cs-tag">Templates</span>
+
+                            </div>
+
+                            <div class="cs-stats">
+
+                                <div class="cs-stat"><b>200+</b><span>Resources</span></div>
+
+                                <div class="cs-stat"><b>SA</b><span>Localized</span></div>
+
+                                <div class="cs-stat"><b>Open</b><span>Community</span></div>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div><!-- /panel-portfolio -->
+
+        <!-- LIVE APPS PANEL -->
+
+        <div class="tab-panel" id="panel-realapps" role="tabpanel" aria-labelledby="tab-realapps">
+
+            <!-- LIVE APPS SECTION -->
+
+            <div class="surface-ink" style="padding:80px 5vw 0">
+
+                <div class="panel-intro">
+
+                    <div class="section-eyebrow" style="justify-content:center"><span class="slash">//</span> Live Apps
+
+                    </div>
+
+                    <h2 class="section-h2 display" style="text-align:center;margin-bottom:12px">SHIPPED<br /><span
+                            style="color:var(--gold)">APPLICATIONS</span></h2>
+
+                    <p>Real apps in production — designed, built, and deployed for South African businesses.</p>
+
+                </div>
+
+                <div class="cs-grid">
+                    <!-- Live App 0: Order + Delivery & Tracking -->
+                    <a class="cs-card" data-tags="liveapp barber" href="https://loux91.github.io/foodiezone/"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/foodiezone.png" alt="King Cutter cover" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Live</span><span
+                                    class="cs-pill">Restaurant</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">FoodieZone</span><span
+                                    class="cs-role">Full-Stack
+
+                                    Design &amp; Dev</span></div>
+
+                            <h3 class="cs-title">Order + Delivery & Tracking</h3>
+
+                            <p class="cs-summary">Food delivery app with real-time order tracking, menu management, and
+                                customer
+
+                                accounts.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Live App</span>
+
+                                <span class="cs-tag">Restaurant</span>
+
+                                <span class="cs-tag">Ordering</span>
+
+                                <span class="cs-tag">Delivery</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- Live App 1: Bookings + WhatsApp -->
+
+                    <a class="cs-card" data-tags="liveapp barber" href="https://king-cutter-s-royal-web.vercel.app/"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/king-cutter.png" alt="King Cutter cover" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Live</span><span class="cs-pill">Barber
+
+                                    Shop</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">King Cutter</span><span
+                                    class="cs-role">Full-Stack
+
+                                    Design &amp; Dev</span></div>
+
+                            <h3 class="cs-title">Bookings + WhatsApp</h3>
+
+                            <p class="cs-summary">Barber shop PWA with online bookings, service pricing, and WhatsApp
+
+                                integration.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Live App</span>
+
+                                <span class="cs-tag">Barber Shop</span>
+
+                                <span class="cs-tag">Bookings</span>
+
+                                <span class="cs-tag">WhatsApp</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                    <!-- Live App 2: Menu + Delivery -->
+
+                    <a class="cs-card" data-tags="liveapp restaurant" href="https://africa-cuisine-pro.vercel.app/"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/africa-cuisine.png" alt="Africa Cuisine app cover"
+                                loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Live</span><span
+                                    class="cs-pill">Restaurant</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Africa Cuisine</span><span
+                                    class="cs-role">Full-Stack Design &amp; Dev</span></div>
+
+                            <h3 class="cs-title">Menu + delivery</h3>
+
+                            <p class="cs-summary">Complete restaurant app with digital menu, online ordering, and
+
+                                delivery
+
+                                tracking system.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Live App</span>
+
+                                <span class="cs-tag">Restaurant</span>
+
+                                <span class="cs-tag">Menu</span>
+
+                                <span class="cs-tag">Delivery</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Live App 2: Quotes + Bookings -->
+
+                    <a class="cs-card" data-tags="liveapp service" href="https://skautos.vercel.app/" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./sk.png" alt="SK Autos cover" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Live</span><span class="cs-pill">Auto
+
+                                    Service</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">SK Auto Emporium</span><span
+                                    class="cs-role">Full-Stack Design &amp; Dev</span></div>
+
+                            <h3 class="cs-title">Quotes + bookings</h3>
+
+                            <p class="cs-summary">Auto workshop app with service quotes, appointment booking, and
+
+                                customer
+
+                                management.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Live App</span>
+
+                                <span class="cs-tag">Auto Service</span>
+
+                                <span class="cs-tag">Bookings</span>
+
+                                <span class="cs-tag">Quotes</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Live App 3: Orders + Loyalty -->
+
+                    <!-- <article class="cs-card" data-tags="liveapp spaza">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/coming.png" alt="Spaza orders app cover" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Live</span><span class="cs-pill">Spaza
+
+                                    Shop</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Khaya Spaza</span><span
+
+                                    class="cs-role">Full-Stack
+
+                                    Design &amp; Dev</span></div>
+
+                            <h3 class="cs-title">Orders + loyalty</h3>
+
+                            <p class="cs-summary">Township spaza shop app with product catalog, customer orders, and
+
+                                digital
+
+                                loyalty stamps.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Live App</span>
+
+                                <span class="cs-tag">Spaza Shop</span>
+
+                                <span class="cs-tag">Orders</span>
+
+                                <span class="cs-tag">Loyalty</span>
+
+                            </div>
+
+                        </div>
+
+                    </article> -->
+
+
+
+                    <!-- Live App 5: Menu + WhatsApp Orders -->
+
+                    <a class="cs-card" data-tags="liveapp restaurant" href="https://wandies.vercel.app/" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/wandies.png" alt="Wandies cover" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Live</span><span class="cs-pill">Heritage
+
+                                    Restaurant</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Wandies</span><span class="cs-role">Full-Stack
+
+                                    Design &amp; Dev</span></div>
+
+                            <h3 class="cs-title">Menu + WhatsApp orders</h3>
+
+                            <p class="cs-summary">Heritage Soweto restaurant with digital menu, table bookings, and
+
+                                WhatsApp
+
+                                ordering system.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Live App</span>
+
+                                <span class="cs-tag">Restaurant</span>
+
+                                <span class="cs-tag">Menu</span>
+
+                                <span class="cs-tag">WhatsApp</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div><!-- /panel-realapps -->
+
+        <!-- FRONTEND BUILDS PANEL -->
+
+        <div class="tab-panel" id="panel-frontend" role="tabpanel" aria-labelledby="tab-frontend">
+
+            <!-- FRONTEND BUILDS SECTION -->
+
+            <div class="surface-ink" style="padding:80px 5vw 0">
+
+                <div class="panel-intro">
+
+                    <div class="section-eyebrow" style="justify-content:center"><span class="slash">//</span> Frontend
+
+                        Builds
+
+                    </div>
+
+                    <h2 class="section-h2 display" style="text-align:center;margin-bottom:12px">FRONTEND<br /><span
+                            style="color:var(--gold)">BUILDS</span></h2>
+
+                    <p>Where design becomes code — Angular PWAs, React apps, and production UIs shipped for real use.
+
+                    </p>
+
+                </div>
+
+                <div class="cs-grid">
+
+                    <!-- Frontend Build 1: ServiceWaze -->
+
+                    <a class="cs-card" data-tags="frontend civic data"
+                        href="https://github.com/LulamileMkhungela/ServiceWaze" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/servicewaze.png" alt="ServiceWaze SA service status hub"
+                                loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">In Progress</span><span
+                                    class="cs-pill">GitHub</span><span class="cs-pill">PWA</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">ServiceWaze</span><span
+                                    class="cs-role">Frontend + Civic Data Hub</span></div>
+
+                            <h3 class="cs-title">ServiceWaze — SA live service status hub</h3>
+
+                            <p class="cs-summary">Detects your GPS or suburb and pulls news, transport, water,
+                                electricity, weather and air-quality status in one multilingual, offline-first PWA.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">PWA</span>
+
+                                <span class="cs-tag">Load-shedding</span>
+
+                                <span class="cs-tag">Public APIs</span>
+
+                                <span class="cs-tag">Offline-first</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Frontend Build 2: WeStudySync -->
+
+                    <a class="cs-card" data-tags="frontend education"
+                        href="https://github.com/LulamileMkhungela/WeStudySync" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/westudysync-cover.svg" alt="WeStudySync MVP" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">In Development</span><span
+                                    class="cs-pill">GitHub</span><span class="cs-pill">Angular
+
+                                    PWA</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">WeStudySync</span><span
+                                    class="cs-role">Education
+
+                                    Platform</span></div>
+
+                            <h3 class="cs-title">WeStudySync — the complete SA education journey</h3>
+
+                            <p class="cs-summary">Offline-first Angular PWA for APS calculation, NSFAS funding, and
+
+                                student
+
+                                survival tools on low-end Android.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Angular</span>
+
+                                <span class="cs-tag">PWA</span>
+
+                                <span class="cs-tag">Education</span>
+
+                                <span class="cs-tag">Offline-first</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Frontend Build 2: LulaUnifidMarket -->
+
+                    <!-- <a class="cs-card" data-tags="frontend ecommerce"
+
+                        href="https://github.com/LulamileMkhungela/LulaUnifidMarket" target="_blank"
+
+                        rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/coming.png" alt="LulaUnifidMarket cover" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">GitHub</span><span
+
+                                    class="cs-pill">E-commerce</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">LulaUnifidMarket</span><span
+
+                                    class="cs-role">E-commerce Platform</span></div>
+
+                            <h3 class="cs-title">LulaUnifidMarket</h3>
+
+                            <p class="cs-summary">Unified marketplace platform connecting South African vendors and
+
+                                customers with integrated payment and logistics solutions.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">E-commerce</span>
+
+                                <span class="cs-tag">Marketplace</span>
+
+                                <span class="cs-tag">React</span>
+
+                                <span class="cs-tag">Payment Integration</span>
+
+                            </div>
+
+                        </div>
+
+                    </a> -->
+                    <article class="cs-card" data-tags="frontend safety">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/coming.png" alt="LinkPips safety network" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">In Development</span><span
+                                    class="cs-pill">Marketplace</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">LulaUnifidMarket</span><span
+                                    class="cs-role">E-commerce
+
+                                    Platform</span></div>
+
+                            <h3 class="cs-title">LulaUnifidMarket</h3>
+
+                            <p class="cs-summary">Unified marketplace platform connecting South African vendors and
+
+                                customers with integrated payment and logistics solutions.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Marketplace</span>
+
+                                <span class="cs-tag">Community</span>
+
+                                <span class="cs-tag">PWA</span>
+
+                                <span class="cs-tag">Real-time</span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Frontend Build 3: LinkPips -->
+
+                    <article class="cs-card" data-tags="frontend safety">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/coming.png" alt="LinkPips safety network" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">In Development</span><span
+                                    class="cs-pill">Safety</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">LinkPips</span><span class="cs-role">Community
+
+                                    Safety</span></div>
+
+                            <h3 class="cs-title">LinkPips — missing persons safety net</h3>
+
+                            <p class="cs-summary">Community-driven safety platform for nearby confirmations when someone
+
+                                is
+
+                                missing or uncontactable. Progressive web app in development.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Safety</span>
+
+                                <span class="cs-tag">Community</span>
+
+                                <span class="cs-tag">PWA</span>
+
+                                <span class="cs-tag">Real-time</span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div><!-- /panel-frontend -->
+
+        <!-- FIGMA PANEL -->
+
+        <div class="tab-panel" id="panel-figma" role="tabpanel" aria-labelledby="tab-figma">
+
+            <!-- FIGMA SECTION -->
+
+            <div class="surface-ink" style="padding:80px 5vw 0">
+
+                <div class="panel-intro">
+
+                    <div class="section-eyebrow" style="justify-content:center"><span class="slash">//</span> Figma
+
+                    </div>
+
+                    <h2 class="section-h2 display" style="text-align:center;margin-bottom:12px">FIGMA<br /><span
+                            style="color:var(--gold)">DESIGN WORK</span></h2>
+
+                    <p>Design systems, UI screens, and end-to-end product design processes — structured for design
+
+                        manager
+
+                        review.</p>
+
+                </div>
+
+                <div class="cs-grid">
+
+                    <!-- Figma 1: Job Technical Assessments -->
+
+                    <!-- <article class="cs-card" data-tags="figma assessment">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/coming.png" alt="Job Technical Assessment designs"
+                                loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Assessment</span><span class="cs-pill">UX/UI
+
+                                    Process</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Job Assessments</span><span
+                                    class="cs-role">UX/UI/Product Design</span></div>
+
+                            <h3 class="cs-title">Job Technical Assessments</h3>
+
+                            <p class="cs-summary">End-to-end UX/UI/Product design process challenges showcasing design
+
+                                thinking, user research, and interface craft.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Design Process</span>
+
+                                <span class="cs-tag">UX Research</span>
+
+                                <span class="cs-tag">UI Design</span>
+
+                                <span class="cs-tag">Product Strategy</span>
+
+                            </div>
+
+                        </div>
+
+                    </article> -->
+
+                     <a class="cs-card" data-tags="figma collection"
+                        href="https://www.figma.com/make/gkTm2bYYnzAmDBwWbWE7kb/Innovative-Design-System-Creation?t=871NF4mO6SlkhYAP-1"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/design-ops.png" alt="Figma process library" loading="lazy" />
+                             <div class="cs-badge-row"><span class="cs-pill">Design Tokens</span><span class="cs-pill">Design Systems
+
+                                    </span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Design Systems& Tokens</span><span
+                                    class="cs-role">Process Library</span></div>
+
+                            <h3 class="cs-title">One graph, every platforms</h3>
+
+                            <p class="cs-summary">Meridian is a token graph, a component library and a set of platform emitters that ship as one version.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Product UI</span>
+
+                                <span class="cs-tag">Components</span>
+
+                                <span class="cs-tag">Design</span>
+
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Figma 3: Existing Collection -->
+
+                    <a class="cs-card" data-tags="figma collection"
+                        href="https://www.figma.com/design/SeCP6cuxXX8UyhnOn2wYcJ/Collection-Of-Projects?node-id=8949-77053&p=f"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/figma.png" alt="Figma process library" loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Figma</span><span class="cs-pill">Live
+
+                                    File</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Collection of Projects</span><span
+                                    class="cs-role">Process Library</span></div>
+
+                            <h3 class="cs-title">Product design &amp; Angular UI screens</h3>
+
+                            <p class="cs-summary">Living file of process screens, components and product UI from recent
+
+                                work
+
+                                — open to review structure.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Product UI</span>
+
+                                <span class="cs-tag">Angular Components</span>
+
+                                <span class="cs-tag">Design Process</span>
+
+                                <span class="cs-tag">Live File</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div><!-- /panel-figma -->
+
+        <!-- HACKATHONS PANEL -->
+
+        <div class="tab-panel" id="panel-articles" role="tabpanel" aria-labelledby="tab-articles">
+
+            <!-- HACKATHONS SECTION -->
+
+            <div class="surface-ink" style="padding:80px 5vw 0">
+
+                <div class="panel-intro">
+
+                    <div class="section-eyebrow" style="justify-content:center"><span class="slash">//</span> Hackathons
+
+                    </div>
+
+                    <h2 class="section-h2 display" style="text-align:center;margin-bottom:12px">HACKATHONS<br /><span
+                            style="color:var(--gold)">&amp; IMPACT BUILDS</span></h2>
+
+                    <p>Pressure builds, social impact solutions, and systems thinking — focused on South African
+
+                        challenges.
+
+                    </p>
+
+                </div>
+
+                <div class="cs-grid">
+
+                    <!-- Hackathon 1: AI Inventory -->
+
+                    <a class="cs-card" data-tags="hackathon ai"
+                        href="https://drive.google.com/file/d/1anSnYJt_4Okl3xQuCkCJDAVROcVOqEFr/view" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/hack.png" alt="AI inventory with video analytics"
+                                loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">AI</span><span class="cs-pill">Video
+
+                                    Analytics</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">Retail Hackathon</span><span
+                                    class="cs-role">AI/ML
+
+                                    Solution</span></div>
+
+                            <h3 class="cs-title">AI inventory with video analytics</h3>
+
+                            <p class="cs-summary">Computer vision system for real-time inventory tracking using
+
+                                AI-powered
+
+                                video analytics, reducing stock discrepancies for retail businesses.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">AI/ML</span>
+
+                                <span class="cs-tag">Computer Vision</span>
+
+                                <span class="cs-tag">Inventory</span>
+
+                                <span class="cs-tag">Retail</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Hackathon 2: Farmers Platform -->
+
+                    <a class="cs-card" data-tags="hackathon agriculture"
+                        href="https://drive.google.com/file/d/19_dk5NRI_gJzYwyyR5kw_POwazmNhgp-/view" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/farmers-funding.png" alt="Farmers and co-op funding platform"
+                                loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Agriculture</span><span
+                                    class="cs-pill">Fintech</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">AgriTech Hackathon</span><span
+                                    class="cs-role">Platform Design</span></div>
+
+                            <h3 class="cs-title">Farmers &amp; co-op funding platform</h3>
+
+                            <p class="cs-summary">Digital platform connecting small-scale farmers with funding
+
+                                opportunities, co-operative networks, and agricultural resources in rural South Africa.
+
+                            </p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Agriculture</span>
+
+                                <span class="cs-tag">Funding</span>
+
+                                <span class="cs-tag">Co-operatives</span>
+
+                                <span class="cs-tag">Rural SA</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Hackathon 3: GBV Solution -->
+
+                    <a class="cs-card" data-tags="hackathon social"
+                        href="https://www.itweb.co.za/article/wethinkcode-female-developers-triumph-at-gbv-hackathon/KzQenMjVgjAMZd2r"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <div class="cs-cover">
+
+                            <img src="./assets/portfolio/hacky.png" alt="GBV hackathon multi-platform solution"
+                                loading="lazy" />
+
+                            <div class="cs-badge-row"><span class="cs-pill">Social Impact</span><span
+                                    class="cs-pill">Multi-platform</span></div>
+
+                        </div>
+
+                        <div class="cs-body">
+
+                            <div class="cs-meta"><span class="cs-client">GBV Hackathon</span><span
+                                    class="cs-role">Social
+
+                                    Impact Solution</span></div>
+
+                            <h3 class="cs-title">GBV hackathon — multi-platform solution</h3>
+
+                            <p class="cs-summary">Comprehensive gender-based violence prevention and support system with
+
+                                emergency response, resource mapping, and community support networks.</p>
+
+                            <div class="cs-tags">
+
+                                <span class="cs-tag">Social Impact</span>
+
+                                <span class="cs-tag">Emergency Response</span>
+
+                                <span class="cs-tag">Community Support</span>
+
+                                <span class="cs-tag">Safety</span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div><!-- /panel-articles (Hackathons) -->
+
+        <!-- UI DESIGN PANEL -->
+
+        <div class="tab-panel" id="panel-uidesign" role="tabpanel" aria-labelledby="tab-uidesign">
+
+            <div class="surface-ink" style="padding:48px 5vw 64px">
+
+                <div class="panel-intro">
+
+                    <div class="section-eyebrow" style="justify-content:center"><span class="slash">//</span> UI
+
+                        design
+
+                        · all platforms</div>
+
+                    <h2 class="section-h2 display" style="text-align:center;margin-bottom:12px">UI ACROSS<br /><span
+                            style="color:var(--gold)">ALL PLATFORMS</span></h2>
+
+                    <p>Mobile apps, web platforms, admin dashboards, SaaS tools and desktop applications — comprehensive
+
+                        interface design for every business need. South African and global, across every sector.</p>
+
+                </div>
+
+                <div class="dailyui-grid" id="uiGrid">
+
+                    <!-- FINTECH & BANKING -->
+
+                    <a class="dailyui-card" data-uitype="fintech mobile" href="./assets/portfolio/ui-neo-banking.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-neo-banking.png" alt="Neo Bank Mobile App Interface"
+                            loading="lazy">
+
+                        <span>Neo Banking App</span>
+
+                        <small>Mobile · Card Controls · Instant Transfers</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="fintech web"
+                        href="./assets/portfolio/ui-investment-dashboard.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-investment-dashboard.png" alt="Investment Portfolio Dashboard"
+                            loading="lazy">
+
+                        <span>Investment Dashboard</span>
+
+                        <small>Web Platform · Portfolio Analytics · Risk Assessment</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="fintech admin"
+                        href="./assets/portfolio/ui-trading-operations.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-trading-operations.png" alt="Trading Platform Admin Panel"
+                            loading="lazy">
+
+                        <span>Trading Operations</span>
+
+                        <small>Admin Dashboard · Order Management · Compliance</small>
+
+                    </a>
+
+                    <!-- INSURANCE -->
+
+                    <a class="dailyui-card" data-uitype="insurance mobile" href="./assets/portfolio/ui-auto-claims.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-auto-claims.png" alt="Car Insurance Claims App" loading="lazy">
+
+                        <span>Auto Claims</span>
+
+                        <small>Mobile App · Photo Claims · AI Damage Assessment</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="insurance web" href="./assets/portfolio/ui-policy-portal.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-policy-portal.png" alt="Life Insurance Policy Portal"
+                            loading="lazy">
+
+                        <span>Policy Management</span>
+
+                        <small>Web Portal · Premium Calculator · Document Vault</small>
+
+                    </a>
+
+                    <!-- HEALTHCARE -->
+
+                    <a class="dailyui-card" data-uitype="healthcare mobile"
+                        href="./assets/portfolio/ui-virtual-doctor.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-virtual-doctor.png" alt="Telehealth Consultation App"
+                            loading="lazy">
+
+                        <span>Virtual Doctor</span>
+
+                        <small>Mobile App · Video Consultations · Prescription Delivery</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="healthcare web"
+                        href="./assets/portfolio/ui-hospital-command.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-hospital-command.png" alt="Hospital Management System Dashboard"
+                            loading="lazy">
+
+                        <span>Hospital Command Center</span>
+
+                        <small>Web Dashboard · Bed Management · Staff Scheduling</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="healthcare admin"
+                        href="./assets/portfolio/ui-patient-records-admin.png" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-patient-records-admin.png" alt="Medical Records Admin Interface"
+                            loading="lazy">
+
+                        <span>Patient Records Admin</span>
+
+                        <small>Admin Panel · EMR System · HIPAA Compliance</small>
+
+                    </a>
+
+                    <!-- RETAIL & E-COMMERCE -->
+
+                    <a class="dailyui-card" data-uitype="retail mobile"
+                        href="./assets/portfolio/ui-fashion-marketplace.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-fashion-marketplace.png" alt="Fashion Retail Shopping App"
+                            loading="lazy">
+
+                        <span>Fashion Marketplace</span>
+
+                        <small>Mobile App · AR Try-On · Style Recommendations</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="retail web" href="./assets/portfolio/ui-b2b-marketplace.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-b2b-marketplace.png" alt="Multi-vendor E-commerce Platform"
+                            loading="lazy">
+
+                        <span>B2B Marketplace</span>
+
+                        <small>Web Platform · Vendor Management · Bulk Orders</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="retail admin"
+                        href="./assets/portfolio/ui-retail-intelligence.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-retail-intelligence.png" alt="Retail Analytics Dashboard"
+                            loading="lazy">
+
+                        <span>Retail Intelligence</span>
+
+                        <small>Admin Dashboard · Sales Analytics · Inventory Forecasting</small>
+
+                    </a>
+
+                    <!-- AUTOMOTIVE -->
+
+                    <a class="dailyui-card" data-uitype="automotive mobile"
+                        href="./assets/portfolio/ui-connected-vehicle.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-connected-vehicle.png" alt="Connected Car Mobile App"
+                            loading="lazy">
+
+                        <span>Connected Vehicle</span>
+
+                        <small>Mobile App · Remote Start · Maintenance Alerts</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="automotive web"
+                        href="./assets/portfolio/ui-fleet-operations.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-fleet-operations.png" alt="Fleet Management Web Dashboard"
+                            loading="lazy">
+
+                        <span>Fleet Operations</span>
+
+                        <small>Web Dashboard · Route Optimization · Driver Performance</small>
+
+                    </a>
+
+                    <!-- HOSPITALITY & TRAVEL -->
+
+                    <a class="dailyui-card" data-uitype="hospitality mobile"
+                        href="./assets/portfolio/ui-smart-hotel.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-smart-hotel.png" alt="Hotel Booking and Check-in App"
+                            loading="lazy">
+
+                        <span>Smart Hotel</span>
+
+                        <small>Mobile App · Contactless Check-in · Room Controls</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="hospitality web"
+                        href="./assets/portfolio/ui-restaurant-hub.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-restaurant-hub.png" alt="Restaurant Management System"
+                            loading="lazy">
+
+                        <span>Restaurant Hub</span>
+
+                        <small>Web Platform · Table Management · Kitchen Display</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="hospitality admin"
+                        href="./assets/portfolio/ui-travel-operations.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-travel-operations.png" alt="Travel Agency Admin Dashboard"
+                            loading="lazy">
+
+                        <span>Travel Operations</span>
+
+                        <small>Admin Dashboard · Booking Management · Revenue Analytics</small>
+
+                    </a>
+
+                    <!-- LOGISTICS & SUPPLY CHAIN -->
+
+                    <a class="dailyui-card" data-uitype="logistics mobile"
+                        href="./assets/portfolio/ui-driver-companion.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-driver-companion.png" alt="Delivery Driver Mobile Interface"
+                            loading="lazy">
+
+                        <span>Driver Companion</span>
+
+                        <small>Mobile App · Route Navigation · Proof of Delivery</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="logistics web"
+                        href="./assets/portfolio/ui-warehouse-command.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-warehouse-command.png" alt="Warehouse Management System"
+                            loading="lazy">
+
+                        <span>Warehouse Command</span>
+
+                        <small>Web Platform · Inventory Tracking · Shipment Planning</small>
+
+                    </a>
+
+                    <!-- EDUCATION -->
+
+                    <a class="dailyui-card" data-uitype="education mobile"
+                        href="./assets/portfolio/ui-study-companion.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-study-companion.png" alt="Student Learning Mobile App"
+                            loading="lazy">
+
+                        <span>Study Companion</span>
+
+                        <small>Mobile App · Interactive Lessons · Progress Tracking</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="education web" href="./assets/portfolio/ui-campus-lms.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-campus-lms.png" alt="Learning Management System Interface"
+                            loading="lazy">
+
+                        <span>Campus LMS</span>
+
+                        <small>Web Platform · Course Builder · Virtual Classroom</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="education admin"
+                        href="./assets/portfolio/ui-school-management.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-school-management.png" alt="School Administration Dashboard"
+                            loading="lazy">
+
+                        <span>School Management</span>
+
+                        <small>Admin Dashboard · Student Records · Performance Analytics</small>
+
+                    </a>
+
+                    <!-- REAL ESTATE -->
+
+                    <a class="dailyui-card" data-uitype="realestate mobile"
+                        href="./assets/portfolio/ui-property-explorer.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-property-explorer.png" alt="Property Search Mobile App"
+                            loading="lazy">
+
+                        <span>Property Explorer</span>
+
+                        <small>Mobile App · AR Property Tours · Mortgage Calculator</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="realestate web"
+                        href="./assets/portfolio/ui-property-manager.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-property-manager.png" alt="Property Management Platform"
+                            loading="lazy">
+
+                        <span>Property Manager Pro</span>
+
+                        <small>Web Platform · Tenant Portal · Maintenance Requests</small>
+
+                    </a>
+
+                    <!-- HR & WORKFORCE -->
+
+                    <a class="dailyui-card" data-uitype="hr mobile" href="./assets/portfolio/ui-employee-hub.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-employee-hub.png" alt="Employee Self-Service Mobile App"
+                            loading="lazy">
+
+                        <span>Employee Hub</span>
+
+                        <small>Mobile App · Leave Requests · Expense Reports</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="hr web" href="./assets/portfolio/ui-workforce-analytics.svg"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-workforce-analytics.svg" alt="HR Management System Dashboard"
+                            loading="lazy">
+
+                        <span>Workforce Analytics</span>
+
+                        <small>Web Platform · Recruitment · Performance Management</small>
+
+                    </a>
+
+                    <!-- MANUFACTURING -->
+
+                    <a class="dailyui-card" data-uitype="manufacturing web"
+                        href="./assets/portfolio/ui-production-control.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-production-control.png" alt="Production Control Dashboard"
+                            loading="lazy">
+
+                        <span>Production Control</span>
+
+                        <small>Web Dashboard · OEE Monitoring · Quality Control</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="manufacturing mobile"
+                        href="./assets/portfolio/ui-factory-floor.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-factory-floor.png" alt="Factory Floor Mobile App"
+                            loading="lazy">
+
+                        <span>Factory Floor</span>
+
+                        <small>Mobile App · Equipment Status · Work Orders</small>
+
+                    </a>
+
+                    <!-- SAAS TOOLS -->
+
+                    <a class="dailyui-card" data-uitype="saas web" href="./assets/portfolio/ui-project-orchestrator.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-project-orchestrator.png" alt="Project Management SaaS Platform"
+                            loading="lazy">
+
+                        <span>Project Orchestrator</span>
+
+                        <small>SaaS Platform · Team Collaboration · Timeline Management</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="saas web" href="./assets/portfolio/ui-sales-pipeline.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-sales-pipeline.png"
+                            alt="Customer Relationship Management System" loading="lazy">
+
+                        <span>Sales Pipeline Pro</span>
+
+                        <small>SaaS Tool · Lead Management · Revenue Forecasting</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="saas web" href="./assets/portfolio/ui-marketing-automation.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-marketing-automation.png" alt="Marketing Automation Platform"
+                            loading="lazy">
+
+                        <span>Marketing Automation</span>
+
+                        <small>SaaS Platform · Campaign Management · Analytics</small>
+
+                    </a>
+
+                    <!-- GOVERNMENT & PUBLIC SERVICES -->
+
+                    <a class="dailyui-card" data-uitype="government web"
+                        href="./assets/portfolio/ui-citizen-services.png" target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-citizen-services.png" alt="Citizen Services Portal"
+                            loading="lazy">
+
+                        <span>Citizen Services</span>
+
+                        <small>Web Portal · Document Applications · Service Tracking</small>
+
+                    </a>
+
+                    <a class="dailyui-card" data-uitype="government mobile" href="./assets/portfolio/ui-smart-city.png"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="./assets/portfolio/ui-smart-city.png" alt="Smart City Mobile App" loading="lazy">
+
+                        <span>Smart City</span>
+
+                        <small>Mobile App · Public Transport · Emergency Services</small>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- WEB DESIGN PANEL -->
+
+        <div class="tab-panel" id="panel-webdesign" role="tabpanel" aria-labelledby="tab-webdesign">
+
+            <div class="surface-ink" style="padding:48px 5vw 64px">
+
+                <div class="panel-intro">
+
+                    <div class="section-eyebrow" style="justify-content:center"><span class="slash">//</span> Web
+
+                        design
+
+                    </div>
+
+                    <h2 class="section-h2 display" style="text-align:center;margin-bottom:12px">WEB<br /><span
+                            style="color:var(--gold)">DESIGN</span></h2>
+
+                    <p>Client and project websites — clear structure, brand fit, usable on mobile first.</p>
+
+                </div><!-- Cards intentionally commented out for now. -->
+
+                <div class="dailyui-grid">
+
+                    <a class="dailyui-card" href="https://www.snbconsultancy.co.za/" target="_blank"><img
+                            src="./assets/portfolio/snb.png" alt="SNB web design" loading="lazy"><span>SNB
+
+                            Website</span><small>Web
+
+                            design</small></a>
+
+                    <a class="dailyui-card" href="https://www.nerdma.co.za/" target="_blank"><img
+                            src="./assets/portfolio/nerdma.png" alt="web design"
+                            loading="lazy"><span>Nerdma</span><small>Web
+
+                            design</small></a>
+
+                    <a class="dailyui-card" href="https://addmoredigital.co.za/" target="_blank"><img
+                            src="./assets/portfolio/addmore.png" alt="web design" loading="lazy"><span>Add More
+
+                            Digital</span><small>Web
+
+                            design</small></a>
+
+                    <a class="dailyui-card" href="./web-design/projects/fitness_studio/" target="_blank"><img
+                            src="./web-design/projects/fitness_studio/assets/images/cta-bg.jpg"
+                            alt="Fitness Studio web design" loading="lazy"><span>Fitness Studio</span><small>Web
+
+                            design</small></a>
+
+                    <a class="dailyui-card" href="./web-design/projects/hosdo/index.html" target="_blank"><img
+                            src="./web-design/projects/hosdo/assets/img/cover/about2.png" alt="Hosdo web design"
+                            loading="lazy"><span>Hosdo</span><small>Web design
+
+                        </small></a>
+
+                    <a class="dailyui-card" href="./web-design/projects/explora/index.html" target="_blank"><img
+                            src="./web-design/projects/explora/images/about_background.jpg" alt="Vodacom Engage portal"
+                            loading="lazy"><span>Explora</span><small>Web admin
+
+                            experience</small></a>
+
+                    <a class="dailyui-card" href="./web-design/projects/studyzel/index.html" target="_blank"><img
+                            src="./web-design/projects/studyzel/images/blog_large_1.jpg" alt="web design"
+                            loading="lazy"><span>Studyzel</span><small>Digital product surface</small></a>
+
+                </div>
+
+            </div>
+
+        </div><!-- /panel-webdesign -->
+
+        <!-- CTA SECTION -->
+
+        <div class="cta-card">
+
+            <h2>Ready to build something useful?</h2>
+
+            <p>Whether you need UX/UI design, frontend development, or a complete product build — share the brief
+
+                and
+
+                I'll
+
+                respond with clear next steps.</p>
+
+            <div class="cta-btns">
+
+                <a href="./contact.html" class="btn-wa">Start an enquiry →</a>
+
+                <a href="https://calendly.com/lulamile_m/meet-lulamile" target="_blank" class="btn-outline-gold">Schedule a call</a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+
+                <a href="./index.html" class="nav-logo"
+                    style="display:flex;align-items:center;gap:10px; margin-bottom: 14px !important;"><img
+                        src="./assets/portfolio/icon-192.png" width="36" height="36" alt="LulaSync" /><span>Lula<span
+                            style="color:var(--gold)">Sync</span></span></a>
+
+                <p class="footer-desc">Lulamile Mkhungela — Equal craft from research to shipped interface.<br>I build
+
+                    any tech tools. You focus in running your business.</p>
+
+                <a href="./contact.html" class="btn-wa"
+                    style="font-size:.78rem;padding:9px 18px;background:var(--gold);color:#0A0705">Contact →</a>
+
+            </div>
+
+            <div>
+
+                <p class="footer-col-title">Explore</p>
+
+                <div class="footer-links">
+
+                    <a href="./showcase.html" class="footer-link">App showcase</a>
+
+                    <a href="./showcase.html#portfolio" class="footer-link">Case studies</a>
+
+                    <a href="./services.html" class="footer-link">Services</a>
+
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <p class="footer-col-title">Discover</p>
+
+                <div class="footer-links">
+
+                    <a href="./about.html" class="footer-link">About Me</a>
+
+                    <a href="./contact.html" class="footer-link">Contact</a>
+
+                    <a href="https://www.linkedin.com/in/lulamile-mkhungela/" class="footer-link" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <p class="footer-col-title">Bundles</p>
+
+                <div class="footer-links">
+
+                    <a class="footer-link" href="./bundles.html#starter-presence">Starter Presence</a>
+
+                    <a class="footer-link" href="./bundles.html#growth-bundle">Growth Bundle</a>
+
+                    <a class="footer-link" href="./bundles.html#full-digital-suite">Full Digital Suite</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p class="footer-copy">© 2017-2026 LulaSync · Built with love by LulaMile in South Africa 🇿🇦</p>
+
+            <p class="footer-copy">Designing and building useful solutions for any businesses.</p>
+
+        </div>
+
+    </footer>
+
+    <script src="./assets/chat-widget.js" defer></script>
+
+    <script>
+
+        // Theme toggle
+
+        const themeToggle = document.getElementById('themeToggle');
+
+        const html = document.documentElement;
+
+        const saved = localStorage.getItem('ls-theme') || 'dark';
+
+        function applyTheme(next) {
+
+            html.setAttribute('data-theme', next);
+
+            html.style.colorScheme = next;
+
+            themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+
+            localStorage.setItem('ls-theme', next);
+
+            try { document.querySelector('meta[name="theme-color"]').setAttribute('content', next === 'dark' ? '#0A0705' : '#F7F3EC'); } catch (e) { }
+
+        }
+
+        applyTheme(saved);
+
+        themeToggle.addEventListener('click', () => {
+
+            const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+
+            applyTheme(next);
+
+        });
+
+        const menuBtn = document.getElementById('menuBtn'), closeBtn = document.getElementById('closeBtn'), overlay = document.getElementById('mobileOverlay');
+
+        menuBtn.addEventListener('click', () => { overlay.classList.add('open'); document.body.style.overflow = 'hidden' });
+
+        closeBtn.addEventListener('click', () => { overlay.classList.remove('open'); document.body.style.overflow = '' });
+
+        overlay.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', () => { overlay.classList.remove('open'); document.body.style.overflow = '' }));
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) { overlay.classList.remove('open'); document.body.style.overflow = '' } });
+
+        // Showcase tabs
+
+        (function () {
+
+            const tabs = document.querySelectorAll('.show-tab');
+
+            const panels = {
+
+                portfolio: document.getElementById('panel-portfolio'),
+
+                realapps: document.getElementById('panel-realapps'),
+
+                figma: document.getElementById('panel-figma'),
+
+                uidesign: document.getElementById('panel-uidesign'),
+
+                frontend: document.getElementById('panel-frontend'),
+
+                articles: document.getElementById('panel-articles'),
+
+                webdesign: document.getElementById('panel-webdesign')
+
+            };
+
+            function activate(name, pushHash) {
+
+                tabs.forEach(t => {
+
+                    const on = t.dataset.tab === name;
+
+                    t.classList.toggle('active', on);
+
+                    t.setAttribute('aria-selected', on ? 'true' : 'false');
+
+                });
+
+                Object.keys(panels).forEach(k => {
+
+                    if (panels[k]) panels[k].classList.toggle('active', k === name);
+
+                });
+
+                if (pushHash) {
+
+                    const url = new URL(window.location);
+
+                    if (name === 'portfolio') url.hash = '';
+
+                    else url.hash = name;
+
+                    history.replaceState(null, '', url.pathname + url.search + url.hash);
+
+                }
+
+            }
+
+            tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab, true)));
+
+            const hash = (location.hash || '').replace('#', '');
+
+            if (hash === 'portfolio' || hash === 'case-studies' || hash === 'casestudies' || hash === 'ux') activate('portfolio', false);
+
+            else if (hash === 'realapps' || hash === 'live') activate('realapps', false);
+
+            else if (hash === 'figma' || hash === 'process') activate('figma', false);
+
+            else if (hash === 'uidesign' || hash === 'dailyui' || hash === 'daily' || hash === 'ui') activate('uidesign', false);
+
+            else if (hash === 'frontend' || hash === 'git' || hash === 'github') activate('frontend', false);
+
+            else if (hash === 'articles' || hash === 'builds' || hash === 'hackathons') activate('articles', false);
+
+            else if (hash === 'webdesign' || hash === 'web-design') activate('webdesign', false);
+
+            else activate('portfolio', false);
+
+        })();
+
+    </script>
+
+    <script>
+
+        (function () {
+
+            document.querySelectorAll('img[src^="https://lulamilemkhungela.github.io"], img[src^="https://firebasestorage.googleapis.com"]').forEach(function (img) {
+
+                img.addEventListener('error', function () {
+
+                    if (img.dataset.fallbackApplied) return;
+
+                    img.dataset.fallbackApplied = 'true'; img.style.display = 'none';
+
+                    var fallback = document.createElement('div'); fallback.className = 'case-image-fallback';
+
+                    fallback.textContent = (img.alt || 'LulaSync case study').replace(/ case study/i, '');
+
+                    img.parentElement.appendChild(fallback);
+
+                });
+
+            });
+
+        })();
+
+    </script>
+
+    <script>
+
+        // Scroll-reveal for sections/panels: they "collapse" in when reached
+
+        (function () {
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+
+                document.querySelectorAll('.reveal-section').forEach(s => s.classList.add('is-visible'));
+
+                return;
+
+            }
+
+            const io = new IntersectionObserver((entries) => {
+
+                entries.forEach(e => {
+
+                    if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+
+                });
+
+            }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+
+            document.querySelectorAll('.tab-panel, .page-hero, .hire-strip').forEach(s => {
+
+                s.classList.add('reveal-section');
+
+                io.observe(s);
+
+            });
+
+            // When switching tabs, reveal the activated panel
+
+            const tabs = document.querySelectorAll('.show-tab');
+
+            tabs.forEach(t => t.addEventListener('click', () => {
+
+                const id = 'panel-' + t.dataset.tab;
+
+                setTimeout(() => {
+
+                    const p = document.getElementById(id);
+
+                    if (p) p.classList.add('is-visible');
+
+                }, 60);
+
+            }));
+
+        })();
+
+    </script>
+
+    <div class="pin-modal" id="pinModal" role="dialog" aria-modal="true" aria-labelledby="pinTitle">
+
+        <div class="pin-box" id="pinBox">
+
+            <div class="pin-lock">🔒</div>
+
+            <h3 id="pinTitle">LulaSecSystem is locked</h3>
+
+            <p>Access is restricted to invited viewers. Enter the 4-digit PIN to reveal details.</p>
+
+            <input class="pin-input" id="pinInput" type="password" inputmode="numeric" maxlength="6" autocomplete="off"
+                aria-label="Access PIN" />
+
+            <div class="pin-err" id="pinErr" role="alert"></div>
+
+            <div class="pin-actions"><button class="pin-cancel" type="button" id="pinCancel">Cancel</button><button
+                    class="pin-submit" type="button" id="pinSubmit">Unlock</button></div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        (function () {
+
+            var f = document.querySelectorAll('#panel-portfolio .filter-tag');
+
+            var c = document.querySelectorAll('#panel-portfolio .cs-card[data-tags]');
+
+            f.forEach(function (b) {
+
+                b.addEventListener('click', function () {
+
+                    f.forEach(function (x) { x.classList.toggle('active', x === b); });
+
+                    var v = b.getAttribute('data-filter');
+
+                    c.forEach(function (card) {
+
+                        var t = (card.getAttribute('data-tags') || '').split(/\s+/);
+
+                        card.setAttribute('data-hidden', (v === 'all' || t.indexOf(v) !== -1) ? 'false' : 'true');
+
+                    });
+
+                });
+
+            });
+
+        })();
+
+        (function () {
+
+            var PIN = '2026';
+
+            var card = document.getElementById('lulasecCard');
+
+            var unlock = document.getElementById('lulasecUnlock');
+
+            var modal = document.getElementById('pinModal');
+
+            if (!card || !modal) return;
+
+            var box = document.getElementById('pinBox'); var ORIG = box.innerHTML;
+
+            function wire() {
+
+                var i = document.getElementById('pinInput'), e = document.getElementById('pinErr'), sb = document.getElementById('pinSubmit'), cb = document.getElementById('pinCancel');
+
+                function close() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+                cb.addEventListener('click', close);
+
+                sb.addEventListener('click', function () { if ((i.value || '').trim() === PIN) { reveal(close); } else { e.textContent = 'Incorrect PIN. Try again.'; i.value = ''; i.focus(); } });
+
+                i.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') sb.click(); });
+
+            }
+
+            function openModal() { box.innerHTML = ORIG; modal.classList.add('open'); document.body.style.overflow = 'hidden'; wire(); var i = document.getElementById('pinInput'); if (i) setTimeout(function () { i.focus(); }, 30); }
+
+            function reveal(close) {
+
+                close();
+
+                box.innerHTML = '<div class="pin-reveal"><div class="pin-lock">🛡️</div><h3>Access granted</h3><p><strong>LulaSecSystem</strong> is an operations platform &amp; central command for South African security companies — dispatch, live response, patrols and incident control in one place.</p><span class="badge-private">Private · Coming soon</span><p style="margin-top:14px;color:var(--dim);font-size:.78rem">In private development. Request early access via the contact page.</p><div class="pin-actions" style="margin-top:14px"><a class="pin-submit" style="text-decoration:none;display:block;line-height:1.2" href="./contact.html">Request access →</a><button class="pin-cancel" type="button" id="pinClose2">Close</button></div></div>';
+
+                modal.classList.add('open'); document.body.style.overflow = 'hidden';
+
+                document.getElementById('pinClose2').addEventListener('click', function () { modal.classList.remove('open'); document.body.style.overflow = ''; });
+
+            }
+
+            unlock.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+
+            card.addEventListener('click', function (e) { if (e.target === unlock || unlock.contains(e.target)) return; openModal(); });
+
+            card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); } });
+
+            modal.addEventListener('click', function (e) { if (e.target === modal) { modal.classList.remove('open'); document.body.style.overflow = ''; } });
+
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) { modal.classList.remove('open'); document.body.style.overflow = ''; } });
+
+        })();
+
+    </script>
+
+    <script>
+
+        (function () {
+
+            var f = document.querySelectorAll('#uiFilters .filter-tag');
+
+            var c = document.querySelectorAll('#uiGrid .dailyui-card');
+
+            f.forEach(function (b) {
+
+                b.addEventListener('click', function () {
+
+                    f.forEach(function (x) { x.classList.toggle('active', x === b); });
+
+                    var v = b.getAttribute('data-uifilter');
+
+                    c.forEach(function (card) {
+
+                        var t = (card.getAttribute('data-uitype') || '').split(/\s+/);
+
+                        var show = v === 'all' || t.indexOf(v) !== -1;
+
+                        card.setAttribute('data-hidden', show ? 'false' : 'true');
+
+                    });
+
+                });
+
+            });
+
+        })();
+
+    </script>
+
+    <script src="./assets/ls-interactive.js" defer></script>
+
+    <script>(function () { function c() { var b = a.contentDocument || (a.contentWindow && a.contentWindow.document); if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'a24fd9fd4ae10de1',t:'MTc4NTcwMjc0Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
