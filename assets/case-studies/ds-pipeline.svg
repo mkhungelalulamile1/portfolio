@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 690" width="1240" height="690" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="The pipeline: one name, five stages, zero manual translation">
+<rect width="1240" height="690" fill="#F7F4EC"/>
+<rect x="0" y="0" width="1240" height="6" fill="#B57200"/>
+<text x="34" y="46" font-size="20" font-weight="bold" fill="#1A1208">The pipeline: one name, five stages, zero manual translation</text>
+<text x="34" y="68" font-size="13" fill="#6B6055">Design system · a change to a Figma variable reaches production without anyone retyping a value</text>
+<rect x="46" y="110" width="214" height="150" rx="12" fill="#FFFFFF" stroke="#5B34C4" stroke-width="2"/>
+<text x="64" y="140" font-size="15" font-weight="bold" fill="#5B34C4" text-anchor="start">01</text>
+<text x="64" y="164" font-size="12" font-weight="bold" fill="#1A1208" text-anchor="start">Figma variables</text>
+<text x="64" y="186" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Colour, space, radius and type</text>
+<text x="64" y="201" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">as variables, not styles.</text>
+<rect x="64" y="222" width="88" height="22" rx="11" fill="#FBF7EF" stroke="#5B34C4" stroke-width="1"/>
+<text x="108" y="237" font-size="9" font-weight="bold" fill="#5B34C4" text-anchor="middle">Designer</text>
+<line x1="260" y1="185" x2="284" y2="185" stroke="#5B34C4" stroke-width="2"/>
+<polygon points="284,185 276.6,188.1 276.6,181.9" fill="#5B34C4"/>
+<rect x="284" y="110" width="214" height="150" rx="12" fill="#FFFFFF" stroke="#0E6E8C" stroke-width="2"/>
+<text x="302" y="140" font-size="15" font-weight="bold" fill="#0E6E8C" text-anchor="start">02</text>
+<text x="302" y="164" font-size="12" font-weight="bold" fill="#1A1208" text-anchor="start">tokens.json</text>
+<text x="302" y="186" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Exported by Token Studio</text>
+<text x="302" y="201" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">on every merge to main.</text>
+<rect x="302" y="222" width="88" height="22" rx="11" fill="#FBF7EF" stroke="#0E6E8C" stroke-width="1"/>
+<text x="346" y="237" font-size="9" font-weight="bold" fill="#0E6E8C" text-anchor="middle">Shared</text>
+<line x1="498" y1="185" x2="522" y2="185" stroke="#0E6E8C" stroke-width="2"/>
+<polygon points="522,185 514.6,188.1 514.6,181.9" fill="#0E6E8C"/>
+<rect x="522" y="110" width="214" height="150" rx="12" fill="#FFFFFF" stroke="#B57200" stroke-width="2"/>
+<text x="540" y="140" font-size="15" font-weight="bold" fill="#B57200" text-anchor="start">03</text>
+<text x="540" y="164" font-size="12" font-weight="bold" fill="#1A1208" text-anchor="start">Style Dictionary</text>
+<text x="540" y="186" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Generates CSS custom props</text>
+<text x="540" y="201" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">and TypeScript types in CI.</text>
+<rect x="540" y="222" width="88" height="22" rx="11" fill="#FBF7EF" stroke="#B57200" stroke-width="1"/>
+<text x="584" y="237" font-size="9" font-weight="bold" fill="#B57200" text-anchor="middle">Automated</text>
+<line x1="736" y1="185" x2="760" y2="185" stroke="#B57200" stroke-width="2"/>
+<polygon points="760,185 752.6,188.1 752.6,181.9" fill="#B57200"/>
+<rect x="760" y="110" width="214" height="150" rx="12" fill="#FFFFFF" stroke="#17864B" stroke-width="2"/>
+<text x="778" y="140" font-size="15" font-weight="bold" fill="#17864B" text-anchor="start">04</text>
+<text x="778" y="164" font-size="12" font-weight="bold" fill="#1A1208" text-anchor="start">Angular components</text>
+<text x="778" y="186" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Inputs named exactly like</text>
+<text x="778" y="201" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">the Figma properties.</text>
+<rect x="778" y="222" width="88" height="22" rx="11" fill="#FBF7EF" stroke="#17864B" stroke-width="1"/>
+<text x="822" y="237" font-size="9" font-weight="bold" fill="#17864B" text-anchor="middle">Developer</text>
+<line x1="974" y1="185" x2="998" y2="185" stroke="#17864B" stroke-width="2"/>
+<polygon points="998,185 990.6,188.1 990.6,181.9" fill="#17864B"/>
+<rect x="998" y="110" width="214" height="150" rx="12" fill="#FFFFFF" stroke="#C03A08" stroke-width="2"/>
+<text x="1016" y="140" font-size="15" font-weight="bold" fill="#C03A08" text-anchor="start">05</text>
+<text x="1016" y="164" font-size="12" font-weight="bold" fill="#1A1208" text-anchor="start">Storybook</text>
+<text x="1016" y="186" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Living docs with the same</text>
+<text x="1016" y="201" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">names a designer would use.</text>
+<rect x="1016" y="222" width="88" height="22" rx="11" fill="#FBF7EF" stroke="#C03A08" stroke-width="1"/>
+<text x="1060" y="237" font-size="9" font-weight="bold" fill="#C03A08" text-anchor="middle">Both</text>
+<rect x="46" y="290" width="1150" height="120" rx="8" fill="#FFF6E6" stroke="#B57200" stroke-width="1.5"/>
+<text x="66" y="318" font-size="12" font-weight="bold" fill="#1A1208" text-anchor="start">THE ONE RULE: names never change between tools</text>
+<rect x="66" y="336" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#5B34C4" stroke-width="1.5"/>
+<text x="80" y="358" font-size="9.5" font-weight="bold" fill="#5B34C4" text-anchor="start">Figma variable</text>
+<text x="80" y="378" font-size="11" font-weight="bold" fill="#1A1208" text-anchor="start">color/primary/900</text>
+<line x1="316" y1="364" x2="348" y2="364" stroke="#B57200" stroke-width="1.5"/>
+<polygon points="348,364 340.6,367.1 340.6,360.9" fill="#B57200"/>
+<rect x="350" y="336" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#0E6E8C" stroke-width="1.5"/>
+<text x="364" y="358" font-size="9.5" font-weight="bold" fill="#0E6E8C" text-anchor="start">CSS custom property</text>
+<text x="364" y="378" font-size="11" font-weight="bold" fill="#1A1208" text-anchor="start">--color-primary-900</text>
+<line x1="600" y1="364" x2="632" y2="364" stroke="#B57200" stroke-width="1.5"/>
+<polygon points="632,364 624.6,367.1 624.6,360.9" fill="#B57200"/>
+<rect x="634" y="336" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#17864B" stroke-width="1.5"/>
+<text x="648" y="358" font-size="9.5" font-weight="bold" fill="#17864B" text-anchor="start">Angular input</text>
+<text x="648" y="378" font-size="11" font-weight="bold" fill="#1A1208" text-anchor="start">[variant]=&quot;primary&quot;</text>
+<line x1="884" y1="364" x2="916" y2="364" stroke="#B57200" stroke-width="1.5"/>
+<polygon points="916,364 908.6,367.1 908.6,360.9" fill="#B57200"/>
+<rect x="918" y="336" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#C03A08" stroke-width="1.5"/>
+<text x="932" y="358" font-size="9.5" font-weight="bold" fill="#C03A08" text-anchor="start">Storybook control</text>
+<text x="932" y="378" font-size="11" font-weight="bold" fill="#1A1208" text-anchor="start">primary</text>
+<rect x="46" y="436" width="560" height="190" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="66" y="464" font-size="11" font-weight="bold" fill="#B57200" text-anchor="start">WHAT I MEASURED BEFORE AND AFTER</text>
+<text x="66" y="492" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">Metric</text>
+<text x="420" y="492" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">Before</text>
+<text x="520" y="492" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">After</text>
+<text x="66" y="518" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">Components with a matching Figma source</text>
+<text x="420" y="518" font-size="10" font-weight="bold" fill="#C03A08" text-anchor="start">41%</text>
+<text x="520" y="518" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">100%</text>
+<text x="66" y="540" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">Colour values hard-coded in feature code</text>
+<text x="420" y="540" font-size="10" font-weight="bold" fill="#C03A08" text-anchor="start">213</text>
+<text x="520" y="540" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">0</text>
+<text x="66" y="562" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">Average time to build a new screen</text>
+<text x="420" y="562" font-size="10" font-weight="bold" fill="#C03A08" text-anchor="start">3.5 days</text>
+<text x="520" y="562" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">1.4 days</text>
+<text x="66" y="584" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">Design QA comments per release</text>
+<text x="420" y="584" font-size="10" font-weight="bold" fill="#C03A08" text-anchor="start">64</text>
+<text x="520" y="584" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">11</text>
+<text x="66" y="606" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">New engineer first component merged</text>
+<text x="420" y="606" font-size="10" font-weight="bold" fill="#C03A08" text-anchor="start">9 days</text>
+<text x="520" y="606" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">3 days</text>
+<rect x="626" y="436" width="570" height="190" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="646" y="464" font-size="11" font-weight="bold" fill="#B57200" text-anchor="start">GOVERNANCE: HOW A CHANGE ACTUALLY LANDS</text>
+<text x="646" y="492" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">1. Anyone can propose a token change in a Figma branch.</text>
+<text x="646" y="520" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">2. I review it against contrast and spacing rules.</text>
+<text x="646" y="548" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">3. Merging the branch triggers the export and a pull</text>
+<text x="646" y="562" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">request.</text>
+<text x="646" y="576" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">4. CI fails the build if a token is renamed without a</text>
+<text x="646" y="590" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">migration.</text>
+<text x="646" y="604" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">5. Storybook publishes automatically, so docs cannot go</text>
+<text x="646" y="618" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">stale.</text>
+<text x="34" y="672" font-size="11" fill="#6B6055">Lulamile Mkhungela · LulaSync — working artifact from the project</text>
+</svg>

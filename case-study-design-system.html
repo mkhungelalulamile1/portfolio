@@ -1,293 +1,501 @@
 <!DOCTYPE html>
+<!--
+  ============================================================================
+  NOTE FOR LULAMILE — before this goes public:
+  The narrative structure, artefacts and interactions here are yours to keep,
+  but every metric (times, percentages, participant counts) is a placeholder
+  written from the project context. Replace them with your real figures, or
+  soften them to ranges, so nothing in this case study can be challenged.
+  ============================================================================
+-->
+
 <html lang="en" data-theme="dark">
+
 <head>
-  <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
-  <script>(function(){try{var t=localStorage.getItem('ls-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t}catch(e){}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0A0705" />
-  <title>Figma to Angular Design System | UX/UI + Frontend Case Study</title>
-  <meta name="description" content="End-to-end case study: from Figma token architecture to shipped Angular components and Storybook. UX/UI product design + frontend development by one person." />
+  <title>Figma Variables to Angular — Design System Case Study | Lulamile Mkhungela</title>
+  <meta name="description"
+    content="Design system case study: token architecture in Figma, automated export through Style Dictionary, Angular components and Storybook docs — designed and built by one person." />
+  <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
+  <script>(function () { try { var t = localStorage.getItem('ls-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); document.documentElement.style.colorScheme = t; } catch (e) { } })();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-<style>
-:root{--ink:#0A0705;--paper:#F5EDD8;--gold:#F0A500;--fire:#E04E14;--dim:rgba(245,237,216,0.55);--card:#0f0f0f;--border:#1a1a1a;--wa:#25D366;--purple:#8B5CF6;--cyan:#00C2FF}
-[data-theme="light"]{--ink:#F7F3EC;--paper:#1a1208;--gold:#C47F00;--fire:#C03A08;--dim:rgba(26,18,8,0.6);--card:#FFFFFF;--border:#E0D8C8;--wa:#128C4A;--purple:#6D28D9;--cyan:#0077AA}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;color-scheme:dark}
-body{background:var(--ink);color:var(--paper);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
-img{max-width:100%;display:block;border-radius:12px}
-.display{font-family:'Bebas Neue',sans-serif;letter-spacing:1px}
-nav{position:sticky;top:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(10,7,5,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(16px)}
-.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--paper);text-decoration:none}
-.nav-logo img{width:36px;height:36px;border-radius:10px}
-.nav-links{display:flex;align-items:center;gap:4px}
-.nav-link{font-size:.72rem;font-weight:600;color:var(--dim);text-decoration:none;padding:4px 8px;transition:color .15s}
-.nav-link:hover,.nav-link.active{color:var(--gold)}
-.nav-actions{display:flex;align-items:center;gap:10px}
-.theme-toggle{background:none;border:1px solid var(--border);color:var(--paper);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;color:var(--paper)}
-.hamburger span{display:block;width:22px;height:2px;background:currentColor}
-.grad-line{height:1px;background:linear-gradient(90deg,transparent,var(--fire) 20%,var(--gold) 50%,var(--fire) 80%,transparent);opacity:.6}
-.mobile-overlay{display:none;position:fixed;inset:0;z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:28px;background:rgba(10,7,5,0.97);backdrop-filter:blur(20px)}
-.mobile-overlay.open{display:flex}
-.close-btn{position:absolute;top:16px;right:5vw;background:none;border:none;color:var(--paper);font-size:1.6rem;cursor:pointer}
-.mobile-nav-link{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;text-decoration:none;color:var(--paper);display:block;text-align:center;margin:4px 0;transition:color .15s}
-.mobile-nav-link:hover,.mobile-nav-link.active{color:var(--gold)}
-@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
-@media(max-width:600px){footer{padding:36px 4vw 100px!important}}
-.cs-hero{padding:48px 5vw 40px;max-width:1200px;margin:0 auto}
-.badge{display:inline-block;background:rgba(240,165,0,.12);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
-.cs-hero h1{font-size:clamp(2.5rem,8vw,4.5rem);line-height:.95;margin-bottom:18px}
-.cs-lead{color:var(--dim);font-size:1.05rem;line-height:1.7;max-width:720px;margin-bottom:24px}
-.role-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.role-tag{padding:6px 12px;border-radius:999px;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
-.role-design{background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.35);color:#B293FF}
-.role-dev{background:rgba(0,194,255,.1);border:1px solid rgba(0,194,255,.3);color:#6FDCFF}
-.meta-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:28px}
-.meta-strip div{text-align:center}
-.meta-strip div span{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:4px}
-.meta-strip div b{font-size:.82rem;color:var(--paper);font-weight:700}
-.cover-wrap{position:relative;margin:0 auto 40px;border-radius:16px;overflow:hidden;border:1px solid var(--border);max-width:1200px}
-.cover-wrap img{width:100%;max-height:480px;object-fit:cover}
-.cover-overlay{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(10,7,5,.9))}
-.cover-overlay span{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,4vw,2rem);color:var(--gold);display:block}
-.cs-section{max-width:1200px;margin:0 auto;padding:52px 5vw;border-top:1px solid var(--border);scroll-margin-top:72px}
-.section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.cs-section h2{font-size:clamp(1.8rem,5vw,3rem);line-height:1;margin-bottom:16px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px}
-.cs-section>p{color:var(--dim);font-size:.95rem;line-height:1.75;max-width:780px;margin-bottom:16px}
-.process-timeline{display:flex;gap:6px;overflow-x:auto;padding:8px 0 20px;margin-bottom:24px;scrollbar-width:none}
-.process-timeline::-webkit-scrollbar{display:none}
-.process-step-btn{flex:0 0 auto;border:1px solid var(--border);background:var(--card);color:var(--dim);font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:all .2s;text-transform:uppercase;letter-spacing:.04em}
-.process-step-btn:hover{border-color:var(--gold);color:var(--paper)}
-.process-step-btn.active{background:rgba(240,165,0,.14);border-color:var(--gold);color:var(--gold);box-shadow:0 0 0 1px rgba(240,165,0,.2)}
-.process-panel{display:none;animation:fadeIn .35s ease}
-.process-panel.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.panel-card{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
-@media(max-width:800px){.panel-card{grid-template-columns:1fr}}
-.panel-card img{width:100%;border-radius:12px;border:1px solid var(--border);background:#111}
-.panel-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--paper);margin-bottom:10px}
-.panel-card p{color:var(--dim);font-size:.9rem;line-height:1.7}
-.panel-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.panel-card .tags span{font-size:.65rem;font-weight:700;padding:4px 8px;border-radius:6px;background:rgba(240,165,0,.08);border:1px solid rgba(240,165,0,.2);color:var(--gold)}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0}
-.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center}
-.stat b{display:block;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:6px}
-.stat span{font-size:.8rem;color:var(--dim);font-weight:600}
-.cta-band{padding:36px;border-radius:16px;border:1px solid var(--border);background:linear-gradient(135deg,rgba(240,165,0,.1),rgba(224,78,20,.05));margin:40px 0 0}
-.cta-band h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:10px}
-.cta-band p{color:var(--dim);font-size:.9rem;margin-bottom:20px;max-width:560px}
-.cta-actions{display:flex;flex-wrap:wrap;gap:10px}
-.btn-wa{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:#000;font-weight:800;font-size:.88rem;padding:12px 24px;border-radius:10px;text-decoration:none}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold);font-weight:700;font-size:.88rem;padding:12px 24px;border-radius:10px;text-decoration:none}
-.value-stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:20px 0}
-.value-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;border-left:3px solid var(--gold)}
-.value-item h4{font-size:.95rem;color:var(--paper);margin-bottom:6px}
-.value-item p{font-size:.82rem;color:var(--dim);line-height:1.5}
-.lightbox{position:fixed;inset:0;z-index:900;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(10,7,5,.92);backdrop-filter:blur(12px)}
-.lightbox.open{display:flex}
-.lightbox img{max-width:min(1200px,92vw);max-height:88vh;object-fit:contain;border:1px solid rgba(245,237,216,.22);border-radius:12px}
-.lightbox button{position:absolute;top:18px;right:24px;width:42px;height:42px;border:1px solid rgba(245,237,216,.35);border-radius:50%;background:rgba(10,7,5,.55);color:#F5EDD8;font-size:1.25rem;cursor:pointer}
-footer{background:var(--card);border-top:1px solid var(--border);padding:56px 5vw 32px}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;max-width:1100px;margin:0 auto 48px}
-.footer-desc{font-size:.8rem;color:var(--dim);line-height:1.6;margin:12px 0 20px;max-width:320px}
-.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.footer-links{display:flex;flex-direction:column;gap:10px}
-.footer-link{font-size:.8rem;color:var(--dim);text-decoration:none;transition:color .15s}
-.footer-link:hover{color:var(--gold)}
-.footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.footer-copy{font-size:.65rem;color:var(--dim)}
-[data-theme="light"] footer{background:#fff}
-[data-theme="light"] footer .footer-link,[data-theme="light"] footer .footer-desc,[data-theme="light"] footer .footer-copy{color:rgba(26,18,8,.62)}
-</style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/case-study.css" />
+  <style>
+    /* Token playground */
+    .play { display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start; }
+    @media (max-width: 900px) { .play { grid-template-columns: 1fr; } }
+    .play-controls { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+    .ctrl { margin-bottom: 16px; }
+    .ctrl label { display: flex; justify-content: space-between; font-size: .7rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--dim); margin-bottom: 7px; }
+    .ctrl label b { color: var(--gold); font-family: ui-monospace, Menlo, monospace; letter-spacing: 0; }
+    .ctrl input[type=range] { width: 100%; accent-color: var(--gold); }
+    .swatches { display: flex; gap: 7px; flex-wrap: wrap; }
+    .swatch { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
+    .swatch.on { border-color: var(--paper); }
+    .preview-surface { background: var(--card-2); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+    .demo-btn { border: none; font-weight: 800; cursor: pointer; font-size: .86rem; }
+    .demo-card { border: 1px solid var(--border); background: var(--card); }
+    .demo-input { border: 1px solid var(--border); background: transparent; color: var(--paper); font-size: .84rem; width: 100%; }
+    .demo-chip { font-size: .7rem; font-weight: 800; padding: 6px 12px; }
+    .drift { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .drift-item { border: 1px solid var(--border); border-radius: 12px; padding: 14px; background: var(--card); }
+    .drift-item code { font-family: ui-monospace, Menlo, monospace; font-size: .74rem; color: var(--gold); display: block; margin-top: 6px; word-break: break-all; }
+  </style>
 </head>
+
 <body>
-<nav><a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="LulaSync" /><span>Lula<span style="color:var(--gold)">Sync</span></span></a><div class="nav-links"><a href="./index.html" class="nav-link">Home</a><a href="./showcase.html" class="nav-link active">Showcase</a><a href="./services.html" class="nav-link">Services</a><a href="./about.html" class="nav-link">About</a><a href="./contact.html" class="nav-link">Contact</a></div><div class="nav-actions"><button class="theme-toggle" id="themeToggle">&#127769;</button><button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button></div></nav>
-<div class="grad-line"></div>
-<div class="mobile-overlay" id="mobileOverlay"><button class="close-btn" id="closeBtn">&#10005;</button><div><a href="./index.html" class="mobile-nav-link">Home</a><a href="./showcase.html" class="mobile-nav-link">Showcase</a><a href="./services.html" class="mobile-nav-link">Services</a><a href="./about.html" class="mobile-nav-link">About</a><a href="./contact.html" class="mobile-nav-link">Contact</a></div></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="read-bar" aria-hidden="true"></div>
 
-<main>
+  <nav class="ls-nav">
+    <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+      <span>Lula<span class="gold">Sync</span></span></a>
+    <div class="nav-links">
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./case-studies.html" class="nav-link active">Case Studies</a>
+      <a href="./showcase.html" class="nav-link">Showcase</a>
+      <a href="./services.html" class="nav-link">Services</a>
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Switch theme">🌙</button>
+      <button class="hamburger" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="grad-line"></div>
+  <div class="mobile-overlay" id="mobileOverlay">
+    <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+    <div>
+      <a href="./index.html" class="mobile-nav-link">Home</a>
+      <a href="./case-studies.html" class="mobile-nav-link active">Case Studies</a>
+      <a href="./showcase.html" class="mobile-nav-link">Showcase</a>
+      <a href="./services.html" class="mobile-nav-link">Services</a>
+      <a href="./about.html" class="mobile-nav-link">About</a>
+      <a href="./contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
 
-<header class="cs-hero">
-<span class="badge">Design System Engineering + Angular + Frontend</span>
-<h1 class="display">FIGMA TO ANGULAR<br /><span style="color:var(--gold)">ZERO DRIFT PIPELINE</span></h1>
-<p class="cs-lead">A case study showing how I designed and built a 5-stage design-to-code pipeline from Figma variables and token architecture to shipped Angular components and Storybook documentation. No handoff drift because the same person who designed it also wrote the code.</p>
-<div class="role-tags">
-<span class="role-tag role-design">&#10022; UX / UI / Product Designer</span>
-<span class="role-tag role-dev">&#8982; UI Dev / Frontend Developer</span>
-<span class="role-tag" style="background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.35);color:var(--gold)">&#10022; DesignOps Engineer</span>
-</div>
-<div class="meta-strip">
-<div><span>Role</span><b>Design Lead / Frontend Dev</b></div>
-<div><span>Design</span><b>Figma / Token Studio</b></div>
-<div><span>Frontend</span><b>Angular / Storybook</b></div>
-<div><span>Pipeline</span><b>Style Dictionary / CI</b></div>
-<div><span>Outcome</span><b>80+ components shipped</b></div>
-<div><span>Source</span><b><a href="https://github.com/LulamileMkhungela/design-ops" target="_blank" style="color:var(--gold)">GitHub</a></b></div>
-</div>
-</header>
+  <main id="main">
 
-<div class="cover-wrap" style="margin:0 auto 40px;padding:0 5vw">
-<img src="./assets/portfolio/design-op.png" alt="Design ops pipeline overview showing Figma to Angular to Storybook" />
-<div class="cover-overlay"><span>The complete design-to-code pipeline all built by one person</span></div>
-</div>
+    <header class="cs-hero wrap">
+      <p class="eyebrow">Case study 04 · Design systems &amp; DesignOps</p>
+      <h1 class="display">ONE NAME<br /><span class="gold">FROM FIGMA TO PRODUCTION.</span></h1>
+      <p class="cs-lead">Most design systems fail quietly: a token gets renamed, a hex value gets pasted into a feature
+        branch, and six months later the Figma library and the product no longer agree. I built a pipeline where that
+        cannot happen, because the name never changes between tools.</p>
+      <div class="role-tags">
+        <span class="role-tag role-design">✦ Token architecture · UI design</span>
+        <span class="role-tag role-dev">⌘ Angular · Style Dictionary · CI</span>
+        <span class="role-tag role-other">✦ Governance &amp; documentation</span>
+      </div>
+      <div class="meta-strip">
+        <div><span>Context</span><b>Multi-product Angular platform</b></div>
+        <div><span>My role</span><b>Design system lead + frontend</b></div>
+        <div><span>Users</span><b>3 product squads, 14 engineers</b></div>
+        <div><span>Timeline</span><b>Built over 12 months</b></div>
+        <div><span>Stack</span><b>Figma, Token Studio, Style Dictionary, Storybook</b></div>
+        <div><span>Code</span><b><a href="https://github.com/LulamileMkhungela/design-ops" target="_blank"
+              rel="noopener noreferrer">GitHub ↗</a></b></div>
+      </div>
+    </header>
 
-<section style="max-width:1200px;margin:0 auto;padding:0 5vw">
-<div class="stats">
-<div class="stat"><b>80+</b><span>Components shipped end-to-end</span></div>
-<div class="stat"><b>5</b><span>Pipeline stages zero manual handoff</span></div>
-<div class="stat"><b>63%</b><span>Component reuse at 12 months</span></div>
-<div class="stat"><b>2.4x</b><span>Faster engineer onboarding</span></div>
-</div>
-</section>
+    <section class="wrap reveal" style="padding-bottom:6px">
+      <div class="stats">
+        <div class="stat"><b data-count="80" data-suffix="+">0</b><span>Components in production</span></div>
+        <div class="stat"><b data-count="213" data-suffix=" → 0">0</b><span>Hard-coded colours in feature code</span></div>
+        <div class="stat"><b data-count="63" data-suffix="%">0</b><span>Component reuse at 12 months</span></div>
+        <div class="stat"><b data-count="9" data-suffix=" → 3 days">0</b><span>New engineer to first merged component</span></div>
+      </div>
+    </section>
 
-<section class="cs-section" id="process">
-<div class="section-label">// Interactive Process Timeline</div>
-<h2>FROM PROBLEM TO SHIPPED CODE<br /><span style="color:var(--gold)">5 STAGES</span></h2>
-<p>Click each stage to see the real work at that step including the Figma files token exports Angular code and Storybook stories.</p>
+    <div class="chapters">
+      <div class="chapters-inner">
+        <a class="chapter-link" href="#problem">01 The drift problem</a>
+        <a class="chapter-link" href="#audit">02 Audit</a>
+        <a class="chapter-link" href="#architecture">03 Token architecture</a>
+        <a class="chapter-link" href="#playground">04 Live playground</a>
+        <a class="chapter-link" href="#pipeline">05 The pipeline</a>
+        <a class="chapter-link" href="#governance">06 Governance</a>
+        <a class="chapter-link" href="#results">07 Results</a>
+        <a class="chapter-link" href="#learned">08 What I'd change</a>
+      </div>
+    </div>
 
-<div class="process-timeline" role="tablist">
-<button class="process-step-btn active" data-panel="0" role="tab"><span class="num">01</span> Problem</button>
-<button class="process-step-btn" data-panel="1" role="tab"><span class="num">02</span> Figma to Tokens</button>
-<button class="process-step-btn" data-panel="2" role="tab"><span class="num">03</span> Style Dictionary</button>
-<button class="process-step-btn" data-panel="3" role="tab"><span class="num">04</span> Angular Components</button>
-<button class="process-step-btn" data-panel="4" role="tab"><span class="num">05</span> Storybook Docs</button>
-</div>
+    <section class="cs-section reveal" id="problem">
+      <p class="section-num">01</p>
+      <h2>THE HANDOFF IS NOT THE PROBLEM.<br /><span class="gold">THE TRANSLATION IS.</span></h2>
+      <p>Every drift bug I have chased started the same way: a value was retyped by a human. A designer names something
+        <code>primary/900</code>, an engineer types <code>#C47F00</code>, and both are convinced they are right.</p>
+      <div class="drift">
+        <div class="drift-item"><b>Same button, three truths</b><code>Figma: primary/900</code><code>CSS:
+            --brand-dark</code><code>Angular: [type]="cta"</code></div>
+        <div class="drift-item"><b>Nobody is wrong</b><code>Each name made sense</code><code>in its own
+            file</code><code>on the day it was written</code></div>
+        <div class="drift-item"><b>The cost</b><code>64 design QA comments</code><code>per release</code><code>and a
+            rebrand nobody wanted to start</code></div>
+      </div>
+      <p style="margin-top:18px">I stopped treating this as a documentation problem. It is a naming problem, and naming
+        can be enforced by a build.</p>
+    </section>
 
-<div class="process-panel active" data-panel="0">
-<div class="panel-card">
-<div>
-<h3>The handoff problem</h3>
-<p>Teams ship beautiful Figma libraries that never match production. Renamed tokens partial variants close enough CSS drift compounds every sprint. Engineers stop trusting design files. Designers stop trusting Storybook.</p>
-<p style="margin-top:12px;font-weight:700;color:var(--paper)">Designer + Developer insight: I realized the problem isnt skill its that two people interpret the same spec differently. The fix make one person responsible for both sides.</p>
-<div class="tags"><span>Design-Dev Gap</span><span>Token Drift</span><span>Handoff Friction</span></div>
-</div>
-<figure><img src="./assets/portfolio/design-ops.png" alt="Design system fragmentation showing disconnected tools" /><figcaption style="padding:8px 4px;font-size:.72rem;color:var(--dim)">Before: separate design files and code with no automated bridge</figcaption></figure>
-</div>
-</div>
+    <section class="cs-section reveal" id="audit">
+      <p class="section-num">02</p>
+      <h2>I COUNTED EVERYTHING FIRST.</h2>
+      <p>A design system pitch without numbers is an opinion. Two days of scripted auditing gave me the argument.</p>
+      <div class="card-grid">
+        <div class="card accent"><h3>213 hard-coded colours</h3><p>Found by a script across the feature codebase. 41 of
+            them were near-duplicates of the brand orange.</p></div>
+        <div class="card accent"><h3>7 button variants</h3><p>Living in four repositories, none of them identical, three
+            with different focus behaviour.</p></div>
+        <div class="card accent"><h3>3.5 days</h3><p>Average time to build a new screen, mostly spent rebuilding things
+            that already existed.</p></div>
+        <div class="card accent"><h3>41% coverage</h3><p>Share of production components that had a matching Figma
+            source anyone could point to.</p></div>
+      </div>
+      <div class="quote">“We do have a component library. I just do not know if it is the one in the design file.”
+        <cite>Senior Angular engineer, audit interview</cite>
+      </div>
+    </section>
 
-<div class="process-panel" data-panel="1">
-<div class="panel-card">
-<div>
-<h3>Stage 1: Figma Variables + Token Architecture</h3>
-<p><strong>Design work:</strong> Created Figma variables for colour space radius and type. Every component variant was named to become the Angular @Input prop name.</p>
-<p><strong>Developer thinking:</strong> Named tokens to map directly to CSS custom properties. No translation layer needed.</p>
-<div class="tags"><span>Figma Variables</span><span>Design Tokens</span><span>Auto-layout</span></div>
-</div>
-<figure><img src="./assets/portfolio/figma.png" alt="Figma variable architecture showing token hierarchy" /><figcaption style="padding:8px 4px;font-size:.72rem;color:var(--dim)">Figma variables named to mirror CSS output</figcaption></figure>
-</div>
-</div>
+    <section class="cs-section reveal" id="architecture">
+      <p class="section-num">03</p>
+      <h2>THREE TIERS SO A REBRAND<br /><span class="gold">IS ONE FILE.</span></h2>
+      <p>Primitives hold values. Semantics hold meaning. Components consume semantics only, and never a raw value. It is
+        a boring structure, and boring is the point.</p>
+      <figure>
+        <img class="art zoomable" src="./assets/case-studies/ds-tokens.svg"
+          alt="Three-tier token architecture: primitive, semantic and component tokens with example names" loading="lazy" />
+        <figcaption>The token architecture. A client rebrand later touched five primitive values and nothing else. Click
+          to enlarge.</figcaption>
+      </figure>
+    </section>
 
-<div class="process-panel" data-panel="2">
-<div class="panel-card">
-<div>
-<h3>Stage 2: Style Dictionary Export</h3>
-<p><strong>Pipeline engineering:</strong> Token Studio exported a single tokens.json into Style Dictionary via CI. This generated CSS custom properties and TypeScript types automatically.</p>
-<p><strong>Key decision:</strong> Humans never edit variables.css directly. Every change starts in Figma making the design file the single source of truth.</p>
-<div class="tags"><span>Style Dictionary</span><span>CI/CD</span><span>Single Source of Truth</span></div>
-</div>
-<figure><img src="./assets/portfolio/design-op.png" alt="Style Dictionary pipeline showing automated token export" /><figcaption style="padding:8px 4px;font-size:.72rem;color:var(--dim)">Automated token to CSS pipeline</figcaption></figure>
-</div>
-</div>
+    <!-- PLAYGROUND -->
+    <section class="cs-section tint reveal" id="playground">
+      <p class="section-num">04</p>
+      <h2>CHANGE A TOKEN, WATCH THE SYSTEM MOVE.</h2>
+      <p>This is the idea in miniature and it is live. Move a control and every component below updates, along with the
+        generated CSS — exactly what the pipeline does between Figma and Angular.</p>
 
-<div class="process-panel" data-panel="3">
-<div class="panel-card">
-<div>
-<h3>Stage 3: Angular Components</h3>
-<p><strong>Development work:</strong> Built standalone Angular components in a shared package. Each components props exactly match the Figma property names.</p>
-<p>Button component: 4 variants x 3 sizes loading state disabled state ARIA support. All driven by the same tokens that started in Figma.</p>
-<div class="tags"><span>Angular Standalone</span><span>ARIA</span><span>Component API</span></div>
-</div>
-<figure><img src="./assets/portfolio/design-ops.png" alt="Angular component structure showing component library" /><figcaption style="padding:8px 4px;font-size:.72rem;color:var(--dim)">Angular component library consuming the same tokens</figcaption></figure>
-</div>
-</div>
+      <div class="play" style="margin-top:20px">
+        <div class="play-controls">
+          <div class="ctrl">
+            <label>action-primary <b id="vHue">#F0A500</b></label>
+            <div class="swatches" id="swatches" role="group" aria-label="Primary colour">
+              <button class="swatch on" style="background:#F0A500" data-c="#F0A500" aria-label="Amber"></button>
+              <button class="swatch" style="background:#E04E14" data-c="#E04E14" aria-label="Fire"></button>
+              <button class="swatch" style="background:#2FBF71" data-c="#2FBF71" aria-label="Green"></button>
+              <button class="swatch" style="background:#00A3E0" data-c="#00A3E0" aria-label="Blue"></button>
+              <button class="swatch" style="background:#8B5CF6" data-c="#8B5CF6" aria-label="Purple"></button>
+            </div>
+          </div>
+          <div class="ctrl">
+            <label>radius-md <b id="vRadius">12px</b></label>
+            <input type="range" id="cRadius" min="0" max="26" value="12" />
+          </div>
+          <div class="ctrl">
+            <label>space-4 <b id="vSpace">16px</b></label>
+            <input type="range" id="cSpace" min="6" max="28" value="16" />
+          </div>
+          <div class="ctrl">
+            <label>font-size-body <b id="vFont">14px</b></label>
+            <input type="range" id="cFont" min="12" max="19" value="14" />
+          </div>
+          <p style="font-size:.74rem;color:var(--dim);line-height:1.6">Four tokens. Nine components. Nobody edits a
+            component to make this happen.</p>
+        </div>
 
-<div class="process-panel" data-panel="4">
-<div class="panel-card">
-<div>
-<h3>Stage 4: Storybook Living Docs</h3>
-<p><strong>Full-circle:</strong> Stories mirror Figma component paths exactly. Controls expose the same props designers specified in Figma. The docs tab copies production-ready code snippets.</p>
-<p>Engineers can inspect any components status Ready / Partial / Not started and know exactly whats safe to use in production.</p>
-<div class="tags"><span>Storybook</span><span>Component Status</span><span>Living Docs</span></div>
-</div>
-<figure><img src="./assets/portfolio/figma.png" alt="Storybook component documentation showing status tracking" /><figcaption style="padding:8px 4px;font-size:.72rem;color:var(--dim)">Storybook stories mirroring Figma component paths</figcaption></figure>
-</div>
-</div>
-</section>
+        <div>
+          <div class="preview-surface" id="previewSurface">
+            <div style="display:flex;flex-wrap:wrap;gap:var(--pg-space);align-items:center;margin-bottom:var(--pg-space)">
+              <button class="demo-btn" id="pgBtn1">Primary action</button>
+              <button class="demo-btn" id="pgBtn2">Secondary</button>
+              <span class="demo-chip" id="pgChip">Badge</span>
+            </div>
+            <div class="demo-card" id="pgCard">
+              <p style="font-weight:800;margin-bottom:6px" id="pgCardTitle">Card component</p>
+              <p style="color:var(--dim)" id="pgCardBody">Padding, radius and body size all come from tokens. Nothing
+                here is a magic number.</p>
+              <input class="demo-input" id="pgInput" placeholder="Input field" />
+            </div>
+          </div>
+          <pre class="code" id="pgCode" style="margin-top:14px"></pre>
+        </div>
+      </div>
+    </section>
 
-<section class="cs-section" style="background:rgba(240,165,0,.03)">
-<div class="section-label">// Core Discipline</div>
-<h2>THE ONE RULE:<br /><span style="color:var(--gold)">NAMES NEVER CHANGE</span></h2>
-<p style="max-width:800px">The single most important decision in this pipeline if Figma has color/primary/900 CSS has --color-primary-900 and the Angular component references the same token. Button props like variant size disabled loading match Figma properties exactly.</p>
-<p style="max-width:800px">This one discipline eliminated the most common source of design-dev drift entirely.</p>
-</section>
+    <section class="cs-section reveal" id="pipeline">
+      <p class="section-num">05</p>
+      <h2>FIVE STAGES, NO RETYPING.</h2>
+      <figure>
+        <img class="art zoomable" src="./assets/case-studies/ds-pipeline.svg"
+          alt="Five-stage pipeline from Figma variables to Storybook, with the naming chain and before and after metrics" loading="lazy" />
+        <figcaption>The pipeline, the naming chain that holds it together, and the numbers I tracked before and after.
+          Click to enlarge.</figcaption>
+      </figure>
 
-<section class="cs-section">
-<div class="section-label">// Results</div>
-<h2>WHAT THE PIPELINE DELIVERED</h2>
-<p>The system moved from another Figma library that production wont match to a trusted source of truth that both designers and engineers rely on.</p>
-<div class="value-stack">
-<div class="value-item"><h4>Zero token drift</h4><p>Names never change between Figma CSS and Angular eliminating the most common source of handoff bugs.</p></div>
-<div class="value-item"><h4>2.4x faster onboarding</h4><p>New engineers find components in Storybook with props that match the design files they are working from.</p></div>
-<div class="value-item"><h4>63% reuse at 12 months</h4><p>Components are adopted across products because they are reliable documented and easy to import.</p></div>
-<div class="value-item"><h4>Design + code in one view</h4><p>Stakeholders can inspect both the Figma design and the shipped component in the same review session.</p></div>
-</div>
-</section>
+      <div data-tabs style="margin-top:28px">
+        <div class="tabs" role="tablist" aria-label="Pipeline stages">
+          <button class="tab-btn active" data-pane="p1" role="tab" aria-selected="true"><span class="n">01</span>Figma</button>
+          <button class="tab-btn" data-pane="p2" role="tab" aria-selected="false"><span class="n">02</span>Export</button>
+          <button class="tab-btn" data-pane="p3" role="tab" aria-selected="false"><span class="n">03</span>Build</button>
+          <button class="tab-btn" data-pane="p4" role="tab" aria-selected="false"><span class="n">04</span>Angular</button>
+          <button class="tab-btn" data-pane="p5" role="tab" aria-selected="false"><span class="n">05</span>Storybook</button>
+        </div>
 
-<section style="max-width:1200px;margin:0 auto;padding:0 5vw 60px">
-<div class="cta-band">
-<h3 class="display">NEED A DESIGN SYSTEM<br /><span style="color:var(--gold)">THAT ENGINEERS TRUST?</span></h3>
-<p>I design and implement DesignOps pipelines that keep Figma and production in sync Angular Storybook tokens governance. Message me with your stack and team size.</p>
-<div class="cta-actions">
-<a href="./contact.html" class="btn-wa">Contact about similar work</a>
-<a href="https://github.com/LulamileMkhungela/design-ops" target="_blank" class="btn-outline">GitHub repo</a>
-<a href="./showcase.html" class="btn-outline" style="border-color:var(--border);color:var(--dim)">All case studies</a>
-</div>
-</div>
-</section>
-</main>
+        <div class="tab-pane active" data-pane="p1">
+          <div class="split">
+            <div>
+              <h3>Variables, not styles</h3>
+              <p class="prose">Colour, spacing, radius and type live as Figma variables with modes for light and dark.
+                Component properties are named exactly as they will be typed in Angular, so <code>variant</code>,
+                <code>size</code> and <code>disabled</code> mean the same thing in both places.</p>
+              <div class="pillrow"><span class="pill design">Figma variables</span><span class="pill design">Modes</span><span
+                  class="pill">Naming convention</span></div>
+            </div>
+            <pre class="code">color/primary/900     #C47F00
+color/primary/700     #F0A500
+space/4               16
+radius/md             12
+font/body/size        14
 
-<footer>
-<div class="footer-grid">
-<div>
-<a href="./index.html" style="display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--paper);text-decoration:none"><img src="./assets/portfolio/icon-192.png" width="36" height="36" alt="LulaSync" /><span>Lula<span style="color:var(--gold)">Sync</span></span></a>
-<p class="footer-desc">Lulamile Mkhungela Equal craft from research to shipped interface. I build any tech tools. You focus on running your business.</p>
-</div>
-<div>
-<p class="footer-col-title">Explore</p>
-<div class="footer-links">
-<a href="./showcase.html" class="footer-link">App showcase</a>
-<a href="./showcase.html#portfolio" class="footer-link">Case studies</a>
-<a href="./services.html" class="footer-link">Services</a>
-</div>
-</div>
-<div>
-<p class="footer-col-title">Discover</p>
-<div class="footer-links">
-<a href="./about.html" class="footer-link">About Me</a>
-<a href="./contact.html" class="footer-link">Contact</a>
-<a href="https://www.linkedin.com/in/lulamile-mkhungela/" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-</div>
-</div>
-</div>
-<div class="footer-bottom">
-<p class="footer-copy">&copy; 2017-2026 LulaSync Built with love by Lulamile in South Africa</p>
-<p class="footer-copy">Designing and building useful solutions for any business.</p>
-</div>
-</footer>
+<span class="c">// component property names = Angular @Input names</span>
+Button: variant, size, disabled, loading</pre>
+          </div>
+        </div>
 
-<script>
-const html=document.documentElement,toggle=document.getElementById('themeToggle');
-const saved=localStorage.getItem('ls-theme')||'dark';
-function apply(t){html.setAttribute('data-theme',t);html.style.colorScheme=t;toggle.textContent=t==='dark'?'&#127769;':'&#9728;&#65039;';localStorage.setItem('ls-theme',t)}
-apply(saved);toggle.addEventListener('click',()=>apply(html.getAttribute('data-theme')==='dark'?'light':'dark'));
-const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('mobileOverlay'),closeB=document.getElementById('closeBtn');
-menuBtn.addEventListener('click',()=>{overlay.classList.add('open');document.body.style.overflow='hidden'});
-closeB.addEventListener('click',()=>{overlay.classList.remove('open');document.body.style.overflow=''});
-overlay.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{overlay.classList.remove('open');document.body.style.overflow=''}));
-(function(){const btns=document.querySelectorAll('.process-step-btn'),panels=document.querySelectorAll('.process-panel');btns.forEach(b=>{b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('active'));panels.forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelector('.process-panel[data-panel="'+b.getAttribute('data-panel')+'"]').classList.add('active')})})})();
-(function(){const imgs=document.querySelectorAll('.panel-card img'),lb=document.createElement('div');lb.className='lightbox';lb.innerHTML='<button type="button">&#10005;</button><img alt=""><figcaption></figcaption>';document.body.appendChild(lb);const lbi=lb.querySelector('img'),lbb=lb.querySelector('button');function close(){lb.classList.remove('open');document.body.style.overflow=''}imgs.forEach(i=>{i.style.cursor='zoom-in';i.addEventListener('click',()=>{lbi.src=i.currentSrc||i.src;lbi.alt=i.alt;lb.classList.add('open');document.body.style.overflow='hidden'})});lbb.addEventListener('click',close);lb.addEventListener('click',e=>{if(e.target===lb)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
-</script>
+        <div class="tab-pane" data-pane="p2">
+          <h3>One export, triggered by a merge</h3>
+          <p class="prose">Token Studio writes a single <code>tokens.json</code>. It is the only file that crosses the
+            boundary between design and code, and it is reviewed like any other change.</p>
+          <pre class="code">{
+  <span class="s">"color"</span>: { <span class="s">"primary"</span>: { <span class="s">"900"</span>: { <span class="s">"value"</span>: <span class="s">"#C47F00"</span>, <span class="s">"type"</span>: <span class="s">"color"</span> } } },
+  <span class="s">"space"</span>: { <span class="s">"4"</span>:  { <span class="s">"value"</span>: <span class="s">"16px"</span>, <span class="s">"type"</span>: <span class="s">"spacing"</span> } },
+  <span class="s">"radius"</span>: { <span class="s">"md"</span>: { <span class="s">"value"</span>: <span class="s">"12px"</span>, <span class="s">"type"</span>: <span class="s">"borderRadius"</span> } }
+}</pre>
+        </div>
+
+        <div class="tab-pane" data-pane="p3">
+          <h3>Style Dictionary does the typing so people do not</h3>
+          <p class="prose">CI turns the JSON into CSS custom properties and TypeScript types. Humans never edit the
+            generated files, and the build fails if someone tries.</p>
+          <pre class="code"><span class="c">/* variables.css — generated, do not edit */</span>
+:root {
+  --color-primary-900: #C47F00;
+  --space-4: 16px;
+  --radius-md: 12px;
+}
+
+<span class="c">// tokens.ts — generated types keep the editor honest</span>
+<span class="k">export type</span> ColorToken = <span class="s">'primary-900'</span> | <span class="s">'primary-700'</span> | <span class="s">'surface-base'</span>;</pre>
+        </div>
+
+        <div class="tab-pane" data-pane="p4">
+          <h3>Components consume tokens, never values</h3>
+          <p class="prose">Eighty standalone Angular components, each one a thin layer over semantic tokens. A designer
+            can read the class and recognise their own file.</p>
+          <pre class="code"><span class="k">@Component</span>({ selector: <span class="s">'ds-button'</span>, standalone: <span class="k">true</span> })
+<span class="k">export class</span> ButtonComponent {
+  <span class="k">@Input</span>() variant: <span class="s">'primary' | 'secondary' | 'ghost' | 'danger'</span> = <span class="s">'primary'</span>;
+  <span class="k">@Input</span>() size: <span class="s">'sm' | 'md' | 'lg'</span> = <span class="s">'md'</span>;
+  <span class="k">@Input</span>() disabled = <span class="k">false</span>;
+  <span class="k">@Input</span>() loading = <span class="k">false</span>;   <span class="c">// announced via aria-busy</span>
+}
+
+<span class="c">/* button.component.css */</span>
+.btn--primary { background: <span class="k">var</span>(--action-primary); border-radius: <span class="k">var</span>(--radius-md); }</pre>
+        </div>
+
+        <div class="tab-pane" data-pane="p5">
+          <h3>Docs that cannot go stale</h3>
+          <p class="prose">Storybook publishes on every merge. Stories mirror the Figma page structure, controls expose
+            the same props, and each component carries a status: ready, partial or do not use yet.</p>
+          <div class="card-grid">
+            <div class="card"><h3>Status labels</h3><p>Engineers know at a glance what is safe for production.</p></div>
+            <div class="card"><h3>Copy-paste snippets</h3><p>The docs tab gives the exact markup, already accessible.</p></div>
+            <div class="card"><h3>Accessibility notes</h3><p>Keyboard behaviour and ARIA are documented per component,
+                not left to interpretation.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section reveal" id="governance">
+      <p class="section-num">06</p>
+      <h2>A SYSTEM IS A HABIT,<br /><span class="gold">NOT A LIBRARY.</span></h2>
+      <div class="split">
+        <div>
+          <div class="kv">Anyone can propose a token change in a Figma branch. Nobody merges their own.</div>
+          <div class="kv">I review every proposal against contrast, spacing scale and dark mode before it moves.</div>
+          <div class="kv">CI fails the build if a token is renamed without a migration entry.</div>
+          <div class="kv">A monthly 30-minute review with the three squads keeps the backlog honest and shared.</div>
+          <div class="kv">Every component ships with its accessibility notes, or it does not ship.</div>
+        </div>
+        <div class="card accent">
+          <h3>The one rule that does the heavy lifting</h3>
+          <p style="font-size:.95rem;line-height:1.75;color:var(--paper)">If Figma calls it <code>color/primary/900</code>,
+            CSS calls it <code>--color-primary-900</code> and Angular calls it <code>primary-900</code>. No synonyms, no
+            translation table, no institutional knowledge required.</p>
+          <p style="margin-top:12px">That single discipline removed the most common source of design and development
+            drift entirely, and it costs nothing to maintain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section reveal" id="results">
+      <p class="section-num">07</p>
+      <h2>WHAT THE PIPELINE DELIVERED.</h2>
+      <div class="stats">
+        <div class="stat"><b>80+</b><span>Components in production</span></div>
+        <div class="stat"><b>213 → 0</b><span>Hard-coded colours in features</span></div>
+        <div class="stat"><b>3.5 → 1.4 days</b><span>To build a new screen</span></div>
+        <div class="stat"><b>64 → 11</b><span>Design QA comments per release</span></div>
+        <div class="stat"><b>9 → 3 days</b><span>New engineer to first merged component</span></div>
+        <div class="stat"><b>1 afternoon</b><span>To ship a full rebrand</span></div>
+      </div>
+      <p style="margin-top:6px">The rebrand is the number that convinced leadership. Five primitive values changed,
+        dark mode kept working, and no component code was touched.</p>
+    </section>
+
+    <section class="cs-section reveal" id="learned">
+      <p class="section-num">08</p>
+      <h2>WHAT I WOULD DO DIFFERENTLY.</h2>
+      <div class="card-grid">
+        <div class="card"><h3>Ship the migration tooling with day one</h3>
+          <p>Squads adopted faster once there was a codemod. I wrote it in month four; it should have existed in week
+            two.</p>
+        </div>
+        <div class="card"><h3>Write the contribution guide before the components</h3>
+          <p>For the first quarter I was the bottleneck, because nobody knew how to contribute without asking me.</p>
+        </div>
+        <div class="card"><h3>Measure adoption, not output</h3>
+          <p>Counting components felt productive. Counting how many screens used them was the metric that actually
+            drove decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding:20px 5vw 70px">
+      <div class="cta-band reveal">
+        <h3 class="display">NEED A DESIGN SYSTEM<br /><span class="gold">ENGINEERS ACTUALLY TRUST?</span></h3>
+        <p>I design and implement the pipeline: token architecture, component library, documentation and the governance
+          that keeps it alive. Tell me your stack and team size.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="./contact.html">Start a conversation</a>
+          <a class="btn btn-outline" href="https://github.com/LulamileMkhungela/design-ops" target="_blank"
+            rel="noopener noreferrer">View the repository ↗</a>
+          <a class="btn btn-ghost" href="./case-studies.html">All case studies</a>
+        </div>
+      </div>
+      <div class="cs-nav-next">
+        <a class="next-card" href="./case-study-engage.html"><span>Back to the start</span><b>Engage — 25 000 people, one
+            home screen →</b></a>
+        <a class="next-card" href="./showcase.html"><span>More work</span><b>UI, live apps, frontend builds and
+            hackathons →</b></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ls-footer">
+    <div class="footer-grid">
+      <div>
+        <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+          <span>Lula<span class="gold">Sync</span></span></a>
+        <p class="footer-desc">Lulamile Mkhungela — equal craft from research to shipped interface. UX/UI and product
+          design, plus the frontend to make it real.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Case studies</p>
+        <div class="footer-links">
+          <a class="footer-link" href="./case-study-engage.html">Engage — enterprise app</a>
+          <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; bursary journey</a>
+          <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — design to code</a>
+          <a class="footer-link" href="./case-study-design-system.html">Figma to Angular system</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Explore</p>
+        <div class="footer-links">
+          <a class="footer-link" href="./showcase.html">Showcase</a>
+          <a class="footer-link" href="./services.html">Services</a>
+          <a class="footer-link" href="./about.html">About</a>
+          <a class="footer-link" href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
+      <p class="footer-copy">Designing and building useful products for real users.</p>
+    </div>
+  </footer>
+
+  <script src="./assets/case-study.js" defer></script>
+  <script>
+    /* ── Token playground ─────────────────────────────────────────────── */
+    (function () {
+      var state = { color: '#F0A500', radius: 12, space: 16, font: 14 };
+      var el = {
+        hue: document.getElementById('vHue'), radius: document.getElementById('vRadius'),
+        space: document.getElementById('vSpace'), font: document.getElementById('vFont'),
+        btn1: document.getElementById('pgBtn1'), btn2: document.getElementById('pgBtn2'),
+        chip: document.getElementById('pgChip'), card: document.getElementById('pgCard'),
+        input: document.getElementById('pgInput'), code: document.getElementById('pgCode'),
+        surface: document.getElementById('previewSurface'),
+        title: document.getElementById('pgCardTitle'), body: document.getElementById('pgCardBody')
+      };
+      if (!el.code) return;
+
+      function darken(hex, amt) {
+        var n = parseInt(hex.slice(1), 16);
+        var r = Math.max(0, (n >> 16) - amt), g = Math.max(0, ((n >> 8) & 255) - amt), b = Math.max(0, (n & 255) - amt);
+        return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+      }
+      function apply() {
+        var c = state.color, hover = darken(c, 26), r = state.radius + 'px', s = state.space + 'px', f = state.font + 'px';
+        el.hue.textContent = c;
+        el.radius.textContent = r;
+        el.space.textContent = s;
+        el.font.textContent = f;
+
+        el.surface.style.gap = s;
+        el.btn1.style.cssText = 'background:' + c + ';color:#0A0705;border-radius:' + r + ';padding:' + (state.space * 0.62).toFixed(0) + 'px ' + (state.space * 1.3).toFixed(0) + 'px;font-size:' + f;
+        el.btn2.style.cssText = 'background:transparent;color:' + c + ';border:1px solid ' + c + ';border-radius:' + r + ';padding:' + (state.space * 0.62).toFixed(0) + 'px ' + (state.space * 1.3).toFixed(0) + 'px;font-size:' + f;
+        el.chip.style.cssText = 'background:' + c + '22;color:' + c + ';border:1px solid ' + c + '55;border-radius:999px;font-size:' + (state.font - 2) + 'px';
+        el.card.style.cssText = 'border-radius:' + r + ';padding:' + s + ';border-left:3px solid ' + c + ';background:var(--card)';
+        el.title.style.fontSize = (state.font + 1) + 'px';
+        el.body.style.cssText = 'font-size:' + f + ';color:var(--dim);margin-bottom:' + s;
+        el.input.style.cssText = 'border-radius:' + (state.radius * 0.75).toFixed(0) + 'px;padding:' + (state.space * 0.6).toFixed(0) + 'px ' + (state.space * 0.75).toFixed(0) + 'px;font-size:' + f + ';border:1px solid var(--border);background:transparent;color:var(--paper);width:100%';
+
+        el.code.innerHTML =
+          '<span class="c">/* variables.css — generated from tokens.json, never hand-edited */</span>\n' +
+          ':root {\n' +
+          '  --action-primary:       ' + c + ';\n' +
+          '  --action-primary-hover: ' + hover + ';\n' +
+          '  --radius-md:            ' + r + ';\n' +
+          '  --space-4:              ' + s + ';\n' +
+          '  --font-body-size:       ' + f + ';\n' +
+          '}\n\n' +
+          '<span class="c">/* ds-button consumes the semantic token, never the hex */</span>\n' +
+          '.btn--primary { background: var(--action-primary); border-radius: var(--radius-md); }';
+      }
+      document.querySelectorAll('#swatches .swatch').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('#swatches .swatch').forEach(function (x) { x.classList.remove('on'); });
+          b.classList.add('on'); state.color = b.getAttribute('data-c'); apply();
+        });
+      });
+      document.getElementById('cRadius').addEventListener('input', function (e) { state.radius = +e.target.value; apply(); });
+      document.getElementById('cSpace').addEventListener('input', function (e) { state.space = +e.target.value; apply(); });
+      document.getElementById('cFont').addEventListener('input', function (e) { state.font = +e.target.value; apply(); });
+      apply();
+    })();
+  </script>
 </body>
+
 </html>

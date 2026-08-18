@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 664" width="1240" height="664" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Usability testing: what broke and what I changed">
+<rect width="1240" height="664" fill="#F7F4EC"/>
+<rect x="0" y="0" width="1240" height="6" fill="#B57200"/>
+<text x="34" y="46" font-size="20" font-weight="bold" fill="#1A1208">Usability testing: what broke and what I changed</text>
+<text x="34" y="68" font-size="13" fill="#6B6055">Vodacom Engage · 9 moderated sessions (Teams + in person), 5 tasks each, severity rated 1–4</text>
+<line x1="34" y1="104" x2="1206" y2="104" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="46" y="96" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">#</text>
+<text x="96" y="96" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">FINDING</text>
+<text x="470" y="96" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">SEVERITY</text>
+<text x="600" y="96" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">FIX I DESIGNED</text>
+<text x="930" y="96" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">RESULT IN ROUND 2</text>
+<rect x="34" y="110" width="1172" height="74" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="46" y="134" font-size="12" font-weight="bold" fill="#B57200" text-anchor="start">01</text>
+<text x="96" y="132" font-size="11" font-weight="normal" fill="#1A1208" text-anchor="start">People could not tell “Connect” from</text>
+<text x="96" y="147" font-size="11" font-weight="normal" fill="#1A1208" text-anchor="start">“Communication”.</text>
+<rect x="470" y="120" width="96" height="24" rx="12" fill="#FFFFFF" stroke="#C03A08" stroke-width="1.5"/>
+<text x="518" y="136" font-size="10" font-weight="bold" fill="#C03A08" text-anchor="middle">S4 critical</text>
+<text x="600" y="132" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">Renamed to “News &amp; Connect”, merged the</text>
+<text x="600" y="147" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">two.</text>
+<text x="930" y="132" font-size="11" font-weight="normal" fill="#17864B" text-anchor="start">9/9 correct on first tap</text>
+<rect x="34" y="196" width="1172" height="74" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="46" y="220" font-size="12" font-weight="bold" fill="#B57200" text-anchor="start">02</text>
+<text x="96" y="218" font-size="11" font-weight="normal" fill="#1A1208" text-anchor="start">Session expiry pushed people to the desktop portal.</text>
+<rect x="470" y="206" width="96" height="24" rx="12" fill="#FFFFFF" stroke="#C03A08" stroke-width="1.5"/>
+<text x="518" y="222" font-size="10" font-weight="bold" fill="#C03A08" text-anchor="middle">S4 critical</text>
+<text x="600" y="218" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">30-day session with biometric unlock.</text>
+<text x="930" y="218" font-size="11" font-weight="normal" fill="#17864B" text-anchor="start">0 logouts reported</text>
+<rect x="34" y="282" width="1172" height="74" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="46" y="306" font-size="12" font-weight="bold" fill="#B57200" text-anchor="start">03</text>
+<text x="96" y="304" font-size="11" font-weight="normal" fill="#1A1208" text-anchor="start">Boardroom booking needed 7 taps and a floor code.</text>
+<rect x="470" y="292" width="96" height="24" rx="12" fill="#FFFFFF" stroke="#B57200" stroke-width="1.5"/>
+<text x="518" y="308" font-size="10" font-weight="bold" fill="#B57200" text-anchor="middle">S3 major</text>
+<text x="600" y="304" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">Nearby rooms first, floor pre-filled from</text>
+<text x="600" y="319" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">the QR check-in.</text>
+<text x="930" y="304" font-size="11" font-weight="normal" fill="#17864B" text-anchor="start">7 taps → 3 taps</text>
+<rect x="34" y="368" width="1172" height="74" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="46" y="392" font-size="12" font-weight="bold" fill="#B57200" text-anchor="start">04</text>
+<text x="96" y="390" font-size="11" font-weight="normal" fill="#1A1208" text-anchor="start">Chat entry point was hidden behind “More”.</text>
+<rect x="470" y="378" width="96" height="24" rx="12" fill="#FFFFFF" stroke="#B57200" stroke-width="1.5"/>
+<text x="518" y="394" font-size="10" font-weight="bold" fill="#B57200" text-anchor="middle">S3 major</text>
+<text x="600" y="390" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">Persistent TOBi button anchored above the</text>
+<text x="600" y="405" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">tab bar.</text>
+<text x="930" y="390" font-size="11" font-weight="normal" fill="#17864B" text-anchor="start">+34% chat starts</text>
+<rect x="34" y="454" width="1172" height="74" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="46" y="478" font-size="12" font-weight="bold" fill="#B57200" text-anchor="start">05</text>
+<text x="96" y="476" font-size="11" font-weight="normal" fill="#1A1208" text-anchor="start">Food menu images were 2.4 MB on a 3G lunch queue.</text>
+<rect x="470" y="464" width="96" height="24" rx="12" fill="#FFFFFF" stroke="#0E6E8C" stroke-width="1.5"/>
+<text x="518" y="480" font-size="10" font-weight="bold" fill="#0E6E8C" text-anchor="middle">S2 minor</text>
+<text x="600" y="476" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">Compressed to WebP, lazy loading, cached</text>
+<text x="600" y="491" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">menu of the day.</text>
+<text x="930" y="476" font-size="11" font-weight="normal" fill="#17864B" text-anchor="start">4.1s → 1.3s load</text>
+<rect x="34" y="540" width="1172" height="74" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="46" y="564" font-size="12" font-weight="bold" fill="#B57200" text-anchor="start">06</text>
+<text x="96" y="562" font-size="11" font-weight="normal" fill="#1A1208" text-anchor="start">Icon-only tiles were unreadable for older employees.</text>
+<rect x="470" y="550" width="96" height="24" rx="12" fill="#FFFFFF" stroke="#0E6E8C" stroke-width="1.5"/>
+<text x="518" y="566" font-size="10" font-weight="bold" fill="#0E6E8C" text-anchor="middle">S2 minor</text>
+<text x="600" y="562" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">Text label under every icon, minimum 44px</text>
+<text x="600" y="577" font-size="11" font-weight="normal" fill="#6B6055" text-anchor="start">tap target.</text>
+<text x="930" y="562" font-size="11" font-weight="normal" fill="#17864B" text-anchor="start">No misses in round 2</text>
+<text x="34" y="646" font-size="11" fill="#6B6055">Lulamile Mkhungela · LulaSync — working artifact from the project</text>
+</svg>

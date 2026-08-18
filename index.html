@@ -3858,6 +3858,28 @@
       background: #fff;
     }
 
+
+    /* CASE STUDIES ON THE HOME PAGE */
+    .home-cases { padding: 76px 5vw; border-top: 1px solid var(--border); }
+    .home-cases-inner { max-width: 1140px; margin: 0 auto; }
+    .home-cases-head { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between; margin-bottom: 34px; }
+    .home-cases-head h2 { margin-bottom: 10px; }
+    .home-cases-head p { color: var(--dim); font-size: .95rem; line-height: 1.7; max-width: 560px; }
+    .home-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 18px; }
+    .home-case { position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .22s ease, border-color .22s ease; }
+    .home-case:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .home-case-cover { aspect-ratio: 16 / 10; background: #14110D; overflow: hidden; }
+    .home-case-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+    .home-case:hover .home-case-cover img { transform: scale(1.05); }
+    .home-case-body { padding: 18px; display: flex; flex-direction: column; flex: 1; gap: 9px; }
+    .home-case-role { font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .home-case-body h3 { font-size: 1.02rem; font-weight: 800; line-height: 1.35; color: var(--paper); }
+    .home-case-body p { font-size: .84rem; color: var(--dim); line-height: 1.6; flex: 1; }
+    .home-case-metric { display: flex; gap: 8px; flex-wrap: wrap; }
+    .home-case-metric span { font-size: .66rem; font-weight: 800; padding: 5px 10px; border-radius: 999px; background: rgba(240, 165, 0, .1); border: 1px solid rgba(240, 165, 0, .28); color: var(--gold); }
+    .home-case-link { font-size: .78rem; font-weight: 800; color: var(--gold); }
+    [data-theme="light"] .home-case-cover { background: #EFE9DC; }
+
     .work-showreel {
       padding: 72px 5vw;
       background: var(--card);
@@ -4294,7 +4316,7 @@
         src="./assets/portfolio/icon-192.png" width="36" height="36" alt="LulaSync" /><span>Lula<span
           style="color:var(--gold)">Sync</span></span></a>
     <div class="nav-links" role="menubar">
-      <a href="./index.html" class="nav-link active">Home</a>
+      <a href="./index.html" class="nav-link active">Home</a><a href="./case-studies.html" class="nav-link">Case Studies</a>
       <a href="./showcase.html" class="nav-link">Showcase</a>
       <a href="./services.html" class="nav-link">Services</a>
       <a href="./about.html" class="nav-link">About</a>
@@ -4313,7 +4335,7 @@
   <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-label="Mobile navigation">
     <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
     <div style="text-align:center">
-      <a href="./index.html" class="mobile-nav-link active">Home</a>
+      <a href="./index.html" class="mobile-nav-link active">Home</a><a href="./case-studies.html" class="mobile-nav-link">Case Studies</a>
       <a href="./showcase.html" class="mobile-nav-link">Showcase</a>
       <a href="./services.html" class="mobile-nav-link">Services</a>
       <a href="./about.html" class="mobile-nav-link">About</a>
@@ -4707,6 +4729,74 @@
             <source src="./assets/portfolio/new-play.webm" type="video/webm">Your browser does not support the showreel
             video.
           </video></div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="home-cases reveal-section" id="case-studies" aria-labelledby="home-cases-title">
+      <div class="home-cases-inner">
+        <div class="home-cases-head">
+          <div>
+            <p class="section-eyebrow">// Case studies</p>
+            <h2 class="section-h2" id="home-cases-title" style="font-size:clamp(2rem,6vw,3.4rem)">THE THINKING,<br /><span
+                style="color:var(--gold)">NOT JUST THE SCREENS.</span></h2>
+            <p>Four end-to-end write-ups: the evidence, the decisions, the artefacts, the shipped interface and the
+              numbers afterwards. Each one has something you can click.</p>
+          </div>
+          <a href="./case-studies.html" class="btn-outline"
+            style="color:var(--gold);border-color:var(--gold);white-space:nowrap">All case studies &rarr;</a>
+        </div>
+
+        <div class="home-case-grid">
+          <a class="home-case" href="./case-study-engage.html">
+            <div class="home-case-cover"><img src="./assets/case-studies/engage-cover.webp"
+                alt="Engage employee app screens" loading="lazy" /></div>
+            <div class="home-case-body">
+              <span class="home-case-role">UX research &middot; IA &middot; UI</span>
+              <h3>Engage &mdash; 25 000 people, one home screen</h3>
+              <p>An enterprise app everyone installed and nobody used for real work, rebuilt around four tasks.</p>
+              <div class="home-case-metric"><span>48s &rarr; 19s</span><span>11 &rarr; 4 destinations</span></div>
+              <span class="home-case-link">Read the case study &rarr;</span>
+            </div>
+          </a>
+
+          <a class="home-case" href="./case-study-tobi-bursary.html">
+            <div class="home-case-cover"><img src="./assets/case-studies/bursary-portal.webp"
+                alt="Bursary applicant portal" loading="lazy" /></div>
+            <div class="home-case-body">
+              <span class="home-case-role">Conversational UX &middot; service design</span>
+              <h3>TOBi &amp; the bursary journey</h3>
+              <p>A bot that answers instead of apologising, and a 42-field form rebuilt as four steps that save
+                themselves.</p>
+              <div class="home-case-metric"><span>41 &rarr; 68% contained</span><span>38 &rarr; 61% completed</span></div>
+              <span class="home-case-link">Read the case study &rarr;</span>
+            </div>
+          </a>
+
+          <a class="home-case" href="./case-study-servicewaze.html">
+            <div class="home-case-cover"><img src="./assets/case-studies/servicewaze-cover.svg"
+                alt="ServiceWaze offline-first status hub" loading="lazy" /></div>
+            <div class="home-case-body">
+              <span class="home-case-role">Product design + Angular</span>
+              <h3>ServiceWaze &mdash; designed for a bad signal</h3>
+              <p>Six interface states designed in Figma and shipped in code, offline-first for real SA networks.</p>
+              <div class="home-case-metric"><span>1.2s on 3G</span><span>171 KB JS</span></div>
+              <span class="home-case-link">Read the case study &rarr;</span>
+            </div>
+          </a>
+
+          <a class="home-case" href="./case-study-design-system.html">
+            <div class="home-case-cover"><img src="./assets/case-studies/ds-pipeline.svg"
+                alt="Design system pipeline diagram" loading="lazy" /></div>
+            <div class="home-case-body">
+              <span class="home-case-role">Design systems &middot; DesignOps</span>
+              <h3>Figma variables to Angular, zero drift</h3>
+              <p>Token architecture, automated export and 80+ components &mdash; with a live playground in the page.</p>
+              <div class="home-case-metric"><span>213 &rarr; 0 hard-coded</span><span>80+ components</span></div>
+              <span class="home-case-link">Read the case study &rarr;</span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -5454,7 +5544,7 @@
             src="./assets/portfolio/icon-192.png" width="36" height="36" alt="LulaSync" /><span>Lula<span
               style="color:var(--gold)">Sync</span></span></a>
         <p class="footer-desc">Lulamile Mkhungela — Equal craft from research to shipped interface.<br>I build any tech
-          tools. You focus in running your business.</p>
+          tools so you can focus on running your business.</p>
         <a href="./contact.html" class="btn-wa"
           style="font-size:.78rem;padding:9px 18px;background:var(--gold);color:#0A0705">Contact →</a>
       </div>
@@ -5462,7 +5552,7 @@
         <p class="footer-col-title">Explore</p>
         <div class="footer-links">
           <a href="./showcase.html" class="footer-link">App showcase</a>
-          <a href="./showcase.html#portfolio" class="footer-link">Case studies</a>
+          <a href="./case-studies.html" class="footer-link">Case studies</a>
           <a href="./services.html" class="footer-link">Services</a>
         </div>
       </div>
@@ -5486,8 +5576,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2017-2026 LulaSync · Built with love by LulaMile in South Africa 🇿🇦</p>
-      <p class="footer-copy">Designing and building useful solutions for any businesses.</p>
+      <p class="footer-copy">© 2017–2026 LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
+      <p class="footer-copy">Designing and building useful products for real users.</p>
     </div>
   </footer>
 

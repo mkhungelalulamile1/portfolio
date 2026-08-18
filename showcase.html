@@ -3716,6 +3716,62 @@
     </style>
 
     <style id="ls-polish">
+        .cs-followup {
+            max-width: 1100px;
+            margin: 4px auto 56px;
+            padding: 24px 26px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(240, 165, 0, .09), rgba(224, 78, 20, .04));
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cs-followup-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--paper);
+            margin-bottom: 6px;
+        }
+
+        .cs-followup-copy {
+            font-size: .86rem;
+            color: var(--dim);
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        .cs-followup-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cs-followup-btn {
+            border: 1px solid var(--border);
+            color: var(--dim);
+            text-decoration: none;
+            font-size: .82rem;
+            font-weight: 700;
+            padding: 11px 18px;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+
+        .cs-followup-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .cs-followup-btn.primary {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #0A0705;
+        }
+
         .role-chip {
 
             display: inline-flex;
@@ -3931,7 +3987,7 @@
 
         <div class="nav-links" role="menubar">
 
-            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./index.html" class="nav-link">Home</a><a href="./case-studies.html" class="nav-link">Case Studies</a>
 
             <a href="./showcase.html" class="nav-link active">Showcase</a>
 
@@ -3967,7 +4023,7 @@
 
         <div style="text-align:center">
 
-            <a href="./index.html" class="mobile-nav-link">Home</a>
+            <a href="./index.html" class="mobile-nav-link">Home</a><a href="./case-studies.html" class="mobile-nav-link">Case Studies</a>
 
             <a href="./showcase.html" class="mobile-nav-link active">Showcase</a>
 
@@ -4080,283 +4136,145 @@
 
                 <div class="cs-grid">
 
-                    <!-- Case Study 1: Figma → Angular Design System -->
-
-                    <a class="cs-card" data-tags="ux frontend designsystem" href="./case-study-design-system.html">
-
+                    <!-- Case Study 1: Engage -->
+                    <a class="cs-card" data-tags="ux enterprise mobile" href="./case-study-engage.html">
                         <div class="cs-cover">
-
-                            <img src="./assets/portfolio/design-op.png" alt="DesignOps pipeline - Figma to Angular" loading="lazy" />
-
-                            <div class="cs-badge-row"><span class="cs-pill">Design System</span><span class="cs-pill">Frontend Ops</span></div>
-
+                            <img src="./assets/case-studies/engage-cover.webp" alt="Engage enterprise employee app screens" loading="lazy" />
+                            <div class="cs-badge-row"><span class="cs-pill">Enterprise UX</span><span class="cs-pill">25k+ users</span></div>
                         </div>
-
                         <div class="cs-body">
-
-                            <div class="cs-meta"><span class="cs-client">DesignOps Pipeline</span><span class="cs-role">UX/UI Designer + Frontend Developer</span></div>
-
-                            <h3 class="cs-title">Figma Variables → Angular — Zero Drift Pipeline</h3>
-
-                            <p class="cs-summary">End-to-end design system engineering. From token architecture to shipped Angular components and Storybook docs — all by one person.</p>
-
-                            <div class="cs-tags">
-
-                                <span class="cs-tag">Design System</span>
-
-                                <span class="cs-tag">Angular</span>
-
-                                <span class="cs-tag">Storybook</span>
-
-                                <span class="cs-tag">Style Dictionary</span>
-
-                            </div>
-
-                            <div class="cs-stats">
-
-                                <div class="cs-stat"><b>80+</b><span>Components shipped</span></div>
-
-                                <div class="cs-stat"><b>5</b><span>Pipeline stages</span></div>
-
-                                <div class="cs-stat"><b>0 drift</b><span>Token names match</span></div>
-
-                            </div>
-
-                        </div>
-
-                    </a>
-
-                    <!-- Case Study 2: Engage -->
-
-                    <a class="cs-card" data-tags="ux enterprise mobile" href="./showcase.html">
-
-                        <div class="cs-cover">
-
-                            <img src="./assets/portfolio/engage-cover.png" alt="Vodacom Engage enterprise UX redesign"
-                                loading="lazy" />
-
-                            <div class="cs-badge-row"><span class="cs-pill">Native Apps</span><span class="cs-pill">25k+ Employees</span></div>
-
-                        </div>
-
-                        <div class="cs-body">
-
                             <div class="cs-meta"><span class="cs-client">Vodacom</span><span class="cs-role">UX/UI + Product Designer</span></div>
-
-                            <h3 class="cs-title">Engage — enterprise employee app redesign</h3>
-
-                            <p class="cs-summary">UX research IA overhaul search favourites chatbot hub and profile redesign for 25k+ employees on Android and iOS. Shipped with full dev handoff specs.</p>
-
+                            <h3 class="cs-title">Engage — 25 000 people, one home screen</h3>
+                            <p class="cs-summary">Research, a rebuilt information architecture, a tested prototype and a shipped interface for an employee app on Android, iOS and web.</p>
                             <div class="cs-tags">
-
                                 <span class="cs-tag">UX Research</span>
-
                                 <span class="cs-tag">Information Architecture</span>
-
                                 <span class="cs-tag">Mobile Apps</span>
-
                                 <span class="cs-tag">Prototyping</span>
-
                             </div>
-
                             <div class="cs-stats">
-
-                                <div class="cs-stat"><b>25k+</b><span>Active users</span></div>
-
-                                <div class="cs-stat"><b>14</b><span>Screens shipped</span></div>
-
-                                <div class="cs-stat"><b>Search</b><span>+ favourites added</span></div>
-
+                                <div class="cs-stat"><b>48s → 19s</b><span>Time to first task</span></div>
+                                <div class="cs-stat"><b>11 → 4</b><span>Top-level destinations</span></div>
+                                <div class="cs-stat"><b>+34%</b><span>Self-service chats</span></div>
                             </div>
-
+                            <span class="cs-cta">Read the case study</span>
                         </div>
-
-                                <span class="cs-tag">UX/UI</span>
-
-                                <span class="cs-tag">Enterprise</span>
-
-                                <span class="cs-tag">Mobile Apps</span>
-
-                                <span class="cs-tag">Information Architecture</span>
-
-                            </div>
-
-                            <div class="cs-stats">
-
-                                <div class="cs-stat"><b>25k+</b><span>Active users</span></div>
-
-                                <div class="cs-stat"><b>2×</b><span>Faster navigation</span></div>
-
-                                <div class="cs-stat"><b>Mobile</b><span>Android &amp; iOS</span></div>
-
-                            </div>
-
-                        </div>
-
                     </a>
 
-                    <!-- Case Study 3: Tobby Bursary -->
-
-                    <!-- <a class="cs-card" data-tags="ux servicedesign education" href="./tobby-bursary.html">
-
+                    <!-- Case Study 2: TOBi and the bursary journey -->
+                    <a class="cs-card" data-tags="ux servicedesign education" href="./case-study-tobi-bursary.html">
                         <div class="cs-cover">
-
-                            <img src="./assets/portfolio/ne-vod.png" alt="Tobby Bursary cover" loading="lazy" />
-
-                            <div class="cs-badge-row"><span class="cs-pill">Conversational UX</span><span
-                                    class="cs-pill">Service Design</span></div>
-
+                            <img src="./assets/case-studies/bursary-portal.webp" alt="Bursary applicant portal" loading="lazy" />
+                            <div class="cs-badge-row"><span class="cs-pill">Conversational UX</span><span class="cs-pill">Service Design</span></div>
                         </div>
-
                         <div class="cs-body">
-
-                            <div class="cs-meta"><span class="cs-client">Vodacom Internal</span><span class="cs-role">UX
-
-                                    ·
-
-                                    Service Design</span></div>
-
-                            <h3 class="cs-title">Tobby Ask-IT + bursary guided journey</h3>
-
-                            <p class="cs-summary">Conversational UX and service design — clear answers, fewer tickets,
-
-                                complete applications.</p>
-
+                            <div class="cs-meta"><span class="cs-client">IT support + bursary</span><span class="cs-role">UX Lead · Conversation Design</span></div>
+                            <h3 class="cs-title">TOBi &amp; the bursary journey</h3>
+                            <p class="cs-summary">An assistant that answers instead of apologising, and a 42-field form rebuilt as four steps that save themselves. Try the conversation on the page.</p>
                             <div class="cs-tags">
-
-                                <span class="cs-tag">Service Design</span>
-
-                                <span class="cs-tag">Education</span>
-
                                 <span class="cs-tag">Conversational UX</span>
-
-                                <span class="cs-tag">CX</span>
-
+                                <span class="cs-tag">Service Blueprint</span>
+                                <span class="cs-tag">Content Design</span>
+                                <span class="cs-tag">Forms</span>
                             </div>
-
                             <div class="cs-stats">
-
-                                <div class="cs-stat"><b>↓60%</b><span>IT tickets</span></div>
-
-                                <div class="cs-stat"><b>E2E</b><span>Intent → handoff</span></div>
-
-                                <div class="cs-stat"><b>↑40%</b><span>Complete apps</span></div>
-
+                                <div class="cs-stat"><b>41→68%</b><span>Chats contained</span></div>
+                                <div class="cs-stat"><b>38→61%</b><span>Applications completed</span></div>
+                                <div class="cs-stat"><b>−33%</b><span>Repeat contacts</span></div>
                             </div>
-
+                            <span class="cs-cta">Read the case study</span>
                         </div>
+                    </a>
 
-                    </a> -->
+                    <!-- Case Study 3: ServiceWaze -->
+                    <a class="cs-card" data-tags="frontend product civic" href="./case-study-servicewaze.html">
+                        <div class="cs-cover">
+                            <img src="./assets/case-studies/servicewaze-cover.svg" alt="ServiceWaze offline-first status hub" loading="lazy" />
+                            <div class="cs-badge-row"><span class="cs-pill">Design + Code</span><span class="cs-pill">Angular PWA</span></div>
+                        </div>
+                        <div class="cs-body">
+                            <div class="cs-meta"><span class="cs-client">ServiceWaze</span><span class="cs-role">Designer + Frontend Developer</span></div>
+                            <h3 class="cs-title">ServiceWaze — designed for a bad signal</h3>
+                            <p class="cs-summary">Six interface states designed in Figma and shipped in Angular, built offline-first for real South African networks. The live component runs inside the case study.</p>
+                            <div class="cs-tags">
+                                <span class="cs-tag">Angular</span>
+                                <span class="cs-tag">PWA</span>
+                                <span class="cs-tag">Offline-first</span>
+                                <span class="cs-tag">Accessibility</span>
+                            </div>
+                            <div class="cs-stats">
+                                <div class="cs-stat"><b>1.2s</b><span>FCP on 3G</span></div>
+                                <div class="cs-stat"><b>171 KB</b><span>JavaScript shipped</span></div>
+                                <div class="cs-stat"><b>96</b><span>Lighthouse score</span></div>
+                            </div>
+                            <span class="cs-cta">Read the case study</span>
+                        </div>
+                    </a>
 
-                    <!-- Case Study 4: Stance Insurance -->
+                    <!-- Case Study 4: Figma to Angular design system -->
+                    <a class="cs-card" data-tags="frontend designsystem ux" href="./case-study-design-system.html">
+                        <div class="cs-cover">
+                            <img src="./assets/case-studies/ds-pipeline.svg" alt="Figma to Angular design system pipeline" loading="lazy" />
+                            <div class="cs-badge-row"><span class="cs-pill">Design System</span><span class="cs-pill">DesignOps</span></div>
+                        </div>
+                        <div class="cs-body">
+                            <div class="cs-meta"><span class="cs-client">Multi-product platform</span><span class="cs-role">System Lead + Frontend</span></div>
+                            <h3 class="cs-title">Figma variables to Angular, zero drift</h3>
+                            <p class="cs-summary">Token architecture, an automated export pipeline, 80+ Angular components and the governance that keeps them alive. Includes a live token playground.</p>
+                            <div class="cs-tags">
+                                <span class="cs-tag">Design Tokens</span>
+                                <span class="cs-tag">Angular</span>
+                                <span class="cs-tag">Storybook</span>
+                                <span class="cs-tag">Style Dictionary</span>
+                            </div>
+                            <div class="cs-stats">
+                                <div class="cs-stat"><b>213 → 0</b><span>Hard-coded colours</span></div>
+                                <div class="cs-stat"><b>80+</b><span>Components shipped</span></div>
+                                <div class="cs-stat"><b>64 → 11</b><span>QA comments</span></div>
+                            </div>
+                            <span class="cs-cta">Read the case study</span>
+                        </div>
+                    </a>
 
+                    <!-- Live product: Stance Insurance -->
                     <a class="cs-card" data-tags="fintech product strategy" href="https://www.stanceinsurance.co.za/"
                         target="_blank" rel="noopener noreferrer">
-
                         <div class="cs-cover">
-
-                            <img src="./assets/portfolio/stance-cover.png" alt="Stance Insurance cover"
-                                loading="lazy" />
-
-                            <div class="cs-badge-row"><span class="cs-pill">Fintech</span><span class="cs-pill">Live
-
-                                    Product</span></div>
-
+                            <img src="./assets/portfolio/stance-cover.png" alt="Stance Insurance website" loading="lazy" />
+                            <div class="cs-badge-row"><span class="cs-pill">Live Product</span><span class="cs-pill">Fintech</span></div>
                         </div>
-
                         <div class="cs-body">
-
-                            <div class="cs-meta"><span class="cs-client">Stance Insurance</span><span
-                                    class="cs-role">Product Design Lead</span></div>
-
-                            <h3 class="cs-title">Insurance for SA's modified-car community</h3>
-
-                            <p class="cs-summary">Product strategy + UX for a niche once denied cover — now a live
-
-                                brand.
-
-                            </p>
-
+                            <div class="cs-meta"><span class="cs-client">Stance Insurance</span><span class="cs-role">Product Design Lead</span></div>
+                            <h3 class="cs-title">Insurance for South Africa's modified-car community</h3>
+                            <p class="cs-summary">Product strategy and UX for a niche that was routinely refused cover. Now a live brand you can visit — full write-up in progress.</p>
                             <div class="cs-tags">
-
-                                <span class="cs-tag">Fintech</span>
-
                                 <span class="cs-tag">Product Strategy</span>
-
+                                <span class="cs-tag">Fintech</span>
                                 <span class="cs-tag">Insurance</span>
-
                                 <span class="cs-tag">South Africa</span>
-
                             </div>
-
                             <div class="cs-stats">
-
                                 <div class="cs-stat"><b>1st</b><span>SA niche product</span></div>
-
                                 <div class="cs-stat"><b>E2E</b><span>Strategy → UI</span></div>
-
-                                <div class="cs-stat"><b>Live</b><span>Production</span></div>
-
+                                <div class="cs-stat"><b>Live</b><span>In production</span></div>
                             </div>
-
+                            <span class="cs-cta">Visit the live site ↗</span>
                         </div>
-
                     </a>
 
-                    <!-- Case Study 5: UX Resources Library -->
+                </div>
 
-                    <a class="cs-card" data-tags="ux resources community"
-                        href="https://chartreuse-scale-c4a.notion.site/Lula-Creatives-UX-Resources-Bookmarks-1e2962b93ef1809dbe07c896db79ad65"
-                        target="_blank" rel="noopener noreferrer">
-
-                        <div class="cs-cover">
-
-                            <img src="./assets/portfolio/ux-resources.png" alt="UX Resources Library cover"
-                                loading="lazy" />
-
-                            <div class="cs-badge-row"><span class="cs-pill">Resources</span><span
-                                    class="cs-pill">Community</span></div>
-
-                        </div>
-
-                        <div class="cs-body">
-
-                            <div class="cs-meta"><span class="cs-client">Design Community</span><span class="cs-role">UX
-
-                                    Lead · Curator</span></div>
-
-                            <h3 class="cs-title">UX resources library</h3>
-
-                            <p class="cs-summary">Curated collection of UX patterns, templates, and guidelines for South
-
-                                African design teams.</p>
-
-                            <div class="cs-tags">
-
-                                <span class="cs-tag">Resource Library</span>
-
-                                <span class="cs-tag">Community</span>
-
-                                <span class="cs-tag">Design System</span>
-
-                                <span class="cs-tag">Templates</span>
-
-                            </div>
-
-                            <div class="cs-stats">
-
-                                <div class="cs-stat"><b>200+</b><span>Resources</span></div>
-
-                                <div class="cs-stat"><b>SA</b><span>Localized</span></div>
-
-                                <div class="cs-stat"><b>Open</b><span>Community</span></div>
-
-                            </div>
-
-                        </div>
-
-                    </a>
-
+                <div class="cs-followup">
+                    <div>
+                        <p class="cs-followup-title">Every case study is written the same way</p>
+                        <p class="cs-followup-copy">Evidence, decisions, the artefacts I made, the interface I shipped,
+                            and the numbers afterwards — with something to click on every page.</p>
+                    </div>
+                    <div class="cs-followup-actions">
+                        <a class="cs-followup-btn primary" href="./case-studies.html">Open the case study index →</a>
+                        <a class="cs-followup-btn" href="https://chartreuse-scale-c4a.notion.site/Lula-Creatives-UX-Resources-Bookmarks-1e2962b93ef1809dbe07c896db79ad65"
+                            target="_blank" rel="noopener noreferrer">My UX resource library ↗</a>
+                    </div>
                 </div>
 
             </div>
@@ -5790,7 +5708,7 @@
 
                 <p class="footer-desc">Lulamile Mkhungela — Equal craft from research to shipped interface.<br>I build
 
-                    any tech tools. You focus in running your business.</p>
+                    any tech tools so you can focus on running your business.</p>
 
                 <a href="./contact.html" class="btn-wa"
                     style="font-size:.78rem;padding:9px 18px;background:var(--gold);color:#0A0705">Contact →</a>
@@ -5805,7 +5723,7 @@
 
                     <a href="./showcase.html" class="footer-link">App showcase</a>
 
-                    <a href="./showcase.html#portfolio" class="footer-link">Case studies</a>
+                    <a href="./case-studies.html" class="footer-link">Case studies</a>
 
                     <a href="./services.html" class="footer-link">Services</a>
 
@@ -5851,9 +5769,9 @@
 
         <div class="footer-bottom">
 
-            <p class="footer-copy">© 2017-2026 LulaSync · Built with love by LulaMile in South Africa 🇿🇦</p>
+            <p class="footer-copy">© 2017–2026 LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
 
-            <p class="footer-copy">Designing and building useful solutions for any businesses.</p>
+            <p class="footer-copy">Designing and building useful products for real users.</p>
 
         </div>
 
