@@ -15,9 +15,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0A0705" />
-  <title>ServiceWaze — Designing and Coding an Offline-First PWA | UX + Frontend Case Study</title>
-  <meta name="description"
-    content="Frontend and UX case study: a South African live service status hub built as an offline-first Angular PWA. States designed in Figma, shipped in code, measured against a performance budget." />
   <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
   <script>(function () { try { var t = localStorage.getItem('ls-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); document.documentElement.style.colorScheme = t; } catch (e) { } })();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,6 +48,142 @@
     .toggle-code button { border: 1px solid var(--border); background: none; color: var(--dim); font-size: .7rem; font-weight: 800; padding: 7px 12px; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: .05em; }
     .toggle-code button.on { border-color: var(--cyan); color: var(--cyan); }
   </style>
+<!-- SEO:START -->
+  <title>ServiceWaze — Offline-First Angular PWA | UX + Frontend Case Study</title>
+  <meta name="description" content="Designing and coding an offline-first South African service status hub: six interface states, an IndexedDB cache and a 171 KB JavaScript budget." />
+  <meta name="author" content="Lulamile Mkhungela" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://lulasync.app/case-study-servicewaze" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="LulaSync — Lulamile Mkhungela" />
+  <meta property="og:locale" content="en_ZA" />
+  <meta property="og:title" content="ServiceWaze — Offline-First Angular PWA | UX + Frontend Case Study" />
+  <meta property="og:description" content="Designing and coding an offline-first South African service status hub: six interface states, an IndexedDB cache and a 171 KB JavaScript budget." />
+  <meta property="og:url" content="https://lulasync.app/case-study-servicewaze" />
+  <meta property="og:image" content="https://lulasync.app/assets/og/servicewaze.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ServiceWaze — Offline-First Angular PWA | UX + Frontend Case Study" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ServiceWaze — Offline-First Angular PWA | UX + Frontend Case Study" />
+  <meta name="twitter:description" content="Designing and coding an offline-first South African service status hub: six interface states, an IndexedDB cache and a 171 KB JavaScript budget." />
+  <meta name="twitter:image" content="https://lulasync.app/assets/og/servicewaze.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://lulasync.app/#lulamile",
+      "name": "Lulamile Mkhungela",
+      "jobTitle": [
+        "UX/UI Designer",
+        "Product Designer",
+        "Frontend Developer"
+      ],
+      "description": "UX/UI, CX and product designer and frontend developer based in Johannesburg, South Africa.",
+      "url": "https://lulasync.app/",
+      "image": "https://lulasync.app/assets/og/about.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "41 Juta Street, Braamfontein",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "email": "mailto:mkhungela.lulamile1@gmail.com",
+      "telephone": "+27837195064",
+      "knowsAbout": [
+        "UX research",
+        "Information architecture",
+        "Interaction design",
+        "Design systems",
+        "Design tokens",
+        "Angular",
+        "React",
+        "Progressive web apps",
+        "Web accessibility",
+        "Technical SEO",
+        "Web analytics",
+        "Core Web Vitals"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/lulamile-mkhungela/",
+        "https://github.com/LulamileMkhungela"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "LulaSync",
+        "url": "https://lulasync.app/"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lulasync.app/#website",
+      "name": "LulaSync — Lulamile Mkhungela",
+      "url": "https://lulasync.app/",
+      "inLanguage": "en-ZA",
+      "publisher": {
+        "@id": "https://lulasync.app/#lulamile"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lulasync.app/case-study-servicewaze#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lulasync.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Case studies",
+          "item": "https://lulasync.app/case-studies"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ServiceWaze — Offline-First Angular PWA",
+          "item": "https://lulasync.app/case-study-servicewaze"
+        }
+      ]
+    },
+    {
+      "@type": [
+        "Article",
+        "CreativeWork"
+      ],
+      "@id": "https://lulasync.app/case-study-servicewaze#article",
+      "headline": "ServiceWaze — Offline-First Angular PWA",
+      "description": "Designing and coding an offline-first South African service status hub: six interface states, an IndexedDB cache and a 171 KB JavaScript budget.",
+      "image": "https://lulasync.app/assets/og/servicewaze.png",
+      "author": {
+        "@id": "https://lulasync.app/#lulamile"
+      },
+      "publisher": {
+        "@id": "https://lulasync.app/#lulamile"
+      },
+      "inLanguage": "en-ZA",
+      "isPartOf": {
+        "@id": "https://lulasync.app/#website"
+      },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-18",
+      "mainEntityOfPage": "https://lulasync.app/case-study-servicewaze"
+    }
+  ]
+}
+  </script>
+  <!-- SEO:END -->
 </head>
 
 <body>
@@ -349,9 +482,9 @@
         <p>Product design and frontend delivery from the same person, with performance and accessibility treated as
           design work rather than clean-up.</p>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="./contact.html">Start a conversation</a>
+          <a class="btn btn-primary" href="./contact.html" data-track="cta_click" data-track-location="case-study-servicewaze" data-track-variant="primary">Start a conversation</a>
           <a class="btn btn-outline" href="https://github.com/LulamileMkhungela/ServiceWaze" target="_blank"
-            rel="noopener noreferrer">View the repository ↗</a>
+            rel="noopener noreferrer" data-track="cta_click" data-track-location="case-study-servicewaze" data-track-variant="secondary">View the repository ↗</a>
           <a class="btn btn-ghost" href="./case-studies.html">All case studies</a>
         </div>
       </div>
@@ -379,6 +512,7 @@
           <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; bursary journey</a>
           <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — design to code</a>
           <a class="footer-link" href="./case-study-design-system.html">Figma to Angular system</a>
+          <a class="footer-link" href="./case-study-seo-performance.html">Technical SEO &amp; analytics</a>
         </div>
       </div>
       <div>
@@ -392,6 +526,9 @@
       </div>
     </div>
     <div class="footer-bottom">
+      <p class="footer-copy">Measured without cookies —
+        <a href="./case-study-seo-performance.html" style="color:var(--gold);text-decoration:none">see how</a>
+      </p>
       <p class="footer-copy">© 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
       <p class="footer-copy">Designing and building useful products for real users.</p>
     </div>
@@ -483,6 +620,7 @@
       });
     })();
   </script>
+  <script src="./assets/analytics.js" defer></script>
 </body>
 
 </html>

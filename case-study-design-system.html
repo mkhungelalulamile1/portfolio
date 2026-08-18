@@ -15,9 +15,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0A0705" />
-  <title>Figma Variables to Angular — Design System Case Study | Lulamile Mkhungela</title>
-  <meta name="description"
-    content="Design system case study: token architecture in Figma, automated export through Style Dictionary, Angular components and Storybook docs — designed and built by one person." />
   <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
   <script>(function () { try { var t = localStorage.getItem('ls-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); document.documentElement.style.colorScheme = t; } catch (e) { } })();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,6 +43,142 @@
     .drift-item { border: 1px solid var(--border); border-radius: 12px; padding: 14px; background: var(--card); }
     .drift-item code { font-family: ui-monospace, Menlo, monospace; font-size: .74rem; color: var(--gold); display: block; margin-top: 6px; word-break: break-all; }
   </style>
+<!-- SEO:START -->
+  <title>Figma Variables to Angular — Design System Case Study</title>
+  <meta name="description" content="Token architecture, automated Style Dictionary exports, 80+ Angular components and the governance that keeps design and code in sync. Includes a live token playground." />
+  <meta name="author" content="Lulamile Mkhungela" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://lulasync.app/case-study-design-system" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="LulaSync — Lulamile Mkhungela" />
+  <meta property="og:locale" content="en_ZA" />
+  <meta property="og:title" content="Figma Variables to Angular — Design System Case Study" />
+  <meta property="og:description" content="Token architecture, automated Style Dictionary exports, 80+ Angular components and the governance that keeps design and code in sync. Includes a live token playground." />
+  <meta property="og:url" content="https://lulasync.app/case-study-design-system" />
+  <meta property="og:image" content="https://lulasync.app/assets/og/design-system.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Figma Variables to Angular — Design System Case Study" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Figma Variables to Angular — Design System Case Study" />
+  <meta name="twitter:description" content="Token architecture, automated Style Dictionary exports, 80+ Angular components and the governance that keeps design and code in sync. Includes a live token playground." />
+  <meta name="twitter:image" content="https://lulasync.app/assets/og/design-system.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://lulasync.app/#lulamile",
+      "name": "Lulamile Mkhungela",
+      "jobTitle": [
+        "UX/UI Designer",
+        "Product Designer",
+        "Frontend Developer"
+      ],
+      "description": "UX/UI, CX and product designer and frontend developer based in Johannesburg, South Africa.",
+      "url": "https://lulasync.app/",
+      "image": "https://lulasync.app/assets/og/about.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "41 Juta Street, Braamfontein",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "email": "mailto:mkhungela.lulamile1@gmail.com",
+      "telephone": "+27837195064",
+      "knowsAbout": [
+        "UX research",
+        "Information architecture",
+        "Interaction design",
+        "Design systems",
+        "Design tokens",
+        "Angular",
+        "React",
+        "Progressive web apps",
+        "Web accessibility",
+        "Technical SEO",
+        "Web analytics",
+        "Core Web Vitals"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/lulamile-mkhungela/",
+        "https://github.com/LulamileMkhungela"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "LulaSync",
+        "url": "https://lulasync.app/"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lulasync.app/#website",
+      "name": "LulaSync — Lulamile Mkhungela",
+      "url": "https://lulasync.app/",
+      "inLanguage": "en-ZA",
+      "publisher": {
+        "@id": "https://lulasync.app/#lulamile"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lulasync.app/case-study-design-system#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lulasync.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Case studies",
+          "item": "https://lulasync.app/case-studies"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Figma Variables to Angular — Design System Case Study",
+          "item": "https://lulasync.app/case-study-design-system"
+        }
+      ]
+    },
+    {
+      "@type": [
+        "Article",
+        "CreativeWork"
+      ],
+      "@id": "https://lulasync.app/case-study-design-system#article",
+      "headline": "Figma Variables to Angular — Design System Case Study",
+      "description": "Token architecture, automated Style Dictionary exports, 80+ Angular components and the governance that keeps design and code in sync. Includes a live token playground.",
+      "image": "https://lulasync.app/assets/og/design-system.png",
+      "author": {
+        "@id": "https://lulasync.app/#lulamile"
+      },
+      "publisher": {
+        "@id": "https://lulasync.app/#lulamile"
+      },
+      "inLanguage": "en-ZA",
+      "isPartOf": {
+        "@id": "https://lulasync.app/#website"
+      },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-18",
+      "mainEntityOfPage": "https://lulasync.app/case-study-design-system"
+    }
+  ]
+}
+  </script>
+  <!-- SEO:END -->
 </head>
 
 <body>
@@ -387,9 +520,9 @@ Button: variant, size, disabled, loading</pre>
         <p>I design and implement the pipeline: token architecture, component library, documentation and the governance
           that keeps it alive. Tell me your stack and team size.</p>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="./contact.html">Start a conversation</a>
+          <a class="btn btn-primary" href="./contact.html" data-track="cta_click" data-track-location="case-study-design-system" data-track-variant="primary">Start a conversation</a>
           <a class="btn btn-outline" href="https://github.com/LulamileMkhungela/design-ops" target="_blank"
-            rel="noopener noreferrer">View the repository ↗</a>
+            rel="noopener noreferrer" data-track="cta_click" data-track-location="case-study-design-system" data-track-variant="secondary">View the repository ↗</a>
           <a class="btn btn-ghost" href="./case-studies.html">All case studies</a>
         </div>
       </div>
@@ -417,6 +550,7 @@ Button: variant, size, disabled, loading</pre>
           <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; bursary journey</a>
           <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — design to code</a>
           <a class="footer-link" href="./case-study-design-system.html">Figma to Angular system</a>
+          <a class="footer-link" href="./case-study-seo-performance.html">Technical SEO &amp; analytics</a>
         </div>
       </div>
       <div>
@@ -430,6 +564,9 @@ Button: variant, size, disabled, loading</pre>
       </div>
     </div>
     <div class="footer-bottom">
+      <p class="footer-copy">Measured without cookies —
+        <a href="./case-study-seo-performance.html" style="color:var(--gold);text-decoration:none">see how</a>
+      </p>
       <p class="footer-copy">© 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
       <p class="footer-copy">Designing and building useful products for real users.</p>
     </div>
@@ -496,6 +633,7 @@ Button: variant, size, disabled, loading</pre>
       apply();
     })();
   </script>
+  <script src="./assets/analytics.js" defer></script>
 </body>
 
 </html>

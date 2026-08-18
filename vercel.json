@@ -1,11 +1,42 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
-    { "source": "/case-studies/vodacom-engage.html", "destination": "/vodacom-engage.html", "permanent": true },
-    { "source": "/case-studies/angular-design-system.html", "destination": "/angular-design-system.html", "permanent": true },
-    { "source": "/case-studies/absa-hackathon.html", "destination": "/absa-hackathon.html", "permanent": true },
-    { "source": "/case-studies/stance-insurance.html", "destination": "/stance-insurance.html", "permanent": true },
-    { "source": "/case-studies/articles-hackathons.html", "destination": "/articles-hackathons.html", "permanent": true },
-    { "source": "/case-studies/tobby-bursary.html", "destination": "/tobby-bursary.html", "permanent": true },
-    { "source": "/case-studies/process.html", "destination": "/process.html", "permanent": true }
+    { "source": "/case-studies/vodacom-engage.html", "destination": "/case-study-engage", "permanent": true },
+    { "source": "/case-studies/vodacom-engage", "destination": "/case-study-engage", "permanent": true },
+    { "source": "/vodacom-engage.html", "destination": "/case-study-engage", "permanent": true },
+    { "source": "/case-studies/angular-design-system.html", "destination": "/case-study-design-system", "permanent": true },
+    { "source": "/angular-design-system.html", "destination": "/case-study-design-system", "permanent": true },
+    { "source": "/case-studies/tobby-bursary.html", "destination": "/case-study-tobi-bursary", "permanent": true },
+    { "source": "/tobby-bursary.html", "destination": "/case-study-tobi-bursary", "permanent": true },
+    { "source": "/case-studies/stance-insurance.html", "destination": "/showcase", "permanent": true },
+    { "source": "/case-studies/absa-hackathon.html", "destination": "/showcase", "permanent": true },
+    { "source": "/case-studies/articles-hackathons.html", "destination": "/showcase", "permanent": true },
+    { "source": "/case-studies/process.html", "destination": "/case-studies", "permanent": true },
+    { "source": "/work", "destination": "/showcase", "permanent": true },
+    { "source": "/portfolio", "destination": "/case-studies", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(self), interest-cohort=()" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    }
   ]
 }

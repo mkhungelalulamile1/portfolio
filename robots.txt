@@ -1,0 +1,12 @@
+# robots.txt — https://lulasync.app
+# Everything is indexable; the site is a portfolio and should be found.
+
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+# Large AI crawlers: allowed, the work is meant to be read.
+User-agent: GPTBot
+Allow: /
+
+Sitemap: https://lulasync.app/sitemap.xml
