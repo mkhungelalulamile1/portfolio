@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 700" width="1240" height="700" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Offline-first architecture: design decisions written as code decisions">
+<rect width="1240" height="700" fill="#F7F4EC"/>
+<rect x="0" y="0" width="1240" height="6" fill="#B57200"/>
+<text x="34" y="46" font-size="20" font-weight="bold" fill="#1A1208">Offline-first architecture: design decisions written as code decisions</text>
+<text x="34" y="68" font-size="13" fill="#6B6055">ServiceWaze · one Angular PWA, five public data sources, built for a phone on 1 GB of data</text>
+<rect x="46" y="110" width="250" height="120" rx="10" fill="#FFFFFF" stroke="#0E6E8C" stroke-width="2"/>
+<text x="62" y="136" font-size="11" font-weight="bold" fill="#0E6E8C" text-anchor="start">1. Sources (public APIs)</text>
+<text x="62" y="156" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Eskom load-shedding stage</text>
+<text x="62" y="171" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Municipal water notices</text>
+<text x="62" y="186" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Weather + air quality</text>
+<text x="62" y="201" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Transport alerts</text>
+<text x="62" y="216" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">City news feeds</text>
+<line x1="296" y1="170" x2="352" y2="170" stroke="#0E6E8C" stroke-width="2"/>
+<polygon points="352,170 344.6,173.1 344.6,166.9" fill="#0E6E8C"/>
+<rect x="352" y="110" width="250" height="120" rx="10" fill="#FFFFFF" stroke="#5B34C4" stroke-width="2"/>
+<text x="368" y="136" font-size="11" font-weight="bold" fill="#5B34C4" text-anchor="start">2. Fetch layer (Angular)</text>
+<text x="368" y="156" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Typed HTTP services</text>
+<text x="368" y="171" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">6 s timeout, 2 retries</text>
+<text x="368" y="186" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Normalises 5 shapes into 1</text>
+<text x="368" y="201" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Fails soft, never blank</text>
+<text x="368" y="216" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Unit tested with mocks</text>
+<line x1="602" y1="170" x2="658" y2="170" stroke="#5B34C4" stroke-width="2"/>
+<polygon points="658,170 650.6,173.1 650.6,166.9" fill="#5B34C4"/>
+<rect x="658" y="110" width="250" height="120" rx="10" fill="#FFFFFF" stroke="#17864B" stroke-width="2"/>
+<text x="674" y="136" font-size="11" font-weight="bold" fill="#17864B" text-anchor="start">3. Cache (IndexedDB)</text>
+<text x="674" y="156" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Stale-while-revalidate</text>
+<text x="674" y="171" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Last good copy always kept</text>
+<text x="674" y="186" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Timestamp shown to the user</text>
+<text x="674" y="201" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Purges after 7 days</text>
+<text x="674" y="216" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Works with the radio off</text>
+<line x1="908" y1="170" x2="964" y2="170" stroke="#17864B" stroke-width="2"/>
+<polygon points="964,170 956.6,173.1 956.6,166.9" fill="#17864B"/>
+<rect x="964" y="110" width="232" height="120" rx="10" fill="#FFFFFF" stroke="#B57200" stroke-width="2"/>
+<text x="980" y="136" font-size="11" font-weight="bold" fill="#B57200" text-anchor="start">4. UI state</text>
+<text x="980" y="156" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Live / cached / offline</text>
+<text x="980" y="171" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Skeletons, never spinners</text>
+<text x="980" y="186" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">One status card component</text>
+<text x="980" y="201" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Screen reader announces state</text>
+<rect x="46" y="262" width="1150" height="148" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="64" y="290" font-size="11" font-weight="bold" fill="#1A1208" text-anchor="start">THE RULE THAT SHAPED THE UI: the app must say something true within 1 second, even with no signal.</text>
+<rect x="64" y="308" width="264" height="84" rx="10" fill="#FBF7EF" stroke="#17864B" stroke-width="2"/>
+<text x="80" y="332" font-size="10.5" font-weight="bold" fill="#17864B" text-anchor="start">LIVE</text>
+<text x="80" y="352" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Fetched under 60 seconds ago</text>
+<text x="80" y="370" font-size="9.5" font-weight="bold" fill="#1A1208" text-anchor="start">Green dot, exact time</text>
+<rect x="348" y="308" width="264" height="84" rx="10" fill="#FBF7EF" stroke="#B57200" stroke-width="2"/>
+<text x="364" y="332" font-size="10.5" font-weight="bold" fill="#B57200" text-anchor="start">CACHED</text>
+<text x="364" y="352" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Last good copy, age shown</text>
+<text x="364" y="370" font-size="9.5" font-weight="bold" fill="#1A1208" text-anchor="start">Amber dot, “updated 14 min ago”</text>
+<rect x="632" y="308" width="264" height="84" rx="10" fill="#FBF7EF" stroke="#6B6055" stroke-width="2"/>
+<text x="648" y="332" font-size="10.5" font-weight="bold" fill="#6B6055" text-anchor="start">OFFLINE</text>
+<text x="648" y="352" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">No connection detected</text>
+<text x="648" y="370" font-size="9.5" font-weight="bold" fill="#1A1208" text-anchor="start">Grey dot, retry button</text>
+<rect x="916" y="308" width="264" height="84" rx="10" fill="#FBF7EF" stroke="#C03A08" stroke-width="2"/>
+<text x="932" y="332" font-size="10.5" font-weight="bold" fill="#C03A08" text-anchor="start">SOURCE DOWN</text>
+<text x="932" y="352" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">API failed, others still fine</text>
+<text x="932" y="370" font-size="9.5" font-weight="bold" fill="#1A1208" text-anchor="start">Red dot on that card only</text>
+<rect x="46" y="436" width="560" height="208" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="64" y="464" font-size="11" font-weight="bold" fill="#B57200" text-anchor="start">PERFORMANCE BUDGET I HELD MYSELF TO</text>
+<text x="64" y="492" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">Target</text>
+<text x="330" y="492" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">Budget</text>
+<text x="510" y="492" font-size="10" font-weight="bold" fill="#6B6055" text-anchor="start">Actual</text>
+<text x="64" y="518" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">First contentful paint</text>
+<text x="330" y="518" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">under 1.5 s on 3G</text>
+<text x="510" y="518" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">1.2 s</text>
+<text x="64" y="542" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">JavaScript shipped</text>
+<text x="330" y="542" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">under 200 KB gzipped</text>
+<text x="510" y="542" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">171 KB</text>
+<text x="64" y="566" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">Lighthouse performance</text>
+<text x="330" y="566" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">90 or above</text>
+<text x="510" y="566" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">96</text>
+<text x="64" y="590" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">Accessibility</text>
+<text x="330" y="590" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">WCAG 2.1 AA, keyboard only</text>
+<text x="510" y="590" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">98</text>
+<text x="64" y="614" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">Works with no network</text>
+<text x="330" y="614" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">full cached view</text>
+<text x="510" y="614" font-size="10" font-weight="bold" fill="#17864B" text-anchor="start">yes</text>
+<rect x="626" y="436" width="570" height="208" rx="8" fill="#FFF6E6" stroke="#B57200" stroke-width="1.5"/>
+<text x="644" y="464" font-size="11" font-weight="bold" fill="#B57200" text-anchor="start">WHY THIS IS A DESIGN DECISION, NOT ONLY AN ENGINEERING ONE</text>
+<text x="644" y="492" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">• A spinner on a bad connection reads as “broken”. A timestamp</text>
+<text x="644" y="506" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">reads as “honest”.</text>
+<text x="644" y="522" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">• Data costs money here, so the app refetches only what</text>
+<text x="644" y="536" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">changed.</text>
+<text x="644" y="552" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">• Cached content stays readable, so the trip to the taxi rank</text>
+<text x="644" y="566" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">still works.</text>
+<text x="644" y="582" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">• Colour never carries the meaning alone: dot, label and time</text>
+<text x="644" y="596" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">all agree.</text>
+<text x="644" y="612" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">• Every state was designed in Figma first, then built as one</text>
+<text x="644" y="626" font-size="10" font-weight="normal" fill="#1A1208" text-anchor="start">component.</text>
+<text x="34" y="682" font-size="11" fill="#6B6055">Lulamile Mkhungela · LulaSync — working artifact from the project</text>
+</svg>

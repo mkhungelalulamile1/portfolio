@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 700" width="1240" height="700" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Lo-fi wireframes: three home-screen options tested with 9 employees">
+<rect width="1240" height="700" fill="#F7F4EC"/>
+<rect x="0" y="0" width="1240" height="6" fill="#B57200"/>
+<text x="34" y="46" font-size="20" font-weight="bold" fill="#1A1208">Lo-fi wireframes: three home-screen options tested with 9 employees</text>
+<text x="34" y="68" font-size="13" fill="#6B6055">Vodacom Engage · paper to Figma, tested as clickable prototypes before any visual design</text>
+<rect x="60" y="120" width="240" height="400" rx="18" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="2"/>
+<rect x="150" y="132" width="60" height="6" rx="3" fill="#E4DCCB" stroke="#E4DCCB" stroke-width="0"/>
+<text x="180" y="106" font-size="12" font-weight="bold" fill="#1A1208" text-anchor="middle">Option A — search + recents</text>
+<rect x="76" y="154" width="208" height="26" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="86" y="171" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">Search</text>
+<rect x="78" y="192" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="110" y="225" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="148" y="192" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="180" y="225" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="218" y="192" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="250" y="225" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="78" y="258" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="110" y="291" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="148" y="258" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="180" y="291" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="218" y="258" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="250" y="291" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="78" y="324" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="110" y="357" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="148" y="324" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="180" y="357" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="218" y="324" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="250" y="357" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="76" y="394" width="208" height="52" rx="8" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="86" y="416" font-size="9.5" font-weight="bold" fill="#1A1208" text-anchor="start">Recently used</text>
+<text x="86" y="434" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="start">Payslip · Boardroom · Leave</text>
+<text x="60" y="544" font-size="10.5" font-weight="normal" fill="#6B6055" text-anchor="start">Fastest to build. People still</text>
+<text x="60" y="558" font-size="10.5" font-weight="normal" fill="#6B6055" text-anchor="start">scanned the grid because nothing was</text>
+<text x="60" y="572" font-size="10.5" font-weight="normal" fill="#6B6055" text-anchor="start">personal to them.</text>
+<rect x="370" y="120" width="240" height="400" rx="18" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="2"/>
+<rect x="460" y="132" width="60" height="6" rx="3" fill="#E4DCCB" stroke="#E4DCCB" stroke-width="0"/>
+<text x="490" y="106" font-size="12" font-weight="bold" fill="#1A1208" text-anchor="middle">Option B — pinned tasks + groups</text>
+<rect x="386" y="154" width="208" height="26" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="396" y="171" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">Search</text>
+<text x="388" y="200" font-size="9" font-weight="bold" fill="#B57200" text-anchor="start">MY 4 TASKS</text>
+<rect x="388" y="210" width="98" height="46" rx="8" fill="#FFF6E6" stroke="#B57200" stroke-width="1.5"/>
+<text x="437" y="238" font-size="9" font-weight="bold" fill="#1A1208" text-anchor="middle">Pinned</text>
+<rect x="494" y="210" width="98" height="46" rx="8" fill="#FFF6E6" stroke="#B57200" stroke-width="1.5"/>
+<text x="543" y="238" font-size="9" font-weight="bold" fill="#1A1208" text-anchor="middle">Pinned</text>
+<rect x="388" y="264" width="98" height="46" rx="8" fill="#FFF6E6" stroke="#B57200" stroke-width="1.5"/>
+<text x="437" y="292" font-size="9" font-weight="bold" fill="#1A1208" text-anchor="middle">Pinned</text>
+<rect x="494" y="264" width="98" height="46" rx="8" fill="#FFF6E6" stroke="#B57200" stroke-width="1.5"/>
+<text x="543" y="292" font-size="9" font-weight="bold" fill="#1A1208" text-anchor="middle">Pinned</text>
+<text x="388" y="326" font-size="9.5" font-weight="bold" fill="#1A1208" text-anchor="start">Work</text>
+<rect x="388" y="332" width="204" height="26" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="388" y="370" font-size="9.5" font-weight="bold" fill="#1A1208" text-anchor="start">People &amp; me</text>
+<rect x="388" y="376" width="204" height="26" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="388" y="414" font-size="9.5" font-weight="bold" fill="#1A1208" text-anchor="start">Workplace</text>
+<rect x="388" y="420" width="204" height="26" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="388" y="458" font-size="9.5" font-weight="bold" fill="#1A1208" text-anchor="start">Support</text>
+<rect x="388" y="464" width="204" height="26" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="370" y="544" font-size="10.5" font-weight="normal" fill="#6B6055" text-anchor="start">Chosen. 8 of 9 found payslip in</text>
+<text x="370" y="558" font-size="10.5" font-weight="normal" fill="#6B6055" text-anchor="start">under 20 seconds and understood the</text>
+<text x="370" y="572" font-size="10.5" font-weight="normal" fill="#6B6055" text-anchor="start">four group labels.</text>
+<rect x="680" y="120" width="240" height="400" rx="18" fill="#FFFFFF" stroke="#D9D0BE" stroke-width="2"/>
+<rect x="770" y="132" width="60" height="6" rx="3" fill="#E4DCCB" stroke="#E4DCCB" stroke-width="0"/>
+<text x="800" y="106" font-size="12" font-weight="bold" fill="#1A1208" text-anchor="middle">Option C — assistant first</text>
+<rect x="696" y="154" width="208" height="26" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="706" y="171" font-size="10" font-weight="normal" fill="#6B6055" text-anchor="start">Ask TOBi or search</text>
+<rect x="696" y="192" width="208" height="110" rx="8" fill="#F1F6F8" stroke="#0E6E8C" stroke-width="1.5"/>
+<text x="708" y="216" font-size="9.5" font-weight="bold" fill="#0E6E8C" text-anchor="start">TOBi suggests:</text>
+<text x="708" y="238" font-size="9" font-weight="normal" fill="#1A1208" text-anchor="start">›  Your payslip is ready</text>
+<text x="708" y="258" font-size="9" font-weight="normal" fill="#1A1208" text-anchor="start">›  Book Boardroom 4B</text>
+<text x="708" y="278" font-size="9" font-weight="normal" fill="#1A1208" text-anchor="start">›  Leave balance: 12 days</text>
+<rect x="698" y="316" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="730" y="349" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="768" y="316" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="800" y="349" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="838" y="316" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="870" y="349" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="698" y="382" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="730" y="415" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="768" y="382" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="800" y="415" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<rect x="838" y="382" width="64" height="58" rx="8" fill="#FBF7EF" stroke="#D9D0BE" stroke-width="1.5"/>
+<text x="870" y="415" font-size="9" font-weight="normal" fill="#6B6055" text-anchor="middle">Tile</text>
+<text x="680" y="544" font-size="10.5" font-weight="normal" fill="#6B6055" text-anchor="start">Loved in demo, distrusted in use: “I</text>
+<text x="680" y="558" font-size="10.5" font-weight="normal" fill="#6B6055" text-anchor="start">want to see the menu, not ask a bot</text>
+<text x="680" y="572" font-size="10.5" font-weight="normal" fill="#6B6055" text-anchor="start">for it.”</text>
+<rect x="950" y="120" width="254" height="400" rx="8" fill="#FFF6E6" stroke="#B57200" stroke-width="1.5"/>
+<text x="968" y="150" font-size="11" font-weight="bold" fill="#B57200" text-anchor="start">DECISION LOG</text>
+<text x="968" y="176" font-size="10" font-weight="bold" fill="#1A1208" text-anchor="start">• Pinning beats prediction</text>
+<text x="978" y="192" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">People wanted control over</text>
+<text x="978" y="205" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">their four shortcuts, not a</text>
+<text x="978" y="218" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">guessed list.</text>
+<text x="968" y="247" font-size="10" font-weight="bold" fill="#1A1208" text-anchor="start">• Bot supports, never blocks</text>
+<text x="978" y="263" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">TOBi moved to a persistent</text>
+<text x="978" y="276" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">button, not the first thing</text>
+<text x="978" y="289" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">you see.</text>
+<text x="968" y="318" font-size="10" font-weight="bold" fill="#1A1208" text-anchor="start">• Four groups, not five</text>
+<text x="978" y="334" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">“Workplace” and “Facilities”</text>
+<text x="978" y="347" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">were the same thing in</text>
+<text x="978" y="360" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">people&#x27;s heads.</text>
+<text x="968" y="389" font-size="10" font-weight="bold" fill="#1A1208" text-anchor="start">• Ship search first</text>
+<text x="978" y="405" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">Search alone cut task time by</text>
+<text x="978" y="418" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">21 seconds in the prototype</text>
+<text x="978" y="431" font-size="9.5" font-weight="normal" fill="#6B6055" text-anchor="start">test.</text>
+<text x="34" y="682" font-size="11" fill="#6B6055">Lulamile Mkhungela · LulaSync — working artifact from the project</text>
+</svg>

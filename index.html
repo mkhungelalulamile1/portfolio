@@ -19,10 +19,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0A0705" />
-  <title>Lulamile Mkhungela — UX/UI, CX &amp; Product Designer · UI &amp; Frontend Dev | LulaSync</title>
-  <meta name="description"
-    content="Lulamile Mkhungela — equal craft across UX/UI, CX, product design, UI development and frontend. Clear, shippable products for global teams." />
-  <link rel="canonical" href="https://lulasync.app/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800;900&display=swap"
@@ -3858,6 +3854,28 @@
       background: #fff;
     }
 
+
+    /* CASE STUDIES ON THE HOME PAGE */
+    .home-cases { padding: 76px 5vw; border-top: 1px solid var(--border); }
+    .home-cases-inner { max-width: 1140px; margin: 0 auto; }
+    .home-cases-head { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between; margin-bottom: 34px; }
+    .home-cases-head h2 { margin-bottom: 10px; }
+    .home-cases-head p { color: var(--dim); font-size: .95rem; line-height: 1.7; max-width: 560px; }
+    .home-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 18px; }
+    .home-case { position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .22s ease, border-color .22s ease; }
+    .home-case:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .home-case-cover { aspect-ratio: 16 / 10; background: #14110D; overflow: hidden; }
+    .home-case-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+    .home-case:hover .home-case-cover img { transform: scale(1.05); }
+    .home-case-body { padding: 18px; display: flex; flex-direction: column; flex: 1; gap: 9px; }
+    .home-case-role { font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .home-case-body h3 { font-size: 1.02rem; font-weight: 800; line-height: 1.35; color: var(--paper); }
+    .home-case-body p { font-size: .84rem; color: var(--dim); line-height: 1.6; flex: 1; }
+    .home-case-metric { display: flex; gap: 8px; flex-wrap: wrap; }
+    .home-case-metric span { font-size: .66rem; font-weight: 800; padding: 5px 10px; border-radius: 999px; background: rgba(240, 165, 0, .1); border: 1px solid rgba(240, 165, 0, .28); color: var(--gold); }
+    .home-case-link { font-size: .78rem; font-weight: 800; color: var(--gold); }
+    [data-theme="light"] .home-case-cover { background: #EFE9DC; }
+
     .work-showreel {
       padding: 72px 5vw;
       background: var(--card);
@@ -3895,6 +3913,50 @@
       width: 100%;
       aspect-ratio: 16/9;
       object-fit: cover;
+    }
+
+    .showreel-play {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: max-content;
+      height: max-content;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(10, 7, 5, .82);
+      border: 1px solid var(--gold);
+      color: var(--paper);
+      font-size: .9rem;
+      font-weight: 800;
+      padding: 14px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .showreel-play em {
+      font-style: normal;
+      font-weight: 600;
+      font-size: .74rem;
+      color: var(--dim);
+    }
+
+    .showreel-play:hover {
+      transform: scale(1.04);
+      background: rgba(240, 165, 0, .18);
+    }
+
+    .showreel-play.hidden {
+      display: none;
+    }
+
+    .showreel-note {
+      font-size: .72rem;
+      color: var(--dim);
+      padding: 9px 12px 0;
+      line-height: 1.5;
     }
 
     .showreel-caption {
@@ -4259,6 +4321,107 @@
   </style>
   <link rel="stylesheet" href="./assets/equal-craft.css" />
   <link rel="stylesheet" href="./assets/ls-interactive.css" />
+<!-- SEO:START -->
+  <title>Lulamile Mkhungela — UX/UI &amp; Product Designer + Frontend Developer | LulaSync</title>
+  <meta name="description" content="UX/UI, CX and product designer who also ships the frontend. Case studies, live apps and digital products built for South African businesses and real networks." />
+  <meta name="author" content="Lulamile Mkhungela" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://lulasync.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LulaSync — Lulamile Mkhungela" />
+  <meta property="og:locale" content="en_ZA" />
+  <meta property="og:title" content="Lulamile Mkhungela — UX/UI &amp; Product Designer + Frontend Developer | LulaSync" />
+  <meta property="og:description" content="UX/UI, CX and product designer who also ships the frontend. Case studies, live apps and digital products built for South African businesses and real networks." />
+  <meta property="og:url" content="https://lulasync.app/" />
+  <meta property="og:image" content="https://lulasync.app/assets/og/home.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Lulamile Mkhungela — UX/UI &amp; Product Designer + Frontend Developer | LulaSync" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lulamile Mkhungela — UX/UI &amp; Product Designer + Frontend Developer | LulaSync" />
+  <meta name="twitter:description" content="UX/UI, CX and product designer who also ships the frontend. Case studies, live apps and digital products built for South African businesses and real networks." />
+  <meta name="twitter:image" content="https://lulasync.app/assets/og/home.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://lulasync.app/#lulamile",
+      "name": "Lulamile Mkhungela",
+      "jobTitle": [
+        "UX/UI Designer",
+        "Product Designer",
+        "Frontend Developer"
+      ],
+      "description": "UX/UI, CX and product designer and frontend developer based in Johannesburg, South Africa.",
+      "url": "https://lulasync.app/",
+      "image": "https://lulasync.app/assets/og/about.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "41 Juta Street, Braamfontein",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "email": "mailto:mkhungela.lulamile1@gmail.com",
+      "telephone": "+27837195064",
+      "knowsAbout": [
+        "UX research",
+        "Information architecture",
+        "Interaction design",
+        "Design systems",
+        "Design tokens",
+        "Angular",
+        "React",
+        "Progressive web apps",
+        "Web accessibility",
+        "Technical SEO",
+        "Web analytics",
+        "Core Web Vitals"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/lulamile-mkhungela/",
+        "https://github.com/LulamileMkhungela"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "LulaSync",
+        "url": "https://lulasync.app/"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lulasync.app/#website",
+      "name": "LulaSync — Lulamile Mkhungela",
+      "url": "https://lulasync.app/",
+      "inLanguage": "en-ZA",
+      "publisher": {
+        "@id": "https://lulasync.app/#lulamile"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lulasync.app/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lulasync.app/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- SEO:END -->
 </head>
 
 <body>
@@ -4294,7 +4457,7 @@
         src="./assets/portfolio/icon-192.png" width="36" height="36" alt="LulaSync" /><span>Lula<span
           style="color:var(--gold)">Sync</span></span></a>
     <div class="nav-links" role="menubar">
-      <a href="./index.html" class="nav-link active">Home</a>
+      <a href="./index.html" class="nav-link active">Home</a><a href="./case-studies.html" class="nav-link">Case Studies</a>
       <a href="./showcase.html" class="nav-link">Showcase</a>
       <a href="./services.html" class="nav-link">Services</a>
       <a href="./about.html" class="nav-link">About</a>
@@ -4313,13 +4476,13 @@
   <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-label="Mobile navigation">
     <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
     <div style="text-align:center">
-      <a href="./index.html" class="mobile-nav-link active">Home</a>
+      <a href="./index.html" class="mobile-nav-link active">Home</a><a href="./case-studies.html" class="mobile-nav-link">Case Studies</a>
       <a href="./showcase.html" class="mobile-nav-link">Showcase</a>
       <a href="./services.html" class="mobile-nav-link">Services</a>
       <a href="./about.html" class="mobile-nav-link">About</a>
       <a href="./contact.html" class="mobile-nav-link">Contact</a>
     </div>
-    <a href="./contact.html" class="btn-wa" style="width:min(320px,80vw);justify-content:center">Contact Me →</a>
+    <a href="./contact.html" class="btn-wa" style="width:min(320px,80vw);justify-content:center" data-track="whatsapp_click" data-track-location="home">Contact Me →</a>
   </div>
 
   <main>
@@ -4352,8 +4515,8 @@
             solve real-world problems — from fintech to PWAs, accessible design for diverse users and universal reach.
           </p>
           <div class="hero-btns">
-            <a href="./contact.html" class="btn-fire">Get a Quote →</a>
-            <a href="./showcase.html" class="btn-outline" style="color:var(--gold);border-color:var(--gold)">See Live
+            <a href="./contact.html" class="btn-fire" data-track="cta_click" data-track-location="home" data-track-variant="primary">Get a Quote →</a>
+            <a href="./showcase.html" class="btn-outline" style="color:var(--gold);border-color:var(--gold)" data-track="cta_click" data-track-location="home" data-track-variant="secondary">See Live
               Apps →</a>
           </div>
           <div class="hero-trust">
@@ -4701,12 +4864,101 @@
           <p>A quick reel of products I've designed and built — from UX research and interaction flows to the
             frontend code that shipped them.</p>
         </div>
-        <div class="showreel-frame"><video controls autoplay muted loop playsinline preload="auto"
-            poster="./assets/portfolio/engage-cover.png">
-            <source src="./assets/portfolio/new-play.mp4" type="video/mp4">
-            <source src="./assets/portfolio/new-play.webm" type="video/webm">Your browser does not support the showreel
-            video.
-          </video></div>
+        <div class="showreel-frame">
+          <video id="showreelVideo" controls playsinline preload="none" muted
+            poster="./assets/portfolio/showreel-poster.webp" width="1280" height="720"
+            data-track="showreel_play" data-track-location="home">
+            <source src="./assets/portfolio/showreel.webm" type="video/webm">
+            <source src="./assets/portfolio/showreel.mp4" type="video/mp4">
+            Your browser cannot play the showreel. <a href="./case-studies.html">Read the case studies instead.</a>
+          </video>
+          <button type="button" class="showreel-play" id="showreelPlay" aria-label="Play the showreel">
+            <span aria-hidden="true">▶</span> Play showreel <em>4.4 MB · 2:41</em>
+          </button>
+          <p class="showreel-note">Nothing downloads until you press play — the reel is 4.4 MB, and on a metered South
+            African connection that should be your choice, not mine.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="home-cases reveal-section" id="case-studies" aria-labelledby="home-cases-title">
+      <div class="home-cases-inner">
+        <div class="home-cases-head">
+          <div>
+            <p class="section-eyebrow">// Case studies</p>
+            <h2 class="section-h2" id="home-cases-title" style="font-size:clamp(2rem,6vw,3.4rem)">THE THINKING,<br /><span
+                style="color:var(--gold)">NOT JUST THE SCREENS.</span></h2>
+            <p>Five end-to-end write-ups: the evidence, the decisions, the artefacts, the shipped interface and the
+              numbers afterwards. Each one has something you can click.</p>
+          </div>
+          <a href="./case-studies.html" class="btn-outline"
+            style="color:var(--gold);border-color:var(--gold);white-space:nowrap" data-track="cta_click" data-track-location="home" data-track-variant="secondary">All case studies &rarr;</a>
+        </div>
+
+        <div class="home-case-grid">
+          <a class="home-case" href="./case-study-engage.html" data-track="case_card_click" data-track-location="home">
+            <div class="home-case-cover"><img src="./assets/case-studies/engage-cover.webp"
+                alt="Engage employee app screens" loading="lazy" /></div>
+            <div class="home-case-body">
+              <span class="home-case-role">UX research &middot; IA &middot; UI</span>
+              <h3>Engage &mdash; 25 000 people, one home screen</h3>
+              <p>An enterprise app everyone installed and nobody used for real work, rebuilt around four tasks.</p>
+              <div class="home-case-metric"><span>48s &rarr; 19s</span><span>11 &rarr; 4 destinations</span></div>
+              <span class="home-case-link">Read the case study &rarr;</span>
+            </div>
+          </a>
+
+          <a class="home-case" href="./case-study-tobi-bursary.html" data-track="case_card_click" data-track-location="home">
+            <div class="home-case-cover"><img src="./assets/case-studies/bursary-portal.webp"
+                alt="Bursary applicant portal" loading="lazy" /></div>
+            <div class="home-case-body">
+              <span class="home-case-role">Conversational UX &middot; service design</span>
+              <h3>TOBi &amp; the bursary journey</h3>
+              <p>A bot that answers instead of apologising, and a 42-field form rebuilt as four steps that save
+                themselves.</p>
+              <div class="home-case-metric"><span>41 &rarr; 68% contained</span><span>38 &rarr; 61% completed</span></div>
+              <span class="home-case-link">Read the case study &rarr;</span>
+            </div>
+          </a>
+
+          <a class="home-case" href="./case-study-servicewaze.html" data-track="case_card_click" data-track-location="home">
+            <div class="home-case-cover"><img src="./assets/case-studies/servicewaze-cover.svg"
+                alt="ServiceWaze offline-first status hub" loading="lazy" /></div>
+            <div class="home-case-body">
+              <span class="home-case-role">Product design + Angular</span>
+              <h3>ServiceWaze &mdash; designed for a bad signal</h3>
+              <p>Six interface states designed in Figma and shipped in code, offline-first for real SA networks.</p>
+              <div class="home-case-metric"><span>1.2s on 3G</span><span>171 KB JS</span></div>
+              <span class="home-case-link">Read the case study &rarr;</span>
+            </div>
+          </a>
+
+          <a class="home-case" href="./case-study-design-system.html" data-track="case_card_click" data-track-location="home">
+            <div class="home-case-cover"><img src="./assets/case-studies/ds-pipeline.svg"
+                alt="Design system pipeline diagram" loading="lazy" /></div>
+            <div class="home-case-body">
+              <span class="home-case-role">Design systems &middot; DesignOps</span>
+              <h3>Figma variables to Angular, zero drift</h3>
+              <p>Token architecture, automated export and 80+ components &mdash; with a live playground in the page.</p>
+              <div class="home-case-metric"><span>213 &rarr; 0 hard-coded</span><span>80+ components</span></div>
+              <span class="home-case-link">Read the case study &rarr;</span>
+            </div>
+          </a>
+          <a class="home-case" href="./case-study-seo-performance.html" data-track="case_study_open"
+            data-track-study="seo-performance">
+            <div class="home-case-cover"><img src="./assets/og/seo-performance.png" width="1200" height="630"
+                alt="Technical SEO, analytics and performance case study" loading="lazy" decoding="async" /></div>
+            <div class="home-case-body">
+              <span class="home-case-role">Technical SEO &middot; analytics &middot; performance</span>
+              <h3>Findable, fast and actually measured</h3>
+              <p>On-page SEO, structured data, Core Web Vitals and a cookie-free measurement plan &mdash; applied to
+                this site and visible in the source.</p>
+              <div class="home-case-metric"><span>&minus;96% image weight</span><span>0 cookies</span></div>
+              <span class="home-case-link">Read the case study &rarr;</span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -4782,7 +5034,7 @@
                 <button class="btn-paction" style="background:#151515;color:var(--gold);border:1px solid #2a2000"
                   onclick="openDemo('Website','🌐','./contact.html')">▶
                   See Demo</button>
-                <a href="./contact.html" class="btn-wa-small">Contact me</a>
+                <a href="./contact.html" class="btn-wa-small" data-track="whatsapp_click" data-track-location="home">Contact me</a>
               </div>
             </div>
           </details>
@@ -4841,7 +5093,7 @@
                 <button class="btn-paction" style="background:#151515;color:var(--fire);border:1px solid #2a0a00"
                   onclick="openDemo('WhatsApp Ordering System','💬','./contact.html')">▶
                   See Demo</button>
-                <a href="./contact.html" class="btn-wa-small">Contact me</a>
+                <a href="./contact.html" class="btn-wa-small" data-track="whatsapp_click" data-track-location="home">Contact me</a>
               </div>
             </div>
           </details>
@@ -4899,7 +5151,7 @@
                 <button class="btn-paction" style="background:#151515;color:var(--purple);border:1px solid #1a0a2a"
                   onclick="openDemo('AI Voice Agents','🤖','./contact.html')">▶
                   See Demo</button>
-                <a href="./contact.html" class="btn-wa-small">Contact me</a>
+                <a href="./contact.html" class="btn-wa-small" data-track="whatsapp_click" data-track-location="home">Contact me</a>
               </div>
             </div>
           </details>
@@ -4962,7 +5214,7 @@
                 <button class="btn-paction" style="background:#151515;color:var(--wa);border:1px solid #0a2010"
                   onclick="openDemo('Content & SaaS Dashboard','📊','./contact.html')">▶
                   See Demo</button>
-                <a href="./contact.html" class="btn-wa-small">Contact me</a>
+                <a href="./contact.html" class="btn-wa-small" data-track="whatsapp_click" data-track-location="home">Contact me</a>
               </div>
             </div>
           </details>
@@ -5018,7 +5270,7 @@
                 <button class="btn-paction" style="background:#151515;color:var(--gold);border:1px solid #2a2000"
                   onclick="openDemo('Speed to Lead','⚡','./contact.html')">▶
                   See Demo</button>
-                <a href="./contact.html" class="btn-wa-small">Contact me</a>
+                <a href="./contact.html" class="btn-wa-small" data-track="whatsapp_click" data-track-location="home">Contact me</a>
               </div>
             </div>
           </details>
@@ -5066,7 +5318,7 @@
                 <button class="btn-paction" style="background:#151515;color:var(--cyan);border:1px solid #001a20"
                   onclick="openDemo('Custom & Automated Services','⚙️','./contact.html')">▶
                   See Demo</button>
-                <a href="./contact.html" class="btn-wa-small">Contact me</a>
+                <a href="./contact.html" class="btn-wa-small" data-track="whatsapp_click" data-track-location="home">Contact me</a>
               </div>
             </div>
           </details>
@@ -5116,7 +5368,7 @@
                 <button class="btn-paction" style="background:#151515;color:var(--purple);border:1px solid #1a0a2a"
                   onclick="openDemo('UX / UI Design','🎨','./contact.html')">▶
                   See Demo</button>
-                <a href="./contact.html" class="btn-wa-small">Contact me</a>
+                <a href="./contact.html" class="btn-wa-small" data-track="whatsapp_click" data-track-location="home">Contact me</a>
               </div>
             </div>
           </details>
@@ -5175,7 +5427,7 @@
                 <button class="btn-paction" style="background:#151515;color:var(--gold);border:1px solid #2a2000"
                   onclick="openDemo('Software / App Development','💻','./contact.html')">▶
                   See Demo</button>
-                <a href="./contact.html" class="btn-wa-small">Contact me</a>
+                <a href="./contact.html" class="btn-wa-small" data-track="whatsapp_click" data-track-location="home">Contact me</a>
               </div>
             </div>
           </details>
@@ -5234,7 +5486,7 @@
                 <button class="btn-paction" style="background:#151515;color:var(--fire);border:1px solid #2a0a00"
                   onclick="openDemo('Enterprise Solutions','🏢','./contact.html')">▶
                   See Demo</button>
-                <a href="./contact.html" class="btn-wa-small">Contact me</a>
+                <a href="./contact.html" class="btn-wa-small" data-track="whatsapp_click" data-track-location="home">Contact me</a>
               </div>
             </div>
           </details>
@@ -5324,7 +5576,7 @@
 
       </div>
       <div style="display:flex;justify-content:center;margin-top:26px"><a class="btn-gold-outline"
-          href="./showcase.html#realapps">View more →</a></div>
+          href="./showcase.html#realapps" data-track="cta_click" data-track-location="home" data-track-variant="primary">View more →</a></div>
     </section>
 
     <div class="kente-strip"></div>
@@ -5412,7 +5664,7 @@
           <h3 class="biztype-title" id="biztypeTitle">WhatsApp me in 30 min</h3>
           <p class="biztype-desc" id="biztypeDesc">Tell me your business type, services, and languages. I handle the
             rest.</p>
-          <a class="btn-fire" href="./contact.html" style="margin-top:18px">Start an enquiry →</a>
+          <a class="btn-fire" href="./contact.html" style="margin-top:18px" data-track="cta_click" data-track-location="home" data-track-variant="primary">Start an enquiry →</a>
         </div>
       </div>
 
@@ -5437,8 +5689,8 @@
         <p class="cta-desc">Whether you need a product redesign, a design system, a website, an AI agent, or a full
           enterprise build — I scope it, design it, ship it, and support it. One point of contact, zero drift.</p>
         <div class="cta-btns">
-          <a href="./contact.html" class="btn-fire">Start a project →</a>
-          <a href="./showcase.html" class="btn-gold-outline">See the work →</a>
+          <a href="./contact.html" class="btn-fire" data-track="cta_click" data-track-location="home" data-track-variant="primary">Start a project →</a>
+          <a href="./showcase.html" class="btn-gold-outline" data-track="cta_click" data-track-location="home" data-track-variant="primary">See the work →</a>
         </div>
       </div>
     </section>
@@ -5454,15 +5706,15 @@
             src="./assets/portfolio/icon-192.png" width="36" height="36" alt="LulaSync" /><span>Lula<span
               style="color:var(--gold)">Sync</span></span></a>
         <p class="footer-desc">Lulamile Mkhungela — Equal craft from research to shipped interface.<br>I build any tech
-          tools. You focus in running your business.</p>
+          tools so you can focus on running your business.</p>
         <a href="./contact.html" class="btn-wa"
-          style="font-size:.78rem;padding:9px 18px;background:var(--gold);color:#0A0705">Contact →</a>
+          style="font-size:.78rem;padding:9px 18px;background:var(--gold);color:#0A0705" data-track="whatsapp_click" data-track-location="home">Contact →</a>
       </div>
       <div>
         <p class="footer-col-title">Explore</p>
         <div class="footer-links">
           <a href="./showcase.html" class="footer-link">App showcase</a>
-          <a href="./showcase.html#portfolio" class="footer-link">Case studies</a>
+          <a href="./case-studies.html" class="footer-link">Case studies</a>
           <a href="./services.html" class="footer-link">Services</a>
         </div>
       </div>
@@ -5486,8 +5738,11 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2017-2026 LulaSync · Built with love by LulaMile in South Africa 🇿🇦</p>
-      <p class="footer-copy">Designing and building useful solutions for any businesses.</p>
+      <p class="footer-copy">Measured without cookies —
+        <a href="./case-study-seo-performance.html" style="color:var(--gold);text-decoration:none">see how</a>
+      </p>
+      <p class="footer-copy">© 2017–2026 LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
+      <p class="footer-copy">Designing and building useful products for real users.</p>
     </div>
   </footer>
 
@@ -5958,6 +6213,22 @@
     })();
   </script>
   <script src="./assets/ls-interactive.js" defer></script>
+  <script>
+    /* Showreel: load the video only when the visitor asks for it */
+    (function () {
+      var btn = document.getElementById('showreelPlay'), vid = document.getElementById('showreelVideo');
+      if (!btn || !vid) return;
+      btn.addEventListener('click', function () {
+        vid.preload = 'auto';
+        vid.muted = false;
+        vid.play();
+        btn.classList.add('hidden');
+        if (window.lsTrack) window.lsTrack('showreel_play', { location: 'home' });
+      });
+      vid.addEventListener('pause', function () { if (vid.currentTime === 0) btn.classList.remove('hidden'); });
+    })();
+  </script>
+  <script src="./assets/analytics.js" defer></script>
 </body>
 
 </html>

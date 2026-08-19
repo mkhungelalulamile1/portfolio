@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 625" width="1000" height="625" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="ServiceWaze status hub interface">
+<rect width="1000" height="625" fill="#0D1117"/>
+<rect x="70" y="60" width="300" height="505" rx="30" fill="#0A0E13" stroke="#1F2933" stroke-width="3"/>
+<text x="94" y="112" font-size="17" font-weight="bold" fill="#E7EEF5">Tembisa</text>
+<text x="94" y="132" font-size="11" fill="#7D8B99">Updated just now · 5 sources</text>
+<rect x="276" y="94" width="70" height="22" rx="11" fill="none" stroke="#2FBF71"/>
+<text x="311" y="109" font-size="10" font-weight="bold" fill="#2FBF71" text-anchor="middle">LIVE</text>
+<rect x="88" y="152" width="264" height="72" rx="12" fill="#121A22" stroke="#1F2933"/>
+<rect x="88" y="152" width="3" height="72" rx="2" fill="#F0A500"/>
+<circle cx="110" cy="178" r="5" fill="#F0A500"/>
+<text x="124" y="182" font-size="13" font-weight="bold" fill="#E7EEF5">Electricity</text>
+<text x="338" y="182" font-size="13" font-weight="bold" fill="#E7EEF5" text-anchor="end">Stage 2</text>
+<text x="124" y="204" font-size="10" fill="#7D8B99">Off 18:00–20:30 · Zone 7</text>
+<rect x="88" y="232" width="264" height="72" rx="12" fill="#121A22" stroke="#1F2933"/>
+<rect x="88" y="232" width="3" height="72" rx="2" fill="#2FBF71"/>
+<circle cx="110" cy="258" r="5" fill="#2FBF71"/>
+<text x="124" y="262" font-size="13" font-weight="bold" fill="#E7EEF5">Water</text>
+<text x="338" y="262" font-size="13" font-weight="bold" fill="#E7EEF5" text-anchor="end">Normal</text>
+<text x="124" y="284" font-size="10" fill="#7D8B99">No notices for Ekurhuleni</text>
+<rect x="88" y="312" width="264" height="72" rx="12" fill="#121A22" stroke="#1F2933"/>
+<rect x="88" y="312" width="3" height="72" rx="2" fill="#F0A500"/>
+<circle cx="110" cy="338" r="5" fill="#F0A500"/>
+<text x="124" y="342" font-size="13" font-weight="bold" fill="#E7EEF5">Air quality</text>
+<text x="338" y="342" font-size="13" font-weight="bold" fill="#E7EEF5" text-anchor="end">AQI 62</text>
+<text x="124" y="364" font-size="10" fill="#7D8B99">Moderate · sensitive groups</text>
+<rect x="88" y="392" width="264" height="72" rx="12" fill="#121A22" stroke="#1F2933"/>
+<rect x="88" y="392" width="3" height="72" rx="2" fill="#E04E14"/>
+<circle cx="110" cy="418" r="5" fill="#E04E14"/>
+<text x="124" y="422" font-size="13" font-weight="bold" fill="#E7EEF5">Transport</text>
+<text x="338" y="422" font-size="13" font-weight="bold" fill="#E7EEF5" text-anchor="end">1 closure</text>
+<text x="124" y="444" font-size="10" fill="#7D8B99">R21 north, single lane</text>
+<rect x="88" y="472" width="264" height="72" rx="12" fill="#121A22" stroke="#1F2933"/>
+<rect x="88" y="472" width="3" height="72" rx="2" fill="#0EA5D8"/>
+<circle cx="110" cy="498" r="5" fill="#0EA5D8"/>
+<text x="124" y="502" font-size="13" font-weight="bold" fill="#E7EEF5">Weather</text>
+<text x="338" y="502" font-size="13" font-weight="bold" fill="#E7EEF5" text-anchor="end">19°C</text>
+<text x="124" y="524" font-size="10" fill="#7D8B99">Thunderstorm warning 16:00</text>
+<text x="430" y="112" font-size="30" font-weight="bold" fill="#E7EEF5">ServiceWaze</text>
+<text x="430" y="142" font-size="14" fill="#7D8B99">Offline-first status hub · Angular PWA</text>
+<rect x="430" y="190" width="500" height="76" rx="12" fill="#121A22" stroke="#1F2933"/>
+<text x="450" y="220" font-size="14" font-weight="bold" fill="#F0A500">Designed and built by one person</text>
+<text x="450" y="244" font-size="12" fill="#7D8B99">Figma states, then the Angular component.</text>
+<rect x="430" y="280" width="500" height="76" rx="12" fill="#121A22" stroke="#1F2933"/>
+<text x="450" y="310" font-size="14" font-weight="bold" fill="#F0A500">Honest about freshness</text>
+<text x="450" y="334" font-size="12" fill="#7D8B99">Every card shows its source and its age.</text>
+<rect x="430" y="370" width="500" height="76" rx="12" fill="#121A22" stroke="#1F2933"/>
+<text x="450" y="400" font-size="14" font-weight="bold" fill="#F0A500">Works with the radio off</text>
+<text x="450" y="424" font-size="12" fill="#7D8B99">Last good copy served from IndexedDB.</text>
+<rect x="430" y="460" width="500" height="76" rx="12" fill="#121A22" stroke="#1F2933"/>
+<text x="450" y="490" font-size="14" font-weight="bold" fill="#F0A500">171 KB of JavaScript</text>
+<text x="450" y="514" font-size="12" fill="#7D8B99">Performance budget set before the wireframes.</text>
+</svg>

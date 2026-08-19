@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0A0705" />
+  <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
+  <script>(function () { try { var t = localStorage.getItem('ls-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); document.documentElement.style.colorScheme = t; } catch (e) { } })();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/case-study.css" />
+  <style>
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 24px; }
+    .filter { border: 1px solid var(--border); background: var(--card); color: var(--dim); border-radius: 999px; padding: 9px 16px; font-size: .76rem; font-weight: 800; cursor: pointer; letter-spacing: .04em; }
+    .filter:hover { color: var(--paper); border-color: var(--gold); }
+    .filter.on { background: color-mix(in srgb, var(--gold) 14%, transparent); border-color: var(--gold); color: var(--gold); }
+    .idx-card.hide { display: none; }
+    .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .how div { background: var(--card); padding: 20px 18px; }
+    .how b { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); letter-spacing: 1px; }
+    .how span { display: block; font-size: .86rem; font-weight: 700; margin: 4px 0 6px; }
+    .how p { font-size: .78rem; color: var(--dim); line-height: 1.55; }
+  </style>
+<!-- SEO:START -->
+  <title>Case Studies — UX/UI, Product Design &amp; Frontend | Lulamile Mkhungela</title>
+  <meta name="description" content="Five end-to-end case studies from a designer who writes the frontend: enterprise UX, conversational design, an offline-first PWA, a design system and technical SEO." />
+  <meta name="author" content="Lulamile Mkhungela" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://lulasync.app/case-studies" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LulaSync — Lulamile Mkhungela" />
+  <meta property="og:locale" content="en_ZA" />
+  <meta property="og:title" content="Case Studies — UX/UI, Product Design &amp; Frontend | Lulamile Mkhungela" />
+  <meta property="og:description" content="Five end-to-end case studies from a designer who writes the frontend: enterprise UX, conversational design, an offline-first PWA, a design system and technical SEO." />
+  <meta property="og:url" content="https://lulasync.app/case-studies" />
+  <meta property="og:image" content="https://lulasync.app/assets/og/case-studies.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Case Studies — UX/UI, Product Design &amp; Frontend | Lulamile Mkhungela" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Case Studies — UX/UI, Product Design &amp; Frontend | Lulamile Mkhungela" />
+  <meta name="twitter:description" content="Five end-to-end case studies from a designer who writes the frontend: enterprise UX, conversational design, an offline-first PWA, a design system and technical SEO." />
+  <meta name="twitter:image" content="https://lulasync.app/assets/og/case-studies.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://lulasync.app/#lulamile",
+      "name": "Lulamile Mkhungela",
+      "jobTitle": [
+        "UX/UI Designer",
+        "Product Designer",
+        "Frontend Developer"
+      ],
+      "description": "UX/UI, CX and product designer and frontend developer based in Johannesburg, South Africa.",
+      "url": "https://lulasync.app/",
+      "image": "https://lulasync.app/assets/og/about.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "41 Juta Street, Braamfontein",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "email": "mailto:mkhungela.lulamile1@gmail.com",
+      "telephone": "+27837195064",
+      "knowsAbout": [
+        "UX research",
+        "Information architecture",
+        "Interaction design",
+        "Design systems",
+        "Design tokens",
+        "Angular",
+        "React",
+        "Progressive web apps",
+        "Web accessibility",
+        "Technical SEO",
+        "Web analytics",
+        "Core Web Vitals"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/lulamile-mkhungela/",
+        "https://github.com/LulamileMkhungela"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "LulaSync",
+        "url": "https://lulasync.app/"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lulasync.app/#website",
+      "name": "LulaSync — Lulamile Mkhungela",
+      "url": "https://lulasync.app/",
+      "inLanguage": "en-ZA",
+      "publisher": {
+        "@id": "https://lulasync.app/#lulamile"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lulasync.app/case-studies#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lulasync.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Case Studies",
+          "item": "https://lulasync.app/case-studies"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- SEO:END -->
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="read-bar" aria-hidden="true"></div>
+
+  <nav class="ls-nav">
+    <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+      <span>Lula<span class="gold">Sync</span></span></a>
+    <div class="nav-links">
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./case-studies.html" class="nav-link active">Case Studies</a>
+      <a href="./showcase.html" class="nav-link">Showcase</a>
+      <a href="./services.html" class="nav-link">Services</a>
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Switch theme">🌙</button>
+      <button class="hamburger" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="grad-line"></div>
+  <div class="mobile-overlay" id="mobileOverlay">
+    <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+    <div>
+      <a href="./index.html" class="mobile-nav-link">Home</a>
+      <a href="./case-studies.html" class="mobile-nav-link active">Case Studies</a>
+      <a href="./showcase.html" class="mobile-nav-link">Showcase</a>
+      <a href="./services.html" class="mobile-nav-link">Services</a>
+      <a href="./about.html" class="mobile-nav-link">About</a>
+      <a href="./contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
+
+  <main id="main">
+    <header class="cs-hero wrap">
+      <p class="eyebrow">Case studies</p>
+      <h1 class="display">THE THINKING,<br /><span class="gold">NOT JUST THE SCREENS.</span></h1>
+      <p class="cs-lead">Five projects, each one written the way I work: what the evidence said, what I decided, what I
+        designed, what I built, and what changed afterwards. Every page has something you can click, and every result
+        was measured the same way twice.</p>
+      <div class="role-tags">
+        <span class="role-tag role-design">✦ UX research · IA · UI · product</span>
+        <span class="role-tag role-dev">⌘ Angular · PWA · design systems</span>
+        <span class="role-tag role-other">✦ Technical SEO · analytics</span>
+      </div>
+    </header>
+
+    <section class="wrap" style="padding-bottom:20px">
+      <div class="filters" role="group" aria-label="Filter case studies">
+        <button class="filter on" data-filter="all" type="button">All five</button>
+        <button class="filter" data-filter="seo" type="button">SEO &amp; analytics</button>
+        <button class="filter" data-filter="ux" type="button">UX research &amp; product</button>
+        <button class="filter" data-filter="ui" type="button">UI &amp; interaction</button>
+        <button class="filter" data-filter="frontend" type="button">Frontend &amp; systems</button>
+      </div>
+
+      <div class="idx-grid" id="idxGrid">
+
+        <a class="idx-card reveal" data-tags="ux ui" href="./case-study-engage.html" data-track="case_card_click" data-track-location="case-studies">
+          <div class="idx-cover">
+            <img src="./assets/case-studies/engage-cover.webp" alt="Engage employee app screens" loading="lazy" />
+            <div class="idx-badges"><span class="idx-badge">Enterprise</span><span class="idx-badge">25k+ users</span></div>
+          </div>
+          <div class="idx-body">
+            <div class="idx-meta"><span class="client">Vodacom · internal product</span><span class="role">UX/UI + product</span></div>
+            <h3>Engage — 25 000 people, one home screen</h3>
+            <p>An app everyone installed and nobody used for real work. Research, a rebuilt information architecture,
+              a tested prototype and a shipped interface — with the before and after numbers to match.</p>
+            <div class="idx-stats">
+              <div class="idx-stat"><b>48s → 19s</b><span>Time to task</span></div>
+              <div class="idx-stat"><b>11 → 4</b><span>Destinations</span></div>
+              <div class="idx-stat"><b>+34%</b><span>Self-service</span></div>
+            </div>
+            <span class="idx-cta">Read the case study</span>
+          </div>
+        </a>
+
+        <a class="idx-card reveal" data-tags="ux ui" href="./case-study-tobi-bursary.html" data-track="case_card_click" data-track-location="case-studies">
+          <div class="idx-cover">
+            <img src="./assets/case-studies/bursary-portal.webp" alt="Bursary applicant portal screen" loading="lazy" />
+            <div class="idx-badges"><span class="idx-badge">Conversational UX</span><span class="idx-badge">Service design</span></div>
+          </div>
+          <div class="idx-body">
+            <div class="idx-meta"><span class="client">IT support + bursary programme</span><span class="role">UX lead</span></div>
+            <h3>TOBi &amp; the bursary journey</h3>
+            <p>An assistant that opened with an empty room, and a 42-field form six in ten students abandoned. Intent
+              design, a service blueprint, and a conversation you can try on the page.</p>
+            <div class="idx-stats">
+              <div class="idx-stat"><b>41→68%</b><span>Contained</span></div>
+              <div class="idx-stat"><b>38→61%</b><span>Completed</span></div>
+              <div class="idx-stat"><b>−33%</b><span>Repeat contacts</span></div>
+            </div>
+            <span class="idx-cta">Read the case study</span>
+          </div>
+        </a>
+
+        <a class="idx-card reveal" data-tags="ui frontend" href="./case-study-servicewaze.html" data-track="case_card_click" data-track-location="case-studies">
+          <div class="idx-cover">
+            <img src="./assets/case-studies/servicewaze-cover.svg" alt="ServiceWaze status hub interface" loading="lazy" />
+            <div class="idx-badges"><span class="idx-badge">Design + code</span><span class="idx-badge">Angular PWA</span></div>
+          </div>
+          <div class="idx-body">
+            <div class="idx-meta"><span class="client">ServiceWaze · own product</span><span class="role">Designer + developer</span></div>
+            <h3>ServiceWaze — designed for a bad signal</h3>
+            <p>Power, water, air, transport and weather in one honest view. Six interface states designed in Figma and
+              shipped in Angular, with the live component running inside the case study.</p>
+            <div class="idx-stats">
+              <div class="idx-stat"><b>1.2s</b><span>FCP on 3G</span></div>
+              <div class="idx-stat"><b>171 KB</b><span>JS shipped</span></div>
+              <div class="idx-stat"><b>96</b><span>Lighthouse</span></div>
+            </div>
+            <span class="idx-cta">Read the case study</span>
+          </div>
+        </a>
+
+        <a class="idx-card reveal" data-tags="frontend ui" href="./case-study-design-system.html" data-track="case_card_click" data-track-location="case-studies">
+          <div class="idx-cover">
+            <img src="./assets/case-studies/ds-pipeline.svg" alt="Design system pipeline diagram" loading="lazy" />
+            <div class="idx-badges"><span class="idx-badge">Design system</span><span class="idx-badge">DesignOps</span></div>
+          </div>
+          <div class="idx-body">
+            <div class="idx-meta"><span class="client">Multi-product platform</span><span class="role">System lead + frontend</span></div>
+            <h3>Figma variables to Angular, zero drift</h3>
+            <p>Token architecture, an automated export, 80+ Angular components and the governance that keeps them
+              alive. Includes a live playground where changing a token restyles the components in front of you.</p>
+            <div class="idx-stats">
+              <div class="idx-stat"><b>213 → 0</b><span>Hard-coded colours</span></div>
+              <div class="idx-stat"><b>80+</b><span>Components</span></div>
+              <div class="idx-stat"><b>64 → 11</b><span>QA comments</span></div>
+            </div>
+            <span class="idx-cta">Read the case study</span>
+          </div>
+        </a>
+
+        <a class="idx-card reveal" data-tags="frontend seo" href="./case-study-seo-performance.html"
+           data-track="case_study_open" data-track-study="seo-performance">
+          <div class="idx-cover">
+            <img src="./assets/og/seo-performance.png" width="1200" height="630"
+              alt="Technical SEO, analytics and performance case study" loading="lazy" decoding="async" />
+            <div class="idx-badges"><span class="idx-badge">Technical SEO</span><span class="idx-badge">Analytics</span></div>
+          </div>
+          <div class="idx-body">
+            <div class="idx-meta"><span class="client">This website</span><span class="role">Designer + developer + analyst</span></div>
+            <h3>Findable, fast and actually measured</h3>
+            <p>The technical layer of my own site: on-page SEO, structured data, Core Web Vitals and a privacy-first
+              measurement plan. Every claim is inspectable in the page source, and the page measures itself while you
+              read it.</p>
+            <div class="idx-stats">
+              <div class="idx-stat"><b>−96%</b><span>Image weight</span></div>
+              <div class="idx-stat"><b>6</b><span>Schema types</span></div>
+              <div class="idx-stat"><b>0</b><span>Cookies</span></div>
+            </div>
+            <span class="idx-cta">Read the case study</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="cs-section reveal">
+      <p class="section-num">How I work</p>
+      <h2>THE SAME FIVE STEPS,<br /><span class="gold">EVERY PROJECT.</span></h2>
+      <div class="how">
+        <div><b>01</b><span>Discover</span>
+          <p>Talk to people, read the tickets, watch the analytics. Find the real problem before designing the visible
+            one.</p>
+        </div>
+        <div><b>02</b><span>Frame</span>
+          <p>One problem statement, a few principles, and a measure of success agreed before any pixels move.</p>
+        </div>
+        <div><b>03</b><span>Design &amp; test</span>
+          <p>Flows, wireframes and prototypes tested flat, so only ideas that survive get polished.</p>
+        </div>
+        <div><b>04</b><span>Build &amp; hand off</span>
+          <p>UI, tokens, component specs and frontend code. I stay in the sprint and review the pull requests.</p>
+        </div>
+        <div><b>05</b><span>Measure</span>
+          <p>Re-run the benchmark. Publish what improved and what did not, then fix the next thing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding:10px 5vw 70px">
+      <div class="cta-band reveal">
+        <h3 class="display">WANT THIS APPLIED<br /><span class="gold">TO YOUR PRODUCT?</span></h3>
+        <p>Tell me the flow that matters most to your business and what it currently costs you. I will come back with
+          what I would research first and what I would ship first.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="./contact.html" data-track="cta_click" data-track-location="case-studies" data-track-variant="primary">Start a conversation</a>
+          <a class="btn btn-outline" href="./showcase.html" data-track="cta_click" data-track-location="case-studies" data-track-variant="secondary">See the wider showcase</a>
+          <a class="btn btn-ghost" href="./about.html">About me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ls-footer">
+    <div class="footer-grid">
+      <div>
+        <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+          <span>Lula<span class="gold">Sync</span></span></a>
+        <p class="footer-desc">Lulamile Mkhungela — equal craft from research to shipped interface. UX/UI and product
+          design, plus the frontend to make it real.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Case studies</p>
+        <div class="footer-links">
+          <a class="footer-link" href="./case-study-engage.html">Engage — enterprise app</a>
+          <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; bursary journey</a>
+          <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — design to code</a>
+          <a class="footer-link" href="./case-study-design-system.html">Figma to Angular system</a>
+          <a class="footer-link" href="./case-study-seo-performance.html">Technical SEO &amp; analytics</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Explore</p>
+        <div class="footer-links">
+          <a class="footer-link" href="./showcase.html">Showcase</a>
+          <a class="footer-link" href="./services.html">Services</a>
+          <a class="footer-link" href="./about.html">About</a>
+          <a class="footer-link" href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">Measured without cookies —
+        <a href="./case-study-seo-performance.html" style="color:var(--gold);text-decoration:none">see how</a>
+      </p>
+      <p class="footer-copy">© 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
+      <p class="footer-copy">Designing and building useful products for real users.</p>
+    </div>
+  </footer>
+
+  <script src="./assets/case-study.js" defer></script>
+  <script>
+    (function () {
+      var cards = document.querySelectorAll('#idxGrid .idx-card');
+      document.querySelectorAll('.filter').forEach(function (f) {
+        f.addEventListener('click', function () {
+          document.querySelectorAll('.filter').forEach(function (x) { x.classList.remove('on'); });
+          f.classList.add('on');
+          var t = f.getAttribute('data-filter');
+          cards.forEach(function (c) {
+            var show = t === 'all' || (c.getAttribute('data-tags') || '').indexOf(t) > -1;
+            c.classList.toggle('hide', !show);
+          });
+        });
+      });
+    })();
+  </script>
+  <script src="./assets/analytics.js" defer></script>
+</body>
+
+</html>
