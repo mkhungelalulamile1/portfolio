@@ -1,0 +1,480 @@
+{
+ "panel-portfolio": [
+  {
+   "href": "./case-study-engage.html",
+   "img": "./assets/case-studies/engage-cover.webp",
+   "title": "Engage — 25 000 people, one home screen",
+   "sub": "Research, a rebuilt information architecture, a tested prototype and a shipped interface for an employee app on Android, iOS and web.",
+   "client": "Vodacom",
+   "uitype": ""
+  },
+  {
+   "href": "./case-study-tobi-bursary.html",
+   "img": "./assets/case-studies/bursary-portal.webp",
+   "title": "TOBi & the bursary journey",
+   "sub": "An assistant that answers instead of apologising, and a 42-field form rebuilt as four steps that save themselves. Try the conversation on the page.",
+   "client": "IT support + bursary",
+   "uitype": ""
+  },
+  {
+   "href": "./case-study-servicewaze.html",
+   "img": "./assets/case-studies/servicewaze-cover.svg",
+   "title": "ServiceWaze — designed for a bad signal",
+   "sub": "Six interface states designed in Figma and shipped in Angular, built offline-first for real South African networks. The live component runs inside the case study.",
+   "client": "ServiceWaze",
+   "uitype": ""
+  },
+  {
+   "href": "./case-study-design-system.html",
+   "img": "./assets/case-studies/ds-pipeline.svg",
+   "title": "Figma variables to Angular, zero drift",
+   "sub": "Token architecture, an automated export pipeline, 80+ Angular components and the governance that keeps them alive. Includes a live token playground.",
+   "client": "Multi-product platform",
+   "uitype": ""
+  },
+  {
+   "href": "./case-study-seo-performance.html",
+   "img": "./assets/og/seo-performance.png",
+   "title": "Findable, fast and actually measured",
+   "sub": "On-page SEO, structured data, Core Web Vitals and a cookie-free measurement plan — applied to this site, and the page measures itself while you read it.",
+   "client": "This website",
+   "uitype": ""
+  },
+  {
+   "href": "https://www.stanceinsurance.co.za/",
+   "img": "./assets/portfolio/stance-cover.webp",
+   "title": "Insurance for South Africa's modified-car community",
+   "sub": "Product strategy and UX for a niche that was routinely refused cover. Now a live brand you can visit — full write-up in progress.",
+   "client": "Stance Insurance",
+   "uitype": ""
+  }
+ ],
+ "panel-realapps": [
+  {
+   "href": "https://loux91.github.io/foodiezone/",
+   "img": "./assets/portfolio/foodiezone.png",
+   "title": "Order + Delivery & Tracking",
+   "sub": "Food delivery app with real-time order tracking, menu management, and customer accounts.",
+   "client": "FoodieZone",
+   "uitype": ""
+  },
+  {
+   "href": "https://king-cutter-s-royal-web.vercel.app/",
+   "img": "./assets/portfolio/king-cutter.png",
+   "title": "Bookings + WhatsApp",
+   "sub": "Barber shop PWA with online bookings, service pricing, and WhatsApp integration.",
+   "client": "King Cutter",
+   "uitype": ""
+  },
+  {
+   "href": "https://africa-cuisine-pro.vercel.app/",
+   "img": "./assets/portfolio/africa-cuisine.png",
+   "title": "Menu + delivery",
+   "sub": "Complete restaurant app with digital menu, online ordering, and delivery tracking system.",
+   "client": "Africa Cuisine",
+   "uitype": ""
+  },
+  {
+   "href": "https://skautos.vercel.app/",
+   "img": "./sk.png",
+   "title": "Quotes + bookings",
+   "sub": "Auto workshop app with service quotes, appointment booking, and customer management.",
+   "client": "SK Auto Emporium",
+   "uitype": ""
+  },
+  {
+   "href": "https://wandies.vercel.app/",
+   "img": "./assets/portfolio/wandies.png",
+   "title": "Menu + WhatsApp orders",
+   "sub": "Heritage Soweto restaurant with digital menu, table bookings, and WhatsApp ordering system.",
+   "client": "Wandies",
+   "uitype": ""
+  }
+ ],
+ "panel-frontend": [
+  {
+   "href": "https://github.com/LulamileMkhungela/ServiceWaze",
+   "img": "./assets/portfolio/servicewaze.webp",
+   "title": "ServiceWaze — SA live service status hub",
+   "sub": "Detects your GPS or suburb and pulls news, transport, water, electricity, weather and air-quality status in one multilingual, offline-first PWA.",
+   "client": "ServiceWaze",
+   "uitype": ""
+  },
+  {
+   "href": "https://github.com/LulamileMkhungela/WeStudySync",
+   "img": "./assets/portfolio/westudysync-cover.svg",
+   "title": "WeStudySync — the complete SA education journey",
+   "sub": "Offline-first Angular PWA for APS calculation, NSFAS funding, and student survival tools on low-end Android.",
+   "client": "WeStudySync",
+   "uitype": ""
+  },
+  {
+   "href": "https://github.com/LulamileMkhungela/LulaUnifidMarket",
+   "img": "./assets/portfolio/coming.png",
+   "title": "LulaUnifidMarket",
+   "sub": "Unified marketplace platform connecting South African vendors and customers with integrated payment and logistics solutions.",
+   "client": "LulaUnifidMarket",
+   "uitype": ""
+  }
+ ],
+ "panel-figma": [
+  {
+   "href": "https://www.figma.com/make/gkTm2bYYnzAmDBwWbWE7kb/Innovative-Design-System-Creation?t=871NF4mO6SlkhYAP-1",
+   "img": "./assets/portfolio/design-ops.png",
+   "title": "One graph, every platforms",
+   "sub": "Meridian is a token graph, a component library and a set of platform emitters that ship as one version.",
+   "client": "Design Systems& Tokens",
+   "uitype": ""
+  },
+  {
+   "href": "https://www.figma.com/design/SeCP6cuxXX8UyhnOn2wYcJ/Collection-Of-Projects?node-id=8949-77053&p=f",
+   "img": "./assets/portfolio/figma.png",
+   "title": "Product design & Angular UI screens",
+   "sub": "Living file of process screens, components and product UI from recent work — open to review structure.",
+   "client": "Collection of Projects",
+   "uitype": ""
+  }
+ ],
+ "panel-articles": [
+  {
+   "href": "https://drive.google.com/file/d/1anSnYJt_4Okl3xQuCkCJDAVROcVOqEFr/view",
+   "img": "./assets/portfolio/hack.png",
+   "title": "AI inventory with video analytics",
+   "sub": "Computer vision system for real-time inventory tracking using AI-powered video analytics, reducing stock discrepancies for retail businesses.",
+   "client": "Retail Hackathon",
+   "uitype": ""
+  },
+  {
+   "href": "https://drive.google.com/file/d/19_dk5NRI_gJzYwyyR5kw_POwazmNhgp-/view",
+   "img": "./assets/portfolio/farmers-funding.webp",
+   "title": "Farmers & co-op funding platform",
+   "sub": "Digital platform connecting small-scale farmers with funding opportunities, co-operative networks, and agricultural resources in rural South Africa.",
+   "client": "AgriTech Hackathon",
+   "uitype": ""
+  },
+  {
+   "href": "https://www.itweb.co.za/article/wethinkcode-female-developers-triumph-at-gbv-hackathon/KzQenMjVgjAMZd2r",
+   "img": "./assets/portfolio/hacky.webp",
+   "title": "GBV hackathon — multi-platform solution",
+   "sub": "Comprehensive gender-based violence prevention and support system with emergency response, resource mapping, and community support networks.",
+   "client": "GBV Hackathon",
+   "uitype": ""
+  }
+ ],
+ "panel-uidesign": [
+  {
+   "href": "./assets/portfolio/ui-neo-banking.webp",
+   "img": "./assets/portfolio/ui-neo-banking.webp",
+   "title": "Neo Banking App",
+   "sub": "Mobile · Card Controls · Instant Transfers",
+   "client": "",
+   "uitype": "fintech mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-investment-dashboard.webp",
+   "img": "./assets/portfolio/ui-investment-dashboard.webp",
+   "title": "Investment Dashboard",
+   "sub": "Web Platform · Portfolio Analytics · Risk Assessment",
+   "client": "",
+   "uitype": "fintech web"
+  },
+  {
+   "href": "./assets/portfolio/ui-trading-operations.webp",
+   "img": "./assets/portfolio/ui-trading-operations.webp",
+   "title": "Trading Operations",
+   "sub": "Admin Dashboard · Order Management · Compliance",
+   "client": "",
+   "uitype": "fintech admin"
+  },
+  {
+   "href": "./assets/portfolio/ui-auto-claims.webp",
+   "img": "./assets/portfolio/ui-auto-claims.webp",
+   "title": "Auto Claims",
+   "sub": "Mobile App · Photo Claims · AI Damage Assessment",
+   "client": "",
+   "uitype": "insurance mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-policy-portal.webp",
+   "img": "./assets/portfolio/ui-policy-portal.webp",
+   "title": "Policy Management",
+   "sub": "Web Portal · Premium Calculator · Document Vault",
+   "client": "",
+   "uitype": "insurance web"
+  },
+  {
+   "href": "./assets/portfolio/ui-virtual-doctor.webp",
+   "img": "./assets/portfolio/ui-virtual-doctor.webp",
+   "title": "Virtual Doctor",
+   "sub": "Mobile App · Video Consultations · Prescription Delivery",
+   "client": "",
+   "uitype": "healthcare mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-hospital-command.webp",
+   "img": "./assets/portfolio/ui-hospital-command.webp",
+   "title": "Hospital Command Center",
+   "sub": "Web Dashboard · Bed Management · Staff Scheduling",
+   "client": "",
+   "uitype": "healthcare web"
+  },
+  {
+   "href": "./assets/portfolio/ui-patient-records-admin.webp",
+   "img": "./assets/portfolio/ui-patient-records-admin.webp",
+   "title": "Patient Records Admin",
+   "sub": "Admin Panel · EMR System · HIPAA Compliance",
+   "client": "",
+   "uitype": "healthcare admin"
+  },
+  {
+   "href": "./assets/portfolio/ui-fashion-marketplace.webp",
+   "img": "./assets/portfolio/ui-fashion-marketplace.webp",
+   "title": "Fashion Marketplace",
+   "sub": "Mobile App · AR Try-On · Style Recommendations",
+   "client": "",
+   "uitype": "retail mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-b2b-marketplace.webp",
+   "img": "./assets/portfolio/ui-b2b-marketplace.webp",
+   "title": "B2B Marketplace",
+   "sub": "Web Platform · Vendor Management · Bulk Orders",
+   "client": "",
+   "uitype": "retail web"
+  },
+  {
+   "href": "./assets/portfolio/ui-retail-intelligence.webp",
+   "img": "./assets/portfolio/ui-retail-intelligence.webp",
+   "title": "Retail Intelligence",
+   "sub": "Admin Dashboard · Sales Analytics · Inventory Forecasting",
+   "client": "",
+   "uitype": "retail admin"
+  },
+  {
+   "href": "./assets/portfolio/ui-connected-vehicle.webp",
+   "img": "./assets/portfolio/ui-connected-vehicle.webp",
+   "title": "Connected Vehicle",
+   "sub": "Mobile App · Remote Start · Maintenance Alerts",
+   "client": "",
+   "uitype": "automotive mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-fleet-operations.webp",
+   "img": "./assets/portfolio/ui-fleet-operations.webp",
+   "title": "Fleet Operations",
+   "sub": "Web Dashboard · Route Optimization · Driver Performance",
+   "client": "",
+   "uitype": "automotive web"
+  },
+  {
+   "href": "./assets/portfolio/ui-smart-hotel.webp",
+   "img": "./assets/portfolio/ui-smart-hotel.webp",
+   "title": "Smart Hotel",
+   "sub": "Mobile App · Contactless Check-in · Room Controls",
+   "client": "",
+   "uitype": "hospitality mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-restaurant-hub.webp",
+   "img": "./assets/portfolio/ui-restaurant-hub.webp",
+   "title": "Restaurant Hub",
+   "sub": "Web Platform · Table Management · Kitchen Display",
+   "client": "",
+   "uitype": "hospitality web"
+  },
+  {
+   "href": "./assets/portfolio/ui-travel-operations.webp",
+   "img": "./assets/portfolio/ui-travel-operations.webp",
+   "title": "Travel Operations",
+   "sub": "Admin Dashboard · Booking Management · Revenue Analytics",
+   "client": "",
+   "uitype": "hospitality admin"
+  },
+  {
+   "href": "./assets/portfolio/ui-driver-companion.webp",
+   "img": "./assets/portfolio/ui-driver-companion.webp",
+   "title": "Driver Companion",
+   "sub": "Mobile App · Route Navigation · Proof of Delivery",
+   "client": "",
+   "uitype": "logistics mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-warehouse-command.webp",
+   "img": "./assets/portfolio/ui-warehouse-command.webp",
+   "title": "Warehouse Command",
+   "sub": "Web Platform · Inventory Tracking · Shipment Planning",
+   "client": "",
+   "uitype": "logistics web"
+  },
+  {
+   "href": "./assets/portfolio/ui-study-companion.webp",
+   "img": "./assets/portfolio/ui-study-companion.webp",
+   "title": "Study Companion",
+   "sub": "Mobile App · Interactive Lessons · Progress Tracking",
+   "client": "",
+   "uitype": "education mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-campus-lms.webp",
+   "img": "./assets/portfolio/ui-campus-lms.webp",
+   "title": "Campus LMS",
+   "sub": "Web Platform · Course Builder · Virtual Classroom",
+   "client": "",
+   "uitype": "education web"
+  },
+  {
+   "href": "./assets/portfolio/ui-school-management.webp",
+   "img": "./assets/portfolio/ui-school-management.webp",
+   "title": "School Management",
+   "sub": "Admin Dashboard · Student Records · Performance Analytics",
+   "client": "",
+   "uitype": "education admin"
+  },
+  {
+   "href": "./assets/portfolio/ui-property-explorer.webp",
+   "img": "./assets/portfolio/ui-property-explorer.webp",
+   "title": "Property Explorer",
+   "sub": "Mobile App · AR Property Tours · Mortgage Calculator",
+   "client": "",
+   "uitype": "realestate mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-property-manager.webp",
+   "img": "./assets/portfolio/ui-property-manager.webp",
+   "title": "Property Manager Pro",
+   "sub": "Web Platform · Tenant Portal · Maintenance Requests",
+   "client": "",
+   "uitype": "realestate web"
+  },
+  {
+   "href": "./assets/portfolio/ui-employee-hub.webp",
+   "img": "./assets/portfolio/ui-employee-hub.webp",
+   "title": "Employee Hub",
+   "sub": "Mobile App · Leave Requests · Expense Reports",
+   "client": "",
+   "uitype": "hr mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-workforce-analytics.svg",
+   "img": "./assets/portfolio/ui-workforce-analytics.svg",
+   "title": "Workforce Analytics",
+   "sub": "Web Platform · Recruitment · Performance Management",
+   "client": "",
+   "uitype": "hr web"
+  },
+  {
+   "href": "./assets/portfolio/ui-production-control.webp",
+   "img": "./assets/portfolio/ui-production-control.webp",
+   "title": "Production Control",
+   "sub": "Web Dashboard · OEE Monitoring · Quality Control",
+   "client": "",
+   "uitype": "manufacturing web"
+  },
+  {
+   "href": "./assets/portfolio/ui-factory-floor.webp",
+   "img": "./assets/portfolio/ui-factory-floor.webp",
+   "title": "Factory Floor",
+   "sub": "Mobile App · Equipment Status · Work Orders",
+   "client": "",
+   "uitype": "manufacturing mobile"
+  },
+  {
+   "href": "./assets/portfolio/ui-project-orchestrator.webp",
+   "img": "./assets/portfolio/ui-project-orchestrator.webp",
+   "title": "Project Orchestrator",
+   "sub": "SaaS Platform · Team Collaboration · Timeline Management",
+   "client": "",
+   "uitype": "saas web"
+  },
+  {
+   "href": "./assets/portfolio/ui-sales-pipeline.webp",
+   "img": "./assets/portfolio/ui-sales-pipeline.webp",
+   "title": "Sales Pipeline Pro",
+   "sub": "SaaS Tool · Lead Management · Revenue Forecasting",
+   "client": "",
+   "uitype": "saas web"
+  },
+  {
+   "href": "./assets/portfolio/ui-marketing-automation.webp",
+   "img": "./assets/portfolio/ui-marketing-automation.webp",
+   "title": "Marketing Automation",
+   "sub": "SaaS Platform · Campaign Management · Analytics",
+   "client": "",
+   "uitype": "saas web"
+  },
+  {
+   "href": "./assets/portfolio/ui-citizen-services.webp",
+   "img": "./assets/portfolio/ui-citizen-services.webp",
+   "title": "Citizen Services",
+   "sub": "Web Portal · Document Applications · Service Tracking",
+   "client": "",
+   "uitype": "government web"
+  },
+  {
+   "href": "./assets/portfolio/ui-smart-city.webp",
+   "img": "./assets/portfolio/ui-smart-city.webp",
+   "title": "Smart City",
+   "sub": "Mobile App · Public Transport · Emergency Services",
+   "client": "",
+   "uitype": "government mobile"
+  }
+ ],
+ "panel-webdesign": [
+  {
+   "href": "https://www.snbconsultancy.co.za/",
+   "img": "./assets/portfolio/snb.webp",
+   "title": "SNB Website",
+   "sub": "Web design",
+   "client": "",
+   "uitype": ""
+  },
+  {
+   "href": "https://www.nerdma.co.za/",
+   "img": "./assets/portfolio/nerdma.png",
+   "title": "Nerdma",
+   "sub": "Web design",
+   "client": "",
+   "uitype": ""
+  },
+  {
+   "href": "https://addmoredigital.co.za/",
+   "img": "./assets/portfolio/addmore.png",
+   "title": "Add More Digital",
+   "sub": "Web design",
+   "client": "",
+   "uitype": ""
+  },
+  {
+   "href": "./web-design/projects/fitness_studio/",
+   "img": "./web-design/projects/fitness_studio/assets/images/cta-bg.jpg",
+   "title": "Fitness Studio",
+   "sub": "Web design",
+   "client": "",
+   "uitype": ""
+  },
+  {
+   "href": "./web-design/projects/hosdo/index.html",
+   "img": "./web-design/projects/hosdo/assets/img/cover/about2.png",
+   "title": "Hosdo",
+   "sub": "Web design",
+   "client": "",
+   "uitype": ""
+  },
+  {
+   "href": "./web-design/projects/explora/index.html",
+   "img": "./web-design/projects/explora/images/about_background.jpg",
+   "title": "Explora",
+   "sub": "Web admin experience",
+   "client": "",
+   "uitype": ""
+  },
+  {
+   "href": "./web-design/projects/studyzel/index.html",
+   "img": "./web-design/projects/studyzel/images/blog_large_1.jpg",
+   "title": "Studyzel",
+   "sub": "Digital product surface",
+   "client": "",
+   "uitype": ""
+  }
+ ]
+}

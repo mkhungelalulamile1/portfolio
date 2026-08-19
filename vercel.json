@@ -2,19 +2,44 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/showcase", "destination": "/case-studies", "permanent": true },
+    { "source": "/showcase.html", "destination": "/case-studies", "permanent": true },
+    { "source": "/work", "destination": "/case-studies", "permanent": true },
+    { "source": "/portfolio", "destination": "/case-studies", "permanent": true },
+    { "source": "/case-studies/process.html", "destination": "/case-studies", "permanent": true },
+
+    { "source": "/designops", "destination": "/design-ops", "permanent": true },
+    { "source": "/designops.html", "destination": "/design-ops", "permanent": true },
+    { "source": "/design-ops.html", "destination": "/design-ops", "permanent": true },
+    { "source": "/design-ops/index.html", "destination": "/design-ops", "permanent": true },
+    { "source": "/dashboard", "destination": "/design-ops", "permanent": true },
+    { "source": "/design-system-dashboard", "destination": "/design-ops", "permanent": true },
+    { "source": "/assets/portfolio/source-designops-index.html", "destination": "/design-ops", "permanent": true },
+
     { "source": "/case-studies/vodacom-engage.html", "destination": "/case-study-engage", "permanent": true },
     { "source": "/case-studies/vodacom-engage", "destination": "/case-study-engage", "permanent": true },
     { "source": "/vodacom-engage.html", "destination": "/case-study-engage", "permanent": true },
-    { "source": "/case-studies/angular-design-system.html", "destination": "/case-study-design-system", "permanent": true },
-    { "source": "/angular-design-system.html", "destination": "/case-study-design-system", "permanent": true },
+    { "source": "/engage", "destination": "/case-study-engage", "permanent": true },
+
     { "source": "/case-studies/tobby-bursary.html", "destination": "/case-study-tobi-bursary", "permanent": true },
     { "source": "/tobby-bursary.html", "destination": "/case-study-tobi-bursary", "permanent": true },
-    { "source": "/case-studies/stance-insurance.html", "destination": "/showcase", "permanent": true },
-    { "source": "/case-studies/absa-hackathon.html", "destination": "/showcase", "permanent": true },
-    { "source": "/case-studies/articles-hackathons.html", "destination": "/showcase", "permanent": true },
-    { "source": "/case-studies/process.html", "destination": "/case-studies", "permanent": true },
-    { "source": "/work", "destination": "/showcase", "permanent": true },
-    { "source": "/portfolio", "destination": "/case-studies", "permanent": true }
+    { "source": "/tobi", "destination": "/case-study-tobi-bursary", "permanent": true },
+
+    { "source": "/case-studies/stance-insurance.html", "destination": "/case-study-stance", "permanent": true },
+    { "source": "/stance", "destination": "/case-study-stance", "permanent": true },
+
+    { "source": "/servicewaze", "destination": "/case-study-servicewaze", "permanent": true },
+
+    { "source": "/case-studies/angular-design-system.html", "destination": "/case-study-design-system", "permanent": true },
+    { "source": "/angular-design-system.html", "destination": "/case-study-design-system", "permanent": true },
+    { "source": "/design-system", "destination": "/case-study-design-system", "permanent": true },
+    { "source": "/meridian", "destination": "/case-study-design-system", "permanent": true },
+
+    { "source": "/performance", "destination": "/case-study-seo-performance", "permanent": true },
+    { "source": "/seo", "destination": "/case-study-seo-performance", "permanent": true },
+
+    { "source": "/case-studies/absa-hackathon.html", "destination": "/case-studies", "permanent": true },
+    { "source": "/case-studies/articles-hackathons.html", "destination": "/case-studies", "permanent": true }
   ],
   "headers": [
     {
