@@ -23,15 +23,13 @@ assets/og/                     Open Graph cards
 tools/                         Generators — see tools/README.md
 ```
 
-## Documented case studies
+## Independent product case studies
 
-The Work hub contains three evidence-led project stories. The supplied project imagery is used directly; commercial results are not stated where no verified source is available.
+The Work hub contains three original, clearly-labelled product concepts. They are not client claims: prototype targets and assumptions are visibly distinguished from measured outcomes.
 
-1. `case-study-engage` — Vodacom Engage
-2. `case-study-stance` — Stance Insurance
-3. `case-study-tobi-bursary` — IT Helpdesk Assistant
-
-The previous experimental case-study URLs redirect to the Work hub.
+1. `case-study-engage` — Mali, a B2C fintech concept
+2. `case-study-stance` — LedgerLane, a B2B fintech concept
+3. `case-study-tobi-bursary` — Loop, a SaaS approval-workflow concept
 
 ## Local preview
 
