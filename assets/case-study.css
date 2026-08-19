@@ -674,3 +674,21 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: .86em; background
   .case-card .cc-kpis { grid-template-columns: repeat(3, 1fr); }
   .meta-list { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Work clarity + authentic project imagery ─────────────────────────── */
+.work-intro { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:32px auto 0; background:var(--border); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.work-intro > div { background:var(--card); padding:20px 22px; }
+.work-kicker { display:block; color:var(--gold); font-size:.62rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; margin-bottom:7px; }
+.work-intro strong { display:block; font-size:.92rem; line-height:1.35; margin-bottom:5px; }
+.work-intro p { color:var(--dim); font-size:.78rem; line-height:1.6; }
+.cover-frame img[src*="stance-cover"], .case-card .shot img[src*="stance-cover"] { object-fit:contain; object-position:center; background:#f6f5f3; }
+.cover-frame img[src*="stance-cover"] { max-height:620px; }
+@media (max-width:760px) { .work-intro { grid-template-columns:1fr; margin-top:22px; } .cover-frame img[src*="stance-cover"] { max-height:none; } }
+.stance-viewer { border:1px solid var(--border); border-radius:14px; overflow:hidden; background:var(--card); }
+.stance-viewer__bar { display:flex; gap:7px; padding:12px; border-bottom:1px solid var(--border); }
+.stance-viewer__bar button { border:1px solid var(--border); background:transparent; color:var(--dim); border-radius:999px; padding:6px 12px; font-size:.68rem; font-weight:800; cursor:pointer; }
+.stance-viewer__bar button.on { background:var(--gold); border-color:var(--gold); color:#0A0705; }
+.stance-viewer .art-fig { padding:16px; }
+.stance-viewer .art-fig img { border:none; border-radius:8px; }
+.stance-viewer .art-fig > img { width:100%; aspect-ratio:16/9; object-fit:cover; background:#f6f5f3; transition:transform .25s ease, object-position .25s ease; }
+@media (max-width:700px) { .stance-viewer .art-fig { padding:10px; } .stance-viewer .art-fig > img { aspect-ratio:4/3; } }

@@ -515,3 +515,17 @@
     });
   });
 })();
+
+/* ── Stance responsive direction viewer ───────────────────────────────── */
+document.querySelectorAll('[data-stance-viewer]').forEach(function (viewer) {
+  var image = viewer.querySelector('img');
+  viewer.querySelectorAll('[data-stance-view]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var view = button.dataset.stanceView;
+      viewer.querySelectorAll('button').forEach(function (item) { item.classList.toggle('on', item === button); });
+      image.style.objectPosition = view === 'desktop' ? 'left center' : view === 'tablet' ? 'center center' : 'right center';
+      image.style.transform = view === 'desktop' ? 'scale(1)' : 'scale(1.08)';
+      image.style.transformOrigin = view === 'desktop' ? 'left center' : view === 'tablet' ? 'center center' : 'right center';
+    });
+  });
+});
