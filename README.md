@@ -23,19 +23,15 @@ assets/og/                     Open Graph cards
 tools/                         Generators — see tools/README.md
 ```
 
-## The six case studies
+## Documented case studies
 
-**UX/UI and product design**
+The Work hub contains three evidence-led project stories. The supplied project imagery is used directly; commercial results are not stated where no verified source is available.
 
-1. `case-study-engage` — Engage: 25 000 people, one home screen
-2. `case-study-tobi-bursary` — A bot that said sorry, and a form nobody finished
-3. `case-study-stance` — Insurance for the cars everyone else refused
+1. `case-study-engage` — Vodacom Engage
+2. `case-study-stance` — Stance Insurance
+3. `case-study-tobi-bursary` — IT Helpdesk Assistant
 
-**Frontend engineering**
-
-4. `case-study-servicewaze` — Built for one bar of signal (offline-first PWA)
-5. `case-study-design-system` — Figma variables to Angular, zero drift
-6. `case-study-seo-performance` — Rebuilding this site
+The previous experimental case-study URLs redirect to the Work hub.
 
 ## Local preview
 
