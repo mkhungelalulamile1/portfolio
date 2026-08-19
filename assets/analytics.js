@@ -162,7 +162,7 @@
 
     // Time to First Byte, from the navigation entry
     addEventListener('load', function () {
-      var nav = performance.getEntriesByType('navigation')[0];
+      var nav = (performance.getEntriesByType ? performance.getEntriesByType : function () { return []; })('navigation')[0];
       if (nav) track('web_vital', { metric: 'TTFB', value: Math.round(nav.responseStart), rating: nav.responseStart < 800 ? 'good' : 'needs-improvement' });
     });
   })();

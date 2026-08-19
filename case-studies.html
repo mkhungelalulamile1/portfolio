@@ -1,55 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en-ZA" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0A0705" />
   <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
+  <link rel="manifest" href="./manifest.json" />
   <script>(function () { try { var t = localStorage.getItem('ls-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); document.documentElement.style.colorScheme = t; } catch (e) { } })();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/case-study.css" />
-  <style>
-    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 24px; }
-    .filter { border: 1px solid var(--border); background: var(--card); color: var(--dim); border-radius: 999px; padding: 9px 16px; font-size: .76rem; font-weight: 800; cursor: pointer; letter-spacing: .04em; }
-    .filter:hover { color: var(--paper); border-color: var(--gold); }
-    .filter.on { background: color-mix(in srgb, var(--gold) 14%, transparent); border-color: var(--gold); color: var(--gold); }
-    .idx-card.hide { display: none; }
-    .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-    .how div { background: var(--card); padding: 20px 18px; }
-    .how b { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); letter-spacing: 1px; }
-    .how span { display: block; font-size: .86rem; font-weight: 700; margin: 4px 0 6px; }
-    .how p { font-size: .78rem; color: var(--dim); line-height: 1.55; }
-  </style>
-<!-- SEO:START -->
-  <title>Case Studies — UX/UI, Product Design &amp; Frontend | Lulamile Mkhungela</title>
-  <meta name="description" content="Five end-to-end case studies from a designer who writes the frontend: enterprise UX, conversational design, an offline-first PWA, a design system and technical SEO." />
+
+  <title>Work — six case studies in UX/UI design and frontend engineering</title>
+  <meta name="description" content="Three UX/UI and product design case studies, three frontend engineering case studies, and a showcase of 50+ shipped interfaces, live apps and builds by Lulamile Mkhungela." />
   <meta name="author" content="Lulamile Mkhungela" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <link rel="canonical" href="https://lulasync.app/case-studies" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
   <meta property="og:site_name" content="LulaSync — Lulamile Mkhungela" />
   <meta property="og:locale" content="en_ZA" />
-  <meta property="og:title" content="Case Studies — UX/UI, Product Design &amp; Frontend | Lulamile Mkhungela" />
-  <meta property="og:description" content="Five end-to-end case studies from a designer who writes the frontend: enterprise UX, conversational design, an offline-first PWA, a design system and technical SEO." />
+  <meta property="og:title" content="Work — six case studies in UX/UI design and frontend engineering" />
+  <meta property="og:description" content="Three UX/UI and product design case studies, three frontend engineering case studies, and a showcase of 50+ shipped interfaces, live apps and builds by Lulamile Mkhungela." />
   <meta property="og:url" content="https://lulasync.app/case-studies" />
   <meta property="og:image" content="https://lulasync.app/assets/og/case-studies.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Case Studies — UX/UI, Product Design &amp; Frontend | Lulamile Mkhungela" />
-
-  <!-- Twitter / X -->
+  <meta property="og:image:alt" content="Work — six case studies in UX/UI design and frontend engineering" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Case Studies — UX/UI, Product Design &amp; Frontend | Lulamile Mkhungela" />
-  <meta name="twitter:description" content="Five end-to-end case studies from a designer who writes the frontend: enterprise UX, conversational design, an offline-first PWA, a design system and technical SEO." />
+  <meta name="twitter:title" content="Work — six case studies in UX/UI design and frontend engineering" />
+  <meta name="twitter:description" content="Three UX/UI and product design case studies, three frontend engineering case studies, and a showcase of 50+ shipped interfaces, live apps and builds by Lulamile Mkhungela." />
   <meta name="twitter:image" content="https://lulasync.app/assets/og/case-studies.png" />
 
-  <!-- Structured data -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,41 +47,19 @@
         "Product Designer",
         "Frontend Developer"
       ],
-      "description": "UX/UI, CX and product designer and frontend developer based in Johannesburg, South Africa.",
       "url": "https://lulasync.app/",
-      "image": "https://lulasync.app/assets/og/about.png",
+      "email": "mailto:mkhungela.lulamile1@gmail.com",
+      "telephone": "+27837195064",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "41 Juta Street, Braamfontein",
         "addressLocality": "Johannesburg",
         "addressRegion": "Gauteng",
         "addressCountry": "ZA"
       },
-      "email": "mailto:mkhungela.lulamile1@gmail.com",
-      "telephone": "+27837195064",
-      "knowsAbout": [
-        "UX research",
-        "Information architecture",
-        "Interaction design",
-        "Design systems",
-        "Design tokens",
-        "Angular",
-        "React",
-        "Progressive web apps",
-        "Web accessibility",
-        "Technical SEO",
-        "Web analytics",
-        "Core Web Vitals"
-      ],
       "sameAs": [
         "https://www.linkedin.com/in/lulamile-mkhungela/",
         "https://github.com/LulamileMkhungela"
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "LulaSync",
-        "url": "https://lulasync.app/"
-      }
+      ]
     },
     {
       "@type": "WebSite",
@@ -107,6 +69,59 @@
       "inLanguage": "en-ZA",
       "publisher": {
         "@id": "https://lulasync.app/#lulamile"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://lulasync.app/case-studies#page",
+      "name": "Work — case studies and showcase",
+      "description": "Six end-to-end case studies plus a showcase of shipped interfaces, live apps and frontend builds.",
+      "isPartOf": {
+        "@id": "https://lulasync.app/#website"
+      },
+      "about": {
+        "@id": "https://lulasync.app/#lulamile"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://lulasync.app/case-study-engage",
+            "name": "Engage — 25 000 people, one home screen"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://lulasync.app/case-study-tobi-bursary",
+            "name": "A bot that said sorry, and a form nobody finished"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://lulasync.app/case-study-stance",
+            "name": "Insurance for the cars everyone else refused"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://lulasync.app/case-study-servicewaze",
+            "name": "Built for one bar of signal"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://lulasync.app/case-study-design-system",
+            "name": "Figma variables to Angular, zero drift"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "url": "https://lulasync.app/case-study-seo-performance",
+            "name": "I audited my own site and did not like it"
+          }
+        ]
       }
     },
     {
@@ -122,7 +137,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Case Studies",
+          "name": "Work",
           "item": "https://lulasync.app/case-studies"
         }
       ]
@@ -130,7 +145,6 @@
   ]
 }
   </script>
-  <!-- SEO:END -->
 </head>
 
 <body>
@@ -138,28 +152,26 @@
   <div class="read-bar" aria-hidden="true"></div>
 
   <nav class="ls-nav">
-    <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+    <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" width="34" height="34" />
       <span>Lula<span class="gold">Sync</span></span></a>
     <div class="nav-links">
       <a href="./index.html" class="nav-link">Home</a>
-      <a href="./case-studies.html" class="nav-link active">Case Studies</a>
-      <a href="./showcase.html" class="nav-link">Showcase</a>
+      <a href="./case-studies.html" class="nav-link active">Work</a>
       <a href="./services.html" class="nav-link">Services</a>
       <a href="./about.html" class="nav-link">About</a>
       <a href="./contact.html" class="nav-link">Contact</a>
     </div>
     <div class="nav-actions">
-      <button class="theme-toggle" aria-label="Switch theme">🌙</button>
-      <button class="hamburger" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">&#127769;</button>
+      <button class="hamburger" id="menuBtn" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
   <div class="grad-line"></div>
   <div class="mobile-overlay" id="mobileOverlay">
-    <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+    <button class="close-btn" id="closeBtn" type="button" aria-label="Close menu">&#10005;</button>
     <div>
       <a href="./index.html" class="mobile-nav-link">Home</a>
-      <a href="./case-studies.html" class="mobile-nav-link active">Case Studies</a>
-      <a href="./showcase.html" class="mobile-nav-link">Showcase</a>
+      <a href="./case-studies.html" class="mobile-nav-link active">Work</a>
       <a href="./services.html" class="mobile-nav-link">Services</a>
       <a href="./about.html" class="mobile-nav-link">About</a>
       <a href="./contact.html" class="mobile-nav-link">Contact</a>
@@ -167,162 +179,436 @@
   </div>
 
   <main id="main">
-    <header class="cs-hero wrap">
-      <p class="eyebrow">Case studies</p>
-      <h1 class="display">THE THINKING,<br /><span class="gold">NOT JUST THE SCREENS.</span></h1>
-      <p class="cs-lead">Five projects, each one written the way I work: what the evidence said, what I decided, what I
-        designed, what I built, and what changed afterwards. Every page has something you can click, and every result
-        was measured the same way twice.</p>
+    <header class="cs-top wrap">
+      <p class="eyebrow">Work</p>
+      <h1>SIX CASE STUDIES.<br /><span class="gold">ONE PERSON, BOTH HALVES.</span></h1>
+      <p class="standfirst">Three about research, structure and interface design. Three about the code that makes them
+        real. Every one has something to click and a number I measured twice.</p>
       <div class="role-tags">
-        <span class="role-tag role-design">✦ UX research · IA · UI · product</span>
-        <span class="role-tag role-dev">⌘ Angular · PWA · design systems</span>
-        <span class="role-tag role-other">✦ Technical SEO · analytics</span>
+        <span class="role-tag role-design">&#10022; 3 × UX / UI &amp; product design</span>
+        <span class="role-tag role-dev">&#8984; 3 × frontend engineering</span>
+        <span class="role-tag role-other">&#10022; Plus 50+ shipped pieces in the showcase tabs</span>
       </div>
     </header>
 
-    <section class="wrap" style="padding-bottom:20px">
-      <div class="filters" role="group" aria-label="Filter case studies">
-        <button class="filter on" data-filter="all" type="button">All five</button>
-        <button class="filter" data-filter="seo" type="button">SEO &amp; analytics</button>
-        <button class="filter" data-filter="ux" type="button">UX research &amp; product</button>
-        <button class="filter" data-filter="ui" type="button">UI &amp; interaction</button>
-        <button class="filter" data-filter="frontend" type="button">Frontend &amp; systems</button>
+    <div class="hub-tabs">
+      <div class="hub-tabs-inner" role="tablist" aria-label="Work categories">
+        <button class="hub-tab" type="button" role="tab" data-panel="cases">Case studies<span class="c">6</span></button>
+        <button class="hub-tab" type="button" role="tab" data-panel="uidesign">UI design<span class="c">32</span></button>
+        <button class="hub-tab" type="button" role="tab" data-panel="liveapps">Live apps<span class="c">5</span></button>
+        <button class="hub-tab" type="button" role="tab" data-panel="builds">Frontend builds<span class="c">3</span></button>
+        <button class="hub-tab" type="button" role="tab" data-panel="figma">Figma &amp; DesignOps<span class="c">4</span></button>
+        <button class="hub-tab" type="button" role="tab" data-panel="webdesign">Web design<span class="c">7</span></button>
+        <button class="hub-tab" type="button" role="tab" data-panel="hackathons">Hackathons<span class="c">3</span></button>
+      </div>
+    </div>
+
+    <section class="cs-section" style="border-top:none;padding-top:34px">
+      <div class="hub-panel on" id="panel-cases" role="tabpanel">
+        <div class="hub-lead">
+          <div>
+            <h2>THE SIX, IN FULL</h2>
+            <p>Each one is written the same way: what the evidence said, what I decided, what I made, what shipped, and
+              what changed afterwards — including the parts that did not work.</p>
+          </div>
+          <div class="filters" data-filters="caseGrid" style="margin:0">
+            <button type="button" class="on" data-filter="all">All six</button>
+            <button type="button" data-filter="design">UX / UI &amp; product</button>
+            <button type="button" data-filter="dev">Frontend</button>
+          </div>
+        </div>
+        <div class="case-grid" id="caseGrid">
+        <a class="case-card reveal" data-tags="design" href="./case-study-engage.html">
+          <div class="shot"><img src="./assets/cs/engage-05-ui.svg" alt="Engage shipped interface screens" loading="lazy" decoding="async" />
+            <span class="flag flag-design">UX / UI &amp; product</span>
+          </div>
+          <div class="cc-body">
+            <div class="cc-meta"><span class="cl">Vodacom</span><span class="rl">UX research · IA · UI</span></div>
+            <h3>Engage — 25 000 people, one home screen</h3>
+            <p>Everybody had it installed, nobody used it. Research, a rebuilt information architecture, three rounds of flat testing and a shipped interface.</p>
+            <div class="cc-kpis"><div><b>48s→19s</b><span>time to task</span></div><div><b>11→4</b><span>destinations</span></div><div><b>+34%</b><span>self-service</span></div></div>
+            <span class="cc-go">Read the case study</span>
+          </div>
+        </a>
+        <a class="case-card reveal" data-tags="design" href="./case-study-tobi-bursary.html">
+          <div class="shot"><img src="./assets/cs/tobi-04-form.svg" alt="Bursary form redesign from 42 fields to four steps" loading="lazy" decoding="async" />
+            <span class="flag flag-design">UX / UI &amp; product</span>
+          </div>
+          <div class="cc-body">
+            <div class="cc-meta"><span class="cl">Support + bursary programme</span><span class="rl">Conversation &amp; service design</span></div>
+            <h3>A bot that said sorry, and a form nobody finished</h3>
+            <p>3 400 transcripts read by hand, a service blueprint drawn with the people who run it, and a 42-field form rebuilt as four steps that save themselves.</p>
+            <div class="cc-kpis"><div><b>41→68%</b><span>contained</span></div><div><b>38→61%</b><span>completed</span></div><div><b>40→9min</b><span>to apply</span></div></div>
+            <span class="cc-go">Read the case study</span>
+          </div>
+        </a>
+        <a class="case-card reveal" data-tags="design" href="./case-study-stance.html">
+          <div class="shot"><img src="./assets/cs/stance-02-flow.svg" alt="Stance quote flow and modification picker" loading="lazy" decoding="async" />
+            <span class="flag flag-design">UX / UI &amp; product</span>
+          </div>
+          <div class="cc-body">
+            <div class="cc-meta"><span class="cl">Stance Insurance</span><span class="rl">Product strategy · UX · UI</span></div>
+            <h3>Insurance for the cars everyone else refused</h3>
+            <p>South Africa’s modified-car owners were being declined or quietly under-insured. Market research to a live product with a four-minute quote, in ten weeks.</p>
+            <div class="cc-kpis"><div><b>27→9</b><span>questions</span></div><div><b>4 min</b><span>to a price</span></div><div><b>Live</b><span>in production</span></div></div>
+            <span class="cc-go">Read the case study</span>
+          </div>
+        </a>
+        <a class="case-card reveal" data-tags="dev" href="./case-study-servicewaze.html">
+          <div class="shot"><img src="./assets/cs/sw-01-states.svg" alt="Six ServiceWaze interface states" loading="lazy" decoding="async" />
+            <span class="flag flag-dev">Frontend engineering</span>
+          </div>
+          <div class="cc-body">
+            <div class="cc-meta"><span class="cl">ServiceWaze · own product</span><span class="rl">Designer + frontend developer</span></div>
+            <h3>Built for one bar of signal</h3>
+            <p>An Angular PWA where the interesting engineering is everything that happens when the network does not answer. Six states designed before the happy path.</p>
+            <div class="cc-kpis"><div><b>1.2s</b><span>FCP on 3G</span></div><div><b>171 KB</b><span>JS shipped</span></div><div><b>96</b><span>Lighthouse</span></div></div>
+            <span class="cc-go">Read the case study</span>
+          </div>
+        </a>
+        <a class="case-card reveal" data-tags="dev" href="./case-study-design-system.html">
+          <div class="shot"><img src="./assets/cs/ds-01-pipeline.svg" alt="Design token pipeline from Figma to four platforms" loading="lazy" decoding="async" />
+            <span class="flag flag-dev">Frontend engineering</span>
+          </div>
+          <div class="cc-body">
+            <div class="cc-meta"><span class="cl">Multi-product platform</span><span class="rl">System lead + frontend</span></div>
+            <h3>Figma variables to Angular, zero drift</h3>
+            <p>213 hard-coded colours, four products out of sync and a six-week brand refresh. A token pipeline, 80+ components and six blocking CI checks made the next one take two days.</p>
+            <div class="cc-kpis"><div><b>213→0</b><span>hard-coded</span></div><div><b>91%</b><span>adoption</span></div><div><b>64→11</b><span>QA comments</span></div></div>
+            <span class="cc-go">Read the case study</span>
+          </div>
+        </a>
+        <a class="case-card reveal" data-tags="dev" href="./case-study-seo-performance.html">
+          <div class="shot"><img src="./assets/cs/perf-01-audit.svg" alt="Lighthouse before and after audit" loading="lazy" decoding="async" />
+            <span class="flag flag-dev">Frontend engineering</span>
+          </div>
+          <div class="cc-body">
+            <div class="cc-meta"><span class="cl">This website</span><span class="rl">Designer · developer · analyst</span></div>
+            <h3>I audited my own site and did not like it</h3>
+            <p>6.4 seconds to show anything is an argument against hiring me. 5.8 MB became 240 KB — and the page measures itself while you read it.</p>
+            <div class="cc-kpis"><div><b>41→99</b><span>Lighthouse</span></div><div><b>−96%</b><span>page weight</span></div><div><b>0</b><span>cookies</span></div></div>
+            <span class="cc-go">Read the case study</span>
+          </div>
+        </a>
+        </div>
+
+        <div class="how" style="margin-top:40px">
+          <div><b>01</b><span>Discover</span>
+            <p>Talk to people, read the tickets, watch the analytics. Find the real problem before designing the
+              visible one.</p>
+          </div>
+          <div><b>02</b><span>Frame</span>
+            <p>One problem statement, a few principles, and a measure of success agreed before any pixels move.</p>
+          </div>
+          <div><b>03</b><span>Design &amp; test</span>
+            <p>Flows, wireframes and prototypes tested flat, so only ideas that survive get polished.</p>
+          </div>
+          <div><b>04</b><span>Build &amp; hand over</span>
+            <p>UI, tokens, component specs and frontend code. I stay in the sprint and review the pull requests.</p>
+          </div>
+          <div><b>05</b><span>Measure</span>
+            <p>Re-run the benchmark. Publish what improved and what did not, then fix the next thing.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="idx-grid" id="idxGrid">
+      <div class="hub-panel" id="panel-uidesign" role="tabpanel">
+        <div class="hub-lead">
+          <div>
+            <h2>UI ACROSS EVERY SECTOR</h2>
+            <p>Product interfaces for mobile, web, admin and SaaS — South African and global. Filter by sector; click any tile to open the full-size frame.</p>
+          </div>
+          <p style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)">32 interfaces</p>
+        </div>
+        <div class="filters" data-filters="uidesignGrid"><button type="button" class="on" data-filter="all">All sectors</button><button type="button" class="" data-filter="automotive">Automotive</button><button type="button" class="" data-filter="education">Education</button><button type="button" class="" data-filter="fintech">Fintech</button><button type="button" class="" data-filter="government">Public sector</button><button type="button" class="" data-filter="healthcare">Healthcare</button><button type="button" class="" data-filter="hospitality">Hospitality</button><button type="button" class="" data-filter="hr">HR</button><button type="button" class="" data-filter="insurance">Insurance</button><button type="button" class="" data-filter="logistics">Logistics</button><button type="button" class="" data-filter="manufacturing">Manufacturing</button><button type="button" class="" data-filter="realestate">Property</button><button type="button" class="" data-filter="retail">Retail</button><button type="button" class="" data-filter="saas">SaaS</button></div>
+        <div class="tile-grid" id="uidesignGrid">          <a class="tile" data-tags="fintech" href="./assets/portfolio/ui-neo-banking.webp">
+            <img src="./assets/portfolio/ui-neo-banking.webp" alt="Neo Banking App" loading="lazy" decoding="async" />
+            <span class="tl"><b>Neo Banking App</b><span>Mobile · Card Controls · Instant Transfers</span></span>
+          </a>
+          <a class="tile" data-tags="fintech" href="./assets/portfolio/ui-investment-dashboard.webp">
+            <img src="./assets/portfolio/ui-investment-dashboard.webp" alt="Investment Dashboard" loading="lazy" decoding="async" />
+            <span class="tl"><b>Investment Dashboard</b><span>Web Platform · Portfolio Analytics · Risk Assessment</span></span>
+          </a>
+          <a class="tile" data-tags="fintech" href="./assets/portfolio/ui-trading-operations.webp">
+            <img src="./assets/portfolio/ui-trading-operations.webp" alt="Trading Operations" loading="lazy" decoding="async" />
+            <span class="tl"><b>Trading Operations</b><span>Admin Dashboard · Order Management · Compliance</span></span>
+          </a>
+          <a class="tile" data-tags="insurance" href="./assets/portfolio/ui-auto-claims.webp">
+            <img src="./assets/portfolio/ui-auto-claims.webp" alt="Auto Claims" loading="lazy" decoding="async" />
+            <span class="tl"><b>Auto Claims</b><span>Mobile App · Photo Claims · AI Damage Assessment</span></span>
+          </a>
+          <a class="tile" data-tags="insurance" href="./assets/portfolio/ui-policy-portal.webp">
+            <img src="./assets/portfolio/ui-policy-portal.webp" alt="Policy Management" loading="lazy" decoding="async" />
+            <span class="tl"><b>Policy Management</b><span>Web Portal · Premium Calculator · Document Vault</span></span>
+          </a>
+          <a class="tile" data-tags="healthcare" href="./assets/portfolio/ui-virtual-doctor.webp">
+            <img src="./assets/portfolio/ui-virtual-doctor.webp" alt="Virtual Doctor" loading="lazy" decoding="async" />
+            <span class="tl"><b>Virtual Doctor</b><span>Mobile App · Video Consultations · Prescription Delivery</span></span>
+          </a>
+          <a class="tile" data-tags="healthcare" href="./assets/portfolio/ui-hospital-command.webp">
+            <img src="./assets/portfolio/ui-hospital-command.webp" alt="Hospital Command Center" loading="lazy" decoding="async" />
+            <span class="tl"><b>Hospital Command Center</b><span>Web Dashboard · Bed Management · Staff Scheduling</span></span>
+          </a>
+          <a class="tile" data-tags="healthcare" href="./assets/portfolio/ui-patient-records-admin.webp">
+            <img src="./assets/portfolio/ui-patient-records-admin.webp" alt="Patient Records Admin" loading="lazy" decoding="async" />
+            <span class="tl"><b>Patient Records Admin</b><span>Admin Panel · EMR System · HIPAA Compliance</span></span>
+          </a>
+          <a class="tile" data-tags="retail" href="./assets/portfolio/ui-fashion-marketplace.webp">
+            <img src="./assets/portfolio/ui-fashion-marketplace.webp" alt="Fashion Marketplace" loading="lazy" decoding="async" />
+            <span class="tl"><b>Fashion Marketplace</b><span>Mobile App · AR Try-On · Style Recommendations</span></span>
+          </a>
+          <a class="tile" data-tags="retail" href="./assets/portfolio/ui-b2b-marketplace.webp">
+            <img src="./assets/portfolio/ui-b2b-marketplace.webp" alt="B2B Marketplace" loading="lazy" decoding="async" />
+            <span class="tl"><b>B2B Marketplace</b><span>Web Platform · Vendor Management · Bulk Orders</span></span>
+          </a>
+          <a class="tile" data-tags="retail" href="./assets/portfolio/ui-retail-intelligence.webp">
+            <img src="./assets/portfolio/ui-retail-intelligence.webp" alt="Retail Intelligence" loading="lazy" decoding="async" />
+            <span class="tl"><b>Retail Intelligence</b><span>Admin Dashboard · Sales Analytics · Inventory Forecasting</span></span>
+          </a>
+          <a class="tile" data-tags="automotive" href="./assets/portfolio/ui-connected-vehicle.webp">
+            <img src="./assets/portfolio/ui-connected-vehicle.webp" alt="Connected Vehicle" loading="lazy" decoding="async" />
+            <span class="tl"><b>Connected Vehicle</b><span>Mobile App · Remote Start · Maintenance Alerts</span></span>
+          </a>
+          <a class="tile" data-tags="automotive" href="./assets/portfolio/ui-fleet-operations.webp">
+            <img src="./assets/portfolio/ui-fleet-operations.webp" alt="Fleet Operations" loading="lazy" decoding="async" />
+            <span class="tl"><b>Fleet Operations</b><span>Web Dashboard · Route Optimization · Driver Performance</span></span>
+          </a>
+          <a class="tile" data-tags="hospitality" href="./assets/portfolio/ui-smart-hotel.webp">
+            <img src="./assets/portfolio/ui-smart-hotel.webp" alt="Smart Hotel" loading="lazy" decoding="async" />
+            <span class="tl"><b>Smart Hotel</b><span>Mobile App · Contactless Check-in · Room Controls</span></span>
+          </a>
+          <a class="tile" data-tags="hospitality" href="./assets/portfolio/ui-restaurant-hub.webp">
+            <img src="./assets/portfolio/ui-restaurant-hub.webp" alt="Restaurant Hub" loading="lazy" decoding="async" />
+            <span class="tl"><b>Restaurant Hub</b><span>Web Platform · Table Management · Kitchen Display</span></span>
+          </a>
+          <a class="tile" data-tags="hospitality" href="./assets/portfolio/ui-travel-operations.webp">
+            <img src="./assets/portfolio/ui-travel-operations.webp" alt="Travel Operations" loading="lazy" decoding="async" />
+            <span class="tl"><b>Travel Operations</b><span>Admin Dashboard · Booking Management · Revenue Analytics</span></span>
+          </a>
+          <a class="tile" data-tags="logistics" href="./assets/portfolio/ui-driver-companion.webp">
+            <img src="./assets/portfolio/ui-driver-companion.webp" alt="Driver Companion" loading="lazy" decoding="async" />
+            <span class="tl"><b>Driver Companion</b><span>Mobile App · Route Navigation · Proof of Delivery</span></span>
+          </a>
+          <a class="tile" data-tags="logistics" href="./assets/portfolio/ui-warehouse-command.webp">
+            <img src="./assets/portfolio/ui-warehouse-command.webp" alt="Warehouse Command" loading="lazy" decoding="async" />
+            <span class="tl"><b>Warehouse Command</b><span>Web Platform · Inventory Tracking · Shipment Planning</span></span>
+          </a>
+          <a class="tile" data-tags="education" href="./assets/portfolio/ui-study-companion.webp">
+            <img src="./assets/portfolio/ui-study-companion.webp" alt="Study Companion" loading="lazy" decoding="async" />
+            <span class="tl"><b>Study Companion</b><span>Mobile App · Interactive Lessons · Progress Tracking</span></span>
+          </a>
+          <a class="tile" data-tags="education" href="./assets/portfolio/ui-campus-lms.webp">
+            <img src="./assets/portfolio/ui-campus-lms.webp" alt="Campus LMS" loading="lazy" decoding="async" />
+            <span class="tl"><b>Campus LMS</b><span>Web Platform · Course Builder · Virtual Classroom</span></span>
+          </a>
+          <a class="tile" data-tags="education" href="./assets/portfolio/ui-school-management.webp">
+            <img src="./assets/portfolio/ui-school-management.webp" alt="School Management" loading="lazy" decoding="async" />
+            <span class="tl"><b>School Management</b><span>Admin Dashboard · Student Records · Performance Analytics</span></span>
+          </a>
+          <a class="tile" data-tags="realestate" href="./assets/portfolio/ui-property-explorer.webp">
+            <img src="./assets/portfolio/ui-property-explorer.webp" alt="Property Explorer" loading="lazy" decoding="async" />
+            <span class="tl"><b>Property Explorer</b><span>Mobile App · AR Property Tours · Mortgage Calculator</span></span>
+          </a>
+          <a class="tile" data-tags="realestate" href="./assets/portfolio/ui-property-manager.webp">
+            <img src="./assets/portfolio/ui-property-manager.webp" alt="Property Manager Pro" loading="lazy" decoding="async" />
+            <span class="tl"><b>Property Manager Pro</b><span>Web Platform · Tenant Portal · Maintenance Requests</span></span>
+          </a>
+          <a class="tile" data-tags="hr" href="./assets/portfolio/ui-employee-hub.webp">
+            <img src="./assets/portfolio/ui-employee-hub.webp" alt="Employee Hub" loading="lazy" decoding="async" />
+            <span class="tl"><b>Employee Hub</b><span>Mobile App · Leave Requests · Expense Reports</span></span>
+          </a>
+          <a class="tile" data-tags="hr" href="./assets/portfolio/ui-workforce-analytics.svg">
+            <img src="./assets/portfolio/ui-workforce-analytics.svg" alt="Workforce Analytics" loading="lazy" decoding="async" />
+            <span class="tl"><b>Workforce Analytics</b><span>Web Platform · Recruitment · Performance Management</span></span>
+          </a>
+          <a class="tile" data-tags="manufacturing" href="./assets/portfolio/ui-production-control.webp">
+            <img src="./assets/portfolio/ui-production-control.webp" alt="Production Control" loading="lazy" decoding="async" />
+            <span class="tl"><b>Production Control</b><span>Web Dashboard · OEE Monitoring · Quality Control</span></span>
+          </a>
+          <a class="tile" data-tags="manufacturing" href="./assets/portfolio/ui-factory-floor.webp">
+            <img src="./assets/portfolio/ui-factory-floor.webp" alt="Factory Floor" loading="lazy" decoding="async" />
+            <span class="tl"><b>Factory Floor</b><span>Mobile App · Equipment Status · Work Orders</span></span>
+          </a>
+          <a class="tile" data-tags="saas" href="./assets/portfolio/ui-project-orchestrator.webp">
+            <img src="./assets/portfolio/ui-project-orchestrator.webp" alt="Project Orchestrator" loading="lazy" decoding="async" />
+            <span class="tl"><b>Project Orchestrator</b><span>SaaS Platform · Team Collaboration · Timeline Management</span></span>
+          </a>
+          <a class="tile" data-tags="saas" href="./assets/portfolio/ui-sales-pipeline.webp">
+            <img src="./assets/portfolio/ui-sales-pipeline.webp" alt="Sales Pipeline Pro" loading="lazy" decoding="async" />
+            <span class="tl"><b>Sales Pipeline Pro</b><span>SaaS Tool · Lead Management · Revenue Forecasting</span></span>
+          </a>
+          <a class="tile" data-tags="saas" href="./assets/portfolio/ui-marketing-automation.webp">
+            <img src="./assets/portfolio/ui-marketing-automation.webp" alt="Marketing Automation" loading="lazy" decoding="async" />
+            <span class="tl"><b>Marketing Automation</b><span>SaaS Platform · Campaign Management · Analytics</span></span>
+          </a>
+          <a class="tile" data-tags="government" href="./assets/portfolio/ui-citizen-services.webp">
+            <img src="./assets/portfolio/ui-citizen-services.webp" alt="Citizen Services" loading="lazy" decoding="async" />
+            <span class="tl"><b>Citizen Services</b><span>Web Portal · Document Applications · Service Tracking</span></span>
+          </a>
+          <a class="tile" data-tags="government" href="./assets/portfolio/ui-smart-city.webp">
+            <img src="./assets/portfolio/ui-smart-city.webp" alt="Smart City" loading="lazy" decoding="async" />
+            <span class="tl"><b>Smart City</b><span>Mobile App · Public Transport · Emergency Services</span></span>
+          </a>
+        </div>
+      </div>
 
-        <a class="idx-card reveal" data-tags="ux ui" href="./case-study-engage.html" data-track="case_card_click" data-track-location="case-studies">
-          <div class="idx-cover">
-            <img src="./assets/case-studies/engage-cover.webp" alt="Engage employee app screens" loading="lazy" />
-            <div class="idx-badges"><span class="idx-badge">Enterprise</span><span class="idx-badge">25k+ users</span></div>
+      <div class="hub-panel" id="panel-liveapps" role="tabpanel">
+        <div class="hub-lead">
+          <div>
+            <h2>SHIPPED AND RUNNING</h2>
+            <p>Small business products designed, built and deployed. Every one of these is a live URL you can open right now.</p>
           </div>
-          <div class="idx-body">
-            <div class="idx-meta"><span class="client">Vodacom · internal product</span><span class="role">UX/UI + product</span></div>
-            <h3>Engage — 25 000 people, one home screen</h3>
-            <p>An app everyone installed and nobody used for real work. Research, a rebuilt information architecture,
-              a tested prototype and a shipped interface — with the before and after numbers to match.</p>
-            <div class="idx-stats">
-              <div class="idx-stat"><b>48s → 19s</b><span>Time to task</span></div>
-              <div class="idx-stat"><b>11 → 4</b><span>Destinations</span></div>
-              <div class="idx-stat"><b>+34%</b><span>Self-service</span></div>
-            </div>
-            <span class="idx-cta">Read the case study</span>
-          </div>
-        </a>
+          <p style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)">5 live apps</p>
+        </div>
+        
+        <div class="tile-grid">          <a class="tile" href="https://loux91.github.io/foodiezone/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/foodiezone.png" alt="FoodieZone" loading="lazy" decoding="async" />
+            <span class="tl"><b>FoodieZone &#8599;</b><span>Order + Delivery &amp; Tracking</span></span>
+          </a>
+          <a class="tile" href="https://king-cutter-s-royal-web.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/king-cutter.png" alt="King Cutter" loading="lazy" decoding="async" />
+            <span class="tl"><b>King Cutter &#8599;</b><span>Bookings + WhatsApp</span></span>
+          </a>
+          <a class="tile" href="https://africa-cuisine-pro.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/africa-cuisine.png" alt="Africa Cuisine" loading="lazy" decoding="async" />
+            <span class="tl"><b>Africa Cuisine &#8599;</b><span>Menu + delivery</span></span>
+          </a>
+          <a class="tile" href="https://skautos.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/sk-auto.png" alt="SK Auto Emporium" loading="lazy" decoding="async" />
+            <span class="tl"><b>SK Auto Emporium &#8599;</b><span>Quotes + bookings</span></span>
+          </a>
+          <a class="tile" href="https://wandies.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/wandies.png" alt="Wandies" loading="lazy" decoding="async" />
+            <span class="tl"><b>Wandies &#8599;</b><span>Menu + WhatsApp orders</span></span>
+          </a>
+        </div>
+      </div>
 
-        <a class="idx-card reveal" data-tags="ux ui" href="./case-study-tobi-bursary.html" data-track="case_card_click" data-track-location="case-studies">
-          <div class="idx-cover">
-            <img src="./assets/case-studies/bursary-portal.webp" alt="Bursary applicant portal screen" loading="lazy" />
-            <div class="idx-badges"><span class="idx-badge">Conversational UX</span><span class="idx-badge">Service design</span></div>
+      <div class="hub-panel" id="panel-builds" role="tabpanel">
+        <div class="hub-lead">
+          <div>
+            <h2>FRONTEND BUILDS</h2>
+            <p>Open-source and in-progress products. Angular, PWAs, offline-first patterns — the code is public.</p>
           </div>
-          <div class="idx-body">
-            <div class="idx-meta"><span class="client">IT support + bursary programme</span><span class="role">UX lead</span></div>
-            <h3>TOBi &amp; the bursary journey</h3>
-            <p>An assistant that opened with an empty room, and a 42-field form six in ten students abandoned. Intent
-              design, a service blueprint, and a conversation you can try on the page.</p>
-            <div class="idx-stats">
-              <div class="idx-stat"><b>41→68%</b><span>Contained</span></div>
-              <div class="idx-stat"><b>38→61%</b><span>Completed</span></div>
-              <div class="idx-stat"><b>−33%</b><span>Repeat contacts</span></div>
-            </div>
-            <span class="idx-cta">Read the case study</span>
-          </div>
-        </a>
+          <p style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)">3 repositories</p>
+        </div>
+        
+        <div class="tile-grid">          <a class="tile" href="https://github.com/LulamileMkhungela/ServiceWaze" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/servicewaze.webp" alt="ServiceWaze" loading="lazy" decoding="async" />
+            <span class="tl"><b>ServiceWaze &#8599;</b><span>Detects your GPS or suburb and pulls news, transport, water, electricity, weather and air-qualit</span></span>
+          </a>
+          <a class="tile" href="https://github.com/LulamileMkhungela/WeStudySync" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/westudysync-cover.svg" alt="WeStudySync" loading="lazy" decoding="async" />
+            <span class="tl"><b>WeStudySync &#8599;</b><span>Offline-first Angular PWA for APS calculation, NSFAS funding, and student survival tools on low-</span></span>
+          </a>
+          <a class="tile" href="https://github.com/LulamileMkhungela/LulaUnifidMarket" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/coming.png" alt="LulaUnifidMarket" loading="lazy" decoding="async" />
+            <span class="tl"><b>LulaUnifidMarket &#8599;</b><span>Unified marketplace platform connecting South African vendors and customers with integrated paym</span></span>
+          </a>
+        </div>
+      </div>
 
-        <a class="idx-card reveal" data-tags="ui frontend" href="./case-study-servicewaze.html" data-track="case_card_click" data-track-location="case-studies">
-          <div class="idx-cover">
-            <img src="./assets/case-studies/servicewaze-cover.svg" alt="ServiceWaze status hub interface" loading="lazy" />
-            <div class="idx-badges"><span class="idx-badge">Design + code</span><span class="idx-badge">Angular PWA</span></div>
+      <div class="hub-panel" id="panel-figma" role="tabpanel">
+        <div class="hub-lead">
+          <div>
+            <h2>FIGMA &amp; DESIGNOPS</h2>
+            <p>The working files and the tooling around them: a live token-pipeline dashboard, the Meridian system, and the resource library I actually use.</p>
           </div>
-          <div class="idx-body">
-            <div class="idx-meta"><span class="client">ServiceWaze · own product</span><span class="role">Designer + developer</span></div>
-            <h3>ServiceWaze — designed for a bad signal</h3>
-            <p>Power, water, air, transport and weather in one honest view. Six interface states designed in Figma and
-              shipped in Angular, with the live component running inside the case study.</p>
-            <div class="idx-stats">
-              <div class="idx-stat"><b>1.2s</b><span>FCP on 3G</span></div>
-              <div class="idx-stat"><b>171 KB</b><span>JS shipped</span></div>
-              <div class="idx-stat"><b>96</b><span>Lighthouse</span></div>
-            </div>
-            <span class="idx-cta">Read the case study</span>
-          </div>
-        </a>
+          <p style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)">4 links</p>
+        </div>
+        
+        <div class="tile-grid">          <a class="tile" href="./design-ops.html">
+            <img src="./assets/portfolio/design-ops.png" alt="DesignOps dashboard" loading="lazy" decoding="async" />
+            <span class="tl"><b>DesignOps dashboard</b><span>Live page · token pipeline, drift and coverage</span></span>
+          </a>
+          <a class="tile" href="https://www.figma.com/make/gkTm2bYYnzAmDBwWbWE7kb/Innovative-Design-System-Creation?t=871NF4mO6SlkhYAP-1" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/design-op.png" alt="Meridian design system" loading="lazy" decoding="async" />
+            <span class="tl"><b>Meridian design system &#8599;</b><span>Figma · token graph, components and platform emitters</span></span>
+          </a>
+          <a class="tile" href="https://www.figma.com/design/SeCP6cuxXX8UyhnOn2wYcJ/Collection-Of-Projects?node-id=8949-77053&p=f" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/figma.png" alt="Collection of projects" loading="lazy" decoding="async" />
+            <span class="tl"><b>Collection of projects &#8599;</b><span>Figma · product UI and Angular screens, open to review</span></span>
+          </a>
+          <a class="tile" href="https://chartreuse-scale-c4a.notion.site/Lula-Creatives-UX-Resources-Bookmarks-1e2962b93ef1809dbe07c896db79ad65" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/ux-resources.png" alt="UX resource library" loading="lazy" decoding="async" />
+            <span class="tl"><b>UX resource library &#8599;</b><span>Notion · the bookmarks and templates I actually use</span></span>
+          </a>
+        </div>
+      </div>
 
-        <a class="idx-card reveal" data-tags="frontend ui" href="./case-study-design-system.html" data-track="case_card_click" data-track-location="case-studies">
-          <div class="idx-cover">
-            <img src="./assets/case-studies/ds-pipeline.svg" alt="Design system pipeline diagram" loading="lazy" />
-            <div class="idx-badges"><span class="idx-badge">Design system</span><span class="idx-badge">DesignOps</span></div>
+      <div class="hub-panel" id="panel-webdesign" role="tabpanel">
+        <div class="hub-lead">
+          <div>
+            <h2>WEB DESIGN</h2>
+            <p>Client and project websites. Clear structure, brand fit, mobile first.</p>
           </div>
-          <div class="idx-body">
-            <div class="idx-meta"><span class="client">Multi-product platform</span><span class="role">System lead + frontend</span></div>
-            <h3>Figma variables to Angular, zero drift</h3>
-            <p>Token architecture, an automated export, 80+ Angular components and the governance that keeps them
-              alive. Includes a live playground where changing a token restyles the components in front of you.</p>
-            <div class="idx-stats">
-              <div class="idx-stat"><b>213 → 0</b><span>Hard-coded colours</span></div>
-              <div class="idx-stat"><b>80+</b><span>Components</span></div>
-              <div class="idx-stat"><b>64 → 11</b><span>QA comments</span></div>
-            </div>
-            <span class="idx-cta">Read the case study</span>
-          </div>
-        </a>
+          <p style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)">7 sites</p>
+        </div>
+        
+        <div class="tile-grid">          <a class="tile" href="https://www.snbconsultancy.co.za/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/snb.webp" alt="SNB Website" loading="lazy" decoding="async" />
+            <span class="tl"><b>SNB Website &#8599;</b><span>Web design</span></span>
+          </a>
+          <a class="tile" href="https://www.nerdma.co.za/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/nerdma.png" alt="Nerdma" loading="lazy" decoding="async" />
+            <span class="tl"><b>Nerdma &#8599;</b><span>Web design</span></span>
+          </a>
+          <a class="tile" href="https://addmoredigital.co.za/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/addmore.png" alt="Add More Digital" loading="lazy" decoding="async" />
+            <span class="tl"><b>Add More Digital &#8599;</b><span>Web design</span></span>
+          </a>
+          <a class="tile" href="./web-design/projects/fitness_studio/">
+            <img src="./web-design/projects/fitness_studio/assets/images/cta-bg.jpg" alt="Fitness Studio" loading="lazy" decoding="async" />
+            <span class="tl"><b>Fitness Studio</b><span>Web design</span></span>
+          </a>
+          <a class="tile" href="./web-design/projects/hosdo/index.html">
+            <img src="./web-design/projects/hosdo/assets/img/cover/about2.png" alt="Hosdo" loading="lazy" decoding="async" />
+            <span class="tl"><b>Hosdo</b><span>Web design</span></span>
+          </a>
+          <a class="tile" href="./web-design/projects/explora/index.html">
+            <img src="./web-design/projects/explora/images/about_background.jpg" alt="Explora" loading="lazy" decoding="async" />
+            <span class="tl"><b>Explora</b><span>Web admin experience</span></span>
+          </a>
+          <a class="tile" href="./web-design/projects/studyzel/index.html">
+            <img src="./web-design/projects/studyzel/images/blog_large_1.jpg" alt="Studyzel" loading="lazy" decoding="async" />
+            <span class="tl"><b>Studyzel</b><span>Digital product surface</span></span>
+          </a>
+        </div>
+      </div>
 
-        <a class="idx-card reveal" data-tags="frontend seo" href="./case-study-seo-performance.html"
-           data-track="case_study_open" data-track-study="seo-performance">
-          <div class="idx-cover">
-            <img src="./assets/og/seo-performance.png" width="1200" height="630"
-              alt="Technical SEO, analytics and performance case study" loading="lazy" decoding="async" />
-            <div class="idx-badges"><span class="idx-badge">Technical SEO</span><span class="idx-badge">Analytics</span></div>
+      <div class="hub-panel" id="panel-hackathons" role="tabpanel">
+        <div class="hub-lead">
+          <div>
+            <h2>HACKATHONS</h2>
+            <p>48-hour builds, mostly social impact. Rough by definition, and useful for showing how fast an idea can be made concrete.</p>
           </div>
-          <div class="idx-body">
-            <div class="idx-meta"><span class="client">This website</span><span class="role">Designer + developer + analyst</span></div>
-            <h3>Findable, fast and actually measured</h3>
-            <p>The technical layer of my own site: on-page SEO, structured data, Core Web Vitals and a privacy-first
-              measurement plan. Every claim is inspectable in the page source, and the page measures itself while you
-              read it.</p>
-            <div class="idx-stats">
-              <div class="idx-stat"><b>−96%</b><span>Image weight</span></div>
-              <div class="idx-stat"><b>6</b><span>Schema types</span></div>
-              <div class="idx-stat"><b>0</b><span>Cookies</span></div>
-            </div>
-            <span class="idx-cta">Read the case study</span>
-          </div>
-        </a>
-
+          <p style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)">3 entries</p>
+        </div>
+        
+        <div class="tile-grid">          <a class="tile" href="https://drive.google.com/file/d/1anSnYJt_4Okl3xQuCkCJDAVROcVOqEFr/view" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/hack.png" alt="Retail Hackathon" loading="lazy" decoding="async" />
+            <span class="tl"><b>Retail Hackathon &#8599;</b><span>AI inventory with video analytics</span></span>
+          </a>
+          <a class="tile" href="https://drive.google.com/file/d/19_dk5NRI_gJzYwyyR5kw_POwazmNhgp-/view" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/farmers-funding.webp" alt="AgriTech Hackathon" loading="lazy" decoding="async" />
+            <span class="tl"><b>AgriTech Hackathon &#8599;</b><span>Farmers &amp; co-op funding platform</span></span>
+          </a>
+          <a class="tile" href="https://www.itweb.co.za/article/wethinkcode-female-developers-triumph-at-gbv-hackathon/KzQenMjVgjAMZd2r" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/portfolio/hacky.webp" alt="GBV Hackathon" loading="lazy" decoding="async" />
+            <span class="tl"><b>GBV Hackathon &#8599;</b><span>GBV hackathon — multi-platform solution</span></span>
+          </a>
+        </div>
       </div>
     </section>
 
     <section class="cs-section reveal">
-      <p class="section-num">How I work</p>
-      <h2>THE SAME FIVE STEPS,<br /><span class="gold">EVERY PROJECT.</span></h2>
-      <div class="how">
-        <div><b>01</b><span>Discover</span>
-          <p>Talk to people, read the tickets, watch the analytics. Find the real problem before designing the visible
-            one.</p>
-        </div>
-        <div><b>02</b><span>Frame</span>
-          <p>One problem statement, a few principles, and a measure of success agreed before any pixels move.</p>
-        </div>
-        <div><b>03</b><span>Design &amp; test</span>
-          <p>Flows, wireframes and prototypes tested flat, so only ideas that survive get polished.</p>
-        </div>
-        <div><b>04</b><span>Build &amp; hand off</span>
-          <p>UI, tokens, component specs and frontend code. I stay in the sprint and review the pull requests.</p>
-        </div>
-        <div><b>05</b><span>Measure</span>
-          <p>Re-run the benchmark. Publish what improved and what did not, then fix the next thing.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap" style="padding:10px 5vw 70px">
-      <div class="cta-band reveal">
+      <div class="cta-band">
         <h3 class="display">WANT THIS APPLIED<br /><span class="gold">TO YOUR PRODUCT?</span></h3>
         <p>Tell me the flow that matters most to your business and what it currently costs you. I will come back with
           what I would research first and what I would ship first.</p>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="./contact.html" data-track="cta_click" data-track-location="case-studies" data-track-variant="primary">Start a conversation</a>
-          <a class="btn btn-outline" href="./showcase.html" data-track="cta_click" data-track-location="case-studies" data-track-variant="secondary">See the wider showcase</a>
+          <a class="btn btn-primary" href="./contact.html">Start a conversation</a>
+          <a class="btn btn-outline" href="./services.html">See services &amp; rates</a>
           <a class="btn btn-ghost" href="./about.html">About me</a>
         </div>
       </div>
@@ -332,25 +618,32 @@
   <footer class="ls-footer">
     <div class="footer-grid">
       <div>
-        <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+        <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" width="34" height="34" />
           <span>Lula<span class="gold">Sync</span></span></a>
-        <p class="footer-desc">Lulamile Mkhungela — equal craft from research to shipped interface. UX/UI and product
-          design, plus the frontend to make it real.</p>
+        <p class="footer-desc">Lulamile Mkhungela — UX/UI and product design, plus the frontend to make it real.
+          Johannesburg, South Africa.</p>
       </div>
       <div>
-        <p class="footer-col-title">Case studies</p>
+        <p class="footer-col-title">Design case studies</p>
         <div class="footer-links">
           <a class="footer-link" href="./case-study-engage.html">Engage — enterprise app</a>
-          <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; bursary journey</a>
-          <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — design to code</a>
-          <a class="footer-link" href="./case-study-design-system.html">Figma to Angular system</a>
-          <a class="footer-link" href="./case-study-seo-performance.html">Technical SEO &amp; analytics</a>
+          <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; the bursary journey</a>
+          <a class="footer-link" href="./case-study-stance.html">Stance — insuring modified cars</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Frontend case studies</p>
+        <div class="footer-links">
+          <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — offline-first PWA</a>
+          <a class="footer-link" href="./case-study-design-system.html">Meridian — Figma to Angular</a>
+          <a class="footer-link" href="./case-study-seo-performance.html">Rebuilding this site</a>
         </div>
       </div>
       <div>
         <p class="footer-col-title">Explore</p>
         <div class="footer-links">
-          <a class="footer-link" href="./showcase.html">Showcase</a>
+          <a class="footer-link" href="./case-studies.html">All work</a>
+          <a class="footer-link" href="./design-ops.html">DesignOps dashboard</a>
           <a class="footer-link" href="./services.html">Services</a>
           <a class="footer-link" href="./about.html">About</a>
           <a class="footer-link" href="./contact.html">Contact</a>
@@ -361,28 +654,12 @@
       <p class="footer-copy">Measured without cookies —
         <a href="./case-study-seo-performance.html" style="color:var(--gold);text-decoration:none">see how</a>
       </p>
-      <p class="footer-copy">© 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
-      <p class="footer-copy">Designing and building useful products for real users.</p>
+      <p class="footer-copy">&copy; 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa</p>
+      <p class="footer-copy">Designing and building useful products for real people.</p>
     </div>
   </footer>
 
   <script src="./assets/case-study.js" defer></script>
-  <script>
-    (function () {
-      var cards = document.querySelectorAll('#idxGrid .idx-card');
-      document.querySelectorAll('.filter').forEach(function (f) {
-        f.addEventListener('click', function () {
-          document.querySelectorAll('.filter').forEach(function (x) { x.classList.remove('on'); });
-          f.classList.add('on');
-          var t = f.getAttribute('data-filter');
-          cards.forEach(function (c) {
-            var show = t === 'all' || (c.getAttribute('data-tags') || '').indexOf(t) > -1;
-            c.classList.toggle('hide', !show);
-          });
-        });
-      });
-    })();
-  </script>
   <script src="./assets/analytics.js" defer></script>
 </body>
 

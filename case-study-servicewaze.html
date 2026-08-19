@@ -1,79 +1,39 @@
 <!DOCTYPE html>
-<!--
-  ============================================================================
-  NOTE FOR LULAMILE — before this goes public:
-  The narrative structure, artefacts and interactions here are yours to keep,
-  but every metric (times, percentages, participant counts) is a placeholder
-  written from the project context. Replace them with your real figures, or
-  soften them to ranges, so nothing in this case study can be challenged.
-  ============================================================================
--->
-
-<html lang="en" data-theme="dark">
+<html lang="en-ZA" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0A0705" />
   <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
+  <link rel="manifest" href="./manifest.json" />
   <script>(function () { try { var t = localStorage.getItem('ls-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); document.documentElement.style.colorScheme = t; } catch (e) { } })();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/case-study.css" />
-  <style>
-    /* Live status-card demo — the actual component pattern, rebuilt here */
-    .sw-demo { display: grid; grid-template-columns: 320px 1fr; gap: 24px; align-items: start; }
-    @media (max-width: 860px) { .sw-demo { grid-template-columns: 1fr; } }
-    .sw-app { background: #0D1117; border: 1px solid #1F2933; border-radius: 20px; padding: 16px; color: #E7EEF5; }
-    .sw-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-    .sw-head b { font-size: .95rem; }
-    .sw-place { font-size: .7rem; color: #7D8B99; margin-bottom: 14px; }
-    .sw-conn { font-size: .6rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; border: 1px solid; }
-    .sw-card { background: #121A22; border: 1px solid #1F2933; border-left: 3px solid; border-radius: 12px; padding: 12px 13px; margin-bottom: 9px; }
-    .sw-card .row1 { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-    .sw-card h4 { font-size: .78rem; font-weight: 700; display: flex; align-items: center; gap: 7px; }
-    .sw-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-    .sw-card .val { font-size: .78rem; font-weight: 800; }
-    .sw-card small { display: block; font-size: .64rem; color: #7D8B99; margin-top: 5px; }
-    .sw-skel { height: 10px; border-radius: 6px; background: linear-gradient(90deg, #1A232C, #243040, #1A232C); background-size: 200% 100%; animation: sh 1.2s linear infinite; }
-    @keyframes sh { from { background-position: 200% 0; } to { background-position: -200% 0; } }
-    .sw-controls { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
-    .sw-controls button { border: 1px solid var(--border); background: var(--card); color: var(--dim); border-radius: 999px; padding: 8px 13px; font-size: .73rem; font-weight: 700; cursor: pointer; }
-    .sw-controls button.on { border-color: var(--gold); background: color-mix(in srgb, var(--gold) 12%, transparent); color: var(--gold); }
-    .sw-explain { font-size: .86rem; color: var(--dim); line-height: 1.7; }
-    .sw-explain b { color: var(--paper); }
-    .toggle-code { display: flex; gap: 6px; margin-bottom: 10px; }
-    .toggle-code button { border: 1px solid var(--border); background: none; color: var(--dim); font-size: .7rem; font-weight: 800; padding: 7px 12px; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: .05em; }
-    .toggle-code button.on { border-color: var(--cyan); color: var(--cyan); }
-  </style>
-<!-- SEO:START -->
-  <title>ServiceWaze — Offline-First Angular PWA | UX + Frontend Case Study</title>
-  <meta name="description" content="Designing and coding an offline-first South African service status hub: six interface states, an IndexedDB cache and a 171 KB JavaScript budget." />
+
+  <title>ServiceWaze — an offline-first Angular PWA | frontend case study</title>
+  <meta name="description" content="Frontend engineering case study: six interface states designed before the happy path, a single freshness gateway, IndexedDB caching and a 180 KB bundle budget enforced in CI." />
   <meta name="author" content="Lulamile Mkhungela" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <link rel="canonical" href="https://lulasync.app/case-study-servicewaze" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="LulaSync — Lulamile Mkhungela" />
   <meta property="og:locale" content="en_ZA" />
-  <meta property="og:title" content="ServiceWaze — Offline-First Angular PWA | UX + Frontend Case Study" />
-  <meta property="og:description" content="Designing and coding an offline-first South African service status hub: six interface states, an IndexedDB cache and a 171 KB JavaScript budget." />
+  <meta property="og:title" content="ServiceWaze — an offline-first Angular PWA | frontend case study" />
+  <meta property="og:description" content="Frontend engineering case study: six interface states designed before the happy path, a single freshness gateway, IndexedDB caching and a 180 KB bundle budget enforced in CI." />
   <meta property="og:url" content="https://lulasync.app/case-study-servicewaze" />
   <meta property="og:image" content="https://lulasync.app/assets/og/servicewaze.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="ServiceWaze — Offline-First Angular PWA | UX + Frontend Case Study" />
-
-  <!-- Twitter / X -->
+  <meta property="og:image:alt" content="ServiceWaze — an offline-first Angular PWA | frontend case study" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ServiceWaze — Offline-First Angular PWA | UX + Frontend Case Study" />
-  <meta name="twitter:description" content="Designing and coding an offline-first South African service status hub: six interface states, an IndexedDB cache and a 171 KB JavaScript budget." />
+  <meta name="twitter:title" content="ServiceWaze — an offline-first Angular PWA | frontend case study" />
+  <meta name="twitter:description" content="Frontend engineering case study: six interface states designed before the happy path, a single freshness gateway, IndexedDB caching and a 180 KB bundle budget enforced in CI." />
   <meta name="twitter:image" content="https://lulasync.app/assets/og/servicewaze.png" />
 
-  <!-- Structured data -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -87,41 +47,19 @@
         "Product Designer",
         "Frontend Developer"
       ],
-      "description": "UX/UI, CX and product designer and frontend developer based in Johannesburg, South Africa.",
       "url": "https://lulasync.app/",
-      "image": "https://lulasync.app/assets/og/about.png",
+      "email": "mailto:mkhungela.lulamile1@gmail.com",
+      "telephone": "+27837195064",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "41 Juta Street, Braamfontein",
         "addressLocality": "Johannesburg",
         "addressRegion": "Gauteng",
         "addressCountry": "ZA"
       },
-      "email": "mailto:mkhungela.lulamile1@gmail.com",
-      "telephone": "+27837195064",
-      "knowsAbout": [
-        "UX research",
-        "Information architecture",
-        "Interaction design",
-        "Design systems",
-        "Design tokens",
-        "Angular",
-        "React",
-        "Progressive web apps",
-        "Web accessibility",
-        "Technical SEO",
-        "Web analytics",
-        "Core Web Vitals"
-      ],
       "sameAs": [
         "https://www.linkedin.com/in/lulamile-mkhungela/",
         "https://github.com/LulamileMkhungela"
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "LulaSync",
-        "url": "https://lulasync.app/"
-      }
+      ]
     },
     {
       "@type": "WebSite",
@@ -131,6 +69,24 @@
       "inLanguage": "en-ZA",
       "publisher": {
         "@id": "https://lulasync.app/#lulamile"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://lulasync.app/case-study-servicewaze#article",
+      "headline": "ServiceWaze — an offline-first Angular PWA",
+      "description": "Frontend engineering case study on offline-first architecture and performance budgets.",
+      "image": "https://lulasync.app/assets/cs/sw-01-states.svg",
+      "author": {
+        "@id": "https://lulasync.app/#lulamile"
+      },
+      "publisher": {
+        "@id": "https://lulasync.app/#lulamile"
+      },
+      "inLanguage": "en-ZA",
+      "about": "Frontend engineering, Angular, progressive web apps",
+      "isPartOf": {
+        "@id": "https://lulasync.app/#website"
       }
     },
     {
@@ -146,44 +102,20 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Case studies",
+          "name": "Work",
           "item": "https://lulasync.app/case-studies"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "ServiceWaze — Offline-First Angular PWA",
+          "name": "ServiceWaze — an offline-first Angular PWA",
           "item": "https://lulasync.app/case-study-servicewaze"
         }
       ]
-    },
-    {
-      "@type": [
-        "Article",
-        "CreativeWork"
-      ],
-      "@id": "https://lulasync.app/case-study-servicewaze#article",
-      "headline": "ServiceWaze — Offline-First Angular PWA",
-      "description": "Designing and coding an offline-first South African service status hub: six interface states, an IndexedDB cache and a 171 KB JavaScript budget.",
-      "image": "https://lulasync.app/assets/og/servicewaze.png",
-      "author": {
-        "@id": "https://lulasync.app/#lulamile"
-      },
-      "publisher": {
-        "@id": "https://lulasync.app/#lulamile"
-      },
-      "inLanguage": "en-ZA",
-      "isPartOf": {
-        "@id": "https://lulasync.app/#website"
-      },
-      "datePublished": "2026-08-19",
-      "dateModified": "2026-08-18",
-      "mainEntityOfPage": "https://lulasync.app/case-study-servicewaze"
     }
   ]
 }
   </script>
-  <!-- SEO:END -->
 </head>
 
 <body>
@@ -191,28 +123,26 @@
   <div class="read-bar" aria-hidden="true"></div>
 
   <nav class="ls-nav">
-    <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+    <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" width="34" height="34" />
       <span>Lula<span class="gold">Sync</span></span></a>
     <div class="nav-links">
       <a href="./index.html" class="nav-link">Home</a>
-      <a href="./case-studies.html" class="nav-link active">Case Studies</a>
-      <a href="./showcase.html" class="nav-link">Showcase</a>
+      <a href="./case-studies.html" class="nav-link active">Work</a>
       <a href="./services.html" class="nav-link">Services</a>
       <a href="./about.html" class="nav-link">About</a>
       <a href="./contact.html" class="nav-link">Contact</a>
     </div>
     <div class="nav-actions">
-      <button class="theme-toggle" aria-label="Switch theme">🌙</button>
-      <button class="hamburger" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">&#127769;</button>
+      <button class="hamburger" id="menuBtn" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
   <div class="grad-line"></div>
   <div class="mobile-overlay" id="mobileOverlay">
-    <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+    <button class="close-btn" id="closeBtn" type="button" aria-label="Close menu">&#10005;</button>
     <div>
       <a href="./index.html" class="mobile-nav-link">Home</a>
-      <a href="./case-studies.html" class="mobile-nav-link active">Case Studies</a>
-      <a href="./showcase.html" class="mobile-nav-link">Showcase</a>
+      <a href="./case-studies.html" class="mobile-nav-link active">Work</a>
       <a href="./services.html" class="mobile-nav-link">Services</a>
       <a href="./about.html" class="mobile-nav-link">About</a>
       <a href="./contact.html" class="mobile-nav-link">Contact</a>
@@ -220,305 +150,201 @@
   </div>
 
   <main id="main">
-
-    <header class="cs-hero wrap">
-      <p class="eyebrow">Case study 03 · UX + frontend, one person</p>
-      <h1 class="display">SERVICEWAZE:<br /><span class="gold">DESIGNED FOR A BAD SIGNAL.</span></h1>
-      <p class="cs-lead">Is the power out, is the water off, is the road closed? In South Africa those answers live in
-        five different places, usually behind a spinner. I designed and built one Angular PWA that answers them in under
-        a second, even with the radio off.</p>
-      <div class="role-tags">
-        <span class="role-tag role-design">✦ Product &amp; UX design</span>
-        <span class="role-tag role-dev">⌘ Angular · PWA · IndexedDB</span>
-        <span class="role-tag role-other">✦ Solo project, still shipping</span>
-      </div>
-      <div class="meta-strip">
-        <div><span>Product</span><b>ServiceWaze (own product)</b></div>
-        <div><span>My role</span><b>Designer and developer</b></div>
-        <div><span>Stack</span><b>Angular, TypeScript, IndexedDB</b></div>
-        <div><span>Status</span><b>In active development</b></div>
-        <div><span>Focus</span><b>Offline-first, low data</b></div>
-        <div><span>Code</span><b><a href="https://github.com/LulamileMkhungela/ServiceWaze" target="_blank"
-              rel="noopener noreferrer">GitHub ↗</a></b></div>
+    <header class="cs-top wrap">
+      <p class="disc disc-dev">Frontend engineering</p>
+      <h1>BUILT FOR<br /><span class="gold">ONE BAR OF SIGNAL.</span></h1>
+      <p class="standfirst">Power, water, air, transport and weather in one honest view. An Angular PWA where the interesting engineering is not the happy path — it is everything that happens when the network does not answer.</p>
+      <dl class="meta-list">
+        <div><dt>Product</dt><dd>ServiceWaze · my own product</dd></div>
+        <div><dt>My role</dt><dd>Designer and frontend developer</dd></div>
+        <div><dt>Stack</dt><dd>Angular 17 standalone, signals, TypeScript, IndexedDB</dd></div>
+        <div><dt>Duration</dt><dd>Ongoing side project</dd></div>
+        <div><dt>Code</dt><dd><a href="https://github.com/LulamileMkhungela/ServiceWaze" target="_blank" rel="noopener" style="color:var(--gold)">GitHub &#8599;</a></dd></div>
+      </dl>
+      <div class="hero-kpis">
+        <div class="hero-kpi"><b>1.2s</b><span>first paint on throttled 3G</span></div>
+        <div class="hero-kpi"><b>171 KB</b><span>JavaScript, gzipped</span></div>
+        <div class="hero-kpi"><b>96</b><span>Lighthouse performance</span></div>
+        <div class="hero-kpi"><b>100%</b><span>of screens work offline</span></div>
       </div>
     </header>
 
-    <section class="wrap reveal" style="padding-bottom:6px">
-      <div class="stats">
-        <div class="stat"><b data-count="1.2" data-suffix="s">0</b><span>First contentful paint on 3G</span></div>
-        <div class="stat"><b data-count="171" data-suffix=" KB">0</b><span>JavaScript shipped, gzipped</span></div>
-        <div class="stat"><b data-count="96">0</b><span>Lighthouse performance</span></div>
-        <div class="stat"><b data-count="5">0</b><span>Public data sources, one view</span></div>
-      </div>
-    </section>
-
-    <div class="chapters">
-      <div class="chapters-inner">
-        <a class="chapter-link" href="#why">01 Why build it</a>
-        <a class="chapter-link" href="#users">02 Who it is for</a>
-        <a class="chapter-link" href="#states">03 Designing the states</a>
-        <a class="chapter-link" href="#live">04 Live component</a>
-        <a class="chapter-link" href="#code">05 Design to code</a>
-        <a class="chapter-link" href="#arch">06 Architecture</a>
-        <a class="chapter-link" href="#results">07 Where it stands</a>
-        <a class="chapter-link" href="#learned">08 What I'd change</a>
+    <div class="cover-wrap reveal">
+      <div class="cover-frame">
+        <img class="zoomable" src="./assets/cs/sw-01-states.svg" alt="Six ServiceWaze interface states: fresh, stale, offline, loading, partial and empty" width="1200" height="700" />
+        <p class="cover-caption">Six states, drawn before the happy path. A status app is mostly not-loaded.</p>
       </div>
     </div>
 
-    <section class="cs-section reveal" id="why">
-      <p class="section-num">01</p>
-      <h2>THE PROBLEM IS NOT MISSING DATA.<br /><span class="gold">IT IS SCATTERED DATA.</span></h2>
-      <p>Load-shedding schedules, municipal water notices, weather warnings, air quality and transport alerts are all
-        published. They just live in five apps, three Twitter accounts and a PDF. On a bad day, at exactly the moment
-        the network is congested, you end up checking all of them.</p>
-      <div class="card-grid">
-        <div class="card accent"><h3>Design problem</h3>
-          <p>Five sources, five vocabularies, five ideas of “right now”. One screen has to make them comparable and
-            honest about how fresh each one is.</p>
-        </div>
-        <div class="card dev"><h3>Engineering problem</h3>
-          <p>Public APIs are slow and sometimes down. The app must never show a blank screen because one of them failed.</p>
-        </div>
-        <div class="card design"><h3>Local constraint</h3>
-          <p>Mobile data is expensive. Refetching everything on every open is a design decision that costs the user
-            money.</p>
-        </div>
+    <nav class="chapters" aria-label="Sections of this case study">
+      <div class="chapters-inner">
+      <a class="chapter-link" href="#problem">01 The problem</a>
+      <a class="chapter-link" href="#process">02 Design to code</a>
+      <a class="chapter-link" href="#try">03 Break it</a>
+      <a class="chapter-link" href="#build">04 The architecture</a>
+      <a class="chapter-link" href="#results">05 Performance</a>
+      <a class="chapter-link" href="#honest">06 Honest bit</a>
+      <a class="chapter-link" href="#more">Next</a>
       </div>
+    </nav>
+
+    <section class="cs-section reveal" id="problem">
+      <div class="sec-head"><span class="n">01</span>
+        <h2>THE NETWORK IS <span class='gold'>THE FEATURE.</span></h2>
+      </div>
+      <p class="sec-sub">Every status app I tried assumed the request would succeed. In Midrand at 18:00 on a load-shedding evening, that assumption is the bug.</p>
+      <div class="duo"><div class="note bad"><h4>What other apps do</h4><p>Spin forever, or show a blank screen with no explanation.</p><p>Show a number from twenty minutes ago as if it were live — which is worse than showing nothing.</p></div><div class="note dev"><h4>The rule I built around</h4><p>Never a blank screen. Never a stale number without saying it is stale.</p><p>Both of those are one component with a state, not six screens.</p></div></div><figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/sw-01-states.svg" alt="Six interface states rendered side by side" loading="lazy" decoding="async" />
+          <figcaption><b>States</b><span>Each state has a written copy string, a colour token and an aria-live announcement. None of this is decoration.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure>
     </section>
 
-    <section class="cs-section reveal" id="users">
-      <p class="section-num">02</p>
-      <h2>WHO I BUILT IT FOR.</h2>
-      <p>Three people I actually know, written up honestly as short profiles rather than invented personas with stock
-        photos.</p>
-      <div class="card-grid">
-        <div class="card design"><h3>Nomsa, 34 — runs a salon in Tembisa</h3>
-          <p>Needs to know if power will be on for the 15:00 appointment. Checks between clients, on 1 GB a month.
-            <em>Wants: one glance, no login.</em></p>
-        </div>
-        <div class="card design"><h3>Sipho, 22 — student in Braamfontein</h3>
-          <p>Plans study sessions around the schedule and the water tank. <em>Wants: the next three windows, not a
-              whole calendar.</em></p>
-        </div>
-        <div class="card design"><h3>Karen, 51 — commutes from Centurion</h3>
-          <p>Cares about road closures and air quality for a child with asthma. <em>Wants: an alert she can trust
-              without opening the app.</em></p>
-        </div>
+    <section class="cs-section reveal" id="process">
+      <div class="sec-head"><span class="n">02</span>
+        <h2>DESIGN AND CODE, <span class='gold'>SAME PERSON.</span></h2>
       </div>
-      <div class="quote">“If it says something is fine and it is not, I will never open it again.”
-        <cite>Nomsa, first prototype session</cite>
-      </div>
-      <p>That sentence became the product rule: <strong>never look confident about stale data.</strong> Every card shows
-        where its number came from and how old it is.</p>
-    </section>
-
-    <section class="cs-section reveal" id="states">
-      <p class="section-num">03</p>
-      <h2>THE INTERESTING WORK<br /><span class="gold">IS IN THE STATES, NOT THE HAPPY PATH.</span></h2>
-      <p>The default screen took an afternoon. The other five states took three weeks, and they are what makes the app
-        usable in Tembisa at 18:00.</p>
-      <div class="card-grid">
-        <div class="card"><h3>Live</h3><p>Fetched under a minute ago. Green dot, exact time, no fuss.</p></div>
-        <div class="card"><h3>Cached</h3><p>Last good copy with its age in plain words: “updated 14 minutes ago”.</p></div>
-        <div class="card"><h3>Offline</h3><p>Cached content stays readable. A retry button, not an error page.</p></div>
-        <div class="card"><h3>Source down</h3><p>Only that card degrades. The other four keep working.</p></div>
-        <div class="card"><h3>Loading</h3><p>Skeletons shaped like the content, never a spinner in the middle of nowhere.</p></div>
-        <div class="card"><h3>Empty</h3><p>“No outages reported for Tembisa” is a result, so it is styled like one.</p></div>
-      </div>
-    </section>
-
-    <!-- LIVE COMPONENT -->
-    <section class="cs-section tint reveal" id="live">
-      <p class="section-num">04</p>
-      <h2>THE REAL COMPONENT, RUNNING HERE.</h2>
-      <p>This is the status card pattern from the app, rebuilt in this page. Switch the connection state and the
-        load-shedding stage to see exactly what a user would see.</p>
-
-      <div class="sw-demo" style="margin-top:20px">
-        <div class="sw-app" id="swApp">
-          <div class="sw-head"><b>Tembisa, Ekurhuleni</b><span class="sw-conn" id="swConn">Live</span></div>
-          <p class="sw-place" id="swPlace">Updated just now · 5 sources</p>
-          <div id="swCards"></div>
+      <p class="sec-sub">This is the case study where the two halves of my job stop being separate. Click through it.</p>
+      <div class="rail" data-rail>
+        <div class="rail-steps" role="tablist" aria-label="Process steps">
+        <button class="rail-step" type="button" role="tab" data-step="s0">
+          <span class="num">01</span><span><span class="t">Draw the failures</span><span class="d">Six states in Figma first</span></span>
+        </button>
+        <button class="rail-step" type="button" role="tab" data-step="s1">
+          <span class="num">02</span><span><span class="t">Find the seam</span><span class="d">One place is allowed to know the time</span></span>
+        </button>
+        <button class="rail-step" type="button" role="tab" data-step="s2">
+          <span class="num">03</span><span><span class="t">Write the rule down</span><span class="d">Four tiers, no judgement calls</span></span>
+        </button>
+        <button class="rail-step" type="button" role="tab" data-step="s3">
+          <span class="num">04</span><span><span class="t">Budget the bundle</span><span class="d">180 KB, enforced in CI</span></span>
+        </button>
+        <button class="rail-step" type="button" role="tab" data-step="s4">
+          <span class="num">05</span><span><span class="t">Test on a real phone</span><span class="d">Not on my laptop</span></span>
+        </button>
         </div>
         <div>
-          <div class="sw-controls" role="group" aria-label="Connection state">
-            <button class="on" data-state="live" type="button">Live</button>
-            <button data-state="cached" type="button">Cached</button>
-            <button data-state="offline" type="button">Offline</button>
-            <button data-state="down" type="button">Source down</button>
-            <button data-state="loading" type="button">Loading</button>
+        <div class="rail-pane" data-step="s0"><figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/sw-01-states.svg" alt="State matrix" loading="lazy" decoding="async" />
+          <figcaption><b>Figma</b><span>I designed the offline and stale states before the fresh one. When you start with the failure, the success state falls out for free.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure></div>
+        <div class="rail-pane" data-step="s1"><figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/sw-02-arch.svg" alt="Offline-first architecture with the freshness rule and gateway code" loading="lazy" decoding="async" />
+          <figcaption><b>Architecture</b><span>Components take pure inputs. A single resource gateway decides cache versus network. That seam is the whole design.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure></div>
+        <div class="rail-pane" data-step="s2"><div class="facts"><div><b>&lt; 2 min</b><span>fresh — show it plainly</span></div><div><b>2–15 min</b><span>stale — show it, say how old</span></div><div><b>&gt; 15 min</b><span>last known — say so, offer refresh</span></div><div><b>no cache</b><span>empty state, never a spinner</span></div></div><div class="duo"><div class="note dev"><h4>Why it is written and not implied</h4><p>A freshness policy that lives in three developers’ heads produces three different UIs. Written down, it is one constant file and 38 unit tests.</p></div></div></div>
+        <div class="rail-pane" data-step="s3"><figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/sw-03-perf.svg" alt="Bundle growth against the budget line, plus Lighthouse gauges" loading="lazy" decoding="async" />
+          <figcaption><b>Performance</b><span>The budget was set in week one. When week nine crossed it, two features were cut rather than the number raised.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure></div>
+        <div class="rail-pane" data-step="s4"><div class="duo"><div class="note good"><h4>The device that decides</h4><p>A Moto G Power on a throttled connection, not a MacBook on fibre. Everything that feels fine on a laptop feels different at 1.5 Mbps.</p></div><div class="note bad"><h4>What that caught</h4><p>A 400 ms hitch on first render that was invisible on desktop. It was a font swap, and it was one preload away from being fixed.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section reveal" id="try">
+      <div class="sec-head"><span class="n">03</span>
+        <h2>BREAK <span class='gold'>IT.</span></h2>
+      </div>
+      <p class="sec-sub">The real component logic. Force any state and see what the person on the other end would actually get.</p>
+      <div class="demo" id="swBoard" data-segs>
+        <div class="demo-bar">
+          <span class="tag">Live component</span>
+          <div class="seg" role="group" aria-label="Force a state">
+            <button type="button" class="on" data-seg="fresh">Fresh</button>
+            <button type="button" data-seg="stale">Stale</button>
+            <button type="button" data-seg="offline">Offline</button>
+            <button type="button" data-seg="partial">Partial</button>
+            <button type="button" data-seg="loading">Loading</button>
+            <button type="button" data-seg="empty">Empty</button>
           </div>
-          <div class="sw-controls" role="group" aria-label="Load-shedding stage">
-            <button data-stage="0" type="button">Stage 0</button>
-            <button class="on" data-stage="2" type="button">Stage 2</button>
-            <button data-stage="4" type="button">Stage 4</button>
-            <button data-stage="6" type="button">Stage 6</button>
-          </div>
-          <p class="sw-explain" id="swExplain"></p>
-          <div class="card dev" style="margin-top:14px">
-            <h3>Accessibility decisions inside this component</h3>
-            <p>Colour never carries the meaning alone — the dot, the label and the timestamp all say the same thing. The
-              status region is a polite live region, so a screen reader announces a change without interrupting. Every
-              control is reachable and operable from the keyboard.</p>
+          <span class="hint">Force any state &mdash; the component decides the rest</span>
+        </div>
+        <div class="demo-body">
+          <div class="board">
+            <div class="board-head">
+              <b>Midrand, Gauteng</b>
+              <span id="swBadge" style="font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase">live</span>
+            </div>
+            <div id="swBody"></div>
+            <p class="board-note" id="swNote"></p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cs-section reveal" id="code">
-      <p class="section-num">05</p>
-      <h2>THE SAME DECISION, TWICE:<br /><span class="gold">ONCE IN FIGMA, ONCE IN CODE.</span></h2>
-      <p>Because I write the component as well as design it, the spec and the implementation cannot drift. Here is the
-        same status card from both sides.</p>
-      <div class="toggle-code" role="tablist">
-        <button class="on" data-code="spec" type="button">Design spec</button>
-        <button data-code="ts" type="button">Angular component</button>
-        <button data-code="html" type="button">Template</button>
+    <section class="cs-section reveal" id="build">
+      <div class="sec-head"><span class="n">04</span>
+        <h2>THE <span class='gold'>ARCHITECTURE.</span></h2>
       </div>
-      <div id="codeBox">
-        <pre class="code" data-codepane="spec"><span class="c">Component: status-card</span>
-<span class="k">Props</span>
-  title      text, sentence case, 1 line, truncates with tooltip
-  value      text, 800 weight, never abbreviated below 320px
-  state      live | cached | offline | down | loading | empty
-  updatedAt  ISO timestamp, rendered as relative time
-  source     text, always visible — trust depends on it
-
-<span class="k">Rules</span>
-  1. Meaning is carried by dot + label + time, never by colour alone.
-  2. Cached and offline keep the last value visible. Nothing is hidden.
-  3. Skeleton shape must match the final content height (no layout shift).
-  4. Minimum touch target 44px. Card is one tap target, not three.
-  5. Contrast at AA against #0D1117 for every state colour.</pre>
-
-        <pre class="code" data-codepane="ts" style="display:none"><span class="c">// status-card.component.ts — props map 1:1 to the Figma spec above</span>
-<span class="k">@Component</span>({ selector: <span class="s">'sw-status-card'</span>, standalone: <span class="k">true</span> })
-<span class="k">export class</span> StatusCardComponent {
-  <span class="k">@Input</span>({ required: <span class="k">true</span> }) title!: <span class="s">string</span>;
-  <span class="k">@Input</span>() value = <span class="s">'—'</span>;
-  <span class="k">@Input</span>() state: <span class="s">CardState</span> = <span class="s">'live'</span>;
-  <span class="k">@Input</span>() updatedAt?: <span class="s">Date</span>;
-  <span class="k">@Input</span>() source = <span class="s">''</span>;
-
-  <span class="c">/* one accessible sentence, built from the same three signals */</span>
-  <span class="k">get</span> ariaSummary(): <span class="s">string</span> {
-    <span class="k">return</span> `${<span class="k">this</span>.title}: ${<span class="k">this</span>.value}, `
-      + `${STATE_LABEL[<span class="k">this</span>.state]}, updated ${relative(<span class="k">this</span>.updatedAt)}`;
-  }
-}</pre>
-
-        <pre class="code" data-codepane="html" style="display:none"><span class="c">&lt;!-- status-card.component.html --&gt;</span>
-&lt;article class=<span class="s">"card"</span> [attr.data-state]=<span class="s">"state"</span> [attr.aria-label]=<span class="s">"ariaSummary"</span>&gt;
-  &lt;header&gt;
-    &lt;span class=<span class="s">"dot"</span> aria-hidden=<span class="s">"true"</span>&gt;&lt;/span&gt;
-    &lt;h4&gt;{{ title }}&lt;/h4&gt;
-    &lt;strong&gt;{{ value }}&lt;/strong&gt;
-  &lt;/header&gt;
-
-  <span class="c">&lt;!-- the honesty line: state, age and source, always visible --&gt;</span>
-  &lt;small&gt;{{ stateLabel }} · {{ updatedAt | relativeTime }} · {{ source }}&lt;/small&gt;
-
-  &lt;sw-skeleton *ngIf=<span class="s">"state === 'loading'"</span> [lines]=<span class="s">"2"</span>&gt;&lt;/sw-skeleton&gt;
-&lt;/article&gt;</pre>
-      </div>
-      <p style="margin-top:16px"><strong>Why this matters to a hiring team:</strong> there is no translation step between
-        the design intent and the shipped component. The prop names in Figma are the prop names in the code, so a
-        review conversation is about the product, not about interpretation.</p>
+      <p class="sec-sub">Five public APIs, one gateway, one cache, and a rule about time.</p>
+      <figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/sw-02-arch.svg" alt="Architecture diagram from UI layer to public APIs, with the freshness rule and code" loading="lazy" decoding="async" />
+          <figcaption><b>Architecture</b><span>Version one cached inside the components. Three of them disagreed about what “now” meant and the UI flickered. Moving time into one gateway fixed a class of bug, not a bug.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure><div class="facts"><div><b>5</b><span>public data sources</span></div><div><b>38</b><span>unit tests on the gateway alone</span></div><div><b>2.1 KB</b><span>of freshness logic, gzipped</span></div><div><b>1</b><span>place that knows about time</span></div><div><b>0</b><span>spinners without a timeout</span></div></div>
     </section>
 
-    <section class="cs-section reveal" id="arch">
-      <p class="section-num">06</p>
-      <h2>ARCHITECTURE, WRITTEN AS DESIGN DECISIONS.</h2>
-      <figure>
-        <img class="art zoomable" src="./assets/case-studies/servicewaze-arch.svg"
-          alt="Offline-first architecture diagram with sources, fetch layer, cache, UI state, performance budget and design rationale" loading="lazy" />
-        <figcaption>Data flow, the four UI states it produces, and the performance budget I held the build to. Click to
-          enlarge.</figcaption>
-      </figure>
+    <section class="cs-section reveal tint" id="results">
+      <div class="sec-head"><span class="n">05</span>
+        <h2>A BUDGET, <span class='gold'>NOT A HOPE.</span></h2>
+      </div>
+      <p class="sec-sub">Measured on a mid-range Android over throttled 3G — the device and connection this is actually for.</p>
+      <figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/sw-03-perf.svg" alt="Bundle budget chart and Lighthouse scores" loading="lazy" decoding="async" />
+          <figcaption><b>Performance</b><span>GitHub Actions runs Lighthouse CI and size-limit on every pull request. A regression is a red check, not a conversation three months later.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure><div class="facts"><div><b>1.2s</b><span>first contentful paint</span></div><div><b>1.9s</b><span>largest contentful paint</span></div><div><b>0.01</b><span>cumulative layout shift</span></div><div><b>171 KB</b><span>JS gzipped</span></div><div><b>0</b><span>blocking third-party scripts</span></div></div>
     </section>
 
-    <section class="cs-section reveal" id="results">
-      <p class="section-num">07</p>
-      <h2>WHERE IT STANDS.</h2>
-      <p>ServiceWaze is in active development and honest about it. The status hub, offline cache and multilingual labels
-        are working; alerts and suburb subscriptions are next.</p>
-      <div class="stats">
-        <div class="stat"><b>1.2s</b><span>First contentful paint on throttled 3G</span></div>
-        <div class="stat"><b>171 KB</b><span>JavaScript shipped, gzipped</span></div>
-        <div class="stat"><b>96 / 98</b><span>Lighthouse performance / accessibility</span></div>
-        <div class="stat"><b>100%</b><span>Core view available offline</span></div>
+    <section class="cs-section reveal" id="honest">
+      <div class="sec-head"><span class="n">06</span>
+        <h2>THE <span class='gold'>HONEST BIT.</span></h2>
       </div>
-      <div class="card-grid" style="margin-top:16px">
-        <div class="card"><h3>Shipped</h3><p>Status hub, five sources, offline cache, English, isiZulu and Afrikaans
-            labels, installable PWA.</p></div>
-        <div class="card"><h3>In progress</h3><p>Suburb subscriptions and push alerts, with a quiet-hours rule so the
-            app never wakes you at 03:00.</p></div>
-        <div class="card"><h3>Backlog</h3><p>Community-reported outages with verification, because official feeds lag
-            behind the street.</p></div>
-      </div>
+      <p class="sec-sub">This is a side project I still work on, so the seams are current.</p>
+      <div class="honest"><h4>Where it falls short today</h4><ul><li>Two of the five data sources have no official API. I scrape them, and when the page they come from changes, the source goes stale and the UI correctly says so — which is the right failure, but it is still a failure.</li><li>isiZulu and Sesotho strings exist for the interface but not for the source data itself, so you get a translated label and an English status. That reads badly and I know it.</li><li>There is no end-to-end test that actually flies the plane offline. The gateway is well unit-tested; the service worker registration is not.</li><li>I designed and built this alone, which means nobody has ever pushed back on my architecture. That is a risk, not a boast.</li></ul></div>
     </section>
 
-    <section class="cs-section reveal" id="learned">
-      <p class="section-num">08</p>
-      <h2>WHAT I WOULD DO DIFFERENTLY.</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Design the cache before the screens</h3>
-          <p>I drew the perfect-connection screen first and then retrofitted the cached and offline versions. Starting
-            from the worst state would have saved a fortnight of rework.</p>
-        </div>
-        <div class="card"><h3>Set the performance budget on day one</h3>
-          <p>I added the budget in week three and had to remove a chart library to hit it. A budget is a design
-            constraint, so it belongs next to the wireframes.</p>
-        </div>
-        <div class="card"><h3>Test on a cheap phone, not a flagship</h3>
-          <p>Everything felt instant on my device. A borrowed entry-level Android exposed two animations that had to go.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap" style="padding:20px 5vw 70px">
-      <div class="cta-band reveal">
-        <h3 class="display">NEED SOMEONE WHO CAN DESIGN IT<br /><span class="gold">AND THEN SHIP IT?</span></h3>
-        <p>Product design and frontend delivery from the same person, with performance and accessibility treated as
-          design work rather than clean-up.</p>
+    <section class="cs-section reveal" id="more">
+      <div class="cta-band">
+        <h3 class="display">WANT THIS<br /><span class="gold">ON YOUR PRODUCT?</span></h3>
+        <p>Tell me the one flow that matters most to your business and what it currently costs you. I will come back
+          with what I would research first and what I would ship first.</p>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="./contact.html" data-track="cta_click" data-track-location="case-study-servicewaze" data-track-variant="primary">Start a conversation</a>
-          <a class="btn btn-outline" href="https://github.com/LulamileMkhungela/ServiceWaze" target="_blank"
-            rel="noopener noreferrer" data-track="cta_click" data-track-location="case-study-servicewaze" data-track-variant="secondary">View the repository ↗</a>
-          <a class="btn btn-ghost" href="./case-studies.html">All case studies</a>
+          <a class="btn btn-primary" href="./contact.html">Start a conversation</a>
+          <a class="btn btn-outline" href="./case-studies.html">See all work</a>
         </div>
       </div>
-      <div class="cs-nav-next">
-        <a class="next-card" href="./case-study-design-system.html"><span>Next case study</span><b>Figma variables to
-            Angular — a design system with zero drift →</b></a>
-        <a class="next-card" href="./case-study-tobi-bursary.html"><span>Previous</span><b>TOBi &amp; the bursary journey
-            — conversational UX →</b></a>
-      </div>
+      <div class="cs-nav-next"><a class="next-card" href="./case-study-stance.html"><span>Previous</span><b>Stance — insuring modified cars</b></a><a class="next-card" href="./case-study-design-system.html"><span>Next case study</span><b>Meridian — Figma to Angular</b></a><a class="next-card" href="./case-studies.html"><span>Index</span><b>All six case studies &amp; the showcase</b></a></div>
     </section>
   </main>
 
   <footer class="ls-footer">
     <div class="footer-grid">
       <div>
-        <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+        <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" width="34" height="34" />
           <span>Lula<span class="gold">Sync</span></span></a>
-        <p class="footer-desc">Lulamile Mkhungela — equal craft from research to shipped interface. UX/UI and product
-          design, plus the frontend to make it real.</p>
+        <p class="footer-desc">Lulamile Mkhungela — UX/UI and product design, plus the frontend to make it real.
+          Johannesburg, South Africa.</p>
       </div>
       <div>
-        <p class="footer-col-title">Case studies</p>
+        <p class="footer-col-title">Design case studies</p>
         <div class="footer-links">
           <a class="footer-link" href="./case-study-engage.html">Engage — enterprise app</a>
-          <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; bursary journey</a>
-          <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — design to code</a>
-          <a class="footer-link" href="./case-study-design-system.html">Figma to Angular system</a>
-          <a class="footer-link" href="./case-study-seo-performance.html">Technical SEO &amp; analytics</a>
+          <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; the bursary journey</a>
+          <a class="footer-link" href="./case-study-stance.html">Stance — insuring modified cars</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Frontend case studies</p>
+        <div class="footer-links">
+          <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — offline-first PWA</a>
+          <a class="footer-link" href="./case-study-design-system.html">Meridian — Figma to Angular</a>
+          <a class="footer-link" href="./case-study-seo-performance.html">Rebuilding this site</a>
         </div>
       </div>
       <div>
         <p class="footer-col-title">Explore</p>
         <div class="footer-links">
-          <a class="footer-link" href="./showcase.html">Showcase</a>
+          <a class="footer-link" href="./case-studies.html">All work</a>
+          <a class="footer-link" href="./design-ops.html">DesignOps dashboard</a>
           <a class="footer-link" href="./services.html">Services</a>
           <a class="footer-link" href="./about.html">About</a>
           <a class="footer-link" href="./contact.html">Contact</a>
@@ -529,97 +355,12 @@
       <p class="footer-copy">Measured without cookies —
         <a href="./case-study-seo-performance.html" style="color:var(--gold);text-decoration:none">see how</a>
       </p>
-      <p class="footer-copy">© 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
-      <p class="footer-copy">Designing and building useful products for real users.</p>
+      <p class="footer-copy">&copy; 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa</p>
+      <p class="footer-copy">Designing and building useful products for real people.</p>
     </div>
   </footer>
 
   <script src="./assets/case-study.js" defer></script>
-  <script>
-    /* ── Live status component demo ───────────────────────────────────── */
-    (function () {
-      var cards = document.getElementById('swCards'), conn = document.getElementById('swConn'),
-        place = document.getElementById('swPlace'), explain = document.getElementById('swExplain');
-      if (!cards) return;
-      var state = 'live', stage = 2;
-
-      var palette = {
-        live: { c: '#2FBF71', label: 'Live', note: '<b>Live.</b> Everything was fetched under a minute ago. The dot, the word and the timestamp all agree, so the state is readable without relying on colour.' },
-        cached: { c: '#F0A500', label: 'Cached', note: '<b>Cached.</b> The network is slow, so the last good copy stays on screen with its real age. Showing an old number honestly beats showing a spinner.' },
-        offline: { c: '#7D8B99', label: 'Offline', note: '<b>Offline.</b> No connection at all. The content is still readable from IndexedDB, a retry sits at the bottom, and nothing pretends to be current.' },
-        down: { c: '#E04E14', label: 'Source issue', note: '<b>Source down.</b> One API failed. Only that card degrades and it names the source, so the other four remain trustworthy.' },
-        loading: { c: '#7D8B99', label: 'Loading', note: '<b>Loading.</b> Skeletons match the final content height, so nothing jumps when the data lands. No spinner, no layout shift.' }
-      };
-
-      function stageText() {
-        if (stage === 0) return { v: 'No load-shedding', s: 'Next check 18:00' };
-        return { v: 'Stage ' + stage, s: 'Off 18:00–20:30 · Zone 7' };
-      }
-
-      function card(title, value, sub, colour, opts) {
-        opts = opts || {};
-        if (state === 'loading') {
-          return '<div class="sw-card" style="border-left-color:#1F2933">' +
-            '<div class="row1"><h4>' + title + '</h4></div>' +
-            '<div class="sw-skel" style="margin-top:9px;width:70%"></div>' +
-            '<div class="sw-skel" style="margin-top:7px;width:45%;height:7px"></div></div>';
-        }
-        var broken = opts.broken && state === 'down';
-        var c = broken ? palette.down.c : colour;
-        var stateWord = broken ? 'Source not responding' : (state === 'live' ? 'Live' : state === 'cached' ? 'Cached' : state === 'offline' ? 'Saved copy' : 'Live');
-        var age = state === 'live' ? 'just now' : state === 'cached' ? '14 minutes ago' : state === 'offline' ? '2 hours ago' : 'just now';
-        return '<div class="sw-card" style="border-left-color:' + c + '">' +
-          '<div class="row1"><h4><span class="sw-dot" style="background:' + c + '"></span>' + title + '</h4>' +
-          '<span class="val" style="color:' + (broken ? '#7D8B99' : '#E7EEF5') + '">' + (broken ? 'No data' : value) + '</span></div>' +
-          '<small>' + (broken ? 'Eskom feed timed out · showing nothing rather than guessing' : sub + ' · ' + stateWord + ' · ' + age) + '</small></div>';
-      }
-
-      function render() {
-        var st = stageText();
-        var p = palette[state];
-        conn.textContent = p.label;
-        conn.style.color = p.c;
-        conn.style.borderColor = p.c;
-        place.textContent = state === 'offline' ? 'Showing your saved copy · 5 sources' :
-          state === 'cached' ? 'Updated 14 minutes ago · 5 sources' :
-            state === 'loading' ? 'Checking 5 sources…' : 'Updated just now · 5 sources';
-        cards.innerHTML =
-          card('Electricity', st.v, st.s, stage >= 4 ? '#E04E14' : stage >= 1 ? '#F0A500' : '#2FBF71', { broken: true }) +
-          card('Water', 'Supply normal', 'No notices for Ekurhuleni', '#2FBF71') +
-          card('Air quality', 'AQI 62 · Moderate', 'Sensitive groups take care', '#F0A500') +
-          card('Transport', '1 road closed', 'R21 north, single lane', '#F0A500') +
-          card('Weather', '19°C · Rain 60%', 'Thunderstorm warning 16:00', '#0EA5D8') +
-          (state === 'offline' ? '<div style="text-align:center;margin-top:12px"><span style="display:inline-block;border:1px solid #1F2933;border-radius:999px;padding:8px 16px;font-size:.7rem;font-weight:700;color:#7D8B99">↻ Retry when you have signal</span></div>' : '');
-        explain.innerHTML = p.note;
-      }
-
-      document.querySelectorAll('[data-state]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          document.querySelectorAll('[data-state]').forEach(function (x) { x.classList.remove('on'); });
-          b.classList.add('on'); state = b.getAttribute('data-state'); render();
-        });
-      });
-      document.querySelectorAll('[data-stage]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          document.querySelectorAll('[data-stage]').forEach(function (x) { x.classList.remove('on'); });
-          b.classList.add('on'); stage = parseInt(b.getAttribute('data-stage'), 10); render();
-        });
-      });
-      render();
-
-      /* code tabs */
-      document.querySelectorAll('[data-code]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          document.querySelectorAll('[data-code]').forEach(function (x) { x.classList.remove('on'); });
-          b.classList.add('on');
-          var id = b.getAttribute('data-code');
-          document.querySelectorAll('[data-codepane]').forEach(function (p) {
-            p.style.display = p.getAttribute('data-codepane') === id ? 'block' : 'none';
-          });
-        });
-      });
-    })();
-  </script>
   <script src="./assets/analytics.js" defer></script>
 </body>
 

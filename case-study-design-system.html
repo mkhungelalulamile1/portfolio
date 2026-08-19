@@ -1,74 +1,39 @@
 <!DOCTYPE html>
-<!--
-  ============================================================================
-  NOTE FOR LULAMILE — before this goes public:
-  The narrative structure, artefacts and interactions here are yours to keep,
-  but every metric (times, percentages, participant counts) is a placeholder
-  written from the project context. Replace them with your real figures, or
-  soften them to ranges, so nothing in this case study can be challenged.
-  ============================================================================
--->
-
-<html lang="en" data-theme="dark">
+<html lang="en-ZA" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0A0705" />
   <link rel="icon" href="./assets/portfolio/icon-192.png" type="image/png" />
+  <link rel="manifest" href="./manifest.json" />
   <script>(function () { try { var t = localStorage.getItem('ls-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); document.documentElement.style.colorScheme = t; } catch (e) { } })();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/case-study.css" />
-  <style>
-    /* Token playground */
-    .play { display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start; }
-    @media (max-width: 900px) { .play { grid-template-columns: 1fr; } }
-    .play-controls { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
-    .ctrl { margin-bottom: 16px; }
-    .ctrl label { display: flex; justify-content: space-between; font-size: .7rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--dim); margin-bottom: 7px; }
-    .ctrl label b { color: var(--gold); font-family: ui-monospace, Menlo, monospace; letter-spacing: 0; }
-    .ctrl input[type=range] { width: 100%; accent-color: var(--gold); }
-    .swatches { display: flex; gap: 7px; flex-wrap: wrap; }
-    .swatch { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
-    .swatch.on { border-color: var(--paper); }
-    .preview-surface { background: var(--card-2); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
-    .demo-btn { border: none; font-weight: 800; cursor: pointer; font-size: .86rem; }
-    .demo-card { border: 1px solid var(--border); background: var(--card); }
-    .demo-input { border: 1px solid var(--border); background: transparent; color: var(--paper); font-size: .84rem; width: 100%; }
-    .demo-chip { font-size: .7rem; font-weight: 800; padding: 6px 12px; }
-    .drift { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-    .drift-item { border: 1px solid var(--border); border-radius: 12px; padding: 14px; background: var(--card); }
-    .drift-item code { font-family: ui-monospace, Menlo, monospace; font-size: .74rem; color: var(--gold); display: block; margin-top: 6px; word-break: break-all; }
-  </style>
-<!-- SEO:START -->
-  <title>Figma Variables to Angular — Design System Case Study</title>
-  <meta name="description" content="Token architecture, automated Style Dictionary exports, 80+ Angular components and the governance that keeps design and code in sync. Includes a live token playground." />
+
+  <title>Meridian — Figma variables to Angular with zero drift | design system case study</title>
+  <meta name="description" content="DesignOps case study: a three-layer token architecture, an automated Figma to Angular pipeline, 80+ components and six blocking CI checks. Adoption reached 91%." />
   <meta name="author" content="Lulamile Mkhungela" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <link rel="canonical" href="https://lulasync.app/case-study-design-system" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="LulaSync — Lulamile Mkhungela" />
   <meta property="og:locale" content="en_ZA" />
-  <meta property="og:title" content="Figma Variables to Angular — Design System Case Study" />
-  <meta property="og:description" content="Token architecture, automated Style Dictionary exports, 80+ Angular components and the governance that keeps design and code in sync. Includes a live token playground." />
+  <meta property="og:title" content="Meridian — Figma variables to Angular with zero drift | design system case study" />
+  <meta property="og:description" content="DesignOps case study: a three-layer token architecture, an automated Figma to Angular pipeline, 80+ components and six blocking CI checks. Adoption reached 91%." />
   <meta property="og:url" content="https://lulasync.app/case-study-design-system" />
   <meta property="og:image" content="https://lulasync.app/assets/og/design-system.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Figma Variables to Angular — Design System Case Study" />
-
-  <!-- Twitter / X -->
+  <meta property="og:image:alt" content="Meridian — Figma variables to Angular with zero drift | design system case study" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Figma Variables to Angular — Design System Case Study" />
-  <meta name="twitter:description" content="Token architecture, automated Style Dictionary exports, 80+ Angular components and the governance that keeps design and code in sync. Includes a live token playground." />
+  <meta name="twitter:title" content="Meridian — Figma variables to Angular with zero drift | design system case study" />
+  <meta name="twitter:description" content="DesignOps case study: a three-layer token architecture, an automated Figma to Angular pipeline, 80+ components and six blocking CI checks. Adoption reached 91%." />
   <meta name="twitter:image" content="https://lulasync.app/assets/og/design-system.png" />
 
-  <!-- Structured data -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -82,41 +47,19 @@
         "Product Designer",
         "Frontend Developer"
       ],
-      "description": "UX/UI, CX and product designer and frontend developer based in Johannesburg, South Africa.",
       "url": "https://lulasync.app/",
-      "image": "https://lulasync.app/assets/og/about.png",
+      "email": "mailto:mkhungela.lulamile1@gmail.com",
+      "telephone": "+27837195064",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "41 Juta Street, Braamfontein",
         "addressLocality": "Johannesburg",
         "addressRegion": "Gauteng",
         "addressCountry": "ZA"
       },
-      "email": "mailto:mkhungela.lulamile1@gmail.com",
-      "telephone": "+27837195064",
-      "knowsAbout": [
-        "UX research",
-        "Information architecture",
-        "Interaction design",
-        "Design systems",
-        "Design tokens",
-        "Angular",
-        "React",
-        "Progressive web apps",
-        "Web accessibility",
-        "Technical SEO",
-        "Web analytics",
-        "Core Web Vitals"
-      ],
       "sameAs": [
         "https://www.linkedin.com/in/lulamile-mkhungela/",
         "https://github.com/LulamileMkhungela"
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "LulaSync",
-        "url": "https://lulasync.app/"
-      }
+      ]
     },
     {
       "@type": "WebSite",
@@ -126,6 +69,24 @@
       "inLanguage": "en-ZA",
       "publisher": {
         "@id": "https://lulasync.app/#lulamile"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://lulasync.app/case-study-design-system#article",
+      "headline": "Meridian — Figma variables to Angular, zero drift",
+      "description": "Design system and DesignOps engineering case study.",
+      "image": "https://lulasync.app/assets/cs/ds-01-pipeline.svg",
+      "author": {
+        "@id": "https://lulasync.app/#lulamile"
+      },
+      "publisher": {
+        "@id": "https://lulasync.app/#lulamile"
+      },
+      "inLanguage": "en-ZA",
+      "about": "Design systems, design tokens, DesignOps, Angular",
+      "isPartOf": {
+        "@id": "https://lulasync.app/#website"
       }
     },
     {
@@ -141,44 +102,20 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Case studies",
+          "name": "Work",
           "item": "https://lulasync.app/case-studies"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Figma Variables to Angular — Design System Case Study",
+          "name": "Meridian — Figma variables to Angular, zero drift",
           "item": "https://lulasync.app/case-study-design-system"
         }
       ]
-    },
-    {
-      "@type": [
-        "Article",
-        "CreativeWork"
-      ],
-      "@id": "https://lulasync.app/case-study-design-system#article",
-      "headline": "Figma Variables to Angular — Design System Case Study",
-      "description": "Token architecture, automated Style Dictionary exports, 80+ Angular components and the governance that keeps design and code in sync. Includes a live token playground.",
-      "image": "https://lulasync.app/assets/og/design-system.png",
-      "author": {
-        "@id": "https://lulasync.app/#lulamile"
-      },
-      "publisher": {
-        "@id": "https://lulasync.app/#lulamile"
-      },
-      "inLanguage": "en-ZA",
-      "isPartOf": {
-        "@id": "https://lulasync.app/#website"
-      },
-      "datePublished": "2026-08-19",
-      "dateModified": "2026-08-18",
-      "mainEntityOfPage": "https://lulasync.app/case-study-design-system"
     }
   ]
 }
   </script>
-  <!-- SEO:END -->
 </head>
 
 <body>
@@ -186,28 +123,26 @@
   <div class="read-bar" aria-hidden="true"></div>
 
   <nav class="ls-nav">
-    <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+    <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" width="34" height="34" />
       <span>Lula<span class="gold">Sync</span></span></a>
     <div class="nav-links">
       <a href="./index.html" class="nav-link">Home</a>
-      <a href="./case-studies.html" class="nav-link active">Case Studies</a>
-      <a href="./showcase.html" class="nav-link">Showcase</a>
+      <a href="./case-studies.html" class="nav-link active">Work</a>
       <a href="./services.html" class="nav-link">Services</a>
       <a href="./about.html" class="nav-link">About</a>
       <a href="./contact.html" class="nav-link">Contact</a>
     </div>
     <div class="nav-actions">
-      <button class="theme-toggle" aria-label="Switch theme">🌙</button>
-      <button class="hamburger" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">&#127769;</button>
+      <button class="hamburger" id="menuBtn" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
   <div class="grad-line"></div>
   <div class="mobile-overlay" id="mobileOverlay">
-    <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+    <button class="close-btn" id="closeBtn" type="button" aria-label="Close menu">&#10005;</button>
     <div>
       <a href="./index.html" class="mobile-nav-link">Home</a>
-      <a href="./case-studies.html" class="mobile-nav-link active">Case Studies</a>
-      <a href="./showcase.html" class="mobile-nav-link">Showcase</a>
+      <a href="./case-studies.html" class="mobile-nav-link active">Work</a>
       <a href="./services.html" class="mobile-nav-link">Services</a>
       <a href="./about.html" class="mobile-nav-link">About</a>
       <a href="./contact.html" class="mobile-nav-link">Contact</a>
@@ -215,348 +150,217 @@
   </div>
 
   <main id="main">
-
-    <header class="cs-hero wrap">
-      <p class="eyebrow">Case study 04 · Design systems &amp; DesignOps</p>
-      <h1 class="display">ONE NAME<br /><span class="gold">FROM FIGMA TO PRODUCTION.</span></h1>
-      <p class="cs-lead">Most design systems fail quietly: a token gets renamed, a hex value gets pasted into a feature
-        branch, and six months later the Figma library and the product no longer agree. I built a pipeline where that
-        cannot happen, because the name never changes between tools.</p>
-      <div class="role-tags">
-        <span class="role-tag role-design">✦ Token architecture · UI design</span>
-        <span class="role-tag role-dev">⌘ Angular · Style Dictionary · CI</span>
-        <span class="role-tag role-other">✦ Governance &amp; documentation</span>
-      </div>
-      <div class="meta-strip">
-        <div><span>Context</span><b>Multi-product Angular platform</b></div>
-        <div><span>My role</span><b>Design system lead + frontend</b></div>
-        <div><span>Users</span><b>3 product squads, 14 engineers</b></div>
-        <div><span>Timeline</span><b>Built over 12 months</b></div>
-        <div><span>Stack</span><b>Figma, Token Studio, Style Dictionary, Storybook</b></div>
-        <div><span>Code</span><b><a href="https://github.com/LulamileMkhungela/design-ops" target="_blank"
-              rel="noopener noreferrer">GitHub ↗</a></b></div>
+    <header class="cs-top wrap">
+      <p class="disc disc-dev">Frontend engineering &amp; DesignOps</p>
+      <h1>FIGMA VARIABLES<br /><span class="gold">TO ANGULAR, ZERO DRIFT.</span></h1>
+      <p class="standfirst">Four products, 213 hard-coded colours and a brand refresh estimated at six weeks. I built the pipeline and the governance that made the next refresh take two days.</p>
+      <dl class="meta-list">
+        <div><dt>Context</dt><dd>Multi-product platform, 4 apps</dd></div>
+        <div><dt>My role</dt><dd>System lead, token architecture, frontend</dd></div>
+        <div><dt>Team</dt><dd>Me plus 11 product engineers as consumers</dd></div>
+        <div><dt>Stack</dt><dd>Figma variables, Style Dictionary, Angular, Storybook, GitHub Actions</dd></div>
+        <div><dt>Live</dt><dd><a href="./design-ops.html" style="color:var(--gold)">Open the DesignOps dashboard</a></dd></div>
+      </dl>
+      <div class="hero-kpis">
+        <div class="hero-kpi"><b>213 → 0</b><span>hard-coded colours</span></div>
+        <div class="hero-kpi"><b>80+</b><span>components shipped</span></div>
+        <div class="hero-kpi"><b>64 → 11</b><span>design-QA comments per release</span></div>
+        <div class="hero-kpi"><b>6 wks → 2 days</b><span>to reskin every product</span></div>
       </div>
     </header>
 
-    <section class="wrap reveal" style="padding-bottom:6px">
-      <div class="stats">
-        <div class="stat"><b data-count="80" data-suffix="+">0</b><span>Components in production</span></div>
-        <div class="stat"><b data-count="213" data-suffix=" → 0">0</b><span>Hard-coded colours in feature code</span></div>
-        <div class="stat"><b data-count="63" data-suffix="%">0</b><span>Component reuse at 12 months</span></div>
-        <div class="stat"><b data-count="9" data-suffix=" → 3 days">0</b><span>New engineer to first merged component</span></div>
-      </div>
-    </section>
-
-    <div class="chapters">
-      <div class="chapters-inner">
-        <a class="chapter-link" href="#problem">01 The drift problem</a>
-        <a class="chapter-link" href="#audit">02 Audit</a>
-        <a class="chapter-link" href="#architecture">03 Token architecture</a>
-        <a class="chapter-link" href="#playground">04 Live playground</a>
-        <a class="chapter-link" href="#pipeline">05 The pipeline</a>
-        <a class="chapter-link" href="#governance">06 Governance</a>
-        <a class="chapter-link" href="#results">07 Results</a>
-        <a class="chapter-link" href="#learned">08 What I'd change</a>
+    <div class="cover-wrap reveal">
+      <div class="cover-frame">
+        <img class="zoomable" src="./assets/cs/ds-01-pipeline.svg" alt="Token pipeline from Figma variables through Style Dictionary to four platform outputs" width="1200" height="620" />
+        <p class="cover-caption">One source of truth, four generated outputs, and six checks that stop it drifting.</p>
       </div>
     </div>
 
+    <nav class="chapters" aria-label="Sections of this case study">
+      <div class="chapters-inner">
+      <a class="chapter-link" href="#problem">01 The problem</a>
+      <a class="chapter-link" href="#process">02 How it was built</a>
+      <a class="chapter-link" href="#try">03 Change a token</a>
+      <a class="chapter-link" href="#build">04 The pipeline</a>
+      <a class="chapter-link" href="#results">05 Adoption</a>
+      <a class="chapter-link" href="#honest">06 Honest bit</a>
+      <a class="chapter-link" href="#more">Next</a>
+      </div>
+    </nav>
+
     <section class="cs-section reveal" id="problem">
-      <p class="section-num">01</p>
-      <h2>THE HANDOFF IS NOT THE PROBLEM.<br /><span class="gold">THE TRANSLATION IS.</span></h2>
-      <p>Every drift bug I have chased started the same way: a value was retyped by a human. A designer names something
-        <code>primary/900</code>, an engineer types <code>#C47F00</code>, and both are convinced they are right.</p>
-      <div class="drift">
-        <div class="drift-item"><b>Same button, three truths</b><code>Figma: primary/900</code><code>CSS:
-            --brand-dark</code><code>Angular: [type]="cta"</code></div>
-        <div class="drift-item"><b>Nobody is wrong</b><code>Each name made sense</code><code>in its own
-            file</code><code>on the day it was written</code></div>
-        <div class="drift-item"><b>The cost</b><code>64 design QA comments</code><code>per release</code><code>and a
-            rebrand nobody wanted to start</code></div>
+      <div class="sec-head"><span class="n">01</span>
+        <h2>TWO HUNDRED AND THIRTEEN <span class='gold'>SHADES OF NEARLY.</span></h2>
       </div>
-      <p style="margin-top:18px">I stopped treating this as a documentation problem. It is a naming problem, and naming
-        can be enforced by a build.</p>
+      <p class="sec-sub">A design system is not a component library. The library was the easy half — the hard half was making sure the value in the code is the value in the file, forever.</p>
+      <div class="duo"><div class="note bad"><h4>What I inherited</h4><p>213 hard-coded hex values across four Angular apps, 41 of them within 2% of each other.</p><p>“Wrong shade of grey” was a recurring ticket type in the QA backlog.</p></div><div class="note good"><h4>What I set out to make impossible</h4><p>Typing a hex value into a component should fail the build, not start a conversation in code review.</p><p>A designer changing a token in Figma should be able to see it in every product without asking anyone.</p></div></div><div class="facts"><div><b>213</b><span>hard-coded colours found</span></div><div><b>41</b><span>within 2% of another</span></div><div><b>4</b><span>products out of sync</span></div><div><b>6 wks</b><span>estimated for a brand refresh</span></div><div><b>64</b><span>design-QA comments in the last release</span></div></div>
     </section>
 
-    <section class="cs-section reveal" id="audit">
-      <p class="section-num">02</p>
-      <h2>I COUNTED EVERYTHING FIRST.</h2>
-      <p>A design system pitch without numbers is an opinion. Two days of scripted auditing gave me the argument.</p>
-      <div class="card-grid">
-        <div class="card accent"><h3>213 hard-coded colours</h3><p>Found by a script across the feature codebase. 41 of
-            them were near-duplicates of the brand orange.</p></div>
-        <div class="card accent"><h3>7 button variants</h3><p>Living in four repositories, none of them identical, three
-            with different focus behaviour.</p></div>
-        <div class="card accent"><h3>3.5 days</h3><p>Average time to build a new screen, mostly spent rebuilding things
-            that already existed.</p></div>
-        <div class="card accent"><h3>41% coverage</h3><p>Share of production components that had a matching Figma
-            source anyone could point to.</p></div>
+    <section class="cs-section reveal" id="process">
+      <div class="sec-head"><span class="n">02</span>
+        <h2>HOW IT WAS <span class='gold'>BUILT.</span></h2>
       </div>
-      <div class="quote">“We do have a component library. I just do not know if it is the one in the design file.”
-        <cite>Senior Angular engineer, audit interview</cite>
-      </div>
-    </section>
-
-    <section class="cs-section reveal" id="architecture">
-      <p class="section-num">03</p>
-      <h2>THREE TIERS SO A REBRAND<br /><span class="gold">IS ONE FILE.</span></h2>
-      <p>Primitives hold values. Semantics hold meaning. Components consume semantics only, and never a raw value. It is
-        a boring structure, and boring is the point.</p>
-      <figure>
-        <img class="art zoomable" src="./assets/case-studies/ds-tokens.svg"
-          alt="Three-tier token architecture: primitive, semantic and component tokens with example names" loading="lazy" />
-        <figcaption>The token architecture. A client rebrand later touched five primitive values and nothing else. Click
-          to enlarge.</figcaption>
-      </figure>
-    </section>
-
-    <!-- PLAYGROUND -->
-    <section class="cs-section tint reveal" id="playground">
-      <p class="section-num">04</p>
-      <h2>CHANGE A TOKEN, WATCH THE SYSTEM MOVE.</h2>
-      <p>This is the idea in miniature and it is live. Move a control and every component below updates, along with the
-        generated CSS — exactly what the pipeline does between Figma and Angular.</p>
-
-      <div class="play" style="margin-top:20px">
-        <div class="play-controls">
-          <div class="ctrl">
-            <label>action-primary <b id="vHue">#F0A500</b></label>
-            <div class="swatches" id="swatches" role="group" aria-label="Primary colour">
-              <button class="swatch on" style="background:#F0A500" data-c="#F0A500" aria-label="Amber"></button>
-              <button class="swatch" style="background:#E04E14" data-c="#E04E14" aria-label="Fire"></button>
-              <button class="swatch" style="background:#2FBF71" data-c="#2FBF71" aria-label="Green"></button>
-              <button class="swatch" style="background:#00A3E0" data-c="#00A3E0" aria-label="Blue"></button>
-              <button class="swatch" style="background:#8B5CF6" data-c="#8B5CF6" aria-label="Purple"></button>
-            </div>
-          </div>
-          <div class="ctrl">
-            <label>radius-md <b id="vRadius">12px</b></label>
-            <input type="range" id="cRadius" min="0" max="26" value="12" />
-          </div>
-          <div class="ctrl">
-            <label>space-4 <b id="vSpace">16px</b></label>
-            <input type="range" id="cSpace" min="6" max="28" value="16" />
-          </div>
-          <div class="ctrl">
-            <label>font-size-body <b id="vFont">14px</b></label>
-            <input type="range" id="cFont" min="12" max="19" value="14" />
-          </div>
-          <p style="font-size:.74rem;color:var(--dim);line-height:1.6">Four tokens. Nine components. Nobody edits a
-            component to make this happen.</p>
+      <p class="sec-sub">Click a step. This one is mostly plumbing, and the plumbing is the point.</p>
+      <div class="rail" data-rail>
+        <div class="rail-steps" role="tablist" aria-label="Process steps">
+        <button class="rail-step" type="button" role="tab" data-step="s0">
+          <span class="num">01</span><span><span class="t">Audit</span><span class="d">Scripted, not eyeballed</span></span>
+        </button>
+        <button class="rail-step" type="button" role="tab" data-step="s1">
+          <span class="num">02</span><span><span class="t">Architect the tokens</span><span class="d">Three layers, one rule</span></span>
+        </button>
+        <button class="rail-step" type="button" role="tab" data-step="s2">
+          <span class="num">03</span><span><span class="t">Automate the export</span><span class="d">Figma → git → four platforms</span></span>
+        </button>
+        <button class="rail-step" type="button" role="tab" data-step="s3">
+          <span class="num">04</span><span><span class="t">Gate it</span><span class="d">Six checks, all blocking</span></span>
+        </button>
+        <button class="rail-step" type="button" role="tab" data-step="s4">
+          <span class="num">05</span><span><span class="t">Make adoption visible</span><span class="d">Measured, then posted</span></span>
+        </button>
         </div>
-
         <div>
-          <div class="preview-surface" id="previewSurface">
-            <div style="display:flex;flex-wrap:wrap;gap:var(--pg-space);align-items:center;margin-bottom:var(--pg-space)">
-              <button class="demo-btn" id="pgBtn1">Primary action</button>
-              <button class="demo-btn" id="pgBtn2">Secondary</button>
-              <span class="demo-chip" id="pgChip">Badge</span>
-            </div>
-            <div class="demo-card" id="pgCard">
-              <p style="font-weight:800;margin-bottom:6px" id="pgCardTitle">Card component</p>
-              <p style="color:var(--dim)" id="pgCardBody">Padding, radius and body size all come from tokens. Nothing
-                here is a magic number.</p>
-              <input class="demo-input" id="pgInput" placeholder="Input field" />
-            </div>
-          </div>
-          <pre class="code" id="pgCode" style="margin-top:14px"></pre>
+        <div class="rail-pane" data-step="s0"><div class="duo"><div class="note dev"><h4>An AST scan, not a spreadsheet</h4><p>I wrote a small script that walked every template and stylesheet in all four repos and collected every colour literal with its file and line.</p><p>213 of them. That list became the backlog and, later, the regression test.</p></div></div><div class="facts"><div><b>4</b><span>repos scanned</span></div><div><b>213</b><span>literals found</span></div><div><b>1</b><span>afternoon</span></div><div><b>0</b><span>opinions required</span></div></div></div>
+        <div class="rail-pane" data-step="s1"><figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/ds-02-tokens.svg" alt="Token architecture in three layers with a resolution chain" loading="lazy" decoding="async" />
+          <figcaption><b>Token architecture</b><span>Primitive, semantic, component. Designers work in semantic, product teams work in component, and only I touch primitives. Light mode changes one layer and nothing else.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure></div>
+        <div class="rail-pane" data-step="s2"><figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/ds-01-pipeline.svg" alt="The export pipeline and the six CI checks" loading="lazy" decoding="async" />
+          <figcaption><b>Pipeline</b><span>A plugin exports Figma variables to tokens.json. Style Dictionary transforms it once per platform. Nobody types a hex value by hand, anywhere.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure></div>
+        <div class="rail-pane" data-step="s3"><div class="duo"><div class="note dev"><h4>The check that did the most work</h4><p><code>no-raw-colour</code> — an ESLint rule that makes a hex literal in a component an error. It is nine lines of configuration and it did more for consistency than the other five combined.</p></div><div class="note good"><h4>The check people liked most</h4><p><code>token-diff</code> posts a table of every changed token as a comment on the pull request. Reviewers stopped having to imagine what a change would look like.</p></div></div></div>
+        <div class="rail-pane" data-step="s4"><figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/ds-03-inventory.svg" alt="Component inventory, adoption curve and QA comment counts" loading="lazy" decoding="async" />
+          <figcaption><b>Inventory + adoption</b><span>A library nobody adopts is a hobby. An AST scan measures the percentage of UI built from the library on every merge, and the number goes in the team channel every Monday.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure></div>
         </div>
       </div>
     </section>
 
-    <section class="cs-section reveal" id="pipeline">
-      <p class="section-num">05</p>
-      <h2>FIVE STAGES, NO RETYPING.</h2>
-      <figure>
-        <img class="art zoomable" src="./assets/case-studies/ds-pipeline.svg"
-          alt="Five-stage pipeline from Figma variables to Storybook, with the naming chain and before and after metrics" loading="lazy" />
-        <figcaption>The pipeline, the naming chain that holds it together, and the numbers I tracked before and after.
-          Click to enlarge.</figcaption>
-      </figure>
-
-      <div data-tabs style="margin-top:28px">
-        <div class="tabs" role="tablist" aria-label="Pipeline stages">
-          <button class="tab-btn active" data-pane="p1" role="tab" aria-selected="true"><span class="n">01</span>Figma</button>
-          <button class="tab-btn" data-pane="p2" role="tab" aria-selected="false"><span class="n">02</span>Export</button>
-          <button class="tab-btn" data-pane="p3" role="tab" aria-selected="false"><span class="n">03</span>Build</button>
-          <button class="tab-btn" data-pane="p4" role="tab" aria-selected="false"><span class="n">04</span>Angular</button>
-          <button class="tab-btn" data-pane="p5" role="tab" aria-selected="false"><span class="n">05</span>Storybook</button>
+    <section class="cs-section reveal" id="try">
+      <div class="sec-head"><span class="n">03</span>
+        <h2>CHANGE A <span class='gold'>TOKEN.</span></h2>
+      </div>
+      <p class="sec-sub">This is the whole argument for the architecture, in one widget. Move a slider and watch every component follow — without touching a single component file.</p>
+      <div class="demo" id="tokenPlay">
+        <div class="demo-bar">
+          <span class="tag">Token playground</span>
+          <span class="hint">Change a token, watch every component follow</span>
         </div>
-
-        <div class="tab-pane active" data-pane="p1">
-          <div class="split">
-            <div>
-              <h3>Variables, not styles</h3>
-              <p class="prose">Colour, spacing, radius and type live as Figma variables with modes for light and dark.
-                Component properties are named exactly as they will be typed in Angular, so <code>variant</code>,
-                <code>size</code> and <code>disabled</code> mean the same thing in both places.</p>
-              <div class="pillrow"><span class="pill design">Figma variables</span><span class="pill design">Modes</span><span
-                  class="pill">Naming convention</span></div>
+        <div class="demo-body">
+          <div class="play">
+            <div class="play-ctl">
+              <span class="ctl-label">action.primary</span>
+              <div class="swatches" id="tAccent">
+                <button type="button" class="on" data-colour="#F0A500" aria-label="Amber"></button>
+                <button type="button" data-colour="#00C2FF" aria-label="Cyan"></button>
+                <button type="button" data-colour="#8B5CF6" aria-label="Purple"></button>
+                <button type="button" data-colour="#2FBF71" aria-label="Green"></button>
+                <button type="button" data-colour="#E04E14" aria-label="Fire"></button>
+              </div>
+              <label class="ctl-label" for="tRadius">radius.md</label>
+              <input type="range" id="tRadius" min="0" max="26" value="10" />
+              <label class="ctl-label" for="tSpace">space.md</label>
+              <input type="range" id="tSpace" min="8" max="32" value="16" />
+              <p class="play-code"></p>
             </div>
-            <pre class="code">color/primary/900     #C47F00
-color/primary/700     #F0A500
-space/4               16
-radius/md             12
-font/body/size        14
-
-<span class="c">// component property names = Angular @Input names</span>
-Button: variant, size, disabled, loading</pre>
-          </div>
-        </div>
-
-        <div class="tab-pane" data-pane="p2">
-          <h3>One export, triggered by a merge</h3>
-          <p class="prose">Token Studio writes a single <code>tokens.json</code>. It is the only file that crosses the
-            boundary between design and code, and it is reviewed like any other change.</p>
-          <pre class="code">{
-  <span class="s">"color"</span>: { <span class="s">"primary"</span>: { <span class="s">"900"</span>: { <span class="s">"value"</span>: <span class="s">"#C47F00"</span>, <span class="s">"type"</span>: <span class="s">"color"</span> } } },
-  <span class="s">"space"</span>: { <span class="s">"4"</span>:  { <span class="s">"value"</span>: <span class="s">"16px"</span>, <span class="s">"type"</span>: <span class="s">"spacing"</span> } },
-  <span class="s">"radius"</span>: { <span class="s">"md"</span>: { <span class="s">"value"</span>: <span class="s">"12px"</span>, <span class="s">"type"</span>: <span class="s">"borderRadius"</span> } }
-}</pre>
-        </div>
-
-        <div class="tab-pane" data-pane="p3">
-          <h3>Style Dictionary does the typing so people do not</h3>
-          <p class="prose">CI turns the JSON into CSS custom properties and TypeScript types. Humans never edit the
-            generated files, and the build fails if someone tries.</p>
-          <pre class="code"><span class="c">/* variables.css — generated, do not edit */</span>
-:root {
-  --color-primary-900: #C47F00;
-  --space-4: 16px;
-  --radius-md: 12px;
-}
-
-<span class="c">// tokens.ts — generated types keep the editor honest</span>
-<span class="k">export type</span> ColorToken = <span class="s">'primary-900'</span> | <span class="s">'primary-700'</span> | <span class="s">'surface-base'</span>;</pre>
-        </div>
-
-        <div class="tab-pane" data-pane="p4">
-          <h3>Components consume tokens, never values</h3>
-          <p class="prose">Eighty standalone Angular components, each one a thin layer over semantic tokens. A designer
-            can read the class and recognise their own file.</p>
-          <pre class="code"><span class="k">@Component</span>({ selector: <span class="s">'ds-button'</span>, standalone: <span class="k">true</span> })
-<span class="k">export class</span> ButtonComponent {
-  <span class="k">@Input</span>() variant: <span class="s">'primary' | 'secondary' | 'ghost' | 'danger'</span> = <span class="s">'primary'</span>;
-  <span class="k">@Input</span>() size: <span class="s">'sm' | 'md' | 'lg'</span> = <span class="s">'md'</span>;
-  <span class="k">@Input</span>() disabled = <span class="k">false</span>;
-  <span class="k">@Input</span>() loading = <span class="k">false</span>;   <span class="c">// announced via aria-busy</span>
-}
-
-<span class="c">/* button.component.css */</span>
-.btn--primary { background: <span class="k">var</span>(--action-primary); border-radius: <span class="k">var</span>(--radius-md); }</pre>
-        </div>
-
-        <div class="tab-pane" data-pane="p5">
-          <h3>Docs that cannot go stale</h3>
-          <p class="prose">Storybook publishes on every merge. Stories mirror the Figma page structure, controls expose
-            the same props, and each component carries a status: ready, partial or do not use yet.</p>
-          <div class="card-grid">
-            <div class="card"><h3>Status labels</h3><p>Engineers know at a glance what is safe for production.</p></div>
-            <div class="card"><h3>Copy-paste snippets</h3><p>The docs tab gives the exact markup, already accessible.</p></div>
-            <div class="card"><h3>Accessibility notes</h3><p>Keyboard behaviour and ARIA are documented per component,
-                not left to interpretation.</p></div>
+            <div class="play-out">
+              <button class="pv-btn" type="button">Primary action</button>
+              <span class="pv-chip" style="margin-left:10px">Badge</span>
+              <div class="pv-card">
+                <p style="font-size:.9rem;font-weight:800;margin-bottom:6px">Card component</p>
+                <p style="font-size:.82rem;color:var(--dim);line-height:1.6">Nothing in this card knows what colour it
+                  is. It asks for <code>button.bg.rest</code>, which asks for <code>action.primary</code>.</p>
+              </div>
+              <div class="pv-card">
+                <p style="font-size:.82rem;color:var(--dim);line-height:1.6">Second instance, same tokens. In the real
+                  system this is 80+ components across four products.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cs-section reveal" id="governance">
-      <p class="section-num">06</p>
-      <h2>A SYSTEM IS A HABIT,<br /><span class="gold">NOT A LIBRARY.</span></h2>
-      <div class="split">
-        <div>
-          <div class="kv">Anyone can propose a token change in a Figma branch. Nobody merges their own.</div>
-          <div class="kv">I review every proposal against contrast, spacing scale and dark mode before it moves.</div>
-          <div class="kv">CI fails the build if a token is renamed without a migration entry.</div>
-          <div class="kv">A monthly 30-minute review with the three squads keeps the backlog honest and shared.</div>
-          <div class="kv">Every component ships with its accessibility notes, or it does not ship.</div>
-        </div>
-        <div class="card accent">
-          <h3>The one rule that does the heavy lifting</h3>
-          <p style="font-size:.95rem;line-height:1.75;color:var(--paper)">If Figma calls it <code>color/primary/900</code>,
-            CSS calls it <code>--color-primary-900</code> and Angular calls it <code>primary-900</code>. No synonyms, no
-            translation table, no institutional knowledge required.</p>
-          <p style="margin-top:12px">That single discipline removed the most common source of design and development
-            drift entirely, and it costs nothing to maintain.</p>
-        </div>
+    <section class="cs-section reveal" id="build">
+      <div class="sec-head"><span class="n">04</span>
+        <h2>THE <span class='gold'>PIPELINE.</span></h2>
       </div>
+      <p class="sec-sub">Figma is the source. Everything downstream is generated, and six checks stop it drifting.</p>
+      <figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/ds-01-pipeline.svg" alt="Full pipeline diagram with the six blocking CI checks" loading="lazy" decoding="async" />
+          <figcaption><b>Pipeline</b><span>The gate is more important than the generator. Anyone can export tokens once; keeping them true for a year is the actual work.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure><figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/ds-02-tokens.svg" alt="Three token layers and how one value resolves" loading="lazy" decoding="async" />
+          <figcaption><b>Token layers</b><span>Why three layers and not one: light mode changes only the semantic layer, so no component can be forgotten.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure><p class="sec-sub" style="margin-top:18px">There is a live dashboard for this pipeline — token counts,
+        drift, coverage and platform outputs — built as a standalone page.
+        <a href="./design-ops.html" style="color:var(--gold);font-weight:700">Open the DesignOps dashboard &rarr;</a></p>
     </section>
 
-    <section class="cs-section reveal" id="results">
-      <p class="section-num">07</p>
-      <h2>WHAT THE PIPELINE DELIVERED.</h2>
-      <div class="stats">
-        <div class="stat"><b>80+</b><span>Components in production</span></div>
-        <div class="stat"><b>213 → 0</b><span>Hard-coded colours in features</span></div>
-        <div class="stat"><b>3.5 → 1.4 days</b><span>To build a new screen</span></div>
-        <div class="stat"><b>64 → 11</b><span>Design QA comments per release</span></div>
-        <div class="stat"><b>9 → 3 days</b><span>New engineer to first merged component</span></div>
-        <div class="stat"><b>1 afternoon</b><span>To ship a full rebrand</span></div>
+    <section class="cs-section reveal tint" id="results">
+      <div class="sec-head"><span class="n">05</span>
+        <h2>DOES ANYONE <span class='gold'>ACTUALLY USE IT?</span></h2>
       </div>
-      <p style="margin-top:6px">The rebrand is the number that convinced leadership. Five primitive values changed,
-        dark mode kept working, and no component code was touched.</p>
+      <p class="sec-sub">The only question worth asking about a design system, and the one most case studies skip.</p>
+      <figure class="art-fig">
+          <img class="zoomable" src="./assets/cs/ds-03-inventory.svg" alt="Adoption curve reaching 91% and QA comments falling from 64 to 11" loading="lazy" decoding="async" />
+          <figcaption><b>Adoption</b><span>Eight months from 12% to 91%. Design-QA comments per release fell from 64 to 11 with the same reviewer and the same checklist.</span><span class="zoom-hint">click to enlarge</span></figcaption>
+        </figure><div class="facts"><div><b>91%</b><span>of UI built from the library</span></div><div><b>80+</b><span>components</span></div><div><b>213 → 0</b><span>hard-coded colours</span></div><div><b>64 → 11</b><span>QA comments per release</span></div><div><b>2 days</b><span>to reskin all four products</span></div></div>
     </section>
 
-    <section class="cs-section reveal" id="learned">
-      <p class="section-num">08</p>
-      <h2>WHAT I WOULD DO DIFFERENTLY.</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Ship the migration tooling with day one</h3>
-          <p>Squads adopted faster once there was a codemod. I wrote it in month four; it should have existed in week
-            two.</p>
-        </div>
-        <div class="card"><h3>Write the contribution guide before the components</h3>
-          <p>For the first quarter I was the bottleneck, because nobody knew how to contribute without asking me.</p>
-        </div>
-        <div class="card"><h3>Measure adoption, not output</h3>
-          <p>Counting components felt productive. Counting how many screens used them was the metric that actually
-            drove decisions.</p>
-        </div>
+    <section class="cs-section reveal" id="honest">
+      <div class="sec-head"><span class="n">06</span>
+        <h2>THE <span class='gold'>HONEST BIT.</span></h2>
       </div>
+      <p class="sec-sub">Design systems fail slowly and quietly. Here is where this one is weakest.</p>
+      <div class="honest"><h4>What I would do differently</h4><ul><li>I built the token layers before talking to the product engineers who would consume them. The component layer was over-engineered for the first three months and I had to delete about a third of it.</li><li>Adoption at 91% sounds finished. The last 9% is one legacy app that will never migrate, and pretending otherwise on a chart is dishonest — it should be excluded and named.</li><li>Documentation is Storybook plus a README. There is no “when should I not use this component” guidance, which is the thing juniors actually need.</li><li>The Figma plugin export is a manual click. It should be a webhook, and until it is, the source of truth is only as fresh as the last person who remembered.</li></ul></div>
     </section>
 
-    <section class="wrap" style="padding:20px 5vw 70px">
-      <div class="cta-band reveal">
-        <h3 class="display">NEED A DESIGN SYSTEM<br /><span class="gold">ENGINEERS ACTUALLY TRUST?</span></h3>
-        <p>I design and implement the pipeline: token architecture, component library, documentation and the governance
-          that keeps it alive. Tell me your stack and team size.</p>
+    <section class="cs-section reveal" id="more">
+      <div class="cta-band">
+        <h3 class="display">WANT THIS<br /><span class="gold">ON YOUR PRODUCT?</span></h3>
+        <p>Tell me the one flow that matters most to your business and what it currently costs you. I will come back
+          with what I would research first and what I would ship first.</p>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="./contact.html" data-track="cta_click" data-track-location="case-study-design-system" data-track-variant="primary">Start a conversation</a>
-          <a class="btn btn-outline" href="https://github.com/LulamileMkhungela/design-ops" target="_blank"
-            rel="noopener noreferrer" data-track="cta_click" data-track-location="case-study-design-system" data-track-variant="secondary">View the repository ↗</a>
-          <a class="btn btn-ghost" href="./case-studies.html">All case studies</a>
+          <a class="btn btn-primary" href="./contact.html">Start a conversation</a>
+          <a class="btn btn-outline" href="./case-studies.html">See all work</a>
         </div>
       </div>
-      <div class="cs-nav-next">
-        <a class="next-card" href="./case-study-engage.html"><span>Back to the start</span><b>Engage — 25 000 people, one
-            home screen →</b></a>
-        <a class="next-card" href="./showcase.html"><span>More work</span><b>UI, live apps, frontend builds and
-            hackathons →</b></a>
-      </div>
+      <div class="cs-nav-next"><a class="next-card" href="./case-study-servicewaze.html"><span>Previous</span><b>ServiceWaze — offline-first PWA</b></a><a class="next-card" href="./case-study-seo-performance.html"><span>Next case study</span><b>Rebuilding this site</b></a><a class="next-card" href="./case-studies.html"><span>Index</span><b>All six case studies &amp; the showcase</b></a></div>
     </section>
   </main>
 
   <footer class="ls-footer">
     <div class="footer-grid">
       <div>
-        <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" />
+        <a href="./index.html" class="nav-logo"><img src="./assets/portfolio/icon-192.png" alt="" width="34" height="34" />
           <span>Lula<span class="gold">Sync</span></span></a>
-        <p class="footer-desc">Lulamile Mkhungela — equal craft from research to shipped interface. UX/UI and product
-          design, plus the frontend to make it real.</p>
+        <p class="footer-desc">Lulamile Mkhungela — UX/UI and product design, plus the frontend to make it real.
+          Johannesburg, South Africa.</p>
       </div>
       <div>
-        <p class="footer-col-title">Case studies</p>
+        <p class="footer-col-title">Design case studies</p>
         <div class="footer-links">
           <a class="footer-link" href="./case-study-engage.html">Engage — enterprise app</a>
-          <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; bursary journey</a>
-          <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — design to code</a>
-          <a class="footer-link" href="./case-study-design-system.html">Figma to Angular system</a>
-          <a class="footer-link" href="./case-study-seo-performance.html">Technical SEO &amp; analytics</a>
+          <a class="footer-link" href="./case-study-tobi-bursary.html">TOBi &amp; the bursary journey</a>
+          <a class="footer-link" href="./case-study-stance.html">Stance — insuring modified cars</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Frontend case studies</p>
+        <div class="footer-links">
+          <a class="footer-link" href="./case-study-servicewaze.html">ServiceWaze — offline-first PWA</a>
+          <a class="footer-link" href="./case-study-design-system.html">Meridian — Figma to Angular</a>
+          <a class="footer-link" href="./case-study-seo-performance.html">Rebuilding this site</a>
         </div>
       </div>
       <div>
         <p class="footer-col-title">Explore</p>
         <div class="footer-links">
-          <a class="footer-link" href="./showcase.html">Showcase</a>
+          <a class="footer-link" href="./case-studies.html">All work</a>
+          <a class="footer-link" href="./design-ops.html">DesignOps dashboard</a>
           <a class="footer-link" href="./services.html">Services</a>
           <a class="footer-link" href="./about.html">About</a>
           <a class="footer-link" href="./contact.html">Contact</a>
@@ -567,72 +371,12 @@ Button: variant, size, disabled, loading</pre>
       <p class="footer-copy">Measured without cookies —
         <a href="./case-study-seo-performance.html" style="color:var(--gold);text-decoration:none">see how</a>
       </p>
-      <p class="footer-copy">© 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa 🇿🇦</p>
-      <p class="footer-copy">Designing and building useful products for real users.</p>
+      <p class="footer-copy">&copy; 2017–<span data-year>2026</span> LulaSync · Built by Lulamile in South Africa</p>
+      <p class="footer-copy">Designing and building useful products for real people.</p>
     </div>
   </footer>
 
   <script src="./assets/case-study.js" defer></script>
-  <script>
-    /* ── Token playground ─────────────────────────────────────────────── */
-    (function () {
-      var state = { color: '#F0A500', radius: 12, space: 16, font: 14 };
-      var el = {
-        hue: document.getElementById('vHue'), radius: document.getElementById('vRadius'),
-        space: document.getElementById('vSpace'), font: document.getElementById('vFont'),
-        btn1: document.getElementById('pgBtn1'), btn2: document.getElementById('pgBtn2'),
-        chip: document.getElementById('pgChip'), card: document.getElementById('pgCard'),
-        input: document.getElementById('pgInput'), code: document.getElementById('pgCode'),
-        surface: document.getElementById('previewSurface'),
-        title: document.getElementById('pgCardTitle'), body: document.getElementById('pgCardBody')
-      };
-      if (!el.code) return;
-
-      function darken(hex, amt) {
-        var n = parseInt(hex.slice(1), 16);
-        var r = Math.max(0, (n >> 16) - amt), g = Math.max(0, ((n >> 8) & 255) - amt), b = Math.max(0, (n & 255) - amt);
-        return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-      }
-      function apply() {
-        var c = state.color, hover = darken(c, 26), r = state.radius + 'px', s = state.space + 'px', f = state.font + 'px';
-        el.hue.textContent = c;
-        el.radius.textContent = r;
-        el.space.textContent = s;
-        el.font.textContent = f;
-
-        el.surface.style.gap = s;
-        el.btn1.style.cssText = 'background:' + c + ';color:#0A0705;border-radius:' + r + ';padding:' + (state.space * 0.62).toFixed(0) + 'px ' + (state.space * 1.3).toFixed(0) + 'px;font-size:' + f;
-        el.btn2.style.cssText = 'background:transparent;color:' + c + ';border:1px solid ' + c + ';border-radius:' + r + ';padding:' + (state.space * 0.62).toFixed(0) + 'px ' + (state.space * 1.3).toFixed(0) + 'px;font-size:' + f;
-        el.chip.style.cssText = 'background:' + c + '22;color:' + c + ';border:1px solid ' + c + '55;border-radius:999px;font-size:' + (state.font - 2) + 'px';
-        el.card.style.cssText = 'border-radius:' + r + ';padding:' + s + ';border-left:3px solid ' + c + ';background:var(--card)';
-        el.title.style.fontSize = (state.font + 1) + 'px';
-        el.body.style.cssText = 'font-size:' + f + ';color:var(--dim);margin-bottom:' + s;
-        el.input.style.cssText = 'border-radius:' + (state.radius * 0.75).toFixed(0) + 'px;padding:' + (state.space * 0.6).toFixed(0) + 'px ' + (state.space * 0.75).toFixed(0) + 'px;font-size:' + f + ';border:1px solid var(--border);background:transparent;color:var(--paper);width:100%';
-
-        el.code.innerHTML =
-          '<span class="c">/* variables.css — generated from tokens.json, never hand-edited */</span>\n' +
-          ':root {\n' +
-          '  --action-primary:       ' + c + ';\n' +
-          '  --action-primary-hover: ' + hover + ';\n' +
-          '  --radius-md:            ' + r + ';\n' +
-          '  --space-4:              ' + s + ';\n' +
-          '  --font-body-size:       ' + f + ';\n' +
-          '}\n\n' +
-          '<span class="c">/* ds-button consumes the semantic token, never the hex */</span>\n' +
-          '.btn--primary { background: var(--action-primary); border-radius: var(--radius-md); }';
-      }
-      document.querySelectorAll('#swatches .swatch').forEach(function (b) {
-        b.addEventListener('click', function () {
-          document.querySelectorAll('#swatches .swatch').forEach(function (x) { x.classList.remove('on'); });
-          b.classList.add('on'); state.color = b.getAttribute('data-c'); apply();
-        });
-      });
-      document.getElementById('cRadius').addEventListener('input', function (e) { state.radius = +e.target.value; apply(); });
-      document.getElementById('cSpace').addEventListener('input', function (e) { state.space = +e.target.value; apply(); });
-      document.getElementById('cFont').addEventListener('input', function (e) { state.font = +e.target.value; apply(); });
-      apply();
-    })();
-  </script>
   <script src="./assets/analytics.js" defer></script>
 </body>
 
