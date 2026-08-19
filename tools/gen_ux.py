@@ -300,10 +300,10 @@ def engage_ui():
         g += rect(ox + 16, oy + 74, iw - 32, 32, 9, "#F4F1EB", "#E7E1D6", 1.2)
         g += text(ox + 28, oy + 94, "Find a request…", 10, MUTE, 600)
         g += label(ox + 16, oy + 126, "Most used", MUTE)
-        rows = [("Apply for leave", "2 min · manager approves", PURPLE),
-                ("Claim travel", "3 min · finance approves", GOLD),
-                ("Log an IT fault", "1 min · auto-routed", CYAN),
-                ("Book a meeting room", "instant", GOOD),
+        rows = [("Apply for leave", "2 min · manager", PURPLE),
+                ("Claim travel", "3 min · finance", GOLD),
+                ("Log an IT fault", "1 min · routed", CYAN),
+                ("Book a room", "instant", GOOD),
                 ("Request a letter", "1 day", "#8A8070")]
         for i, (t, sub, c) in enumerate(rows):
             ry = oy + 138 + i * 50
@@ -586,16 +586,16 @@ def tobi_form():
     s += rect(48, 112, 400, 38, 14, FIRE_SOFT, "none", 0)
     s += f'<rect x="48" y="136" width="400" height="14" fill="{FIRE_SOFT}"/>'
     s += text(68, 137, "BEFORE — one page, 42 fields", 11, FIRE, 800, ls=0.6)
-    for i in range(14):
+    for i in range(10):
         fy = 166 + i * 27
         s += wire_block(68, fy, 60 + (i % 3) * 24, 8, "line")
         s += wire_block(68, fy + 11, 360, 14, "box", "#F2EEE6")
-    s += f'<rect x="48" y="{166+14*27}" width="400" height="70" fill="{PAPER}"/>'
-    s += text(68, 456, "…28 more fields below the fold", 10.5, MUTE, 700)
-    s += rect(68, 466, 360, 30, 7, CANVAS, FIRE, 1.2)
-    s += text(84, 486, "No progress bar. No save. No way back.", 10, FIRE, 800)
-    s += rect(68, 508, 360, 34, 8, FIRE_SOFT, FIRE, 1.2)
-    s += text(84, 530, "60% abandonment · 38% completion", 11, FIRE, 800)
+    s += f'<line x1="68" y1="444" x2="428" y2="444" stroke="{LINE}" stroke-width="1" stroke-dasharray="4 4"/>'
+    s += text(68, 464, "…32 more fields below the fold", 10.5, MUTE, 700)
+    s += rect(68, 478, 360, 30, 7, CANVAS, FIRE, 1.2)
+    s += text(84, 498, "No progress bar. No save. No way back.", 10, FIRE, 800)
+    s += rect(68, 516, 360, 34, 8, FIRE_SOFT, FIRE, 1.2)
+    s += text(84, 538, "60% abandonment · 38% completion", 11, FIRE, 800)
 
     s += arrow(464, 340, 508, 340, GOLD, 3)
 
